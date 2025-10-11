@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Intent FreeDomian — Free Subdomains</title>
+  <style>
+    :root{
+      --bg:#029ad1;
+      --accent:#029ad1;
+      --muted:rgba(255,255,255,0.82);
+      --card-overlay:rgba(255,255,255,0.06);
+      --cream-transparent:rgba(253,246,227,0.12);
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:#081021; background:transparent;line-height:1.6}
+
+    /* Topbar */
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--accent);color:#fff;position:sticky;top:0;z-index:60}
+    .brand{font-weight:700;font-size:18px}
+    .nav{display:flex;gap:18px;align-items:center}
+    .nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600}
+
+    /* Page background area (extends from under topbar to above footer) */
+    .page-bg{background:linear-gradient(rgba(2,154,209,0.82),rgba(2,154,209,0.60)),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=60');background-size:cover;background-position:center;padding:48px 0;min-height:calc(100vh - 220px);display:flex;align-items:flex-start;flex-direction:column}
+
+    /* wrapper keeps content centered */
+    .inner-wrap{width:100%;max-width:1400px;margin:0 auto;padding:0 28px}
+
+    /* Centered layout: check box first row, buttons second row centered */
+    .hero-stack{display:flex;flex-direction:column;align-items:center;gap:20px;width:100%}
+
+    .transparent-box{width:100%;max-width:920px;border-radius:12px;background-image:linear-gradient(rgba(255,255,255,0.06),rgba(255,255,255,0.02)),url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=60');background-size:cover;background-position:center;padding:18px;box-shadow:0 12px 40px rgba(2,154,209,0.08);backdrop-filter:blur(6px)}
+    .transparent-title{color:#fff;font-weight:800;font-size:22px;margin-bottom:8px;text-align:center}
+    .search-row{display:flex;gap:8px;width:100%;}
+    .search-row input[type=text]{flex:1;padding:12px 14px;border-radius:8px;border:none;font-size:16px}
+    .search-row button{padding:12px 16px;border-radius:8px;border:none;background:#fff;color:var(--accent);font-weight:700;cursor:pointer}
+    
+
+    /* Buttons row */
+    .action-row{display:flex;gap:18px;justify-content:center}
+    .action-row .btn{padding:12px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);background:#fff;color:var(--accent);font-weight:700;cursor:pointer}
+    .action-row .btn.secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2)}
+
+    /* Content area now INSIDE hero so hero image sits behind it */
+    .container{width:100%;max-width:1100px;margin:28px auto;padding:0}
+    .card{display:block;background:transparent;padding:18px;border-radius:12px}
+
+    /* Make card panels transparent with subtle overlay and blur so hero is visible behind */
+    .panel{background:var(--card-overlay);backdrop-filter:blur(6px);padding:28px;border-radius:12px;color:#fff;box-shadow:0 10px 30px rgba(2,154,209,0.08)}
+    .panel + .panel{margin-top:24px}
+    h2{margin:0 0 12px 0;color:#fff}
+    p{margin:0;color:rgba(255,255,255,0.92)}
+
+    /* Remove pale cream frame previously around panels */
+
+    /* Footer / endbar remains separate */
+    footer{margin-top:0px;background:var(--accent);color:#fff;padding:28px 24px;border-radius:0px}
+    .foot-wrap{max-width:1300px;margin:0 auto;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+    .foot-col{min-width:180px}
+    .foot-links{display:flex;flex-direction:column;gap:8px}
+    .foot-links a{color:rgba(255,255,255,0.95);text-decoration:none}
+    .foot-bottom{margin-top:18px;border-top:1px solid rgba(255,255,255,0.06);padding-top:18px;width:100%;display:flex;justify-content:space-between;flex-wrap:wrap}
+
+    @media (max-width:920px){
+      .transparent-title{text-align:center}
+      .inner-wrap{padding:0 20px}
+    }
+    @media (max-width:520px){
+      .search-row{flex-direction:column}
+      .action-row{flex-direction:column;gap:12px}
+      .action-row .btn{width:100%;max-width:360px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">Intent FreeDomian</div>
+    <nav class="nav" aria-label="Main">
+      <a href="/login">Login</a>
+      <a href="/signup">Signup</a>
+      <a href="/whois">Whois</a>
+      <a href="/abuse">AbuseReport</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact us</a>
+    </nav>
+  </header>
+
+  <div class="page-bg">
+    <div class="inner-wrap">
+      <div class="hero-stack">
+        <div class="transparent-box">
+          <div class="transparent-title">Check your free domain</div>
+          <div class="search-row">
+            <input id="domainInput" type="text" placeholder="Enter a name (e.g. example)" aria-label="domain input">
+            <button id="checkBtn" title="Check">Check</button>
+          </div>
+        </div>
+        <div class="action-row">
+          <button class="btn primary" id="registerBtn">Register</button>
+          <button class="btn secondary" id="dashboardBtn">Dashboard</button>
+        </div>
+
+        <!-- Container moved into hero so the hero image is behind these panels -->
+        <div class="container">
+          <div class="card">
+            <div class="panel">
+              <h2>About Intent FreeDomian</h2>
+              <p>Put your paragraph text here. Replace this placeholder text with the paragraph you want to display. The panel is transparent so the hero image shows through — text overlays the available space while keeping good contrast.</p>
+            </div>
+
+            <div class="panel">
+              <h2>Why choose us?</h2>
+              <p>Intent FreeDomian provides an easy, reliable way to get a subdomain for your project, blog, testing site, or temporary link. Our system is built to be lightweight and privacy-friendly — no complicated forms or hidden fees.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="foot-wrap">
+      <div class="foot-col">
+        <strong>Intent FreeDomian</strong>
+        <div style="margin-top:8px;max-width:280px;color:rgba(255,255,255,0.9)">Free subdomain hosting, easy WHOIS checks, and user-friendly DNS tools.</div>
+      </div>
+      <div class="foot-col"><div class="foot-links"><strong>Product</strong><a href="/register">Register</a><a href="/dashboard">Dashboard</a><a href="/whois">WHOIS</a></div></div>
+      <div class="foot-col"><div class="foot-links"><strong>Company</strong><a href="/about">About</a><a href="/contact">Contact</a><a href="/support">Support</a></div></div>
+      <div class="foot-col"><div class="foot-links"><strong>Legal</strong><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/abuse">Abuse</a></div></div>
+      <div class="foot-bottom"><div>© <strong>Intent FreeDomian</strong></div><div>Made with ♥</div></div>
+    </div>
+  </footer>
+
+  <script>
+    const input=document.getElementById('domainInput');
+    const checkBtn=document.getElementById('checkBtn');
+    checkBtn.addEventListener('click',()=>{const v=input.value.trim();if(!v) return alert('Please enter a name');const url='/check?doamin='+encodeURIComponent(v);window.open(url,'_blank');});
+    document.getElementById('registerBtn').addEventListener('click',()=>{window.location.href='/register'});
+    document.getElementById('dashboardBtn').addEventListener('click',()=>{window.location.href='/dashboard'});
+  </script>
+
+</body>
+</html>

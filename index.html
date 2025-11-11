@@ -1,146 +1,184 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Intent FreeDomian — Free Subdomains</title>
+  <title>Intent FreeDomain — Free Subdomains</title>
+  <meta name="description" content="Get free, fast subdomains for projects, blogs and tests. Easy dashboard, WHOIS checks and privacy-first DNS tools." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#029ad1;
-      --accent:#029ad1;
-      --muted:rgba(255,255,255,0.82);
-      --card-overlay:rgba(255,255,255,0.06);
-      --cream-transparent:rgba(253,246,227,0.12);
-    }
+    :root{ --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --glass: rgba(255,255,255,0.03); }
     *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:#081021; background:transparent;line-height:1.6}
+    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);margin:0;background:linear-gradient(180deg,#071226 0%, #071a2a 60%);}/* Header */
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:transparent;position:sticky;top:0;backdrop-filter:blur(6px);z-index:50}
+.brand{display:flex;gap:12px;align-items:center;color:#fff;text-decoration:none}
+.logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3b82f6);display:flex;align-items:center;justify-content:center;color:#051426;font-weight:800}
+nav a{color:rgba(255,255,255,0.86);text-decoration:none;margin-left:18px;font-weight:600}
 
-    /* Topbar */
-    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--accent);color:#fff;position:sticky;top:0;z-index:60}
-    .brand{font-weight:700;font-size:18px}
-    .nav{display:flex;gap:18px;align-items:center}
-    .nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600}
+/* Hero */
+.hero{max-width:1200px;margin:28px auto;padding:36px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);box-shadow:0 10px 30px rgba(2,6,23,0.6);display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+.left h1{color:#fff;margin:0 0 10px;font-size:34px;line-height:1.05}
+.left p{color:var(--muted);margin:0 0 18px}
 
-    /* Page background area (extends from under topbar to above footer) */
-    .page-bg{background:linear-gradient(rgba(2,154,209,0.82),rgba(2,154,209,0.60)),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=60');background-size:cover;background-position:center;padding:48px 0;min-height:calc(100vh - 220px);display:flex;align-items:flex-start;flex-direction:column}
+/* Search */
+.search{display:flex;gap:10px}
+.search input{flex:1;padding:14px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);color:#fff;font-size:15px}
+.search button{padding:14px 18px;border-radius:10px;border:none;background:var(--accent);color:#051426;font-weight:700;cursor:pointer}
+.small{font-size:13px;color:#9fb3c6}
 
-    /* wrapper keeps content centered */
-    .inner-wrap{width:100%;max-width:1400px;margin:0 auto;padding:0 28px}
+/* Right card */
+.card{background:var(--card);padding:22px;border-radius:12px;color:var(--muted)}
+.card h3{color:#fff;margin:0 0 10px}
+.list{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.item{display:flex;align-items:center;gap:12px}
+.dot{width:10px;height:10px;border-radius:3px;background:var(--accent)}
 
-    /* Centered layout: check box first row, buttons second row centered */
-    .hero-stack{display:flex;flex-direction:column;align-items:center;gap:20px;width:100%}
+/* Features */
+.features{max-width:1200px;margin:22px auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:0 20px}
+.feature{background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);padding:18px;border-radius:10px;color:var(--muted)}
+.feature h4{color:#fff;margin:0 0 8px}
 
-    .transparent-box{width:100%;max-width:920px;border-radius:12px;background-image:linear-gradient(rgba(255,255,255,0.06),rgba(255,255,255,0.02)),url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=60');background-size:cover;background-position:center;padding:18px;box-shadow:0 12px 40px rgba(2,154,209,0.08);backdrop-filter:blur(6px)}
-    .transparent-title{color:#fff;font-weight:800;font-size:22px;margin-bottom:8px;text-align:center}
-    .search-row{display:flex;gap:8px;width:100%;}
-    .search-row input[type=text]{flex:1;padding:12px 14px;border-radius:8px;border:none;font-size:16px}
-    .search-row button{padding:12px 16px;border-radius:8px;border:none;background:#fff;color:var(--accent);font-weight:700;cursor:pointer}
-    
+/* Footer */
+footer{max-width:1200px;margin:40px auto;padding:22px;border-radius:10px;color:var(--muted);display:flex;justify-content:space-between;gap:20px;padding-left:20px;padding-right:20px}
+.links{display:flex;gap:28px}
+.links a{color:var(--muted);text-decoration:none}
 
-    /* Buttons row */
-    .action-row{display:flex;gap:18px;justify-content:center}
-    .action-row .btn{padding:12px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);background:#fff;color:var(--accent);font-weight:700;cursor:pointer}
-    .action-row .btn.secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2)}
+/* Utilities */
+.container{padding:18px}
+.muted{color:var(--muted)}
 
-    /* Content area now INSIDE hero so hero image sits behind it */
-    .container{width:100%;max-width:1100px;margin:28px auto;padding:0}
-    .card{display:block;background:transparent;padding:18px;border-radius:12px}
+@media (max-width:980px){.hero{grid-template-columns:1fr;}.features{grid-template-columns:repeat(2,1fr);}header{padding:12px 16px}}
+@media (max-width:640px){.features{grid-template-columns:1fr}.search{flex-direction:column}.search button{width:100%}}
 
-    /* Make card panels transparent with subtle overlay and blur so hero is visible behind */
-    .panel{background:var(--card-overlay);backdrop-filter:blur(6px);padding:28px;border-radius:12px;color:#fff;box-shadow:0 10px 30px rgba(2,154,209,0.08)}
-    .panel + .panel{margin-top:24px}
-    h2{margin:0 0 12px 0;color:#fff}
-    p{margin:0;color:rgba(255,255,255,0.92)}
-
-    /* Remove pale cream frame previously around panels */
-
-    /* Footer / endbar remains separate */
-    footer{margin-top:0px;background:var(--accent);color:#fff;padding:28px 24px;border-radius:0px}
-    .foot-wrap{max-width:1300px;margin:0 auto;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
-    .foot-col{min-width:180px}
-    .foot-links{display:flex;flex-direction:column;gap:8px}
-    .foot-links a{color:rgba(255,255,255,0.95);text-decoration:none}
-    .foot-bottom{margin-top:18px;border-top:1px solid rgba(255,255,255,0.06);padding-top:18px;width:100%;display:flex;justify-content:space-between;flex-wrap:wrap}
-
-    @media (max-width:920px){
-      .transparent-title{text-align:center}
-      .inner-wrap{padding:0 20px}
-    }
-    @media (max-width:520px){
-      .search-row{flex-direction:column}
-      .action-row{flex-direction:column;gap:12px}
-      .action-row .btn{width:100%;max-width:360px}
-    }
   </style>
 </head>
 <body>
-
-  <header class="topbar">
-    <div class="brand">Intent FreeDomian</div>
-    <nav class="nav" aria-label="Main">
-      <a href="/login">Login</a>
-      <a href="/signup">Signup</a>
-      <a href="/whois">Whois</a>
-      <a href="/abuse">AbuseReport</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact us</a>
-    </nav>
-  </header>
-
-  <div class="page-bg">
-    <div class="inner-wrap">
-      <div class="hero-stack">
-        <div class="transparent-box">
-          <div class="transparent-title">Check your free domain</div>
-          <div class="search-row">
-            <input id="domainInput" type="text" placeholder="Enter a name (e.g. example)" aria-label="domain input">
-            <button id="checkBtn" title="Check">Check</button>
-          </div>
-        </div>
-        <div class="action-row">
-          <button class="btn primary" id="registerBtn">Register</button>
-          <button class="btn secondary" id="dashboardBtn">Dashboard</button>
-        </div>
-
-        <!-- Container moved into hero so the hero image is behind these panels -->
-        <div class="container">
-          <div class="card">
-            <div class="panel">
-              <h2>About Intent FreeDomian</h2>
-              <p>Put your paragraph text here. Replace this placeholder text with the paragraph you want to display. The panel is transparent so the hero image shows through — text overlays the available space while keeping good contrast.</p>
-            </div>
-
-            <div class="panel">
-              <h2>Why choose us?</h2>
-              <p>Intent FreeDomian provides an easy, reliable way to get a subdomain for your project, blog, testing site, or temporary link. Our system is built to be lightweight and privacy-friendly — no complicated forms or hidden fees.</p>
-            </div>
-          </div>
-        </div>
-
+  <header>
+    <a class="brand" href="/">
+      <div class="logo">IF</div>
+      <div style="line-height:1">
+        <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Free subdomains • Fast dashboard • Privacy-first</div>
       </div>
+    </a>
+    <nav>
+      <a href="/register">Register</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/whois">WHOIS</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>  <main>
+    <section class="hero">
+      <div class="left">
+        <h1>Free subdomains in seconds — for projects, blogs and experiments</h1>
+        <p class="muted">Register a short, memorable subdomain (example.int.yt) and manage DNS and redirects from an easy dashboard. No hidden fees, minimal signing required.</p><div class="search" style="margin-top:12px">
+      <input id="domainInput" type="text" placeholder="Enter a name (example) — we'll add .int.yt" aria-label="domain input">
+      <button id="checkBtn">Check availability</button>
     </div>
+    <div style="margin-top:10px" class="small">Examples: blog, demo, play, docs — use letters, numbers, and dashes. Max 30 chars.</div>
+
+    <div style="margin-top:18px;display:flex;gap:10px">
+      <a href="/register" style="display:inline-block;padding:10px 14px;border-radius:10px;background:#0ea5a4;color:#021524;font-weight:700;text-decoration:none">Create subdomain</a>
+      <a href="/dashboard" style="display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);color:var(--muted);text-decoration:none">Go to dashboard</a>
+    </div>
+
+    <div style="margin-top:18px;color:#9fb3c6;font-size:14px">Tip: Use short names. If it's for a portfolio, include your name: <strong>yourname.int.yt</strong>.</div>
   </div>
 
-  <footer>
-    <div class="foot-wrap">
-      <div class="foot-col">
-        <strong>Intent FreeDomian</strong>
-        <div style="margin-top:8px;max-width:280px;color:rgba(255,255,255,0.9)">Free subdomain hosting, easy WHOIS checks, and user-friendly DNS tools.</div>
-      </div>
-      <div class="foot-col"><div class="foot-links"><strong>Product</strong><a href="/register">Register</a><a href="/dashboard">Dashboard</a><a href="/whois">WHOIS</a></div></div>
-      <div class="foot-col"><div class="foot-links"><strong>Company</strong><a href="/about">About</a><a href="/contact">Contact</a><a href="/support">Support</a></div></div>
-      <div class="foot-col"><div class="foot-links"><strong>Legal</strong><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/abuse">Abuse</a></div></div>
-      <div class="foot-bottom"><div>© <strong>Intent FreeDomian</strong></div><div>Made with ♥</div></div>
+  <aside class="card">
+    <h3>Quick facts</h3>
+    <div class="list">
+      <div class="item"><div class="dot"></div><div><strong style="color:#fff">Free subdomains</strong><div class="muted">Create and manage unlimited subdomains per account.</div></div></div>
+      <div class="item"><div class="dot"></div><div><strong style="color:#fff">Dashboard</strong><div class="muted">Simple DNS, redirects, and HTTPS via automatic certs.</div></div></div>
+      <div class="item"><div class="dot"></div><div><strong style="color:#fff">Privacy-minded</strong><div class="muted">We don't sell or share your data.</div></div></div>
+      <div class="item"><div class="dot"></div><div><strong style="color:#fff">Whois & Abuse</strong><div class="muted">Built-in WHOIS view and easy abuse reporting tools.</div></div></div>
     </div>
-  </footer>
+  </aside>
+</section>
 
-  <script>
-    const input=document.getElementById('domainInput');
-    const checkBtn=document.getElementById('checkBtn');
-    checkBtn.addEventListener('click',()=>{const v=input.value.trim();if(!v) return alert('Please enter a name');const url='/check?doamin='+encodeURIComponent(v);window.open(url,'_blank');});
-    document.getElementById('registerBtn').addEventListener('click',()=>{window.location.href='/register'});
-    document.getElementById('dashboardBtn').addEventListener('click',()=>{window.location.href='/dashboard'});
-  </script>
+<section class="features">
+  <div class="feature">
+    <h4>Simple registration</h4>
+    <p class="muted">Enter a name, confirm, and your subdomain is live. No long forms — we keep the process fast for developers and learners.</p>
+  </div>
+  <div class="feature">
+    <h4>Automatic HTTPS</h4>
+    <p class="muted">Each subdomain gets an automatic TLS certificate so your site loads securely without manual certificate management.</p>
+  </div>
+  <div class="feature">
+    <h4>Redirects & DNS</h4>
+    <p class="muted">Point subdomains to IPs, GitHub Pages, or use HTTP redirects. Full control in the dashboard.</p>
+  </div>
 
-</body>
+  <div class="feature">
+    <h4>Usage & Limits</h4>
+    <p class="muted">Free for most uses. Abuse or resource-heavy projects may be limited — contact support for higher needs.</p>
+  </div>
+  <div class="feature">
+    <h4>Whois Lookup</h4>
+    <p class="muted">Check public registration details for any subdomain from the WHOIS page.</p>
+  </div>
+  <div class="feature">
+    <h4>Support</h4>
+    <p class="muted">Questions? Reach out via the contact page. We respond to genuine support queries within 24–72 hours.</p>
+  </div>
+</section>
+
+  </main>  <footer>
+    <div style="min-width:200px">
+      <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
+      <div style="margin-top:6px;font-size:13px;color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
+    </div><div class="links">
+  <div>
+    <div style="font-weight:700;color:#fff;margin-bottom:8px">Product</div>
+    <a href="/register">Register</a><br>
+    <a href="/dashboard">Dashboard</a><br>
+    <a href="/whois">WHOIS</a>
+  </div>
+  <div>
+    <div style="font-weight:700;color:#fff;margin-bottom:8px">Company</div>
+    <a href="/about">About</a><br>
+    <a href="/contact">Contact</a><br>
+    <a href="/support">Support</a>
+  </div>
+  <div>
+    <div style="font-weight:700;color:#fff;margin-bottom:8px">Legal</div>
+    <a href="/terms">Terms</a><br>
+    <a href="/privacy">Privacy</a><br>
+    <a href="/abuse">Abuse</a>
+  </div>
+</div>
+
+<div style="margin-left:auto;min-width:160px;text-align:right;color:var(--muted)">
+  <div>© <strong>Intent FreeDomain</strong></div>
+  <div style="margin-top:6px">Made with ♥ • <a href="/contact" style="color:var(--muted);text-decoration:underline">Contact</a></div>
+</div>
+
+  </footer>  <script>
+    // Fixed small bugs and improved UX
+    const input = document.getElementById('domainInput');
+    const checkBtn = document.getElementById('checkBtn');
+
+    function validName(name){
+      const cleaned = name.trim().toLowerCase();
+      if(!cleaned) return false;
+      if(cleaned.length > 30) return false;
+      return /^[a-z0-9-]+$/.test(cleaned);
+    }
+
+    checkBtn.addEventListener('click', ()=>{
+      const v = input.value.trim();
+      if(!v) return alert('Please enter a name (letters, numbers and dashes).');
+      if(!validName(v)) return alert('Invalid name. Use only letters, numbers, and dashes (max 30 chars).');
+
+      // Open the server-side checker. Keep parameter name consistent.
+      const url = '/check?domain=' + encodeURIComponent(v);
+      window.open(url, '_blank');
+    });
+
+    // Press Enter to check
+    input.addEventListener('keydown', (e)=>{ if(e.key === 'Enter'){ checkBtn.click(); }});
+  </script></body>
 </html>

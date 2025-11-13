@@ -7,9 +7,22 @@
   <meta name="description" content="Get free, fast subdomains for projects, blogs and tests. Easy dashboard, WHOIS checks and privacy-first DNS tools." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
+    /* --- Logo crop/zoom controls (edit these) --- */
     :root{
-      --bg:#071226; --card:#071826; --card-2:#0b1220; --accent:#06b6d4; --muted:#94a3b8;
+      --bg:#071226;
+      --card:#071826;
+      --card-2:#0b1220;
+      --accent:#06b6d4;
+      --muted:#94a3b8;
+
+      /* Change these to control logo cropping/zoom without editing the image:
+         --logo-focus: controls object-position (left | center | right | top | bottom | 'x% y%')
+         --logo-zoom: scale factor (1 = none, 1.2 = zoom in 20%)
+      */
+      --logo-focus: center;
+      --logo-zoom: 1.05;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);margin:0;background:linear-gradient(180deg,#071226 0%, #071a2a 70%);-webkit-font-smoothing:antialiased}
@@ -17,8 +30,18 @@
     /* Header */
     header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);position:sticky;top:0;backdrop-filter:blur(6px);z-index:80;border-bottom:1px solid rgba(255,255,255,0.02)}
     .brand{display:flex;gap:12px;align-items:center;color:#fff;text-decoration:none}
-    .logo-wrap{width:44px;height:44px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),#3b82f6);flex-shrink:0}
-    .logo-wrap img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+    /* logo container keeps crop and rounded corners */
+    .logo-wrap{
+      width:44px;height:44px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),#3b82f6);flex-shrink:0;
+    }
+    /* actual img is centered and cropped using object-fit; we apply transform scale for zoom */
+    .logo-wrap img{
+      display:block;width:100%;height:100%;object-fit:cover;
+      object-position: var(--logo-focus);
+      transform: scale(var(--logo-zoom));
+      transform-origin: center center;
+    }
+
     .brand .title{font-weight:800;color:#fff;margin-left:6px}
     nav{display:flex;align-items:center;gap:14px}
     nav a{color:rgba(255,255,255,0.85);text-decoration:none;margin-left:6px;font-weight:600;font-size:14px}
@@ -96,15 +119,19 @@
     /* small UX tweaks */
     a{color:inherit}
     strong{color:#fff}
-
   </style>
 </head>
 <body>
   <header>
     <a class="brand" href="/">
       <div class="logo-wrap" aria-hidden="true">
-        <!-- Put your exact logo file here as logo.png in same folder as index.html -->
-        <img src="logo.png" alt="Intent logo">
+        <!-- DEFAULT: load the external file 'logo.png' placed next to index.html.
+             FALLBACK: if logo.png fails to load, the onerror handler swaps to the embedded data URI below.
+             If you want the site fully self-contained, replace DATA_URI_HERE with the full base64 data URI
+             (it must start with data:image/png;base64,....).
+        -->
+        <img id="siteLogo" src="logo.png" alt="Intent logo"
+             onerror="(function(img){ /* fallback to embedded */ img.onerror=null; img.src='DATA_URI_HERE'; })(this);">
       </div>
       <div style="line-height:1">
         <div class="title">Intent FreeDomain</div>
@@ -116,8 +143,8 @@
       <a href="https://int.yt/register" class="external-action">Register</a>
       <a href="https://int.yt/dashboard" class="external-action">Dashboard</a>
       <a href="https://int.yt/whois" class="external-action">WHOIS</a>
-      <a href="https://int.yt/about.html" class="">About</a>
-      <a href="https://int.yt/contact.html" class="">Contact</a>
+      <a href="https://int.yt/about.html">About</a>
+      <a href="https://int.yt/contact.html">Contact</a>
     </nav>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false">Menu</button>
@@ -325,6 +352,15 @@
 
     // Small enhancement: auto-focus domain input on mobile for faster flow
     if(window.innerWidth <= 640) input.setAttribute('autofocus','true');
+
+    // Optional: programmatic helper to set logo focus/zoom dynamically:
+    // call setLogoFocus('left') or setLogoZoom(1.2)
+    function setLogoFocus(pos){
+      document.documentElement.style.setProperty('--logo-focus', pos);
+    }
+    function setLogoZoom(z){
+      document.documentElement.style.setProperty('--logo-zoom', String(z));
+    }
   </script>
 </body>
 </html>

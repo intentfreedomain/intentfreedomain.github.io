@@ -3,92 +3,120 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — Intent FreeDomian</title>
+  <title>About — Intent FreeDomain</title>
+  <meta name="description" content="About Intent FreeDomain — mission, vision and what we offer." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#029ad1;
-      --accent:#029ad1;
-      --muted:rgba(255,255,255,0.82);
-      --card-overlay:rgba(255,255,255,0.06);
+      --bg:#071226; --card:#071826; --card-2:#0b1220; --accent:#06b6d4; --muted:#94a3b8;
+      --logo-focus:center; --logo-zoom:1.05;
     }
     *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;margin:0;color:#081021;background:transparent;line-height:1.6}
-
-    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--accent);color:#fff;position:sticky;top:0;z-index:60}
-    .brand{font-weight:700;font-size:18px}
-    .nav{display:flex;gap:18px;align-items:center}
-    .nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600}
-
-    .page-bg{background:linear-gradient(rgba(2,154,209,0.82),rgba(2,154,209,0.6)),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=60');background-size:cover;background-position:center;padding:60px 0;min-height:calc(100vh - 220px);display:flex;align-items:flex-start;flex-direction:column}
-    .inner-wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 28px}
-    .panel{background:var(--card-overlay);backdrop-filter:blur(6px);padding:28px;border-radius:12px;color:#fff;box-shadow:0 10px 30px rgba(2,154,209,0.08);margin-bottom:24px}
-    h1,h2{color:#fff;margin-top:0}
-    p{color:rgba(255,255,255,0.92)}
-    ul{color:rgba(255,255,255,0.9)}
-    footer{background:var(--accent);color:#fff;padding:28px 24px;margin-top:0}
-    .foot-wrap{max-width:1300px;margin:0 auto;display:flex;gap:24px;flex-wrap:wrap}
-    .foot-col{min-width:180px}
-    .foot-links{display:flex;flex-direction:column;gap:8px}
-    .foot-links a{color:rgba(255,255,255,0.95);text-decoration:none}
-    .foot-bottom{margin-top:18px;border-top:1px solid rgba(255,255,255,0.06);padding-top:18px;width:100%;display:flex;justify-content:space-between;flex-wrap:wrap}
+    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);margin:0;background:linear-gradient(180deg,#071226 0%, #071a2a 70%);-webkit-font-smoothing:antialiased}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;position:sticky;top:0;backdrop-filter:blur(6px);z-index:80;border-bottom:1px solid rgba(255,255,255,0.02);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+    .brand{display:flex;gap:12px;align-items:center;color:#fff;text-decoration:none}
+    .logo-wrap{width:44px;height:44px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),#3b82f6)}
+    .logo-wrap img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--logo-focus);transform:scale(var(--logo-zoom));}
+    nav{display:flex;gap:14px}
+    nav a{color:rgba(255,255,255,0.85);text-decoration:none;font-weight:600}
+    .wrap{max-width:1100px;margin:28px auto;padding:0 18px}
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px;color:var(--muted);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    h1{color:#fff;margin-top:0}
+    h2{color:#fff}
+    p,ul{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+    footer{margin-top:28px;color:var(--muted);display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:space-between;padding:18px}
+    .links{display:flex;gap:28px}
+    @media (max-width:980px){.grid{grid-template-columns:1fr}.nav{display:none}}
+    @media (max-width:640px){.wrap{margin:14px auto;padding:0 12px}}
   </style>
 </head>
 <body>
+  <header>
+    <a class="brand" href="/">
+      <div class="logo-wrap">
+        <img src="logo.png" alt="Intent logo" onerror="this.onerror=null;this.src='DATA_URI_HERE'">
+      </div>
+      <div>
+        <div style="font-weight:800;color:#fff">Intent FreeDomain</div>
+        <div style="font-size:12px;color:var(--muted)">Free subdomains • Privacy-first</div>
+      </div>
+    </a>
 
-  <header class="topbar">
-    <div class="brand">Intent FreeDomian</div>
-    <nav class="nav">
-      <a href="/">Home</a>
-      <a href="/login">Login</a>
-      <a href="/signup">Signup</a>
-      <a href="/whois">Whois</a>
-      <a href="/abuse">AbuseReport</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
+    <nav aria-label="main nav">
+      <a href="https://int.yt/register" class="external-action">Register</a>
+      <a href="https://int.yt/dashboard" class="external-action">Dashboard</a>
+      <a href="https://int.yt/whois" class="external-action">WHOIS</a>
+      <a href="https://int.yt/about.html">About</a>
+      <a href="https://int.yt/contact.html">Contact</a>
     </nav>
   </header>
 
-  <div class="page-bg">
-    <div class="inner-wrap">
-      <div class="panel">
-        <h1>About Intent FreeDomian</h1>
-        <p><strong>Intent FreeDomian</strong> is a free subdomain service designed to help developers, creators, and small teams bring their ideas online quickly. We focus on simplicity, transparency, and privacy — no hidden fees or complex verification.</p>
+  <main class="wrap">
+    <div class="grid">
+      <div>
+        <div class="panel">
+          <h1>About Intent FreeDomain</h1>
+          <p><strong>Intent FreeDomain</strong> provides free subdomains and simple DNS tools for creators, learners and developers. We focus on speed, minimal friction, and privacy. No hidden fees, no complicated steps — just useful tooling to get your projects online.</p>
+        </div>
+
+        <div class="panel" style="margin-top:16px">
+          <h2>Our Mission</h2>
+          <p>We make it easy for anyone to claim a web identity and publish small projects. Our mission is to reduce the friction of getting online — from prototypes to portfolios.</p>
+        </div>
+
+        <div class="panel" style="margin-top:16px">
+          <h2>What We Offer</h2>
+          <ul>
+            <li>Free subdomains (example.int.yt)</li>
+            <li>Simple dashboard for DNS, redirects and HTTPS</li>
+            <li>WHOIS lookups and abuse reporting</li>
+            <li>Community-first support via Discord</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="panel">
-        <h2>Our Mission</h2>
-        <p>We believe that everyone deserves access to a domain name without barriers. Intent FreeDomian empowers users by providing fast DNS setup, WHOIS lookups, and dashboard control, all through a clean, modern interface.</p>
-      </div>
-
-      <div class="panel">
-        <h2>What We Offer</h2>
-        <ul>
-          <li>Free subdomains for your project or blog</li>
-          <li>Simple WHOIS and DNS management tools</li>
-          <li>Privacy-first design — no data sharing</li>
-          <li>Community-driven support and transparency</li>
-        </ul>
-      </div>
-
-      <div class="panel">
-        <h2>Our Vision</h2>
-        <p>Our goal is to make the internet more open and accessible by removing technical and financial barriers. We aim to become the go-to platform for developers seeking free and reliable web identity solutions.</p>
-      </div>
+      <aside class="panel">
+        <h3>Quick facts</h3>
+        <p><strong>Free for developers</strong><br>Most hobby and learning projects are supported free of charge.</p>
+        <p><strong>Privacy-minded</strong><br>We don't sell your data and keep minimal logs necessary for service.</p>
+        <p><strong>Support</strong><br>Open an issue on our Discord for fast help.</p>
+      </aside>
     </div>
-  </div>
+  </main>
 
   <footer>
-    <div class="foot-wrap">
-      <div class="foot-col">
-        <strong>Intent FreeDomian</strong>
-        <div style="margin-top:8px;max-width:280px;color:rgba(255,255,255,0.9)">Free subdomain hosting, easy WHOIS checks, and user-friendly DNS tools.</div>
+    <div>
+      <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
+      <div style="color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
+    </div>
+
+    <div class="links">
+      <div>
+        <strong style="color:#fff">Product</strong><br>
+        <a href="https://int.yt/register">Register</a><br>
+        <a href="https://int.yt/dashboard">Dashboard</a><br>
+        <a href="https://int.yt/whois">WHOIS</a>
       </div>
-      <div class="foot-col"><div class="foot-links"><strong>Product</strong><a href="/register">Register</a><a href="/dashboard">Dashboard</a><a href="/whois">WHOIS</a></div></div>
-      <div class="foot-col"><div class="foot-links"><strong>Company</strong><a href="/about">About</a><a href="/contact">Contact</a><a href="/support">Support</a></div></div>
-      <div class="foot-col"><div class="foot-links"><strong>Legal</strong><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/abuse">Abuse</a></div></div>
-      <div class="foot-bottom"><div>© <strong>Intent FreeDomian</strong></div><div>Made with ♥</div></div>
+      <div>
+        <strong style="color:#fff">Company</strong><br>
+        <a href="https://int.yt/about.html">About</a><br>
+        <a href="https://int.yt/contact.html">Contact</a>
+      </div>
+      <div>
+        <strong style="color:#fff">Legal</strong><br>
+        <a href="https://int.yt/terms">Terms</a><br>
+        <a href="https://int.yt/privacy">Privacy</a><br>
+        <a href="https://int.yt/abuse.html">Abuse</a>
+      </div>
     </div>
   </footer>
 
+  <script>
+    // Intercept placeholder actions and show fallback modal similar to index.html
+    document.querySelectorAll('.external-action').forEach(el=>{
+      el.addEventListener('click', e=>{ e.preventDefault(); alert('This link is not yet active — open a support ticket on Discord: https://discord.gg/NCS96PS4MH'); });
+    });
+  </script>
 </body>
 </html>

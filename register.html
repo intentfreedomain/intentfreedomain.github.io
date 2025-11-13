@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Register</title></head>
+<body style="font-family:Arial,Helvetica,sans-serif;background:#071226;color:#cbd5e1;padding:18px">
+  <h2>Register</h2>
+  <form id="f">
+    <input name="username" placeholder="username" required><br><br>
+    <input name="email" type="email" placeholder="email" required><br><br>
+    <input name="password" type="password" placeholder="password (8+)" required><br><br>
+    <button>Register</button>
+  </form>
+  <div id="out"></div>
+  <script>
+    const form = document.getElementById('f');
+    form.addEventListener('submit', async e=>{
+      e.preventDefault();
+      const fd = new FormData(form);
+      const body = { username: fd.get('username'), email: fd.get('email'), password: fd.get('password') };
+      const res = await fetch('/api/register', { method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify(body) });
+      const data = await res.json();
+      if(!res.ok) { document.getElementById('out').innerText = JSON.stringify(data); return; }
+      // store token locally (demo). In production use secure httpOnly cookies.
+      localStorage.setItem('intent_token', data.token || data.token);
+      document.getElementById('out').innerText = 'Registered. Redirecting to dashboard...';
+      location.href = '/dashboard.html';
+    });
+  </script>
+</body></html>

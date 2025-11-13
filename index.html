@@ -103,8 +103,8 @@
   <header>
     <a class="brand" href="/">
       <div class="logo-wrap" aria-hidden="true">
-        <!-- Embedded logo (cropped/centered by object-fit:cover) -->
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAAAtCAYAAAAX6M...ZFQAyagAklEBJKMCSEYFkIwKIBkVQDIqgGT0X59QarS/vR/dAAAAAElFTkSuQmCC" alt="Intent logo">
+        <!-- Put your exact logo file here as logo.png in same folder as index.html -->
+        <img src="logo.png" alt="Intent logo">
       </div>
       <div style="line-height:1">
         <div class="title">Intent FreeDomain</div>
@@ -113,22 +113,22 @@
     </a>
 
     <nav aria-label="main navigation">
-      <a href="#" class="external-action">Register</a>
-      <a href="#" class="external-action">Dashboard</a>
-      <a href="#" class="external-action">WHOIS</a>
-      <a href="#" class="external-action">About</a>
-      <a href="#" class="external-action">Contact</a>
+      <a href="https://int.yt/register" class="external-action">Register</a>
+      <a href="https://int.yt/dashboard" class="external-action">Dashboard</a>
+      <a href="https://int.yt/whois" class="external-action">WHOIS</a>
+      <a href="https://int.yt/about.html" class="">About</a>
+      <a href="https://int.yt/contact.html" class="">Contact</a>
     </nav>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false">Menu</button>
   </header>
 
   <div class="mobile-nav" id="mobileNav" role="navigation" aria-hidden="true">
-    <a href="#" class="external-action">Register</a>
-    <a href="#" class="external-action">Dashboard</a>
-    <a href="#" class="external-action">WHOIS</a>
-    <a href="#" class="external-action">About</a>
-    <a href="#" class="external-action">Contact</a>
+    <a href="https://int.yt/register" class="external-action">Register</a>
+    <a href="https://int.yt/dashboard" class="external-action">Dashboard</a>
+    <a href="https://int.yt/whois" class="external-action">WHOIS</a>
+    <a href="https://int.yt/about.html">About</a>
+    <a href="https://int.yt/contact.html">Contact</a>
   </div>
 
   <main class="wrap">
@@ -146,7 +146,7 @@
         <div class="actions-row">
           <button class="btn btn-primary external-action" id="createBtn">Create subdomain</button>
           <button class="btn btn-ghost external-action">Go to dashboard</button>
-          <a href="/contact" class="btn btn-ghost external-action">Contact</a>
+          <a href="https://int.yt/contact.html" class="btn btn-ghost">Contact</a>
         </div>
 
         <div style="margin-top:14px;color:#9fb3c6;font-size:14px">Tip: Use short names. If it's for a portfolio, include your name: <strong>yourname.int.yt</strong>.</div>
@@ -164,7 +164,7 @@
 
       <aside class="hero-right panel card">
         <h3>Need help or found an error?</h3>
-        <p class="muted">Some actions currently point to a placeholder GitHub page. Open a ticket on our Discord and include the page URL + a short description — we'll fix it fast.</p>
+        <p class="muted">Some actions currently point to a placeholder page. Open a ticket on our Discord and include the page URL + a short description — we'll fix it fast.</p>
         <div style="margin-top:12px;display:flex;gap:10px">
           <a id="discordLink" class="btn btn-primary" href="https://discord.gg/NCS96PS4MH" target="_blank" rel="noopener">Open Discord</a>
           <button id="copyBtn" class="btn btn-ghost">Copy invite</button>
@@ -216,27 +216,27 @@
       <div class="links">
         <div>
           <div style="font-weight:700;color:#fff;margin-bottom:8px">Product</div>
-          <a href="#" class="external-action">Register</a><br>
-          <a href="#" class="external-action">Dashboard</a><br>
-          <a href="#" class="external-action">WHOIS</a>
+          <a href="https://int.yt/register" class="external-action">Register</a><br>
+          <a href="https://int.yt/dashboard" class="external-action">Dashboard</a><br>
+          <a href="https://int.yt/whois" class="external-action">WHOIS</a>
         </div>
         <div>
           <div style="font-weight:700;color:#fff;margin-bottom:8px">Company</div>
-          <a href="#" class="external-action">About</a><br>
-          <a href="#" class="external-action">Contact</a><br>
-          <a href="#" class="external-action">Support</a>
+          <a href="https://int.yt/about.html">About</a><br>
+          <a href="https://int.yt/contact.html">Contact</a><br>
+          <a href="https://int.yt/support">Support</a>
         </div>
         <div>
           <div style="font-weight:700;color:#fff;margin-bottom:8px">Legal</div>
-          <a href="#" class="external-action">Terms</a><br>
-          <a href="#" class="external-action">Privacy</a><br>
-          <a href="#" class="external-action">Abuse</a>
+          <a href="https://int.yt/terms">Terms</a><br>
+          <a href="https://int.yt/privacy">Privacy</a><br>
+          <a href="https://int.yt/abuse.html">Abuse</a>
         </div>
       </div>
 
       <div style="margin-left:auto;min-width:160px;text-align:right;color:var(--muted)">
         <div>© <strong>Intent FreeDomain</strong></div>
-        <div style="margin-top:6px">Made with ♥ • <a href="#" class="external-action" style="color:var(--muted);text-decoration:underline">Contact</a></div>
+        <div style="margin-top:6px">Made with ♥ • <a href="https://int.yt/contact.html" style="color:var(--muted);text-decoration:underline">Contact</a></div>
       </div>
     </footer>
   </main>
@@ -291,7 +291,7 @@
 
     createBtn.addEventListener('click', openModal);
 
-    // Intercept all links and buttons with class external-action to show modal
+    // Intercept most placeholder links/buttons (class external-action) to show modal
     document.querySelectorAll('.external-action').forEach(el=>{
       el.addEventListener('click', (e)=>{ e.preventDefault(); openModal(); });
     });

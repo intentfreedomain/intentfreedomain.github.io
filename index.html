@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -9,226 +8,241 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#071226; --card:#071826; --card-2:#0b1220; --accent:#06b6d4; --accent-2:#06d6a0; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
+      --bg:#071226; --card:#071826; --card-2:#0b1220; --accent:#06b6d4; --muted:#94a3b8;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);margin:0;background:linear-gradient(180deg,#071226 0%, #071a2a 70%);-webkit-font-smoothing:antialiased}/* Header */
-header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);position:sticky;top:0;backdrop-filter:blur(6px);z-index:80;border-bottom:1px solid rgba(255,255,255,0.02)}
-.brand{display:flex;gap:12px;align-items:center;color:#fff;text-decoration:none}
-.logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3b82f6);display:flex;align-items:center;justify-content:center;color:#021524;font-weight:900;font-size:16px}
-.brand .title{font-weight:800;color:#fff}
-nav{display:flex;align-items:center;gap:14px}
-nav a{color:rgba(255,255,255,0.85);text-decoration:none;margin-left:6px;font-weight:600;font-size:14px}
-.nav-toggle{display:none;background:transparent;border:0;color:var(--muted);font-weight:700}
+    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);margin:0;background:linear-gradient(180deg,#071226 0%, #071a2a 70%);-webkit-font-smoothing:antialiased}
 
-/* Layout containers */
-.wrap{max-width:1150px;margin:20px auto;padding:0 18px}
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);position:sticky;top:0;backdrop-filter:blur(6px);z-index:80;border-bottom:1px solid rgba(255,255,255,0.02)}
+    .brand{display:flex;gap:12px;align-items:center;color:#fff;text-decoration:none}
+    .logo-wrap{width:44px;height:44px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),#3b82f6);flex-shrink:0}
+    .logo-wrap img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+    .brand .title{font-weight:800;color:#fff;margin-left:6px}
+    nav{display:flex;align-items:center;gap:14px}
+    nav a{color:rgba(255,255,255,0.85);text-decoration:none;margin-left:6px;font-weight:600;font-size:14px}
+    .nav-toggle{display:none;background:transparent;border:0;color:var(--muted);font-weight:700}
 
-/* Hero */
-.hero{display:flex;gap:22px;align-items:flex-start}
-.hero-left{flex:1}
-.hero-right{width:380px}
-.panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    /* Layout containers */
+    .wrap{max-width:1150px;margin:20px auto;padding:0 18px}
 
-.left h1{color:#fff;margin:0 0 10px;font-size:32px;line-height:1.05}
-.left p{color:var(--muted);margin:0 0 14px;font-size:15px}
+    /* Hero */
+    .hero{display:flex;gap:22px;align-items:flex-start}
+    .hero-left{flex:1}
+    .hero-right{width:380px}
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
 
-/* Search */
-.search{display:flex;gap:10px}
-.search input{flex:1;padding:14px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.015);color:#fff;font-size:15px}
-.search button{padding:12px 16px;border-radius:10px;border:none;background:linear-gradient(180deg,var(--accent),#3b82f6);color:#021524;font-weight:800;cursor:pointer}
-.small{font-size:13px;color:#9fb3c6}
+    .left h1{color:#fff;margin:0 0 10px;font-size:32px;line-height:1.05}
+    .left p{color:var(--muted);margin:0 0 14px;font-size:15px}
 
-.actions-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-.btn{padding:12px 14px;border-radius:10px;border:none;cursor:pointer}
-.btn-primary{background:linear-gradient(180deg,var(--accent),#3b82f6);color:#021524;font-weight:800}
-.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+    /* Search */
+    .search{display:flex;gap:10px}
+    .search input{flex:1;padding:14px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.015);color:#fff;font-size:15px}
+    .search button{padding:12px 16px;border-radius:10px;border:none;background:linear-gradient(180deg,var(--accent),#3b82f6);color:#021524;font-weight:800;cursor:pointer}
+    .small{font-size:13px;color:#9fb3c6}
 
-/* Right card */
-.card{background:linear-gradient(180deg,var(--card),var(--card-2));padding:18px;border-radius:12px;color:var(--muted)}
-.card h3{color:#fff;margin:0 0 10px}
-.list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
-.item{display:flex;align-items:flex-start;gap:12px}
-.dot{width:10px;height:10px;border-radius:3px;background:var(--accent);margin-top:6px}
+    .actions-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .btn{padding:12px 14px;border-radius:10px;border:none;cursor:pointer}
+    .btn-primary{background:linear-gradient(180deg,var(--accent),#3b82f6);color:#021524;font-weight:800}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
 
-/* Features grid */
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
-.feature{background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);padding:16px;border-radius:10px;color:var(--muted)}
-.feature h4{color:#fff;margin:0 0 8px}
+    /* Right card */
+    .card{background:linear-gradient(180deg,var(--card),var(--card-2));padding:18px;border-radius:12px;color:var(--muted)}
+    .card h3{color:#fff;margin:0 0 10px}
+    .list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+    .item{display:flex;align-items:flex-start;gap:12px}
+    .dot{width:10px;height:10px;border-radius:3px;background:var(--accent);margin-top:6px}
 
-/* Footer */
-footer{margin-top:28px;color:var(--muted);display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:space-between}
-.links{display:flex;gap:28px}
-.links a{color:var(--muted);text-decoration:none}
+    /* Features grid */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+    .feature{background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);padding:16px;border-radius:10px;color:var(--muted)}
+    .feature h4{color:#fff;margin:0 0 8px}
 
-/* Modal */
-.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
-.modal{background:#021526;border-radius:12px;padding:18px;max-width:520px;width:100%;color:var(--muted);box-shadow:0 20px 60px rgba(3,6,23,0.7)}
-.modal h3{color:#fff;margin-top:0}
-.modal .actions{display:flex;gap:10px;margin-top:12px}
+    /* Footer */
+    footer{margin-top:28px;color:var(--muted);display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:space-between}
+    .links{display:flex;gap:28px}
+    .links a{color:var(--muted);text-decoration:none}
 
-/* Mobile responsive */
-@media (max-width:980px){
-  nav{display:none}
-  .nav-toggle{display:inline-flex}
-  .hero{flex-direction:column}
-  .hero-right{width:100%}
-  .features{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:640px){
-  .wrap{margin:12px auto;padding:0 12px}
-  .left h1{font-size:22px}
-  .search input{padding:12px}
-  .search button{padding:12px}
-  .features{grid-template-columns:1fr}
-  .card{margin-top:12px}
-  header{padding:8px 12px}
-}
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
+    .modal{background:#021526;border-radius:12px;padding:18px;max-width:520px;width:100%;color:var(--muted);box-shadow:0 20px 60px rgba(3,6,23,0.7)}
+    .modal h3{color:#fff;margin-top:0}
+    .modal .actions{display:flex;gap:10px;margin-top:12px}
 
-/* Mobile nav overlay */
-.mobile-nav{display:none;position:fixed;top:64px;left:12px;right:12px;background:rgba(2,6,23,0.95);padding:12px;border-radius:10px;z-index:120}
-.mobile-nav a{display:block;padding:8px 0;color:var(--muted);text-decoration:none}
-.mobile-nav.show{display:block}
+    /* Mobile responsive */
+    @media (max-width:980px){
+      nav{display:none}
+      .nav-toggle{display:inline-flex}
+      .hero{flex-direction:column}
+      .hero-right{width:100%}
+      .features{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      .wrap{margin:12px auto;padding:0 12px}
+      .left h1{font-size:22px}
+      .search input{padding:12px}
+      .search button{padding:12px}
+      .features{grid-template-columns:1fr}
+      .card{margin-top:12px}
+      header{padding:8px 12px}
+    }
 
-/* small UX tweaks */
-a{color:inherit}
-strong{color:#fff}
+    /* Mobile nav overlay */
+    .mobile-nav{display:none;position:fixed;top:64px;left:12px;right:12px;background:rgba(2,6,23,0.95);padding:12px;border-radius:10px;z-index:120}
+    .mobile-nav a{display:block;padding:8px 0;color:var(--muted);text-decoration:none}
+    .mobile-nav.show{display:block}
+
+    /* small UX tweaks */
+    a{color:inherit}
+    strong{color:#fff}
 
   </style>
 </head>
 <body>
   <header>
     <a class="brand" href="/">
-      <div class="logo">IF</div>
+      <div class="logo-wrap" aria-hidden="true">
+        <!-- Embedded logo (cropped/centered by object-fit:cover) -->
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAAAtCAYAAAAX6M...ZFQAyagAklEBJKMCSEYFkIwKIBkVQDIqgGT0X59QarS/vR/dAAAAAElFTkSuQmCC" alt="Intent logo">
+      </div>
       <div style="line-height:1">
         <div class="title">Intent FreeDomain</div>
         <div style="font-size:12px;color:var(--muted);margin-top:2px">Free subdomains • Fast dashboard • Privacy-first</div>
       </div>
-    </a><nav aria-label="main navigation">
-  <a href="#" class="external-action">Register</a>
-  <a href="#" class="external-action">Dashboard</a>
-  <a href="#" class="external-action">WHOIS</a>
-  <a href="#" class="external-action">About</a>
-  <a href="#" class="external-action">Contact</a>
-</nav>
+    </a>
 
-<button class="nav-toggle" id="navToggle" aria-expanded="false">Menu</button>
+    <nav aria-label="main navigation">
+      <a href="#" class="external-action">Register</a>
+      <a href="#" class="external-action">Dashboard</a>
+      <a href="#" class="external-action">WHOIS</a>
+      <a href="#" class="external-action">About</a>
+      <a href="#" class="external-action">Contact</a>
+    </nav>
 
-  </header>  <div class="mobile-nav" id="mobileNav" role="navigation" aria-hidden="true">
+    <button class="nav-toggle" id="navToggle" aria-expanded="false">Menu</button>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav" role="navigation" aria-hidden="true">
     <a href="#" class="external-action">Register</a>
     <a href="#" class="external-action">Dashboard</a>
     <a href="#" class="external-action">WHOIS</a>
     <a href="#" class="external-action">About</a>
     <a href="#" class="external-action">Contact</a>
-  </div>  <main class="wrap">
+  </div>
+
+  <main class="wrap">
     <section class="hero">
       <div class="hero-left panel left">
         <h1>Free subdomains in seconds — for projects, blogs and experiments</h1>
-        <p class="muted">Register a short, memorable subdomain (example.int.yt) and manage DNS and redirects from an easy dashboard. No hidden fees, minimal signing required.</p><div class="search" style="margin-top:12px">
-      <input id="domainInput" type="text" placeholder="Enter a name (example) — we'll add .int.yt" aria-label="domain input">
-      <button id="checkBtn" class="btn-primary">Check availability</button>
-    </div>
-    <div style="margin-top:10px" class="small">Examples: blog, demo, play, docs — use letters, numbers, and dashes. Max 30 chars.</div>
+        <p class="muted">Register a short, memorable subdomain (example.int.yt) and manage DNS and redirects from an easy dashboard. No hidden fees, minimal signing required.</p>
 
-    <div class="actions-row">
-      <button class="btn btn-primary external-action" id="createBtn">Create subdomain</button>
-      <button class="btn btn-ghost external-action">Go to dashboard</button>
-      <a href="/contact" class="btn btn-ghost external-action">Contact</a>
-    </div>
+        <div class="search" style="margin-top:12px">
+          <input id="domainInput" type="text" placeholder="Enter a name (example) — we'll add .int.yt" aria-label="domain input">
+          <button id="checkBtn" class="btn-primary">Check availability</button>
+        </div>
+        <div style="margin-top:10px" class="small">Examples: blog, demo, play, docs — use letters, numbers, and dashes. Max 30 chars.</div>
 
-    <div style="margin-top:14px;color:#9fb3c6;font-size:14px">Tip: Use short names. If it's for a portfolio, include your name: <strong>yourname.int.yt</strong>.</div>
+        <div class="actions-row">
+          <button class="btn btn-primary external-action" id="createBtn">Create subdomain</button>
+          <button class="btn btn-ghost external-action">Go to dashboard</button>
+          <a href="/contact" class="btn btn-ghost external-action">Contact</a>
+        </div>
 
-    <div class="card" style="margin-top:18px">
-      <h3>Quick facts</h3>
-      <div class="list">
-        <div class="item"><div class="dot"></div><div><strong>Free subdomains</strong><div class="muted">Create and manage unlimited subdomains per account.</div></div></div>
-        <div class="item"><div class="dot"></div><div><strong>Dashboard</strong><div class="muted">Simple DNS, redirects, and HTTPS via automatic certs.</div></div></div>
-        <div class="item"><div class="dot"></div><div><strong>Privacy-minded</strong><div class="muted">We don't sell or share your data.</div></div></div>
-        <div class="item"><div class="dot"></div><div><strong>Whois & Abuse</strong><div class="muted">Built-in WHOIS view and easy abuse reporting tools.</div></div></div>
+        <div style="margin-top:14px;color:#9fb3c6;font-size:14px">Tip: Use short names. If it's for a portfolio, include your name: <strong>yourname.int.yt</strong>.</div>
+
+        <div class="card" style="margin-top:18px">
+          <h3>Quick facts</h3>
+          <div class="list">
+            <div class="item"><div class="dot"></div><div><strong>Free subdomains</strong><div class="muted">Create and manage unlimited subdomains per account.</div></div></div>
+            <div class="item"><div class="dot"></div><div><strong>Dashboard</strong><div class="muted">Simple DNS, redirects, and HTTPS via automatic certs.</div></div></div>
+            <div class="item"><div class="dot"></div><div><strong>Privacy-minded</strong><div class="muted">We don't sell or share your data.</div></div></div>
+            <div class="item"><div class="dot"></div><div><strong>Whois & Abuse</strong><div class="muted">Built-in WHOIS view and easy abuse reporting tools.</div></div></div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <aside class="hero-right panel card">
-    <h3>Need help or found an error?</h3>
-    <p class="muted">Some actions currently point to a placeholder GitHub page. Open a ticket on our Discord and include the page URL + a short description — we'll fix it fast.</p>
-    <div style="margin-top:12px;display:flex;gap:10px">
-      <a id="discordLink" class="btn btn-primary" href="https://discord.gg/NCS96PS4MH" target="_blank" rel="noopener">Open Discord</a>
-      <button id="copyBtn" class="btn btn-ghost">Copy invite</button>
-    </div>
-    <div style="margin-top:14px;font-size:13px;color:var(--muted)">Prefer email? Send screenshots and page details to support@intent.example (placeholder).</div>
+      <aside class="hero-right panel card">
+        <h3>Need help or found an error?</h3>
+        <p class="muted">Some actions currently point to a placeholder GitHub page. Open a ticket on our Discord and include the page URL + a short description — we'll fix it fast.</p>
+        <div style="margin-top:12px;display:flex;gap:10px">
+          <a id="discordLink" class="btn btn-primary" href="https://discord.gg/NCS96PS4MH" target="_blank" rel="noopener">Open Discord</a>
+          <button id="copyBtn" class="btn btn-ghost">Copy invite</button>
+        </div>
+        <div style="margin-top:14px;font-size:13px;color:var(--muted)">Prefer email? Send screenshots and page details to support@intent.example (placeholder).</div>
 
-    <hr style="margin:16px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
-    <div>
-      <strong style="color:#fff">Status</strong>
-      <div class="muted" style="margin-top:8px">We're actively updating the dashboard. Thanks for patience — open a ticket if anything breaks.</div>
-    </div>
-  </aside>
-</section>
+        <hr style="margin:16px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
+        <div>
+          <strong style="color:#fff">Status</strong>
+          <div class="muted" style="margin-top:8px">We're actively updating the dashboard. Thanks for patience — open a ticket if anything breaks.</div>
+        </div>
+      </aside>
+    </section>
 
-<section class="features">
-  <div class="feature">
-    <h4>Simple registration</h4>
-    <p class="muted">Enter a name, confirm, and your subdomain is live. No long forms — we keep the process fast for developers and learners.</p>
-  </div>
-  <div class="feature">
-    <h4>Automatic HTTPS</h4>
-    <p class="muted">Each subdomain gets an automatic TLS certificate so your site loads securely without manual certificate management.</p>
-  </div>
-  <div class="feature">
-    <h4>Redirects & DNS</h4>
-    <p class="muted">Point subdomains to IPs, GitHub Pages, or use HTTP redirects. Full control in the dashboard.</p>
-  </div>
+    <section class="features">
+      <div class="feature">
+        <h4>Simple registration</h4>
+        <p class="muted">Enter a name, confirm, and your subdomain is live. No long forms — we keep the process fast for developers and learners.</p>
+      </div>
+      <div class="feature">
+        <h4>Automatic HTTPS</h4>
+        <p class="muted">Each subdomain gets an automatic TLS certificate so your site loads securely without manual certificate management.</p>
+      </div>
+      <div class="feature">
+        <h4>Redirects & DNS</h4>
+        <p class="muted">Point subdomains to IPs, GitHub Pages, or use HTTP redirects. Full control in the dashboard.</p>
+      </div>
 
-  <div class="feature">
-    <h4>Usage & Limits</h4>
-    <p class="muted">Free for most uses. Abuse or resource-heavy projects may be limited — contact support for higher needs.</p>
-  </div>
-  <div class="feature">
-    <h4>Whois Lookup</h4>
-    <p class="muted">Check public registration details for any subdomain from the WHOIS page.</p>
-  </div>
-  <div class="feature">
-    <h4>Support</h4>
-    <p class="muted">Questions? Reach out via the contact page or Discord. We respond to genuine support queries within 24–72 hours.</p>
-  </div>
-</section>
+      <div class="feature">
+        <h4>Usage & Limits</h4>
+        <p class="muted">Free for most uses. Abuse or resource-heavy projects may be limited — contact support for higher needs.</p>
+      </div>
+      <div class="feature">
+        <h4>Whois Lookup</h4>
+        <p class="muted">Check public registration details for any subdomain from the WHOIS page.</p>
+      </div>
+      <div class="feature">
+        <h4>Support</h4>
+        <p class="muted">Questions? Reach out via the contact page or Discord. We respond to genuine support queries within 24–72 hours.</p>
+      </div>
+    </section>
 
-<footer>
-  <div style="min-width:200px">
-    <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
-    <div style="margin-top:6px;font-size:13px;color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
-  </div>
+    <footer>
+      <div style="min-width:200px">
+        <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
+        <div style="margin-top:6px;font-size:13px;color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
+      </div>
 
-  <div class="links">
-    <div>
-      <div style="font-weight:700;color:#fff;margin-bottom:8px">Product</div>
-      <a href="#" class="external-action">Register</a><br>
-      <a href="#" class="external-action">Dashboard</a><br>
-      <a href="#" class="external-action">WHOIS</a>
-    </div>
-    <div>
-      <div style="font-weight:700;color:#fff;margin-bottom:8px">Company</div>
-      <a href="#" class="external-action">About</a><br>
-      <a href="#" class="external-action">Contact</a><br>
-      <a href="#" class="external-action">Support</a>
-    </div>
-    <div>
-      <div style="font-weight:700;color:#fff;margin-bottom:8px">Legal</div>
-      <a href="#" class="external-action">Terms</a><br>
-      <a href="#" class="external-action">Privacy</a><br>
-      <a href="#" class="external-action">Abuse</a>
-    </div>
-  </div>
+      <div class="links">
+        <div>
+          <div style="font-weight:700;color:#fff;margin-bottom:8px">Product</div>
+          <a href="#" class="external-action">Register</a><br>
+          <a href="#" class="external-action">Dashboard</a><br>
+          <a href="#" class="external-action">WHOIS</a>
+        </div>
+        <div>
+          <div style="font-weight:700;color:#fff;margin-bottom:8px">Company</div>
+          <a href="#" class="external-action">About</a><br>
+          <a href="#" class="external-action">Contact</a><br>
+          <a href="#" class="external-action">Support</a>
+        </div>
+        <div>
+          <div style="font-weight:700;color:#fff;margin-bottom:8px">Legal</div>
+          <a href="#" class="external-action">Terms</a><br>
+          <a href="#" class="external-action">Privacy</a><br>
+          <a href="#" class="external-action">Abuse</a>
+        </div>
+      </div>
 
-  <div style="margin-left:auto;min-width:160px;text-align:right;color:var(--muted)">
-    <div>© <strong>Intent FreeDomain</strong></div>
-    <div style="margin-top:6px">Made with ♥ • <a href="#" class="external-action" style="color:var(--muted);text-decoration:underline">Contact</a></div>
-  </div>
-</footer>
+      <div style="margin-left:auto;min-width:160px;text-align:right;color:var(--muted)">
+        <div>© <strong>Intent FreeDomain</strong></div>
+        <div style="margin-top:6px">Made with ♥ • <a href="#" class="external-action" style="color:var(--muted);text-decoration:underline">Contact</a></div>
+      </div>
+    </footer>
+  </main>
 
-  </main>  <!-- Modal / Ticket prompt (used when users click broken actions) -->  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+  <!-- Modal / Ticket prompt (used when users click broken actions) -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <h3 id="modalTitle">Report this issue on Discord</h3>
       <p class="muted">You're seeing placeholder links. Open a ticket on our Discord and paste the page URL + a short description. That helps us fix it faster.</p>
@@ -238,7 +252,9 @@ strong{color:#fff}
         <button id="modalClose" class="btn btn-ghost">Close</button>
       </div>
     </div>
-  </div>  <script>
+  </div>
+
+  <script>
     // UX: validate domain and intercept placeholder links
     const input = document.getElementById('domainInput');
     const checkBtn = document.getElementById('checkBtn');
@@ -309,5 +325,6 @@ strong{color:#fff}
 
     // Small enhancement: auto-focus domain input on mobile for faster flow
     if(window.innerWidth <= 640) input.setAttribute('autofocus','true');
-  </script></body>
-                                                       </html>
+  </script>
+</body>
+</html>

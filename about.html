@@ -4,118 +4,90 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Intent FreeDomain</title>
-  <meta name="description" content="About Intent FreeDomain — mission, vision and what we offer." />
+  <meta name="description" content="About Intent FreeDomain — mission and what we offer." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#071226; --card:#071826; --card-2:#0b1220; --accent:#06b6d4; --muted:#94a3b8;
-      --logo-focus:center; --logo-zoom:1.05;
-    }
+    :root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--logo-focus:center;--logo-zoom:1.05}
     *{box-sizing:border-box}
     body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);margin:0;background:linear-gradient(180deg,#071226 0%, #071a2a 70%);-webkit-font-smoothing:antialiased}
     header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;position:sticky;top:0;backdrop-filter:blur(6px);z-index:80;border-bottom:1px solid rgba(255,255,255,0.02);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
-    .brand{display:flex;gap:12px;align-items:center;color:#fff;text-decoration:none}
+    .brand{display:flex;gap:12px;align-items:center}
     .logo-wrap{width:44px;height:44px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),#3b82f6)}
-    .logo-wrap img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--logo-focus);transform:scale(var(--logo-zoom));}
+    .logo-wrap img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--logo-focus);transform:scale(var(--logo-zoom))}
     nav{display:flex;gap:14px}
     nav a{color:rgba(255,255,255,0.85);text-decoration:none;font-weight:600}
     .wrap{max-width:1100px;margin:28px auto;padding:0 18px}
     .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px;color:var(--muted);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
     h1{color:#fff;margin-top:0}
-    h2{color:#fff}
-    p,ul{color:var(--muted)}
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
-    footer{margin-top:28px;color:var(--muted);display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:space-between;padding:18px}
-    .links{display:flex;gap:28px}
-    @media (max-width:980px){.grid{grid-template-columns:1fr}.nav{display:none}}
-    @media (max-width:640px){.wrap{margin:14px auto;padding:0 12px}}
+    @media (max-width:640px){.wrap{padding:0 12px}}
   </style>
 </head>
 <body>
   <header>
     <a class="brand" href="/">
-      <div class="logo-wrap">
-        <img src="logo.png" alt="Intent logo" onerror="this.onerror=null;this.src='DATA_URI_HERE'">
-      </div>
+      <div class="logo-wrap"><img src="logo.png" alt="Intent logo" onerror="this.onerror=null;this.src='DATA_URI_HERE'"></div>
       <div>
         <div style="font-weight:800;color:#fff">Intent FreeDomain</div>
         <div style="font-size:12px;color:var(--muted)">Free subdomains • Privacy-first</div>
       </div>
     </a>
 
-    <nav aria-label="main nav">
+    <nav>
       <a href="https://int.yt/register" class="external-action">Register</a>
       <a href="https://int.yt/dashboard" class="external-action">Dashboard</a>
       <a href="https://int.yt/whois" class="external-action">WHOIS</a>
       <a href="https://int.yt/about.html">About</a>
       <a href="https://int.yt/contact.html">Contact</a>
+      <a href="https://int.yt/privacy.html">Privacy</a>
+      <a href="https://int.yt/terms.html">Terms</a>
     </nav>
   </header>
 
   <main class="wrap">
-    <div class="grid">
-      <div>
-        <div class="panel">
-          <h1>About Intent FreeDomain</h1>
-          <p><strong>Intent FreeDomain</strong> provides free subdomains and simple DNS tools for creators, learners and developers. We focus on speed, minimal friction, and privacy. No hidden fees, no complicated steps — just useful tooling to get your projects online.</p>
-        </div>
+    <div class="panel">
+      <h1>About Intent FreeDomain</h1>
+      <p><strong>Intent FreeDomain</strong> provides free, fast subdomains and a lightweight dashboard so creators can get projects online quickly. We prioritize privacy, simplicity and fast iteration.</p>
 
-        <div class="panel" style="margin-top:16px">
-          <h2>Our Mission</h2>
-          <p>We make it easy for anyone to claim a web identity and publish small projects. Our mission is to reduce the friction of getting online — from prototypes to portfolios.</p>
-        </div>
+      <h2 style="color:#fff;margin-top:16px">Mission</h2>
+      <p>Make web identities and small projects accessible — no heavy setups, no fees for personal/hobby projects.</p>
 
-        <div class="panel" style="margin-top:16px">
-          <h2>What We Offer</h2>
-          <ul>
-            <li>Free subdomains (example.int.yt)</li>
-            <li>Simple dashboard for DNS, redirects and HTTPS</li>
-            <li>WHOIS lookups and abuse reporting</li>
-            <li>Community-first support via Discord</li>
-          </ul>
-        </div>
-      </div>
-
-      <aside class="panel">
-        <h3>Quick facts</h3>
-        <p><strong>Free for developers</strong><br>Most hobby and learning projects are supported free of charge.</p>
-        <p><strong>Privacy-minded</strong><br>We don't sell your data and keep minimal logs necessary for service.</p>
-        <p><strong>Support</strong><br>Open an issue on our Discord for fast help.</p>
-      </aside>
+      <h2 style="color:#fff;margin-top:16px">Values</h2>
+      <ul style="color:var(--muted)">
+        <li>Privacy-first: minimal data collection</li>
+        <li>Open for learners: encourage experimentation</li>
+        <li>Community-backed support via Discord</li>
+      </ul>
     </div>
   </main>
 
-  <footer>
+  <footer style="margin-top:28px;padding:18px;color:var(--muted);display:flex;justify-content:space-between;align-items:flex-start">
     <div>
       <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
-      <div style="color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
+      <div style="color:var(--muted)">Free subdomains and privacy-respecting DNS tools.</div>
     </div>
-
-    <div class="links">
+    <div style="display:flex;gap:28px">
       <div>
-        <strong style="color:#fff">Product</strong><br>
+        <div style="font-weight:700;color:#fff">Product</div>
         <a href="https://int.yt/register">Register</a><br>
-        <a href="https://int.yt/dashboard">Dashboard</a><br>
-        <a href="https://int.yt/whois">WHOIS</a>
+        <a href="https://int.yt/dashboard">Dashboard</a>
       </div>
       <div>
-        <strong style="color:#fff">Company</strong><br>
+        <div style="font-weight:700;color:#fff">Company</div>
         <a href="https://int.yt/about.html">About</a><br>
         <a href="https://int.yt/contact.html">Contact</a>
       </div>
       <div>
-        <strong style="color:#fff">Legal</strong><br>
-        <a href="https://int.yt/terms">Terms</a><br>
-        <a href="https://int.yt/privacy">Privacy</a><br>
+        <div style="font-weight:700;color:#fff">Legal</div>
+        <a href="https://int.yt/terms.html">Terms</a><br>
+        <a href="https://int.yt/privacy.html">Privacy</a><br>
         <a href="https://int.yt/abuse.html">Abuse</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Intercept placeholder actions and show fallback modal similar to index.html
     document.querySelectorAll('.external-action').forEach(el=>{
-      el.addEventListener('click', e=>{ e.preventDefault(); alert('This link is not yet active — open a support ticket on Discord: https://discord.gg/NCS96PS4MH'); });
+      el.addEventListener('click', e=>{ e.preventDefault(); alert('Open a ticket on Discord for now: https://discord.gg/NCS96PS4MH'); });
     });
   </script>
 </body>

@@ -7,116 +7,56 @@
   <meta name="description" content="Get free, fast subdomains for projects, blogs and tests. Easy dashboard, WHOIS checks and privacy-first DNS tools." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* --- Logo crop/zoom controls (edit these) --- */
     :root{
-      --bg:#071226;
-      --card:#071826;
-      --card-2:#0b1220;
-      --accent:#06b6d4;
-      --muted:#94a3b8;
-
-      /* Change these to control logo cropping/zoom without editing the image:
-         --logo-focus: controls object-position (left | center | right | top | bottom | 'x% y%')
-         --logo-zoom: scale factor (1 = none, 1.2 = zoom in 20%)
-      */
-      --logo-focus: center;
-      --logo-zoom: 1.05;
+      --bg:#071226; --card:#071826; --card-2:#0b1220; --accent:#06b6d4; --muted:#94a3b8;
+      --logo-focus:center; --logo-zoom:1.05;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);margin:0;background:linear-gradient(180deg,#071226 0%, #071a2a 70%);-webkit-font-smoothing:antialiased}
-
-    /* Header */
     header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);position:sticky;top:0;backdrop-filter:blur(6px);z-index:80;border-bottom:1px solid rgba(255,255,255,0.02)}
     .brand{display:flex;gap:12px;align-items:center;color:#fff;text-decoration:none}
-    /* logo container keeps crop and rounded corners */
-    .logo-wrap{
-      width:44px;height:44px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),#3b82f6);flex-shrink:0;
-    }
-    /* actual img is centered and cropped using object-fit; we apply transform scale for zoom */
-    .logo-wrap img{
-      display:block;width:100%;height:100%;object-fit:cover;
-      object-position: var(--logo-focus);
-      transform: scale(var(--logo-zoom));
-      transform-origin: center center;
-    }
-
+    .logo-wrap{width:44px;height:44px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),#3b82f6);flex-shrink:0}
+    .logo-wrap img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--logo-focus);transform:scale(var(--logo-zoom));}
     .brand .title{font-weight:800;color:#fff;margin-left:6px}
     nav{display:flex;align-items:center;gap:14px}
     nav a{color:rgba(255,255,255,0.85);text-decoration:none;margin-left:6px;font-weight:600;font-size:14px}
     .nav-toggle{display:none;background:transparent;border:0;color:var(--muted);font-weight:700}
-
-    /* Layout containers */
     .wrap{max-width:1150px;margin:20px auto;padding:0 18px}
-
-    /* Hero */
     .hero{display:flex;gap:22px;align-items:flex-start}
     .hero-left{flex:1}
     .hero-right{width:380px}
     .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
-
     .left h1{color:#fff;margin:0 0 10px;font-size:32px;line-height:1.05}
     .left p{color:var(--muted);margin:0 0 14px;font-size:15px}
-
-    /* Search */
     .search{display:flex;gap:10px}
     .search input{flex:1;padding:14px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.015);color:#fff;font-size:15px}
     .search button{padding:12px 16px;border-radius:10px;border:none;background:linear-gradient(180deg,var(--accent),#3b82f6);color:#021524;font-weight:800;cursor:pointer}
     .small{font-size:13px;color:#9fb3c6}
-
     .actions-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
     .btn{padding:12px 14px;border-radius:10px;border:none;cursor:pointer}
     .btn-primary{background:linear-gradient(180deg,var(--accent),#3b82f6);color:#021524;font-weight:800}
     .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
-
-    /* Right card */
     .card{background:linear-gradient(180deg,var(--card),var(--card-2));padding:18px;border-radius:12px;color:var(--muted)}
     .card h3{color:#fff;margin:0 0 10px}
     .list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
     .item{display:flex;align-items:flex-start;gap:12px}
     .dot{width:10px;height:10px;border-radius:3px;background:var(--accent);margin-top:6px}
-
-    /* Features grid */
     .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
     .feature{background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);padding:16px;border-radius:10px;color:var(--muted)}
     .feature h4{color:#fff;margin:0 0 8px}
-
-    /* Footer */
     footer{margin-top:28px;color:var(--muted);display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:space-between}
     .links{display:flex;gap:28px}
     .links a{color:var(--muted);text-decoration:none}
-
-    /* Modal */
     .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
     .modal{background:#021526;border-radius:12px;padding:18px;max-width:520px;width:100%;color:var(--muted);box-shadow:0 20px 60px rgba(3,6,23,0.7)}
     .modal h3{color:#fff;margin-top:0}
     .modal .actions{display:flex;gap:10px;margin-top:12px}
-
-    /* Mobile responsive */
-    @media (max-width:980px){
-      nav{display:none}
-      .nav-toggle{display:inline-flex}
-      .hero{flex-direction:column}
-      .hero-right{width:100%}
-      .features{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width:640px){
-      .wrap{margin:12px auto;padding:0 12px}
-      .left h1{font-size:22px}
-      .search input{padding:12px}
-      .search button{padding:12px}
-      .features{grid-template-columns:1fr}
-      .card{margin-top:12px}
-      header{padding:8px 12px}
-    }
-
-    /* Mobile nav overlay */
+    @media (max-width:980px){nav{display:none}.nav-toggle{display:inline-flex}.hero{flex-direction:column}.hero-right{width:100%}.features{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.wrap{margin:12px auto;padding:0 12px}.left h1{font-size:22px}.search input{padding:12px}.search button{padding:12px}.features{grid-template-columns:1fr}.card{margin-top:12px}.header{padding:8px 12px}}
     .mobile-nav{display:none;position:fixed;top:64px;left:12px;right:12px;background:rgba(2,6,23,0.95);padding:12px;border-radius:10px;z-index:120}
     .mobile-nav a{display:block;padding:8px 0;color:var(--muted);text-decoration:none}
     .mobile-nav.show{display:block}
-
-    /* small UX tweaks */
     a{color:inherit}
     strong{color:#fff}
   </style>
@@ -125,13 +65,7 @@
   <header>
     <a class="brand" href="/">
       <div class="logo-wrap" aria-hidden="true">
-        <!-- DEFAULT: load the external file 'logo.png' placed next to index.html.
-             FALLBACK: if logo.png fails to load, the onerror handler swaps to the embedded data URI below.
-             If you want the site fully self-contained, replace DATA_URI_HERE with the full base64 data URI
-             (it must start with data:image/png;base64,....).
-        -->
-        <img id="siteLogo" src="logo.png" alt="Intent logo"
-             onerror="(function(img){ /* fallback to embedded */ img.onerror=null; img.src='DATA_URI_HERE'; })(this);">
+        <img id="siteLogo" src="logo.png" alt="Intent logo" onerror="this.onerror=null;this.src='DATA_URI_HERE'">
       </div>
       <div style="line-height:1">
         <div class="title">Intent FreeDomain</div>
@@ -145,6 +79,8 @@
       <a href="https://int.yt/whois" class="external-action">WHOIS</a>
       <a href="https://int.yt/about.html">About</a>
       <a href="https://int.yt/contact.html">Contact</a>
+      <a href="https://int.yt/privacy.html">Privacy</a>
+      <a href="https://int.yt/terms.html">Terms</a>
     </nav>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false">Menu</button>
@@ -156,6 +92,8 @@
     <a href="https://int.yt/whois" class="external-action">WHOIS</a>
     <a href="https://int.yt/about.html">About</a>
     <a href="https://int.yt/contact.html">Contact</a>
+    <a href="https://int.yt/privacy.html">Privacy</a>
+    <a href="https://int.yt/terms.html">Terms</a>
   </div>
 
   <main class="wrap">
@@ -196,7 +134,7 @@
           <a id="discordLink" class="btn btn-primary" href="https://discord.gg/NCS96PS4MH" target="_blank" rel="noopener">Open Discord</a>
           <button id="copyBtn" class="btn btn-ghost">Copy invite</button>
         </div>
-        <div style="margin-top:14px;font-size:13px;color:var(--muted)">Prefer email? Send screenshots and page details to support@intent.example (placeholder).</div>
+        <div style="margin-top:14px;font-size:13px;color:var(--muted)">Prefer email? Send screenshots and page details to <a href="mailto:support@int.yt" style="color:var(--muted)">support@int.yt</a>.</div>
 
         <hr style="margin:16px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
         <div>
@@ -233,42 +171,42 @@
         <p class="muted">Questions? Reach out via the contact page or Discord. We respond to genuine support queries within 24–72 hours.</p>
       </div>
     </section>
-
-    <footer>
-      <div style="min-width:200px">
-        <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
-        <div style="margin-top:6px;font-size:13px;color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
-      </div>
-
-      <div class="links">
-        <div>
-          <div style="font-weight:700;color:#fff;margin-bottom:8px">Product</div>
-          <a href="https://int.yt/register" class="external-action">Register</a><br>
-          <a href="https://int.yt/dashboard" class="external-action">Dashboard</a><br>
-          <a href="https://int.yt/whois" class="external-action">WHOIS</a>
-        </div>
-        <div>
-          <div style="font-weight:700;color:#fff;margin-bottom:8px">Company</div>
-          <a href="https://int.yt/about.html">About</a><br>
-          <a href="https://int.yt/contact.html">Contact</a><br>
-          <a href="https://int.yt/support">Support</a>
-        </div>
-        <div>
-          <div style="font-weight:700;color:#fff;margin-bottom:8px">Legal</div>
-          <a href="https://int.yt/terms">Terms</a><br>
-          <a href="https://int.yt/privacy">Privacy</a><br>
-          <a href="https://int.yt/abuse.html">Abuse</a>
-        </div>
-      </div>
-
-      <div style="margin-left:auto;min-width:160px;text-align:right;color:var(--muted)">
-        <div>© <strong>Intent FreeDomain</strong></div>
-        <div style="margin-top:6px">Made with ♥ • <a href="https://int.yt/contact.html" style="color:var(--muted);text-decoration:underline">Contact</a></div>
-      </div>
-    </footer>
   </main>
 
-  <!-- Modal / Ticket prompt (used when users click broken actions) -->
+  <footer>
+    <div style="min-width:200px">
+      <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
+      <div style="margin-top:6px;font-size:13px;color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
+    </div>
+
+    <div class="links">
+      <div>
+        <div style="font-weight:700;color:#fff;margin-bottom:8px">Product</div>
+        <a href="https://int.yt/register" class="external-action">Register</a><br>
+        <a href="https://int.yt/dashboard" class="external-action">Dashboard</a><br>
+        <a href="https://int.yt/whois" class="external-action">WHOIS</a>
+      </div>
+      <div>
+        <div style="font-weight:700;color:#fff;margin-bottom:8px">Company</div>
+        <a href="https://int.yt/about.html">About</a><br>
+        <a href="https://int.yt/contact.html">Contact</a><br>
+        <a href="https://int.yt/support.html">Support</a>
+      </div>
+      <div>
+        <div style="font-weight:700;color:#fff;margin-bottom:8px">Legal</div>
+        <a href="https://int.yt/terms.html">Terms</a><br>
+        <a href="https://int.yt/privacy.html">Privacy</a><br>
+        <a href="https://int.yt/abuse.html">Abuse</a>
+      </div>
+    </div>
+
+    <div style="margin-left:auto;min-width:160px;text-align:right;color:var(--muted)">
+      <div>© <strong>Intent FreeDomain</strong></div>
+      <div style="margin-top:6px">Made with ♥ • <a href="https://int.yt/contact.html" style="color:var(--muted);text-decoration:underline">Contact</a></div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
   <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <h3 id="modalTitle">Report this issue on Discord</h3>
@@ -282,7 +220,7 @@
   </div>
 
   <script>
-    // UX: validate domain and intercept placeholder links
+    // common UI behaviors
     const input = document.getElementById('domainInput');
     const checkBtn = document.getElementById('checkBtn');
     const createBtn = document.getElementById('createBtn');
@@ -297,28 +235,17 @@
       if(cleaned.length > 30) return false;
       return /^[a-z0-9-]+$/.test(cleaned);
     }
+    function openModal(){ modalBackdrop.style.display = 'flex'; modalBackdrop.setAttribute('aria-hidden','false'); }
+    function closeModal(){ modalBackdrop.style.display = 'none'; modalBackdrop.setAttribute('aria-hidden','true'); }
 
-    function openModal(){
-      modalBackdrop.style.display = 'flex';
-      modalBackdrop.setAttribute('aria-hidden','false');
-    }
-    function closeModal(){
-      modalBackdrop.style.display = 'none';
-      modalBackdrop.setAttribute('aria-hidden','true');
-    }
-
-    // show modal instead of going to broken pages
     checkBtn.addEventListener('click', ()=>{
       const v = input.value.trim();
       if(!v) return alert('Please enter a name (letters, numbers and dashes).');
       if(!validName(v)) return alert('Invalid name. Use only letters, numbers, and dashes (max 30 chars).');
-      // Instead of opening placeholder backend, show modal so user can report
       openModal();
     });
-
     createBtn.addEventListener('click', openModal);
 
-    // Intercept most placeholder links/buttons (class external-action) to show modal
     document.querySelectorAll('.external-action').forEach(el=>{
       el.addEventListener('click', (e)=>{ e.preventDefault(); openModal(); });
     });
@@ -333,7 +260,6 @@
       mobileNav.setAttribute('aria-hidden', expanded ? 'true' : 'false');
     });
 
-    // copy invite
     modalCopyBtn.addEventListener('click', async ()=>{
       try{
         await navigator.clipboard.writeText(modalDiscordLink.href);
@@ -341,26 +267,10 @@
         setTimeout(()=>{ modalCopyBtn.textContent = 'Copy invite'; }, 2000);
       }catch(err){ alert('Copy failed — please copy the link manually: ' + modalDiscordLink.href); }
     });
-
     modalClose.addEventListener('click', closeModal);
-    // close on backdrop click (but not when clicking inside the modal)
     modalBackdrop.addEventListener('click', (e)=>{ if(e.target === modalBackdrop) closeModal(); });
-    // keyboard accessibility: Esc to close
     document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
-    // Enter to check
-    input.addEventListener('keydown', (e)=>{ if(e.key === 'Enter'){ checkBtn.click(); }});
-
-    // Small enhancement: auto-focus domain input on mobile for faster flow
     if(window.innerWidth <= 640) input.setAttribute('autofocus','true');
-
-    // Optional: programmatic helper to set logo focus/zoom dynamically:
-    // call setLogoFocus('left') or setLogoZoom(1.2)
-    function setLogoFocus(pos){
-      document.documentElement.style.setProperty('--logo-focus', pos);
-    }
-    function setLogoZoom(z){
-      document.documentElement.style.setProperty('--logo-zoom', String(z));
-    }
   </script>
 </body>
 </html>

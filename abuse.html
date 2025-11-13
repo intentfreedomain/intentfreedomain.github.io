@@ -1,73 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abuse Reporting and Acceptable Use Policy</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #333;
-        }
-        h1 {
-            color: #1a1a1a;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #444;
-            margin-top: 25px;
-        }
-        p, ul {
-            margin-bottom: 15px;
-        }
-        .contact-info {
-            font-weight: bold;
-            color: #0056b3;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abuse — Intent FreeDomain</title>
+  <meta name="description" content="Abuse reporting and acceptable use policy." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{ --bg:#071226; --muted:#94a3b8; --accent:#06b6d4; --logo-focus:center; --logo-zoom:1.05; }
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);margin:0;background:linear-gradient(180deg,#071226,#071a2a);-webkit-font-smoothing:antialiased}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);position:sticky;top:0;border-bottom:1px solid rgba(255,255,255,0.02)}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo-wrap{width:44px;height:44px;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--accent),#3b82f6)}
+    .logo-wrap img{width:100%;height:100%;object-fit:cover;object-position:var(--logo-focus);transform:scale(var(--logo-zoom))}
+    nav a{color:rgba(255,255,255,0.85);text-decoration:none;margin-left:6px;font-weight:600}
+    .wrap{max-width:1000px;margin:28px auto;padding:0 18px}
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px;color:var(--muted);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    h1{color:#fff}
+    p,li{color:var(--muted)}
+    ul{margin-left:18px}
+    footer{margin-top:28px;color:var(--muted);display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;padding:18px}
+    @media (max-width:640px){.wrap{padding:0 12px}}
+  </style>
 </head>
 <body>
+  <header>
+    <a class="brand" href="/">
+      <div class="logo-wrap"><img src="logo.png" alt="Intent logo" onerror="this.onerror=null;this.src='DATA_URI_HERE'"></div>
+      <div>
+        <div style="font-weight:800;color:#fff">Intent FreeDomain</div>
+        <div style="font-size:12px;color:var(--muted)">Free subdomains • Privacy-first</div>
+      </div>
+    </a>
 
-    <h1>Abuse Reporting and Acceptable Use Policy</h1>
+    <nav>
+      <a href="https://int.yt/register" class="external-action">Register</a>
+      <a href="https://int.yt/dashboard" class="external-action">Dashboard</a>
+      <a href="https://int.yt/whois" class="external-action">WHOIS</a>
+      <a href="https://int.yt/about.html">About</a>
+      <a href="https://int.yt/contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <p>We are committed to providing a safe, respectful, and functional environment for all users. This policy outlines what constitutes abuse and the proper procedure for reporting it.</p>
+  <main class="wrap">
+    <div class="panel">
+      <h1>Abuse Reporting & Acceptable Use</h1>
+      <p>We are committed to keeping the service safe. Abuse includes illegal content, harassment, malware, unsolicited bulk messaging, intellectual property theft, and actions that disrupt the service.</p>
 
-    <h2>1. What Constitutes Abuse (Good Form for Abuse)</h2>
-    <p>Abuse includes, but is not limited to, any conduct that violates local, state, federal, or international laws, or interferes with the normal operation of our services. Examples of abuse include:</p>
-    <ul>
-        <li><strong>Spamming:</strong> Unsolicited bulk email, repetitive or irrelevant posts, or distributing unsolicited commercial communication.</li>
-        <li><strong>Illegal Content:</strong> Posting, sharing, or linking to child exploitation, terrorist material, or other content deemed illegal.</li>
-        <li><strong>Harassment and Hate Speech:</strong> Targeted harassment, threats, or the promotion of discrimination, hatred, or violence against individuals or groups.</li>
-        <li><strong>Intellectual Property Infringement:</strong> Unauthorized use of copyrighted material, trademarks, or trade secrets.</li>
-        <li><strong>Malicious Activity:</strong> Distributing malware, phishing, or attempting to compromise the security or integrity of our systems or other users' data.</li>
-    </ul>
+      <h2 style="color:#fff;margin-top:14px">How to report</h2>
+      <p>Please email abuse reports to <strong style="color:#fff">abuse@int.yt</strong> with the following:</p>
+      <ul>
+        <li>Your contact details (name, email)</li>
+        <li>Clear description of the issue</li>
+        <li>Exact URL(s), usernames or IPs involved</li>
+        <li>Any supporting evidence (screenshots, logs)</li>
+      </ul>
 
-    <h2>2. Reporting Procedure</h2>
-    <p>If you encounter content or activity that violates this policy, please follow the formal reporting procedure below. Providing detailed information allows us to investigate and resolve the issue quickly.</p>
-    <p>Please submit all abuse reports via email to the following dedicated address:</p>
-    <p class="contact-info">abuse@int.yt</p>
-    <p>Your report must include:</p>
-    <ul>
-        <li>Your contact information (name and email).</li>
-        <li>A clear description of the alleged abuse.</li>
-        <li>The exact location (URL, username, or IP address) where the abuse occurred.</li>
-        <li>Any supporting evidence, such as screenshots or communication logs.</li>
-    </ul>
+      <h2 style="color:#fff;margin-top:12px">Enforcement</h2>
+      <p>We investigate reports and may remove content, suspend accounts, terminate access, or refer to law enforcement when necessary.</p>
+    </div>
+  </main>
 
-    <h2>3. Policy Violations and Consequences</h2>
-    <p>We take all reports seriously and will investigate them promptly and confidentially. Violations of this policy may result in immediate action, including:</p>
-    <ul>
-        <li>Removal of the offending content.</li>
-        <li>Temporary or permanent suspension of the user's account.</li>
-        <li>Termination of service.</li>
-        <li>Reporting the activity to appropriate law enforcement agencies.</li>
-    </ul>
+  <footer>
+    <div>
+      <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
+      <div style="color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
+    </div>
+    <div>
+      <a href="https://int.yt/terms" style="color:var(--muted)">Terms</a> • <a href="https://int.yt/privacy" style="color:var(--muted)">Privacy</a>
+    </div>
+  </footer>
 
+  <script>
+    document.querySelectorAll('.external-action').forEach(el=>{
+      el.addEventListener('click', e=>{ e.preventDefault(); alert('This link is not active in demo — open support on Discord: https://discord.gg/NCS96PS4MH'); });
+    });
+  </script>
 </body>
 </html>

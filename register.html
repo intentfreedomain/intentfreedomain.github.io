@@ -1,26 +1,75 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Register</title></head>
-<body style="font-family:Arial,Helvetica,sans-serif;background:#071226;color:#cbd5e1;padding:18px">
-  <h2>Register</h2>
-  <form id="f">
-    <input name="username" placeholder="username" required><br><br>
-    <input name="email" type="email" placeholder="email" required><br><br>
-    <input name="password" type="password" placeholder="password (8+)" required><br><br>
-    <button>Register</button>
-  </form>
-  <div id="out"></div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register — Intent FreeDomain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#071226; --muted:#94a3b8; --accent:#06b6d4; --accent-2:#3b82f6; --text:#e6eef6;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted);-webkit-font-smoothing:antialiased}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.03);background:rgba(0,0,0,0.05)}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo-wrap{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center}
+    .container{max-width:900px;margin:24px auto;padding:0 18px}
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px}
+    h1{color:var(--text)}
+    form{display:grid;gap:12px}
+    input,button{padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+    button{background:linear-gradient(180deg,var(--accent),var(--accent-2));border:none;color:#022;font-weight:800}
+    @media(max-width:640px){.container{padding:0 12px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo-wrap"><img src="logo.png" alt="logo" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'"></div>
+      <div style="color:var(--text);font-weight:700">Intent FreeDomain</div>
+    </div>
+    <nav><a href="/dashboard.html" style="color:var(--muted)">Dashboard</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h1>Register</h1>
+      <p style="color:var(--muted)">Create an account to manage your subdomains.</p>
+      <form id="regForm">
+        <input name="username" id="username" placeholder="Username (3-30 chars)" required pattern="[A-Za-z0-9\-]{3,30}">
+        <input type="email" name="email" id="email" placeholder="Email" required>
+        <input type="password" name="password" id="password" placeholder="Password (8+ chars)" required minlength="8">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="submit">Create account</button>
+          <button type="button" id="useDiscord" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)">Open Discord</button>
+        </div>
+      </form>
+      <div id="msg" style="margin-top:12px;color:var(--muted)"></div>
+    </section>
+  </main>
+
   <script>
-    const form = document.getElementById('f');
-    form.addEventListener('submit', async e=>{
+    const form = document.getElementById('regForm');
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const fd = new FormData(form);
-      const body = { username: fd.get('username'), email: fd.get('email'), password: fd.get('password') };
-      const res = await fetch('/api/register', { method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify(body) });
-      const data = await res.json();
-      if(!res.ok) { document.getElementById('out').innerText = JSON.stringify(data); return; }
-      // store token locally (demo). In production use secure httpOnly cookies.
-      localStorage.setItem('intent_token', data.token || data.token);
-      document.getElementById('out').innerText = 'Registered. Redirecting to dashboard...';
-      location.href = '/dashboard.html';
+      const u = document.getElementById('username').value.trim();
+      const em = document.getElementById('email').value.trim();
+      const pw = document.getElementById('password').value;
+      if(!u||!em||!pw) return alert('Fill all fields');
+      // call backend register endpoint on same origin
+      try{
+        const res = await fetch('/api/register', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u,email:em,password:pw})});
+        const data = await res.json();
+        if(!res.ok) { document.getElementById('msg').innerText = data.error || JSON.stringify(data); return; }
+        // store token if returned (for demo)
+        if(data.token) localStorage.setItem('intent_token', data.token);
+        document.getElementById('msg').innerText = 'Registered — redirecting to dashboard...';
+        setTimeout(()=> location.href='/dashboard.html', 900);
+      }catch(err){ document.getElementById('msg').innerText = 'Network error'; }
     });
+
+    document.getElementById('useDiscord').addEventListener('click', ()=> window.open('https://discord.gg/NCS96PS4MH','_blank'));
   </script>
-</body></html>
+</body>
+</html>

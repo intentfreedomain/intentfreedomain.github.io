@@ -8,13 +8,15 @@
 <script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
 <style>
 :root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--accent2:#3b82f6;--text:#e6eef6}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
-header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.03)}
+*{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
+header{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
 .container{max-width:900px;margin:24px auto;padding:0 18px}
 .panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px}
 h1{color:var(--text)}
-input,button{padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
-button{background:linear-gradient(180deg,var(--accent),var(--accent2));border:none;color:#022;font-weight:800}
+input,button{padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);width:100%}
+button{background:linear-gradient(180deg,var(--accent),var(--accent2));border:none;color:#022;font-weight:800;cursor:pointer}
+.small{color:var(--muted)}
+.error{background:rgba(220,40,40,0.06);border:1px solid rgba(220,40,40,0.14);color:#ffb3b3;padding:10px;border-radius:8px;margin-top:10px}
 </style>
 </head>
 <body>
@@ -27,39 +29,55 @@ button{background:linear-gradient(180deg,var(--accent),var(--accent2));border:no
 </header>
 
 <main class="container">
-  <div class="panel">
+  <section class="panel">
     <h1>Create account</h1>
-    <p style="color:var(--muted)">Create an account to manage subdomains.</p>
+    <p class="small">Create an account to manage subdomains (max 3 subdomains per account).</p>
+
     <form id="regForm">
-      <input name="username" id="username" placeholder="Username (3-30 chars)" required pattern="[A-Za-z0-9\-]{3,30}">
-      <input type="email" name="email" id="email" placeholder="Email" required>
-      <input type="password" name="password" id="password" placeholder="Password (8+ chars)" required minlength="8">
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-        <button type="submit">Create account</button>
-        <button type="button" id="openDiscord" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)">Open Discord</button>
+      <input id="username" placeholder="Username (3-30 chars)" required pattern="[A-Za-z0-9\-]{3,30}">
+      <div style="height:12px"></div>
+      <input id="email" type="email" placeholder="Email" required>
+      <div style="height:12px"></div>
+      <input id="password" type="password" placeholder="Password (8+ chars)" required minlength="8">
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <button type="submit" style="flex:1">Create account</button>
+        <button type="button" id="openDiscord" style="flex:0 0 140px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)">Open Discord</button>
       </div>
     </form>
-    <div id="msg" style="margin-top:12px;color:var(--muted)"></div>
-  </div>
+
+    <div id="msg" class="small" style="margin-top:12px"></div>
+    <div id="errBox" class="error" style="display:none"></div>
+  </section>
 </main>
 
 <script>
 document.getElementById('regForm').addEventListener('submit', async (e)=>{
   e.preventDefault();
+  document.getElementById('errBox').style.display='none';
   const u=document.getElementById('username').value.trim();
   const em=document.getElementById('email').value.trim();
   const pw=document.getElementById('password').value;
   if(!u||!em||!pw) return alert('Fill all fields');
   try{
-    const res=await fetch(api('/api/register'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u,email:em,password:pw})});
-    const d=await res.json();
-    if(!res.ok){ document.getElementById('msg').innerText=d.error||JSON.stringify(d); return; }
-    if(d.token) localStorage.setItem('intent_token',d.token);
-    document.getElementById('msg').innerText='Registered — redirecting...';
-    setTimeout(()=>location.href='/dashboard.html',800);
-  }catch(err){ document.getElementById('msg').innerText='Network error'; }
+    const res = await fetch(api('/api/register'), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ username:u, email:em, password:pw }) });
+    const txt = await res.text();
+    let data = null;
+    try { data = JSON.parse(txt); } catch(e){}
+    if(!res.ok){
+      const msg = (data && (data.error || data.message || data.detail)) || txt || res.statusText;
+      document.getElementById('errBox').style.display = 'block';
+      document.getElementById('errBox').textContent = 'Register failed: ' + msg;
+      return;
+    }
+    if(data.token) localStorage.setItem('intent_token', data.token);
+    document.getElementById('msg').textContent = 'Registered — redirecting to dashboard...';
+    setTimeout(()=> location.href='/dashboard.html', 900);
+  }catch(err){
+    document.getElementById('errBox').style.display='block';
+    document.getElementById('errBox').textContent = 'Network error: ' + err.message;
+  }
 });
-document.getElementById('openDiscord').addEventListener('click', ()=>window.open('https://discord.gg/NCS96PS4MH','_blank'));
+document.getElementById('openDiscord').addEventListener('click', ()=> window.open('https://discord.gg/NCS96PS4MH','_blank'));
 </script>
 </body>
 </html>

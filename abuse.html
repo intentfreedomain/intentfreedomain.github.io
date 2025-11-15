@@ -1,82 +1,50 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Abuse — Intent FreeDomain</title>
-  <meta name="description" content="Report abuse, DMCA, and acceptable use policy." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--logo-focus:center;--logo-zoom:1.05}
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);margin:0;background:linear-gradient(180deg,#071226 0%, #071a2a 70%);-webkit-font-smoothing:antialiased}
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;position:sticky;top:0;backdrop-filter:blur(6px);z-index:80;border-bottom:1px solid rgba(255,255,255,0.02)}
-    .logo-wrap{width:44px;height:44px;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--accent),#3b82f6)}
-    .logo-wrap img{width:100%;height:100%;object-fit:cover;object-position:var(--logo-focus);transform:scale(var(--logo-zoom))}
-    nav a{color:rgba(255,255,255,0.85);text-decoration:none;margin-left:6px;font-weight:600}
-    .wrap{max-width:1000px;margin:28px auto;padding:0 18px}
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px;color:var(--muted);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
-    h1{color:#fff}
-    ul{color:var(--muted)}
-    @media (max-width:640px){.wrap{padding:0 12px}}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Abuse — Intent FreeDomain</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
+<style>
+:root{--bg:#071226;--muted:#94a3b8;--text:#e6eef6;--accent:#06b6d4}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;color:var(--muted);background:linear-gradient(180deg,#071226,#071a2a)}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.03)}
+.logo-wrap{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#3b82f6);display:flex;align-items:center;justify-content:center}
+.container{max-width:980px;margin:24px auto;padding:0 18px}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px}
+h1{color:var(--text)}
+</style>
 </head>
 <body>
-  <header>
-    <a class="brand" href="/">
-      <div class="logo-wrap"><img src="logo.png" alt="Intent logo" onerror="this.onerror=null;this.src='DATA_URI_HERE'"></div>
-      <div>
-        <div style="font-weight:800;color:#fff">Intent FreeDomain</div>
-        <div style="font-size:12px;color:var(--muted)">Free subdomains • Privacy-first</div>
-      </div>
-    </a>
-    <nav>
-      <a href="https://int.yt/register" class="external-action">Register</a>
-      <a href="https://int.yt/dashboard" class="external-action">Dashboard</a>
-      <a href="https://int.yt/whois" class="external-action">WHOIS</a>
-      <a href="https://int.yt/about.html">About</a>
-      <a href="https://int.yt/contact.html">Contact</a>
-      <a href="https://int.yt/privacy.html">Privacy</a>
-      <a href="https://int.yt/terms.html">Terms</a>
-    </nav>
-  </header>
+<header>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="logo-wrap"></div>
+    <div style="font-weight:800;color:var(--text)">Intent FreeDomain</div>
+  </div>
+  <nav><a href="/" style="color:var(--muted)">Home</a></nav>
+</header>
 
-  <main class="wrap">
-    <div class="panel">
-      <h1>Abuse Reporting & Acceptable Use</h1>
-      <p>We take reports seriously. Abuse includes illegal content, malware, phishing, harassment, spam, and content violating intellectual property rights.</p>
+<main class="container">
+  <div class="panel">
+    <h1>Report abuse</h1>
+    <p>If you discover abuse (malware, phishing, copyright infringement), email <strong style="color:var(--text)">abuse@int.yt</strong> with the following:</p>
+    <ul>
+      <li>Your contact details</li>
+      <li>Exact URL(s) involved</li>
+      <li>Evidence (screenshots/logs)</li>
+    </ul>
+    <p>We investigate and may suspend or remove content. For urgent takedowns, include timestamps and a clear summary in your message.</p>
+  </div>
+</main>
 
-      <h2 style="color:#fff;margin-top:12px">How to report</h2>
-      <p>Email <strong style="color:#fff">abuse@int.yt</strong> with:</p>
-      <ul>
-        <li>Your contact info (name, email)</li>
-        <li>Clear description of the issue</li>
-        <li>Exact URL(s) and timestamps</li>
-        <li>Supporting evidence (screenshots, logs)</li>
-      </ul>
-
-      <h2 style="color:#fff;margin-top:12px">DMCA</h2>
-      <p>If you are reporting copyright infringement, include detailed DMCA takedown information. We process claims and will respond per applicable law.</p>
-
-      <h2 style="color:#fff;margin-top:12px">Enforcement</h2>
-      <p>We investigate and may remove content, suspend accounts, or escalate to law enforcement if necessary.</p>
-    </div>
-  </main>
-
-  <footer style="margin-top:28px;padding:18px;color:var(--muted);display:flex;justify-content:space-between;align-items:flex-start">
-    <div>
-      <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
-      <div style="color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
-    </div>
-    <div>
-      <a href="https://int.yt/terms.html" style="color:var(--muted)">Terms</a> • <a href="https://int.yt/privacy.html" style="color:var(--muted)">Privacy</a>
-    </div>
-  </footer>
-
-  <script>
-    document.querySelectorAll('.external-action').forEach(el=>{
-      el.addEventListener('click', e=>{ e.preventDefault(); alert('Open a ticket on Discord: https://discord.gg/NCS96PS4MH'); });
-    });
-  </script>
+<footer style="margin-top:28px;padding:18px;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;flex-wrap:wrap">
+  <div style="color:var(--text);font-weight:800">Intent FreeDomain</div>
+  <div>
+    <a href="/contact.html">Contact</a><br>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+  <div><a href="https://discord.gg/NCS96PS4MH">Discord</a></div>
+</footer>
 </body>
 </html>

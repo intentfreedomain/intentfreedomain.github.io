@@ -1,99 +1,57 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — Intent FreeDomain</title>
-  <meta name="description" content="Contact Intent FreeDomain — support channels and contact form." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--logo-focus:center;--logo-zoom:1.05}
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);margin:0;background:linear-gradient(180deg,#071226 0%, #071a2a 70%);-webkit-font-smoothing:antialiased}
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;position:sticky;top:0;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-bottom:1px solid rgba(255,255,255,0.02)}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo-wrap{width:44px;height:44px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),#3b82f6)}
-    .logo-wrap img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--logo-focus);transform:scale(var(--logo-zoom))}
-    nav a{color:rgba(255,255,255,0.85);text-decoration:none;margin-left:6px;font-weight:600}
-    .wrap{max-width:1100px;margin:28px auto;padding:0 18px}
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px;color:var(--muted);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
-    h1{color:#fff}
-    form{display:flex;flex-direction:column;gap:12px}
-    input,textarea{padding:12px;border-radius:8px;border:none;font-size:15px;background:rgba(255,255,255,0.02);color:#fff}
-    button{padding:12px;border-radius:8px;border:none;background:linear-gradient(180deg,var(--accent),#3b82f6);color:#021524;font-weight:700;cursor:pointer}
-    footer{margin-top:28px;color:var(--muted);display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;padding:18px}
-    @media (max-width:640px){.wrap{padding:0 12px}}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contact — Intent FreeDomain</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
+<style>
+:root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--text:#e6eef6}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.03)}
+.container{max-width:980px;margin:24px auto;padding:0 18px}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px}
+h1{color:var(--text)}
+input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+button{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;background:linear-gradient(180deg,var(--accent),#3b82f6);color:#022;font-weight:800}
+</style>
 </head>
 <body>
-  <header>
-    <a class="brand" href="/">
-      <div class="logo-wrap"><img src="logo.png" alt="Intent logo" onerror="this.onerror=null;this.src='DATA_URI_HERE'"></div>
-      <div>
-        <div style="font-weight:800;color:#fff">Intent FreeDomain</div>
-        <div style="font-size:12px;color:var(--muted)">Free subdomains • Privacy-first</div>
+<header>
+  <div style="display:flex;align-items:center;gap:12px"><div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#06b6d4,#3b82f6)"></div><div style="font-weight:800;color:var(--text)">Intent FreeDomain</div></div>
+  <nav><a href="/" style="color:var(--muted)">Home</a></nav>
+</header>
+
+<main class="container">
+  <div class="panel">
+    <h1>Contact</h1>
+    <p style="color:var(--muted)">Fastest support via Discord. For formal requests, use email below.</p>
+
+    <p><strong style="color:var(--text)">Discord</strong>: <a href="https://discord.gg/NCS96PS4MH">https://discord.gg/NCS96PS4MH</a></p>
+    <p><strong style="color:var(--text)">Email</strong>: <a href="mailto:support@int.yt">support@int.yt</a></p>
+
+    <h2 style="color:var(--text);margin-top:12px">Send us a message</h2>
+    <form id="contactForm">
+      <input name="name" placeholder="Your name" required>
+      <input name="email" type="email" placeholder="Your email" required>
+      <textarea name="message" rows="6" placeholder="Message" required></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button type="submit">Send</button>
+        <button type="button" id="openDiscord" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)">Open Discord</button>
       </div>
-    </a>
+    </form>
+    <div id="res" style="margin-top:10px;color:var(--muted)"></div>
+  </div>
+</main>
 
-    <nav>
-      <a href="https://int.yt/register" class="external-action">Register</a>
-      <a href="https://int.yt/dashboard" class="external-action">Dashboard</a>
-      <a href="https://int.yt/whois" class="external-action">WHOIS</a>
-      <a href="https://int.yt/about.html">About</a>
-      <a href="https://int.yt/contact.html">Contact</a>
-      <a href="https://int.yt/privacy.html">Privacy</a>
-      <a href="https://int.yt/terms.html">Terms</a>
-    </nav>
-  </header>
-
-  <main class="wrap">
-    <div class="panel">
-      <h1>Contact Us</h1>
-      <p>The fastest place for help is our Discord. For formal requests use the email addresses below. For general inquiries, use the form.</p>
-
-      <h2 style="color:#fff;margin-top:14px">Support via Discord</h2>
-      <p><a href="https://discord.gg/NCS96PS4MH" style="color:var(--muted)">Discord: https://discord.gg/NCS96PS4MH</a> — create a ticket, include the page URL and a short description.</p>
-
-      <h2 style="color:#fff;margin-top:12px">Email</h2>
-      <p><a href="mailto:support@int.yt" style="color:var(--muted)">support@int.yt</a></p>
-    </div>
-
-    <div style="height:18px"></div>
-
-    <div class="panel">
-      <h2 style="color:#fff">Send us a message</h2>
-      <form onsubmit="event.preventDefault(); alert('Thanks — message received (demo). Join Discord for real-time support.');">
-        <input type="text" placeholder="Your name" required>
-        <input type="email" placeholder="Your email" required>
-        <textarea rows="6" placeholder="Message" required></textarea>
-        <button type="submit">Send message</button>
-      </form>
-    </div>
-  </main>
-
-  <footer>
-    <div>
-      <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
-      <div style="color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
-    </div>
-    <div style="display:flex;gap:20px">
-      <div>
-        <strong style="color:#fff">Product</strong><br>
-        <a href="https://int.yt/register">Register</a><br>
-        <a href="https://int.yt/dashboard">Dashboard</a>
-      </div>
-      <div>
-        <strong style="color:#fff">Legal</strong><br>
-        <a href="https://int.yt/abuse.html">Abuse</a><br>
-        <a href="https://int.yt/privacy.html">Privacy</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.querySelectorAll('.external-action').forEach(el=>{
-      el.addEventListener('click', e=>{ e.preventDefault(); alert('This link is not active in demo — open support on Discord: https://discord.gg/NCS96PS4MH'); });
-    });
-  </script>
+<script>
+document.getElementById('contactForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  // This will simply prompt user to use Discord/email (no server-side mail configured)
+  document.getElementById('res').innerText = 'Thanks — please join our Discord for fastest support: https://discord.gg/NCS96PS4MH';
+});
+document.getElementById('openDiscord').addEventListener('click', ()=> window.open('https://discord.gg/NCS96PS4MH','_blank'));
+</script>
 </body>
 </html>

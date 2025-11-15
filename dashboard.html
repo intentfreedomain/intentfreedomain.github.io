@@ -1,98 +1,87 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dashboard — Intent FreeDomain</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--text:#e6eef6}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.03)}
-    .container{max-width:1000px;margin:20px auto;padding:0 18px}
-    .panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px}
-    h1{color:var(--text)}
-    pre{white-space:pre-wrap;color:var(--muted)}
-    @media(max-width:640px){.container{padding:0 12px}}
-  </style>
-
-  <script>
-    const API_BASE = 'https://backend-render-gehg.onrender.com';
-    function api(p){ return API_BASE + p; }
-  </script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dashboard — Intent FreeDomain</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
+<style>
+:root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--text:#e6eef6}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.03)}
+.container{max-width:1000px;margin:20px auto;padding:0 18px}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+h1{color:var(--text)}
+pre{white-space:pre-wrap;color:var(--muted)}
+input,button{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+button{border:0;background:linear-gradient(180deg,#06b6d4,#3b82f6);color:#022;font-weight:800}
+</style>
 </head>
 <body>
-  <header>
-    <div style="display:flex;align-items:center;gap:12px">
-      <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#06b6d4,#3b82f6)"></div>
-      <div style="color:var(--text);font-weight:700">Intent Dashboard</div>
+<header>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#06b6d4,#3b82f6)"></div>
+    <div style="color:var(--text);font-weight:700">Intent Dashboard</div>
+  </div>
+  <nav><a href="/register.html" style="color:var(--muted)">Register</a></nav>
+</header>
+
+<main class="container">
+  <section class="panel">
+    <h1>Your account</h1>
+    <div id="status">Loading...</div>
+    <div style="margin-top:12px"><button id="logout">Logout</button></div>
+  </section>
+
+  <section class="panel" style="margin-top:12px">
+    <h2 style="color:var(--text)">Subdomains</h2>
+    <div id="subs">Loading...</div>
+    <div style="margin-top:8px">
+      <form id="newsub" style="display:flex;gap:8px;flex-wrap:wrap">
+        <input id="subname" placeholder="example" style="min-width:120px">
+        <input id="target" placeholder="target IP or host (optional)" style="min-width:160px">
+        <button type="submit">Create</button>
+      </form>
     </div>
-    <nav><a href="/register.html" style="color:var(--muted)">Register</a></nav>
-  </header>
+  </section>
+</main>
 
-  <main class="container">
-    <section class="panel">
-      <h1>Your account</h1>
-      <div id="status">Loading...</div>
-      <div style="margin-top:12px">
-        <button id="logout" style="padding:10px;border-radius:8px;border:0;background:linear-gradient(180deg,#06b6d4,#3b82f6);font-weight:800;color:#022">Logout</button>
-      </div>
-    </section>
+<script>
+async function load(){
+  const token = localStorage.getItem('intent_token');
+  const status = document.getElementById('status');
+  if(!token){ status.innerText = 'Not logged in — go to register.html'; return; }
+  try{
+    const r = await fetch(api('/api/dashboard'), { headers:{ Authorization: 'Bearer '+token }});
+    if(r.status===401){ status.innerText = 'Session invalid'; return; }
+    const j = await r.json();
+    status.innerText = JSON.stringify(j.user,null,2);
 
-    <section class="panel" style="margin-top:12px">
-      <h2 style="color:var(--text)">Subdomains</h2>
-      <div id="subs">Loading...</div>
-      <div style="margin-top:8px">
-        <form id="newsub" style="display:flex;gap:8px;flex-wrap:wrap">
-          <input id="subname" placeholder="example" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)">
-          <input id="target" placeholder="target IP or URL (optional)" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)">
-          <button type="submit" style="padding:10px;border-radius:8px;border:0;background:linear-gradient(180deg,#06b6d4,#3b82f6);font-weight:800;color:#022">Create</button>
-        </form>
-      </div>
-    </section>
-  </main>
+    const s = await fetch(api('/api/subdomains'), { headers:{ Authorization: 'Bearer '+token }});
+    if(s.ok){ const js = await s.json(); document.getElementById('subs').innerText = JSON.stringify(js,null,2); }
+    else document.getElementById('subs').innerText='No subdomains or API not reachable';
+  }catch(e){
+    status.innerText='Network error';
+  }
+}
+load();
 
-  <script>
-    // Basic dashboard using token in localStorage
-    const out = document.getElementById('status');
-    async function load() {
-      const token = localStorage.getItem('intent_token');
-      if(!token){ out.innerText = 'Not logged in — go to register.html'; return; }
-      try{
-        const r = await fetch(api('/api/dashboard'), { headers:{ Authorization:'Bearer ' + token } });
-        if(r.status === 401){ out.innerText = 'Session invalid'; return; }
-        const j = await r.json();
-        out.innerText = JSON.stringify(j.user, null, 2);
+document.getElementById('newsub').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const token = localStorage.getItem('intent_token');
+  if(!token) return alert('Log in first');
+  const name = document.getElementById('subname').value.trim();
+  const target = document.getElementById('target').value.trim();
+  if(!name) return alert('Enter a name');
+  const res = await fetch(api('/api/subdomains'), { method:'POST', headers:{ 'Content-Type':'application/json', Authorization:'Bearer '+token }, body: JSON.stringify({ name, target })});
+  const d = await res.json();
+  if(!res.ok) return alert(d.error || JSON.stringify(d));
+  alert('Created — check dashboard');
+  load();
+});
 
-        const s = await fetch(api('/api/subdomains'), { headers:{ Authorization:'Bearer ' + token } });
-        if(s.ok){ const js = await s.json(); document.getElementById('subs').innerText = JSON.stringify(js, null, 2); } 
-        else { document.getElementById('subs').innerText = 'No subdomains or API not implemented'; }
-      } catch(e) {
-        out.innerText = 'Network error';
-      }
-    }
-    load();
-
-    document.getElementById('newsub').addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const token = localStorage.getItem('intent_token');
-      if(!token) return alert('Log in first');
-      const name = document.getElementById('subname').value.trim();
-      const target = document.getElementById('target').value.trim();
-      if(!name) return alert('Enter a name');
-      const res = await fetch(api('/api/subdomains'), {
-        method:'POST',
-        headers:{ 'Content-Type':'application/json', Authorization:'Bearer ' + token },
-        body: JSON.stringify({ name, target })
-      });
-      const d = await res.json();
-      if(!res.ok) return alert(d.error || JSON.stringify(d));
-      alert('Created (active/pending) — check dashboard');
-      load();
-    });
-
-    document.getElementById('logout').addEventListener('click', ()=>{ localStorage.removeItem('intent_token'); location.href='/'});
-  </script>
+document.getElementById('logout').addEventListener('click', ()=>{ localStorage.removeItem('intent_token'); location.href='/' });
+</script>
 </body>
 </html>

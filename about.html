@@ -1,94 +1,90 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — Intent FreeDomain</title>
-  <meta name="description" content="About Intent FreeDomain — mission and what we offer." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--logo-focus:center;--logo-zoom:1.05}
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);margin:0;background:linear-gradient(180deg,#071226 0%, #071a2a 70%);-webkit-font-smoothing:antialiased}
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;position:sticky;top:0;backdrop-filter:blur(6px);z-index:80;border-bottom:1px solid rgba(255,255,255,0.02);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo-wrap{width:44px;height:44px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),#3b82f6)}
-    .logo-wrap img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--logo-focus);transform:scale(var(--logo-zoom))}
-    nav{display:flex;gap:14px}
-    nav a{color:rgba(255,255,255,0.85);text-decoration:none;font-weight:600}
-    .wrap{max-width:1100px;margin:28px auto;padding:0 18px}
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px;color:var(--muted);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
-    h1{color:#fff;margin-top:0}
-    @media (max-width:640px){.wrap{padding:0 12px}}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About — Intent FreeDomain</title>
+<meta name="description" content="About Intent FreeDomain" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
+<style>
+:root{--bg:#071226;--panel:#071826;--accent:#06b6d4;--accent2:#3b82f6;--muted:#94a3b8;--text:#e6eef6}
+*{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;color:var(--muted);background:linear-gradient(180deg,var(--bg),#071a2a)}
+a{color:inherit}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
+.brand{display:flex;gap:12px;align-items:center}
+.logo-wrap{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
+.logo-wrap img{width:100%;height:100%;object-fit:cover}
+nav{display:flex;gap:14px;align-items:center}
+nav a{font-weight:600;color:rgba(255,255,255,0.9)}
+.nav-toggle{display:none}
+.container{max-width:1150px;margin:24px auto;padding:0 18px}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:22px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+h1{color:var(--text);margin:0 0 10px}
+p{color:var(--muted)}
+footer{margin-top:28px;padding:18px;border-top:1px solid rgba(255,255,255,0.05);display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+@media(max-width:980px){nav{display:none}.nav-toggle{display:inline-flex}}
+</style>
 </head>
 <body>
-  <header>
-    <a class="brand" href="/">
-      <div class="logo-wrap"><img src="logo.png" alt="Intent logo" onerror="this.onerror=null;this.src='DATA_URI_HERE'"></div>
-      <div>
-        <div style="font-weight:800;color:#fff">Intent FreeDomain</div>
-        <div style="font-size:12px;color:var(--muted)">Free subdomains • Privacy-first</div>
-      </div>
-    </a>
 
-    <nav>
-      <a href="https://int.yt/register" class="external-action">Register</a>
-      <a href="https://int.yt/dashboard" class="external-action">Dashboard</a>
-      <a href="https://int.yt/whois" class="external-action">WHOIS</a>
-      <a href="https://int.yt/about.html">About</a>
-      <a href="https://int.yt/contact.html">Contact</a>
-      <a href="https://int.yt/privacy.html">Privacy</a>
-      <a href="https://int.yt/terms.html">Terms</a>
-    </nav>
-  </header>
-
-  <main class="wrap">
-    <div class="panel">
-      <h1>About Intent FreeDomain</h1>
-      <p><strong>Intent FreeDomain</strong> provides free, fast subdomains and a lightweight dashboard so creators can get projects online quickly. We prioritize privacy, simplicity and fast iteration.</p>
-
-      <h2 style="color:#fff;margin-top:16px">Mission</h2>
-      <p>Make web identities and small projects accessible — no heavy setups, no fees for personal/hobby projects.</p>
-
-      <h2 style="color:#fff;margin-top:16px">Values</h2>
-      <ul style="color:var(--muted)">
-        <li>Privacy-first: minimal data collection</li>
-        <li>Open for learners: encourage experimentation</li>
-        <li>Community-backed support via Discord</li>
-      </ul>
+<header>
+  <a class="brand" href="/">
+    <div class="logo-wrap" aria-hidden="true">
+      <img src="logo.png" alt="logo" onerror="this.style.display='none';document.getElementById('logoSVG').style.display='block'">
+      <svg id="logoSVG" viewBox="0 0 100 100" style="display:none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" rx="14" fill="#06b6d4"/>
+        <text x="50%" y="55%" font-size="36" fill="#021526" text-anchor="middle" dominant-baseline="middle" font-family="Inter,Arial" font-weight="800">IF</text>
+      </svg>
     </div>
-  </main>
-
-  <footer style="margin-top:28px;padding:18px;color:var(--muted);display:flex;justify-content:space-between;align-items:flex-start">
-    <div>
-      <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
-      <div style="color:var(--muted)">Free subdomains and privacy-respecting DNS tools.</div>
+    <div style="line-height:1">
+      <div style="font-weight:800;color:var(--text)">Intent FreeDomain</div>
+      <div style="font-size:12px;color:var(--muted)">Free subdomains • Privacy-first</div>
     </div>
-    <div style="display:flex;gap:28px">
-      <div>
-        <div style="font-weight:700;color:#fff">Product</div>
-        <a href="https://int.yt/register">Register</a><br>
-        <a href="https://int.yt/dashboard">Dashboard</a>
-      </div>
-      <div>
-        <div style="font-weight:700;color:#fff">Company</div>
-        <a href="https://int.yt/about.html">About</a><br>
-        <a href="https://int.yt/contact.html">Contact</a>
-      </div>
-      <div>
-        <div style="font-weight:700;color:#fff">Legal</div>
-        <a href="https://int.yt/terms.html">Terms</a><br>
-        <a href="https://int.yt/privacy.html">Privacy</a><br>
-        <a href="https://int.yt/abuse.html">Abuse</a>
-      </div>
-    </div>
-  </footer>
+  </a>
 
-  <script>
-    document.querySelectorAll('.external-action').forEach(el=>{
-      el.addEventListener('click', e=>{ e.preventDefault(); alert('Open a ticket on Discord for now: https://discord.gg/NCS96PS4MH'); });
-    });
-  </script>
+  <nav aria-label="main">
+    <a href="/register.html">Register</a>
+    <a href="/dashboard.html">Dashboard</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="panel">
+    <h1>About Intent FreeDomain</h1>
+    <p>Intent FreeDomain provides free subdomains and a simple DNS dashboard for developers, students, and creators. We focus on low friction, privacy, and easy integrations — ideal for demos, portfolios, and experiments.</p>
+
+    <h2 style="color:var(--text);margin-top:16px">Mission</h2>
+    <p>Make it easy to publish work on the web without cost or heavy setup.</p>
+
+    <h2 style="color:var(--text);margin-top:12px">How it works</h2>
+    <ol style="color:var(--muted)">
+      <li>Register an account on the site.</li>
+      <li>Create a subdomain (yourname.int.yt).</li>
+      <li>Point it to an IP or host, handled by PowerDNS via our backend.</li>
+    </ol>
+  </div>
+</main>
+
+<footer>
+  <div>
+    <div style="color:var(--text);font-weight:800">Intent FreeDomain</div>
+    <div style="color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
+  </div>
+  <div>
+    <a href="/register.html">Register</a><br>
+    <a href="/dashboard.html">Dashboard</a><br>
+    <a href="/whois">WHOIS</a>
+  </div>
+  <div>
+    <a href="/contact.html">Contact</a><br>
+    <a href="https://discord.gg/NCS96PS4MH">Discord</a>
+  </div>
+</footer>
+
 </body>
 </html>

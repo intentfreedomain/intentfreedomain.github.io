@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dashboard — Intent FreeDomain</title>
+<title>Dashboard (Debug) — Intent FreeDomain</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
 <script>
+  // Backend base - keep this pointed to your Render service
   const API_BASE = 'https://backend-render-gehg.onrender.com';
   function api(p){ return API_BASE + p; }
 </script>
@@ -14,173 +14,138 @@
 <style>
 :root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--accent2:#3b82f6;--text:#e6eef6}
 *{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
-header{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border-bottom:1px solid rgba(255,255,255,0.03)}
+header{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border-bottom:1px solid rgba(255,255,255,0.03)}
 .brand{display:flex;gap:12px;align-items:center}
 .logo-wrap{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
-.brand .title{font-weight:800;color:var(--text)}
-main{max-width:1100px;margin:24px auto;padding:0 18px 80px}
-.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:22px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.45);margin-bottom:18px}
-h1{color:var(--text);margin:0 0 10px}
-.small{font-size:14px;color:var(--muted)}
+.main{max-width:1100px;margin:22px auto;padding:0 18px 60px}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:14px;margin-bottom:14px;box-shadow:0 10px 30px rgba(0,0,0,0.4)}
+.h1{color:var(--text);font-weight:800;font-size:24px;margin:0 0 12px}
 .input{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
-.input.flex{flex:1}
-.form-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
-.btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent2));color:#022}
-.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-.sub-list{font-family:monospace;white-space:pre-wrap;color:var(--muted);padding:10px;border-radius:8px;background:transparent}
-.row-actions{display:flex;gap:8px;align-items:center}
-.error{background:rgba(220,40,40,0.06);border:1px solid rgba(220,40,40,0.14);color:#ffb3b3;padding:10px;border-radius:8px;margin-top:12px}
-@media(max-width:640px){.input{min-width:120px}}
+.btn{padding:10px 14px;border-radius:10px;border:0;background:linear-gradient(180deg,var(--accent),var(--accent2));color:#022;cursor:pointer;font-weight:800}
+.debug{background:#04131a;border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:10px;color:#9fe7f6;font-family:monospace;white-space:pre-wrap;max-height:420px;overflow:auto}
+.label{font-weight:700;color:var(--text);margin-bottom:8px;display:block}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.small{font-size:13px;color:var(--muted)}
+.error{color:#ffb3b3}
 </style>
 </head>
 <body>
-
 <header>
   <div class="brand">
-    <div class="logo-wrap" aria-hidden="true"><img src="logo.png" alt="logo" onerror="this.style.display='none'"></div>
-    <div>
-      <div class="title">Intent Dashboard</div>
-      <div class="small">Manage up to 3 subdomains</div>
+    <div class="logo-wrap" aria-hidden="true"></div>
+    <div style="line-height:1">
+      <div style="font-weight:800;color:var(--text)">Intent Dashboard (Debug)</div>
+      <div class="small">This debug page shows raw API responses</div>
     </div>
   </div>
   <nav><a href="/register.html" class="small">Register</a></nav>
 </header>
 
-<main>
+<main class="main">
   <section class="panel">
-    <h1>Your account</h1>
-    <pre id="accountJSON" class="sub-list">Loading...</pre>
-    <div style="margin-top:12px"><button id="logoutBtn" class="btn btn-primary">Logout</button></div>
+    <div class="h1">Account</div>
+    <pre id="account" class="debug">Not loaded</pre>
   </section>
 
   <section class="panel">
-    <h1>Subdomains</h1>
-    <div id="subError" style="display:none" class="error"></div>
+    <div class="h1">Subdomains</div>
+    <pre id="subs" class="debug">Not loaded</pre>
+  </section>
 
-    <div id="subList" class="sub-list">Loading...</div>
+  <section class="panel">
+    <div class="h1">Create / Test</div>
+    <div class="row" style="margin-bottom:8px">
+      <input id="subname" class="input" placeholder="subdomain (example)" />
+      <input id="target" class="input" placeholder="CNAME targets (pipe | separated) or IP" style="min-width:300px" />
+      <input id="ns" class="input" placeholder="Nameservers (optional pipe separated)" style="min-width:260px" />
+      <button id="create" class="btn">Create</button>
+    </div>
+    <div style="margin-top:12px" class="small">Status & debug output for the create request appears below:</div>
+    <pre id="createDebug" class="debug">Idle</pre>
+  </section>
 
-    <form id="createForm" style="margin-top:12px" autocomplete="off">
-      <div class="form-row">
-        <input id="subname" class="input" placeholder="example" aria-label="subname">
-        <input id="target" class="input flex" placeholder="CNAME targets (pipe | separated) or IP" aria-label="targets">
-        <input id="ns" class="input" placeholder="Nameservers (optional, pipe separated)" aria-label="nameservers" style="min-width:200px">
-        <button id="createBtn" class="btn btn-primary" type="submit">Create</button>
-      </div>
-      <div id="createStatus" class="small" style="margin-top:8px"></div>
-    </form>
+  <section class="panel">
+    <div class="h1">HTTP Debug Log</div>
+    <div class="small">This shows the last request/response details (status, headers, body) for the two requests the page makes.</div>
+    <pre id="httpDebug" class="debug">No requests yet</pre>
   </section>
 </main>
 
 <script>
-function showError(msg){
-  const el = document.getElementById('subError');
-  if(!msg){ el.style.display='none'; el.textContent=''; return; }
-  el.style.display='block';
-  el.textContent = msg;
-}
-
-function pretty(obj){ return JSON.stringify(obj,null,2); }
-
-async function loadAll(){
-  showError(null);
-  document.getElementById('accountJSON').textContent = 'Loading...';
-  document.getElementById('subList').textContent = 'Loading...';
-
-  const token = localStorage.getItem('intent_token');
-  if(!token){
-    document.getElementById('accountJSON').textContent = 'Not logged in — go to register.html';
-    document.getElementById('subList').textContent = '—';
-    return;
+  // Utility to pretty-print headers
+  function headersToObj(headers) {
+    const obj = {};
+    for (let pair of headers.entries()) obj[pair[0]] = pair[1];
+    return obj;
   }
 
-  try {
-    const r = await fetch(api('/api/dashboard'), { headers:{ Authorization: 'Bearer ' + token }});
-    if(r.status===401){ document.getElementById('accountJSON').textContent = 'Session invalid'; return; }
-    const j = await r.json();
-    document.getElementById('accountJSON').textContent = pretty(j.user);
-
-    const s = await fetch(api('/api/subdomains'), { headers:{ Authorization:'Bearer ' + token }});
-    if(!s.ok){
-      const err = await s.json().catch(()=>({error:s.statusText}));
-      document.getElementById('subList').textContent = 'Unable to load subdomains: ' + (err.error || JSON.stringify(err));
-      return;
+  async function fetchAndDebug(url, opts = {}) {
+    const out = { url, method: opts.method || 'GET', request: { headers: opts.headers || {}, body: opts.body || null } };
+    try {
+      const res = await fetch(url, opts);
+      out.response = { status: res.status, statusText: res.statusText, headers: headersToObj(res.headers) };
+      const text = await res.text();
+      // try json parse
+      try { out.response.body = JSON.parse(text); }
+      catch(e){ out.response.body = text; }
+      return out;
+    } catch (err) {
+      out.error = String(err);
+      return out;
     }
-    const subs = await s.json();
-    if(!Array.isArray(subs) || subs.length===0){
-      document.getElementById('subList').textContent = 'No subdomains yet';
+  }
+
+  function dump(obj){
+    return JSON.stringify(obj, null, 2);
+  }
+
+  async function loadAll() {
+    const token = localStorage.getItem('intent_token');
+    const headers = token ? { 'Authorization': 'Bearer ' + token } : {};
+    // /api/dashboard
+    document.getElementById('account').textContent = 'Loading...';
+    const dash = await fetchAndDebug(api('/api/dashboard'), { headers });
+    document.getElementById('httpDebug').textContent = dump(dash);
+    if (dash.response && (dash.response.status === 200)) {
+      document.getElementById('account').textContent = dump(dash.response.body);
     } else {
-      // render list with update/delete controls
-      let out = '';
-      subs.forEach(sd => {
-        out += `Name: ${sd.name}\nTarget: ${sd.target || '-'}\nStatus: ${sd.status}\nCreated: ${sd.created_at}\nUpdated: ${sd.updated_at || '-'}\n\n`;
-      });
-      document.getElementById('subList').textContent = out;
-    }
-  } catch(err){
-    console.error('loadAll error', err);
-    document.getElementById('accountJSON').textContent = 'Network error';
-    document.getElementById('subList').textContent = 'Network error';
-    showError('Network error while loading data.');
-  }
-}
-
-document.getElementById('createForm').addEventListener('submit', async (ev)=>{
-  ev.preventDefault();
-  showError(null);
-  const name = document.getElementById('subname').value.trim();
-  const target = document.getElementById('target').value.trim();
-  const ns = document.getElementById('ns').value.trim();
-  const statusEl = document.getElementById('createStatus');
-
-  if(!name){ showError('Enter a subdomain name'); return; }
-  if(!/^[a-z0-9-]{1,30}$/i.test(name)){ showError('Invalid name'); return; }
-
-  const token = localStorage.getItem('intent_token');
-  if(!token){ showError('Not logged in'); return; }
-
-  statusEl.textContent = 'Creating...';
-  document.getElementById('createBtn').disabled = true;
-
-  try {
-    const r = await fetch(api('/api/subdomains'), {
-      method: 'POST',
-      headers: { 'Content-Type':'application/json', Authorization: 'Bearer ' + token },
-      body: JSON.stringify({ name, target, ns })
-    });
-
-    const text = await r.text();
-    let json = null;
-    try { json = JSON.parse(text); } catch(e){}
-
-    if(!r.ok){
-      const msg = (json && (json.error || json.detail || json.message)) || text || r.statusText;
-      showError('Create failed: ' + msg + (msg.toLowerCase().includes('dns') ? ' (check backend logs/PDNS)' : ''));
-      statusEl.textContent = '';
-      return;
+      const msg = dash.error || (dash.response && (dash.response.body || dash.response.statusText)) || 'unknown';
+      document.getElementById('account').textContent = 'ERROR: ' + String(msg);
     }
 
-    statusEl.textContent = 'Created. Refreshing...';
-    document.getElementById('subname').value = '';
-    document.getElementById('target').value = '';
-    document.getElementById('ns').value = '';
-    setTimeout(()=>{ loadAll(); statusEl.textContent=''; }, 800);
-  } catch(err){
-    console.error('create error', err);
-    showError('Network or exception: ' + err.message);
-    statusEl.textContent = '';
-  } finally {
-    document.getElementById('createBtn').disabled = false;
+    // /api/subdomains
+    document.getElementById('subs').textContent = 'Loading...';
+    const subs = await fetchAndDebug(api('/api/subdomains'), { headers });
+    // Append to the HTTP debug the subs result too
+    document.getElementById('httpDebug').textContent = dump({ dashboard: dash, subdomains: subs });
+    if (subs.response && (subs.response.status === 200)) {
+      document.getElementById('subs').textContent = dump(subs.response.body);
+    } else {
+      const msg = subs.error || (subs.response && (subs.response.body || subs.response.statusText)) || 'unknown';
+      document.getElementById('subs').textContent = 'ERROR: ' + String(msg);
+    }
   }
-});
 
-document.getElementById('logoutBtn').addEventListener('click', ()=>{
-  localStorage.removeItem('intent_token');
-  location.href = '/';
-});
+  document.getElementById('create').addEventListener('click', async () => {
+    document.getElementById('createDebug').textContent = 'Sending...';
+    const name = document.getElementById('subname').value.trim();
+    const target = document.getElementById('target').value.trim();
+    const ns = document.getElementById('ns').value.trim();
+    const token = localStorage.getItem('intent_token');
+    const headers = { 'Content-Type': 'application/json' };
+    if (token) headers['Authorization'] = 'Bearer ' + token;
 
-// initial load
-loadAll();
+    if (!name) { document.getElementById('createDebug').textContent = 'Enter a name first'; return; }
+
+    const payload = JSON.stringify({ name, target, ns });
+    const debug = await fetchAndDebug(api('/api/subdomains'), { method: 'POST', headers, body: payload });
+    document.getElementById('createDebug').textContent = dump(debug);
+    // Refresh lists after create attempt
+    setTimeout(loadAll, 800);
+  });
+
+  // Initial load
+  loadAll();
 </script>
 </body>
 </html>

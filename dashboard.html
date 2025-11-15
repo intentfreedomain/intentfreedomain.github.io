@@ -7,100 +7,64 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <script>
-  // make sure this matches your backend URL
   const API_BASE = 'https://backend-render-gehg.onrender.com';
   function api(p){ return API_BASE + p; }
 </script>
 
 <style>
-:root{
-  --bg:#071226; --muted:#94a3b8; --accent:#06b6d4; --accent2:#3b82f6; --text:#e6eef6; --card-radius:14px;
-}
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted);-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-
-/* header */
-header{
-  position:sticky;top:0;z-index:60;
-  display:flex;align-items:center;justify-content:space-between;padding:14px 20px;
-  backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);
-  border-bottom:1px solid rgba(255,255,255,0.03);
-}
-.brand{display:flex;align-items:center;gap:12px}
-.logo-wrap{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.logo-wrap img{width:100%;height:100%;object-fit:cover}
+:root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--accent2:#3b82f6;--text:#e6eef6}
+*{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
+header{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border-bottom:1px solid rgba(255,255,255,0.03)}
+.brand{display:flex;gap:12px;align-items:center}
+.logo-wrap{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
 .brand .title{font-weight:800;color:var(--text)}
-
-/* content spacing: ensure header doesn't overlap content */
-main{max-width:1100px;margin:26px auto;padding:0 18px 80px 18px}
-.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:22px;border-radius:var(--card-radius);box-shadow:0 10px 30px rgba(0,0,0,0.45);margin-bottom:18px}
-h1{color:var(--text);margin:0 0 8px;font-size:28px}
+main{max-width:1100px;margin:24px auto;padding:0 18px 80px}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:22px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.45);margin-bottom:18px}
+h1{color:var(--text);margin:0 0 10px}
 .small{font-size:14px;color:var(--muted)}
+.input{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+.input.flex{flex:1}
+.form-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
 .btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent2));color:#022}
 .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-
-/* subdomain form */
-.form-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.input{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);min-width:120px}
-.input.flex{flex:1;min-width:160px}
-
-/* subdomain list / table */
-.sub-list{background:transparent;border-radius:10px;padding:10px;color:var(--muted);font-family:monospace;white-space:pre-wrap}
-.badge{display:inline-block;padding:6px 8px;border-radius:999px;font-weight:700;font-size:13px;margin-right:8px}
-
-/* error box */
-.error{background:rgba(220,40,40,0.08);border:1px solid rgba(220,40,40,0.18);color:#ffb3b3;padding:10px;border-radius:8px;margin-top:12px}
-
-/* responsive */
-@media(max-width:640px){
-  h1{font-size:22px}
-  .logo-wrap{width:40px;height:40px}
-  .input{min-width:100px}
-}
+.sub-list{font-family:monospace;white-space:pre-wrap;color:var(--muted);padding:10px;border-radius:8px;background:transparent}
+.row-actions{display:flex;gap:8px;align-items:center}
+.error{background:rgba(220,40,40,0.06);border:1px solid rgba(220,40,40,0.14);color:#ffb3b3;padding:10px;border-radius:8px;margin-top:12px}
+@media(max-width:640px){.input{min-width:120px}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="brand">
-    <div class="logo-wrap" aria-hidden="true">
-      <img src="logo.png" alt="logo" onerror="this.style.display='none'">
-    </div>
+    <div class="logo-wrap" aria-hidden="true"><img src="logo.png" alt="logo" onerror="this.style.display='none'"></div>
     <div>
       <div class="title">Intent Dashboard</div>
-      <div class="small">Manage your subdomains</div>
+      <div class="small">Manage up to 3 subdomains</div>
     </div>
   </div>
-
-  <nav>
-    <a style="margin-right:18px" href="/register.html" class="small">Register</a>
-  </nav>
+  <nav><a href="/register.html" class="small">Register</a></nav>
 </header>
 
 <main>
-  <!-- Account panel -->
-  <section class="panel" id="accountPanel">
+  <section class="panel">
     <h1>Your account</h1>
     <pre id="accountJSON" class="sub-list">Loading...</pre>
-    <div style="margin-top:12px">
-      <button id="logoutBtn" class="btn btn-primary">Logout</button>
-    </div>
+    <div style="margin-top:12px"><button id="logoutBtn" class="btn btn-primary">Logout</button></div>
   </section>
 
-  <!-- Subdomains panel -->
-  <section class="panel" id="subPanel">
+  <section class="panel">
     <h1>Subdomains</h1>
-
     <div id="subError" style="display:none" class="error"></div>
 
     <div id="subList" class="sub-list">Loading...</div>
 
-    <form id="newsub" style="margin-top:12px" autocomplete="off">
+    <form id="createForm" style="margin-top:12px" autocomplete="off">
       <div class="form-row">
-        <input id="subname" class="input" placeholder="example" aria-label="subdomain name">
-        <input id="target" class="input flex" placeholder="target IP or host (optional)" aria-label="target host">
+        <input id="subname" class="input" placeholder="example" aria-label="subname">
+        <input id="target" class="input flex" placeholder="CNAME targets (pipe | separated) or IP" aria-label="targets">
+        <input id="ns" class="input" placeholder="Nameservers (optional, pipe separated)" aria-label="nameservers" style="min-width:200px">
         <button id="createBtn" class="btn btn-primary" type="submit">Create</button>
       </div>
       <div id="createStatus" class="small" style="margin-top:8px"></div>
@@ -109,130 +73,114 @@ h1{color:var(--text);margin:0 0 8px;font-size:28px}
 </main>
 
 <script>
-  // Utils
-  function showError(msg){
-    const el = document.getElementById('subError');
-    if(!msg){ el.style.display='none'; el.textContent=''; return; }
-    el.style.display='block';
-    el.textContent = msg;
+function showError(msg){
+  const el = document.getElementById('subError');
+  if(!msg){ el.style.display='none'; el.textContent=''; return; }
+  el.style.display='block';
+  el.textContent = msg;
+}
+
+function pretty(obj){ return JSON.stringify(obj,null,2); }
+
+async function loadAll(){
+  showError(null);
+  document.getElementById('accountJSON').textContent = 'Loading...';
+  document.getElementById('subList').textContent = 'Loading...';
+
+  const token = localStorage.getItem('intent_token');
+  if(!token){
+    document.getElementById('accountJSON').textContent = 'Not logged in — go to register.html';
+    document.getElementById('subList').textContent = '—';
+    return;
   }
 
-  function pretty(obj){ return JSON.stringify(obj,null,2); }
+  try {
+    const r = await fetch(api('/api/dashboard'), { headers:{ Authorization: 'Bearer ' + token }});
+    if(r.status===401){ document.getElementById('accountJSON').textContent = 'Session invalid'; return; }
+    const j = await r.json();
+    document.getElementById('accountJSON').textContent = pretty(j.user);
 
-  // Load account + subdomains
-  async function loadAll(){
-    showError(null);
-    document.getElementById('accountJSON').textContent = 'Loading...';
-    document.getElementById('subList').textContent = 'Loading...';
+    const s = await fetch(api('/api/subdomains'), { headers:{ Authorization:'Bearer ' + token }});
+    if(!s.ok){
+      const err = await s.json().catch(()=>({error:s.statusText}));
+      document.getElementById('subList').textContent = 'Unable to load subdomains: ' + (err.error || JSON.stringify(err));
+      return;
+    }
+    const subs = await s.json();
+    if(!Array.isArray(subs) || subs.length===0){
+      document.getElementById('subList').textContent = 'No subdomains yet';
+    } else {
+      // render list with update/delete controls
+      let out = '';
+      subs.forEach(sd => {
+        out += `Name: ${sd.name}\nTarget: ${sd.target || '-'}\nStatus: ${sd.status}\nCreated: ${sd.created_at}\nUpdated: ${sd.updated_at || '-'}\n\n`;
+      });
+      document.getElementById('subList').textContent = out;
+    }
+  } catch(err){
+    console.error('loadAll error', err);
+    document.getElementById('accountJSON').textContent = 'Network error';
+    document.getElementById('subList').textContent = 'Network error';
+    showError('Network error while loading data.');
+  }
+}
 
-    const token = localStorage.getItem('intent_token');
-    if(!token){
-      document.getElementById('accountJSON').textContent = 'Not logged in — go to register.html';
-      document.getElementById('subList').textContent = '—';
+document.getElementById('createForm').addEventListener('submit', async (ev)=>{
+  ev.preventDefault();
+  showError(null);
+  const name = document.getElementById('subname').value.trim();
+  const target = document.getElementById('target').value.trim();
+  const ns = document.getElementById('ns').value.trim();
+  const statusEl = document.getElementById('createStatus');
+
+  if(!name){ showError('Enter a subdomain name'); return; }
+  if(!/^[a-z0-9-]{1,30}$/i.test(name)){ showError('Invalid name'); return; }
+
+  const token = localStorage.getItem('intent_token');
+  if(!token){ showError('Not logged in'); return; }
+
+  statusEl.textContent = 'Creating...';
+  document.getElementById('createBtn').disabled = true;
+
+  try {
+    const r = await fetch(api('/api/subdomains'), {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json', Authorization: 'Bearer ' + token },
+      body: JSON.stringify({ name, target, ns })
+    });
+
+    const text = await r.text();
+    let json = null;
+    try { json = JSON.parse(text); } catch(e){}
+
+    if(!r.ok){
+      const msg = (json && (json.error || json.detail || json.message)) || text || r.statusText;
+      showError('Create failed: ' + msg + (msg.toLowerCase().includes('dns') ? ' (check backend logs/PDNS)' : ''));
+      statusEl.textContent = '';
       return;
     }
 
-    try {
-      // account
-      const r = await fetch(api('/api/dashboard'), { headers: { Authorization: 'Bearer ' + token }});
-      if(r.status === 401){
-        document.getElementById('accountJSON').textContent = 'Session invalid — please login again';
-        return;
-      }
-      const j = await r.json();
-      document.getElementById('accountJSON').textContent = pretty(j.user);
-
-      // subdomains
-      const s = await fetch(api('/api/subdomains'), { headers: { Authorization: 'Bearer ' + token }});
-      if(!s.ok){
-        const err = await s.json().catch(()=>({error: s.statusText}));
-        document.getElementById('subList').textContent = 'Unable to load subdomains: ' + (err.error || JSON.stringify(err));
-        return;
-      }
-      const subs = await s.json();
-      if(!Array.isArray(subs) || subs.length === 0){
-        document.getElementById('subList').textContent = 'No subdomains yet';
-      } else {
-        // render a readable list
-        let out = '';
-        subs.forEach(sd => {
-          out += `Name: ${sd.name}\nTarget: ${sd.target || '-'}\nStatus: ${sd.status}\nCreated: ${sd.created_at}\nUpdated: ${sd.updated_at || '-'}\n\n`;
-        });
-        document.getElementById('subList').textContent = out;
-      }
-    } catch(err){
-      document.getElementById('accountJSON').textContent = 'Network error';
-      document.getElementById('subList').textContent = 'Network error';
-      console.error('loadAll error', err);
-      showError('Network error while loading data.');
-    }
+    statusEl.textContent = 'Created. Refreshing...';
+    document.getElementById('subname').value = '';
+    document.getElementById('target').value = '';
+    document.getElementById('ns').value = '';
+    setTimeout(()=>{ loadAll(); statusEl.textContent=''; }, 800);
+  } catch(err){
+    console.error('create error', err);
+    showError('Network or exception: ' + err.message);
+    statusEl.textContent = '';
+  } finally {
+    document.getElementById('createBtn').disabled = false;
   }
+});
 
-  // Create subdomain
-  document.getElementById('newsub').addEventListener('submit', async (ev) => {
-    ev.preventDefault();
-    showError(null);
-    const name = document.getElementById('subname').value.trim();
-    const target = document.getElementById('target').value.trim();
-    const statusEl = document.getElementById('createStatus');
+document.getElementById('logoutBtn').addEventListener('click', ()=>{
+  localStorage.removeItem('intent_token');
+  location.href = '/';
+});
 
-    if(!name){ showError('Enter a subdomain name (letters, numbers, dashes)'); return; }
-    if(!/^[a-z0-9-]{1,30}$/i.test(name)){ showError('Invalid name — use letters, numbers and dashes (1-30 chars)'); return; }
-
-    const token = localStorage.getItem('intent_token');
-    if(!token){ showError('Not logged in'); return; }
-
-    statusEl.textContent = 'Creating...';
-    document.getElementById('createBtn').disabled = true;
-
-    try {
-      const r = await fetch(api('/api/subdomains'), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
-        body: JSON.stringify({ name, target })
-      });
-
-      // Better error handling: try to parse JSON and show details
-      let payloadText = await r.text();
-      let payloadJson = null;
-      try { payloadJson = JSON.parse(payloadText); } catch(e){ /* not JSON */ }
-
-      if(!r.ok){
-        // if backend included a detailed error message, show it
-        let message = (payloadJson && (payloadJson.error || payloadJson.detail || payloadJson.message)) || payloadText || r.statusText;
-        // attempt to provide friendly hints for DNS problems
-        if(message.toLowerCase().includes('dns') || message.toLowerCase().includes('pdns')) {
-          message += ' — check backend logs and PowerDNS connectivity (server-side).';
-        }
-        showError('Create failed: ' + message);
-        statusEl.textContent = '';
-        return;
-      }
-
-      // success
-      const j = payloadJson || JSON.parse(payloadText || '{}');
-      statusEl.textContent = 'Created (or queued). Refreshing list...';
-      document.getElementById('subname').value = '';
-      document.getElementById('target').value = '';
-      setTimeout(()=> { loadAll(); statusEl.textContent = ''; }, 800);
-
-    } catch(err){
-      console.error('create error', err);
-      showError('Network or DNS exception: ' + (err.message || err));
-      statusEl.textContent = '';
-    } finally {
-      document.getElementById('createBtn').disabled = false;
-    }
-  });
-
-  // Logout
-  document.getElementById('logoutBtn').addEventListener('click', ()=>{
-    localStorage.removeItem('intent_token');
-    location.href = '/';
-  });
-
-  // initial load
-  loadAll();
+// initial load
+loadAll();
 </script>
 </body>
 </html>

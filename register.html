@@ -6,12 +6,10 @@
   <title>Register — Intent FreeDomain</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#071226; --muted:#94a3b8; --accent:#06b6d4; --accent-2:#3b82f6; --text:#e6eef6;
-    }
+    :root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--accent-2:#3b82f6;--text:#e6eef6}
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted);-webkit-font-smoothing:antialiased}
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.03);background:rgba(0,0,0,0.05)}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.03)}
     .brand{display:flex;gap:12px;align-items:center}
     .logo-wrap{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center}
     .container{max-width:900px;margin:24px auto;padding:0 18px}
@@ -22,11 +20,18 @@
     button{background:linear-gradient(180deg,var(--accent),var(--accent-2));border:none;color:#022;font-weight:800}
     @media(max-width:640px){.container{padding:0 12px}}
   </style>
+
+  <script>
+    const API_BASE = 'https://backend-render-gehg.onrender.com';
+    function api(p){ return API_BASE + p; }
+  </script>
 </head>
 <body>
   <header>
     <div class="brand">
-      <div class="logo-wrap"><img src="logo.png" alt="logo" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'"></div>
+      <div class="logo-wrap">
+        <img src="logo.png" alt="logo" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+      </div>
       <div style="color:var(--text);font-weight:700">Intent FreeDomain</div>
     </div>
     <nav><a href="/dashboard.html" style="color:var(--muted)">Dashboard</a></nav>
@@ -57,16 +62,23 @@
       const em = document.getElementById('email').value.trim();
       const pw = document.getElementById('password').value;
       if(!u||!em||!pw) return alert('Fill all fields');
-      // call backend register endpoint on same origin
       try{
-        const res = await fetch('/api/register', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u,email:em,password:pw})});
+        const res = await fetch(api('/api/register'), {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({username:u,email:em,password:pw})
+        });
         const data = await res.json();
-        if(!res.ok) { document.getElementById('msg').innerText = data.error || JSON.stringify(data); return; }
-        // store token if returned (for demo)
+        if(!res.ok){
+          document.getElementById('msg').innerText = data.error || JSON.stringify(data);
+          return;
+        }
         if(data.token) localStorage.setItem('intent_token', data.token);
         document.getElementById('msg').innerText = 'Registered — redirecting to dashboard...';
-        setTimeout(()=> location.href='/dashboard.html', 900);
-      }catch(err){ document.getElementById('msg').innerText = 'Network error'; }
+        setTimeout(()=> location.href='/dashboard.html', 800);
+      }catch(err){
+        document.getElementById('msg').innerText = 'Network error';
+      }
     });
 
     document.getElementById('useDiscord').addEventListener('click', ()=> window.open('https://discord.gg/NCS96PS4MH','_blank'));

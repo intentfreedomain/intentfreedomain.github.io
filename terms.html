@@ -1,102 +1,39 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Terms — Intent FreeDomain</title>
-  <meta name="description" content="Terms of service, acceptable use policy and legal." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--logo-focus:center;--logo-zoom:1.05}
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);margin:0;background:linear-gradient(180deg,#071226 0%, #071a2a 70%);-webkit-font-smoothing:antialiased}
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;position:sticky;top:0;backdrop-filter:blur(6px);z-index:80;border-bottom:1px solid rgba(255,255,255,0.02)}
-    .logo-wrap{width:44px;height:44px;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--accent),#3b82f6)}
-    .logo-wrap img{width:100%;height:100%;object-fit:cover;object-position:var(--logo-focus);transform:scale(var(--logo-zoom))}
-    nav a{color:rgba(255,255,255,0.85);text-decoration:none;margin-left:6px;font-weight:600}
-    .wrap{max-width:1000px;margin:28px auto;padding:0 18px}
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px;color:var(--muted);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
-    h1{color:#fff}
-    h2{color:#fff}
-    p,li{color:var(--muted)}
-    ul{margin-left:18px}
-    footer{margin-top:28px;color:var(--muted);display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;padding:18px}
-    @media (max-width:640px){.wrap{padding:0 12px}}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Terms — Intent FreeDomain</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
+<style>
+:root{--bg:#071226;--muted:#94a3b8;--text:#e6eef6}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.03)}
+.container{max-width:980px;margin:22px auto;padding:0 18px}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px}
+h1{color:var(--text)}
+</style>
 </head>
 <body>
-  <header>
-    <a class="brand" href="/">
-      <div class="logo-wrap"><img src="logo.png" alt="Intent logo" onerror="this.onerror=null;this.src='DATA_URI_HERE'"></div>
-      <div>
-        <div style="font-weight:800;color:#fff">Intent FreeDomain</div>
-        <div style="font-size:12px;color:var(--muted)">Free subdomains • Privacy-first</div>
-      </div>
-    </a>
-    <nav>
-      <a href="https://int.yt/register" class="external-action">Register</a>
-      <a href="https://int.yt/dashboard" class="external-action">Dashboard</a>
-      <a href="https://int.yt/whois" class="external-action">WHOIS</a>
-      <a href="https://int.yt/about.html">About</a>
-      <a href="https://int.yt/contact.html">Contact</a>
-      <a href="https://int.yt/privacy.html">Privacy</a>
-    </nav>
-  </header>
-
-  <main class="wrap">
-    <div class="panel">
-      <h1>Terms of Service & Acceptable Use</h1>
-      <p>Last updated: <strong style="color:#fff">14/11/2025</strong></p>
-
-      <h2 style="margin-top:12px">Agreement</h2>
-      <p>By using Intent FreeDomain you agree to these terms. If you don't agree, don't use the service.</p>
-
-      <h2 style="margin-top:12px">Acceptable Use Policy (AUP)</h2>
-      <ul>
-        <li>No illegal content or activity (fraud, malware, phishing, etc.)</li>
-        <li>No harassment, doxxing, or threats</li>
-        <li>No mass unsolicited messaging or spam</li>
-        <li>No sharing of copyrighted content without authorization</li>
-      </ul>
-
-      <h2 style="margin-top:12px">Enforcement and Remedies</h2>
-      <p>We may suspend or terminate access, remove content, or cooperate with law enforcement for severe violations. Appeals may be submitted via our support channels.</p>
-
-      <h2 style="margin-top:12px">Public Suffix List (PSL) and domain rules</h2>
-      <p>We respect the Public Suffix List — certain names may be restricted to prevent collisions with registry-managed suffixes. Administrators may block names that conflict with reserved or registry-managed zones.</p>
-
-      <h2 style="margin-top:12px">Disclaimer & Limitation</h2>
-      <p>The service is provided as-is. We disclaim warranties to the fullest extent permitted by law. We are not liable for indirect or consequential damages.</p>
-
-      <h2 style="margin-top:12px">Contact</h2>
-      <p>Questions about these terms: <a href="mailto:support@int.yt" style="color:var(--muted)">support@int.yt</a> or open a ticket on Discord: <a href="https://discord.gg/NCS96PS4MH" style="color:var(--muted)">Discord</a>.</p>
-    </div>
-  </main>
-
-  <footer>
-    <div>
-      <div style="color:#fff;font-weight:800">Intent FreeDomain</div>
-      <div style="color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
-    </div>
-    <div style="display:flex;gap:20px">
-      <div>
-        <strong style="color:#fff">Product</strong><br>
-        <a href="https://int.yt/register">Register</a><br>
-        <a href="https://int.yt/dashboard">Dashboard</a>
-      </div>
-      <div>
-        <strong style="color:#fff">Legal</strong><br>
-        <a href="https://int.yt/privacy.html">Privacy</a><br>
-        <a href="https://int.yt/abuse.html">Abuse</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.querySelectorAll('.external-action').forEach(el=>{
-      el.addEventListener('click', e=>{ e.preventDefault(); alert('Open a ticket on Discord for support: https://discord.gg/NCS96PS4MH'); });
-    });
-  </script>
+<header><div style="display:flex;align-items:center;gap:12px"><div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#06b6d4,#3b82f6)"></div><div style="font-weight:800;color:var(--text)">Intent FreeDomain</div></div><nav><a href="/" style="color:var(--muted)">Home</a></nav></header>
+<main class="container">
+  <div class="panel">
+    <h1>Terms of Service & Acceptable Use</h1>
+    <p style="color:var(--muted)">Last updated: [DATE]</p>
+    <h2 style="color:var(--text)">Agreement</h2>
+    <p style="color:var(--muted)">By using Intent FreeDomain you agree to these terms.</p>
+    <h2 style="color:var(--text)">Acceptable Use</h2>
+    <ul style="color:var(--muted)">
+      <li>No illegal activity hosted on subdomains</li>
+      <li>No harassment, doxxing, or malware distribution</li>
+      <li>No mass unsolicited messaging or spam</li>
+    </ul>
+    <h2 style="color:var(--text)">PSL & Reserved Names</h2>
+    <p style="color:var(--muted)">We enforce Public Suffix List rules and reserve names that conflict with registries or core services.</p>
+    <h2 style="color:var(--text)">Contact</h2>
+    <p style="color:var(--muted)">support@int.yt</p>
+  </div>
+</main>
 </body>
 </html>
-

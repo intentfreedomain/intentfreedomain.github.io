@@ -2,183 +2,136 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Register — Intent FreeDomain</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Register & Login — Intent FreeDomain</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
 <style>
-:root{--bg:#071226;--muted:#9ba3b8;--accent:#06b6d4;--accent2:#3b82f6;--text:#e6eef6;--danger:#ff6b6b;--ok:#7ef3d6}
+:root{
+  --bg:#071226; --panel:rgba(255,255,255,0.02); --muted:#94a3b8; --accent:#06b6d4; --accent2:#3b82f6; --text:#e6eef6;
+}
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--text);-webkit-font-smoothing:antialiased}
-header{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(7,18,38,0.6);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.03)}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted);-webkit-font-smoothing:antialiased}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
 .brand{display:flex;gap:12px;align-items:center}
-.logo-wrap{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
-.brand-title{font-weight:800;color:var(--text);font-size:20px}
-.container{max-width:1100px;margin:28px auto;padding:0 18px 80px}
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.04)}
-.h1{color:var(--text);font-size:24px;margin:0 0 14px}
-.small{color:var(--muted);font-size:14px}
-.input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)}
-.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
+.brand .title{font-weight:800;color:var(--text)}
+.container{max-width:1100px;margin:28px auto;padding:0 18px}
+.card-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:linear-gradient(180deg,var(--panel),rgba(255,255,255,0.01));padding:20px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.45)}
+h1{color:var(--text);margin:0 0 10px}
+.small{color:var(--muted)}
+.input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);margin-top:10px}
+.row{display:flex;gap:10px;align-items:center}
 .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:800}
 .btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent2));color:#022}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
 .notice{background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.12);color:#9fe7f6;padding:10px;border-radius:10px;margin-top:12px}
 .error{background:rgba(220,40,40,0.06);border:1px solid rgba(220,40,40,0.14);color:#ffb3b3;padding:10px;border-radius:10px;margin-top:12px}
-.helper{color:var(--muted);font-size:13px;margin-top:8px}
-@media(max-width:900px){.card{padding:16px}}
+@media(max-width:900px){.card-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header>
   <div class="brand">
-    <div class="logo-wrap" aria-hidden="true"></div>
+    <div class="logo" aria-hidden="true"></div>
     <div>
-      <div class="brand-title">Intent FreeDomain</div>
-      <div style="font-size:12px;color:var(--muted)">Create account • get subdomains</div>
+      <div class="title">Intent FreeDomain</div>
+      <div class="small">Free subdomains • privacy-first</div>
     </div>
   </div>
-  <nav>
-    <a href="index.html" style="color:var(--text);text-decoration:none">Home</a>
-  </nav>
+  <nav><a href="/index.html" class="small">Home</a></nav>
 </header>
 
 <main class="container">
-  <div class="card">
-    <div class="h1">Create account & claim a subdomain</div>
-    <div class="small">If you started on the homepage, your chosen name is pre-filled below.</div>
+  <div style="margin-bottom:12px;color:var(--muted)">Create or login to manage your subdomains. After login you'll be redirected to the dashboard.</div>
 
-    <div style="margin-top:12px">
-      <label class="small">Desired subdomain (short name, will become <code>yourname.int.yt</code>)</label>
-      <input id="subname" class="input" placeholder="short name (min 4 chars)">
-      <div id="subnameErr" class="error" style="display:none"></div>
-    </div>
+  <div class="card-row">
+    <!-- Register -->
+    <section class="card" aria-labelledby="reg-title">
+      <h1 id="reg-title">Create account</h1>
+      <div class="small">Max 3 subdomains per account. IP address is recorded for abuse prevention.</div>
 
-    <div style="margin-top:12px">
-      <label class="small">Username</label>
-      <input id="username" class="input" placeholder="username">
-    </div>
+      <input id="r_username" class="input" placeholder="Username (3-30 — letters/numbers/dash)">
+      <input id="r_email" class="input" placeholder="Email">
+      <input id="r_password" type="password" class="input" placeholder="Password (8+ chars)">
 
-    <div style="margin-top:12px">
-      <label class="small">Email</label>
-      <input id="email" class="input" placeholder="you@example.com" type="email">
-    </div>
+      <div class="row" style="margin-top:12px">
+        <button id="registerBtn" class="btn btn-primary" style="flex:1">Create account</button>
+        <button id="regDiscord" class="btn btn-ghost">Open Discord</button>
+      </div>
 
-    <div style="margin-top:12px">
-      <label class="small">Password</label>
-      <input id="password" class="input" placeholder="password (8+ chars)" type="password">
-    </div>
+      <div id="regOk" class="notice" style="display:none"></div>
+      <div id="regErr" class="error" style="display:none"></div>
+    </section>
 
-    <div class="row" style="margin-top:14px">
-      <button id="registerBtn" class="btn btn-primary">Create account & claim</button>
-      <button id="checkBtn" class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.06)">Check availability</button>
-    </div>
+    <!-- Login -->
+    <section class="card" aria-labelledby="login-title">
+      <h1 id="login-title">Login</h1>
+      <div class="small">Use username or email and password.</div>
 
-    <div id="noticeOk" class="notice" style="display:none"></div>
-    <div id="noticeErr" class="error" style="display:none"></div>
+      <input id="l_user" class="input" placeholder="Username or email">
+      <input id="l_pass" class="input" placeholder="Password" type="password">
 
-    <div class="helper">Note: 1–3 character names are blocked. Choose at least 4 characters. Allowed: letters, numbers and dash.</div>
+      <div class="row" style="margin-top:12px">
+        <button id="loginBtn" class="btn btn-primary" style="flex:1">Login</button>
+        <button id="loginDiscord" class="btn btn-ghost">Open Discord</button>
+      </div>
+
+      <div id="loginOk" class="notice" style="display:none"></div>
+      <div id="loginErr" class="error" style="display:none"></div>
+    </section>
   </div>
 </main>
 
 <script>
-const API = 'https://backend-render-gehg.onrender.com';
+const API = api('');
+function show(el, txt){ if(txt){ el.style.display='block'; el.textContent=txt; } else el.style.display='none'; }
 
-// helper UI
-const subnameInput = document.getElementById('subname');
-const usernameInput = document.getElementById('username');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-const subnameErr = document.getElementById('subnameErr');
-const noticeOk = document.getElementById('noticeOk');
-const noticeErr = document.getElementById('noticeErr');
+// Discord buttons
+document.getElementById('regDiscord').addEventListener('click', ()=> window.open('https://discord.gg/NCS96PS4MH','_blank'));
+document.getElementById('loginDiscord').addEventListener('click', ()=> window.open('https://discord.gg/NCS96PS4MH','_blank'));
 
-function showErr(el, txt){ el.style.display='block'; el.textContent = txt; }
-function hideErr(el){ el.style.display='none'; el.textContent=''; }
-function showOk(txt){ noticeOk.style.display='block'; noticeOk.textContent = txt; noticeErr.style.display='none' }
-function showError(txt){ noticeErr.style.display='block'; noticeErr.textContent = txt; noticeOk.style.display='none' }
+// Register
+document.getElementById('registerBtn').addEventListener('click', async ()=>{
+  show(document.getElementById('regOk'));
+  show(document.getElementById('regErr'));
+  const u = document.getElementById('r_username').value.trim();
+  const e = document.getElementById('r_email').value.trim();
+  const p = document.getElementById('r_password').value;
+  if(!u||!e||!p){ show(document.getElementById('regErr'),'Fill all fields'); return; }
+  if(u.length<3 || u.length>30){ show(document.getElementById('regErr'),'Username length'); return; }
+  if(p.length<8){ show(document.getElementById('regErr'),'Password too short'); return; }
 
-function validateNameLocal(name){
-  const re = /^[a-z0-9-]{4,30}$/i;
-  if(!name) return {ok:false, reason:'empty'};
-  if(name.length < 4) return {ok:false, reason:'too-short'};
-  if(!re.test(name)) return {ok:false, reason:'invalid'};
-  return {ok:true};
-}
-
-// auto-fill from query param ?name=...
-(function autofillFromQuery(){
-  const params = new URLSearchParams(location.search);
-  const n = params.get('name');
-  if(n){
-    subnameInput.value = n;
-  }
-})();
-
-// availability check (same logic as index but explicit button)
-document.getElementById('checkBtn').addEventListener('click', async ()=>{
-  hideErr(subnameErr);
-  const name = subnameInput.value.trim();
-  const local = validateNameLocal(name);
-  if(!local.ok){
-    if(local.reason === 'too-short') { showErr(subnameErr, 'Names with 1–3 characters are not allowed. Use 4+ characters.'); return; }
-    showErr(subnameErr, 'Invalid name — 4-30 chars, letters, numbers, dash only.');
-    return;
-  }
   try{
-    const res = await fetch(API + '/api/check?name=' + encodeURIComponent(name));
-    if(res.status === 404){
-      showErr(subnameErr, 'Availability check not available. You can try to register and server will respond.');
-      return;
-    }
-    const j = await res.json();
-    if(j.available){ showOk(name + '.int.yt appears available.'); }
-    else { showErr(subnameErr, (j.reason || 'Name taken')); }
-  }catch(e){
-    showErr(subnameErr, 'Unable to check now (network). Try registering — server will validate.');
+    const res = await fetch(API + '/api/register', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ username:u, email:e, password:p }) });
+    const txt = await res.text();
+    let j = null; try{ j = JSON.parse(txt);}catch(e){}
+    if(!res.ok){ show(document.getElementById('regErr'), (j && (j.error||j.message)) || txt || 'Register failed'); return; }
+    if(j && j.token){ localStorage.setItem('intent_token', j.token); show(document.getElementById('regOk'),'Registered — redirecting to dashboard...'); setTimeout(()=>location.href='/dashboard.html',800); return; }
+    show(document.getElementById('regOk'),'Registered — please login'); 
+  }catch(err){
+    show(document.getElementById('regErr'),'Network error: '+err.message);
   }
 });
 
-// register button
-document.getElementById('registerBtn').addEventListener('click', async ()=>{
-  hideErr(subnameErr);
-  const sub = subnameInput.value.trim();
-  const user = usernameInput.value.trim();
-  const mail = emailInput.value.trim();
-  const pass = passwordInput.value;
+// Login
+document.getElementById('loginBtn').addEventListener('click', async ()=>{
+  show(document.getElementById('loginOk'));
+  show(document.getElementById('loginErr'));
+  const u = document.getElementById('l_user').value.trim();
+  const p = document.getElementById('l_pass').value;
+  if(!u||!p){ show(document.getElementById('loginErr'),'Fill all fields'); return; }
 
-  // client validations
-  const nameLocal = validateNameLocal(sub);
-  if(!nameLocal.ok){
-    if(nameLocal.reason === 'too-short') { showErr(subnameErr, 'Names with 1–3 characters are not allowed. Use 4+ characters.'); subnameInput.focus(); return; }
-    showErr(subnameErr, 'Invalid subdomain name.'); return;
-  }
-  if(!user || user.length < 3){ showError('Enter a username (min 3 chars)'); return; }
-  if(!mail || !mail.includes('@')) { showError('Enter a valid email'); return; }
-  if(!pass || pass.length < 8){ showError('Password must be at least 8 characters'); return; }
-
-  showOk('Registering — please wait...');
   try{
-    const resp = await fetch(API + '/api/register', {
-      method:'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ username: user, email: mail, password: pass, subdomain: sub })
-    });
-    const text = await resp.text();
-    let j = null; try{ j = JSON.parse(text); }catch(e){}
-    if(!resp.ok){
-      const msg = (j && (j.error || j.message || j.detail)) || text || 'Registration failed';
-      showError(msg);
-      return;
-    }
-    // success — if token present, store and redirect to dashboard
-    if(j && j.token){
-      localStorage.setItem('intent_token', j.token);
-      showOk('Registered. Redirecting to dashboard...');
-      setTimeout(()=> location.href = '/dashboard.html', 800);
-      return;
-    }
-    showOk('Registered — please login to continue.');
-  }catch(e){
-    showError('Network error: ' + e.message);
+    const res = await fetch(API + '/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ username:u, password:p }) });
+    const txt = await res.text();
+    let j = null; try{ j = JSON.parse(txt);}catch(e){}
+    if(!res.ok){ show(document.getElementById('loginErr'), (j && (j.error||j.message)) || txt || 'Login failed'); return; }
+    if(j && j.token){ localStorage.setItem('intent_token', j.token); show(document.getElementById('loginOk'),'Login successful — redirecting...'); setTimeout(()=>location.href='/dashboard.html',700); return; }
+    show(document.getElementById('loginErr'),'Login succeeded but no token returned');
+  }catch(err){
+    show(document.getElementById('loginErr'),'Network error: '+err.message);
   }
 });
 </script>

@@ -1,269 +1,213 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Intent FreeDomain — Free subdomains</title>
-  <meta name="description" content="Free subdomains — projects, blogs and experiments. Fast dashboard, privacy-first." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#071226;
-      --panel:#071826;
-      --panel-2:#0b1220;
-      --accent:#06b6d4;
-      --accent-2:#3b82f6;
-      --muted:#94a3b8;
-      --text:#e6eef6;
-      --card-radius:14px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);-webkit-font-smoothing:antialiased;background:linear-gradient(180deg,var(--bg),#071a2a)}
-    a{color:inherit;text-decoration:none}
-    header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;position:sticky;top:0;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);backdrop-filter:blur(6px);z-index:60;border-bottom:1px solid rgba(255,255,255,0.03)}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo-wrap{width:48px;height:48px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .logo-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-    .brand .title{font-weight:800;color:var(--text);line-height:1}
-    nav{display:flex;gap:14px;align-items:center}
-    nav a{font-weight:600;color:rgba(255,255,255,0.9);font-size:14px}
-    .nav-toggle{display:none;background:transparent;border:0;color:var(--muted);font-weight:700}
-
-    main.container{max-width:1150px;margin:20px auto;padding:0 18px}
-    .hero{display:flex;gap:22px;align-items:flex-start}
-    .left,.right{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:22px;border-radius:var(--card-radius);box-shadow:0 10px 30px rgba(0,0,0,0.6)}
-    .left{flex:1}
-    .right{width:380px;min-width:260px}
-    h1{color:var(--text);margin:0 0 10px;font-size:32px;line-height:1.06}
-    p.lead{color:var(--muted);margin:0 0 12px;font-size:15px}
-
-    .search{display:flex;gap:10px;margin-top:12px}
-    .search input{flex:1;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.012);color:var(--text);font-size:15px}
-    .btn{padding:12px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:800}
-    .btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#022;box-shadow:0 6px 18px rgba(3,8,18,0.45)}
-    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
-
-    .actions-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-    .card{background:linear-gradient(180deg,var(--panel),var(--panel-2));padding:16px;border-radius:12px;color:var(--muted)}
-    .card h3{color:var(--text);margin:0 0 10px;font-size:16px}
-    .list{display:flex;flex-direction:column;gap:10px}
-
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
-    .feature{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);color:var(--muted)}
-    .feature h4{color:var(--text);margin:0 0 8px}
-
-    footer.site{margin-top:28px;color:var(--muted);display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:space-between;padding:18px}
-
-    /* modal */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
-    .modal{background:#021526;padding:18px;border-radius:12px;max-width:540px;width:100%;color:var(--muted)}
-    .modal h3{color:var(--text);margin:0 0 8px}
-
-    /* responsive */
-    @media (max-width:980px){
-      nav{display:none}
-      .nav-toggle{display:inline-flex}
-      .hero{flex-direction:column}
-      .right{width:100%}
-      .features{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width:640px){
-      .features{grid-template-columns:1fr}
-      h1{font-size:22px}
-      .logo-wrap{width:40px;height:40px}
-      .right{padding:16px}
-      .left{padding:16px}
-    }
-
-    /* small utilities */
-    .muted{color:var(--muted);font-size:14px}
-    .small{font-size:13px;color:var(--muted)}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Intent FreeDomain — int.yt</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #071226;
+  --muted: #9ba3b8;
+  --accent: #06b6d4;
+  --accent2: #3b82f6;
+  --text: #e6eef6;
+  --danger: #ff6b6b;
+  --ok: #7ef3d6;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--text);-webkit-font-smoothing:antialiased}
+header{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(7,18,38,0.6);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.03)}
+.brand{display:flex;gap:12px;align-items:center}
+.logo-wrap{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
+.brand-title{font-weight:800;color:var(--text);font-size:20px}
+nav a{margin-left:20px;color:var(--text);text-decoration:none;font-weight:500;opacity:0.8;transition:0.2s}
+nav a:hover{opacity:1}
+main{max-width:1100px;margin:24px auto;padding:0 18px 80px}
+.panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:14px;border:1px solid rgba(255,255,255,0.05);margin-bottom:24px}
+h1{margin-top:0;font-size:32px;font-weight:700}
+.input-box{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+.input-box input{flex:1;min-width:200px;padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.04);color:var(--text);font-size:16px}
+.btn{background:linear-gradient(135deg,var(--accent),var(--accent2));padding:14px 24px;border-radius:10px;color:#fff;font-weight:600;border:none;cursor:pointer;transition:0.2s}
+.btn:hover{transform:translateY(-2px);opacity:0.95}
+.hint{margin-top:10px;color:var(--muted);font-size:14px}
+.status { margin-top:12px; font-size:14px; padding:10px 12px; border-radius:10px; display:inline-block }
+.status.ok{ background: rgba(123, 255, 210, 0.06); color: var(--ok); border:1px solid rgba(123, 255, 210, 0.08) }
+.status.warn{ background: rgba(255, 214, 119, 0.04); color:#ffd39b; border:1px solid rgba(255,214,119,0.06) }
+.status.err{ background: rgba(255,100,100,0.04); color:var(--danger); border:1px solid rgba(255,100,100,0.06) }
+.suggestions{margin-top:12px;color:var(--muted);font-size:13px}
+small{color:var(--muted)}
+footer{text-align:center;color:var(--muted);padding:24px;font-size:14px;opacity:0.8}
+@media(max-width:700px){.input-box{flex-direction:column}}
+</style>
 </head>
 <body>
-  <header>
-    <a class="brand" href="/">
-      <div class="logo-wrap" aria-hidden="true">
-        <img src="logo.png" alt="Intent logo" onerror="this.style.display='none';document.getElementById('logoSVG').style.display='block'">
-        <svg id="logoSVG" viewBox="0 0 100 100" style="display:none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100" height="100" rx="14" fill="#06b6d4"/>
-          <text x="50%" y="55%" font-size="36" fill="#021526" text-anchor="middle" dominant-baseline="middle" font-family="Inter,Arial" font-weight="800">IF</text>
-        </svg>
-      </div>
-      <div style="line-height:1">
-        <div class="title">Intent FreeDomain</div>
-        <div class="small">Free subdomains • Fast dashboard • Privacy-first</div>
-      </div>
-    </a>
-
-    <nav aria-label="main navigation">
-      <a href="/register.html">Register</a>
-      <a href="/dashboard.html">Dashboard</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-    </nav>
-
-    <button class="nav-toggle" id="navToggle" aria-expanded="false">Menu</button>
-  </header>
-
-  <!-- mobile nav (toggled) -->
-  <div id="mobileNav" style="display:none;position:fixed;left:12px;right:12px;top:64px;background:rgba(2,6,23,0.95);padding:12px;border-radius:12px;z-index:90">
-    <a href="/register.html" style="display:block;padding:8px 0;color:var(--muted)">Register</a>
-    <a href="/dashboard.html" style="display:block;padding:8px 0;color:var(--muted)">Dashboard</a>
-    <a href="/about.html" style="display:block;padding:8px 0;color:var(--muted)">About</a>
-    <a href="/contact.html" style="display:block;padding:8px 0;color:var(--muted)">Contact</a>
-    <a href="/privacy.html" style="display:block;padding:8px 0;color:var(--muted)">Privacy</a>
-    <a href="/terms.html" style="display:block;padding:8px 0;color:var(--muted)">Terms</a>
-  </div>
-
-  <main class="container">
-    <section class="hero">
-      <div class="left">
-        <h1>Free subdomains in seconds — for projects, blogs and experiments</h1>
-        <p class="lead">Register a short, memorable subdomain (example.int.yt) and manage DNS and redirects from an easy dashboard. No hidden fees, minimal signing required.</p>
-
-        <div class="search" aria-hidden="false">
-          <input id="domainInput" type="text" placeholder="Enter a name (example) — we'll add .int.yt" aria-label="domain">
-          <button id="checkBtn" class="btn btn-primary">Check availability</button>
-        </div>
-
-        <div class="actions-row" style="margin-top:12px">
-          <a href="/register.html"><button class="btn btn-primary">Create subdomain</button></a>
-          <a href="/dashboard.html"><button class="btn btn-ghost">Go to dashboard</button></a>
-        </div>
-
-        <div style="margin-top:18px" class="card">
-          <h3>Quick facts</h3>
-          <div class="list">
-            <div><strong style="color:var(--text)">Free subdomains</strong><div class="small">Create and manage unlimited subdomains per account.</div></div>
-            <div style="margin-top:8px"><strong style="color:var(--text)">Dashboard</strong><div class="small">Simple DNS, redirects, and HTTPS via automatic certs.</div></div>
-            <div style="margin-top:8px"><strong style="color:var(--text)">Privacy-minded</strong><div class="small">We don't sell your data.</div></div>
-            <div style="margin-top:8px"><strong style="color:var(--text)">Whois & Abuse</strong><div class="small">Built-in WHOIS view and easy abuse reporting tools.</div></div>
-          </div>
-        </div>
-      </div>
-
-      <aside class="right">
-        <h3 style="margin-top:0;color:var(--text)">Need help or found an error?</h3>
-        <p class="small">Some actions currently point to placeholder pages. Open a ticket on our Discord and include the page URL + a short description — we'll fix it fast.</p>
-        <div style="margin-top:12px;display:flex;gap:10px">
-          <a id="discordLink" class="btn btn-primary" href="https://discord.gg/NCS96PS4MH" target="_blank" rel="noopener">Open Discord</a>
-          <button id="copyBtn" class="btn btn-ghost">Copy invite</button>
-        </div>
-
-        <div style="margin-top:14px;color:var(--muted);font-size:13px">Prefer email? Send screenshots and page details to <a href="mailto:support@int.yt" style="color:var(--muted)">support@int.yt</a>.</div>
-      </aside>
-    </section>
-
-    <section class="features" aria-label="features">
-      <div class="feature">
-        <h4>Simple registration</h4>
-        <p class="small">Enter a name, confirm, and your subdomain is live. No long forms.</p>
-      </div>
-      <div class="feature">
-        <h4>Automatic HTTPS</h4>
-        <p class="small">Each subdomain gets an automatic TLS certificate so your site loads securely.</p>
-      </div>
-      <div class="feature">
-        <h4>Redirects & DNS</h4>
-        <p class="small">Point subdomains to IPs, GitHub Pages, or use HTTP redirects.</p>
-      </div>
-      <div class="feature">
-        <h4>Usage & Limits</h4>
-        <p class="small">Free for most uses. Abuse or resource-heavy projects may be limited.</p>
-      </div>
-      <div class="feature">
-        <h4>Whois Lookup</h4>
-        <p class="small">Check public registration details for any subdomain from the WHOIS page.</p>
-      </div>
-      <div class="feature">
-        <h4>Support</h4>
-        <p class="small">Questions? Reach out via the contact page or Discord.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site">
+<header>
+  <div class="brand">
+    <div class="logo-wrap" aria-hidden="true"></div>
     <div>
-      <div style="color:var(--text);font-weight:800">Intent FreeDomain</div>
-      <div class="small">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
-    </div>
-
-    <div>
-      <div style="font-weight:700;color:var(--text);margin-bottom:8px">Product</div>
-      <a href="/register.html">Register</a><br>
-      <a href="/dashboard.html">Dashboard</a><br>
-      <a href="/whois">WHOIS</a>
-    </div>
-
-    <div>
-      <div style="font-weight:700;color:var(--text);margin-bottom:8px">Company</div>
-      <a href="/about.html">About</a><br>
-      <a href="/contact.html">Contact</a><br>
-      <a href="/support.html">Support</a>
-    </div>
-
-    <div style="text-align:right;min-width:160px">
-      <div>© <strong>Intent FreeDomain</strong></div>
-      <div style="margin-top:6px">Made with ♥ • <a href="/contact.html">Contact</a></div>
-    </div>
-  </footer>
-
-  <!-- Modal -->
-  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true" style="display:none">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <h3 id="modalTitle">Report this issue on Discord</h3>
-      <p class="small">Open a ticket on our Discord and paste the page URL + a short description. That helps us fix it faster.</p>
-      <div style="margin-top:12px;display:flex;gap:10px">
-        <a id="modalDiscordLink" class="btn btn-primary" href="https://discord.gg/NCS96PS4MH" target="_blank">Open Discord</a>
-        <button id="modalCopyBtn" class="btn btn-ghost">Copy invite</button>
-        <button id="modalClose" class="btn btn-ghost">Close</button>
-      </div>
+      <div class="brand-title">Intent FreeDomain</div>
+      <div style="font-size:12px;color:var(--muted)">Free subdomains • int.yt</div>
     </div>
   </div>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="register.html">Register</a>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+</header>
+
+<main>
+  <div class="panel">
+    <h1>Get your free subdomain under <strong>int.yt</strong></h1>
+    <p class="hint">Pick a short name — we will auto-prepend <code>.int.yt</code> for you. Names of length 1–3 are not allowed for registration (minimum 4 characters).</p>
+
+    <div class="input-box">
+      <input id="nameInput" type="text" placeholder="Enter desired name (e.g. yourname)" autocomplete="off" />
+      <button id="checkBtn" class="btn">Check & Register</button>
+    </div>
+
+    <div id="statusBox" class="status" style="display:none"></div>
+    <div id="suggestions" class="suggestions" style="display:none"></div>
+    <div class="hint" style="margin-top:12px"><small>Example: <strong>user1.int.yt</strong></small></div>
+  </div>
+
+  <div class="panel">
+    <h2>Why Intent?</h2>
+    <ul>
+      <li>Instant subdomains</li>
+      <li>Simple NS management</li>
+      <li>Secure, fast, and free</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  Intent FreeDomain — int.yt © 2025
+</footer>
 
 <script>
-  // Basic UI behaviors (responsive nav, modal, copy invite)
-  const navToggle = document.getElementById('navToggle');
-  const mobileNav = document.getElementById('mobileNav');
-  navToggle.addEventListener('click', ()=> {
-    const shown = mobileNav.style.display === 'block';
-    mobileNav.style.display = shown ? 'none' : 'block';
-  });
+/* CONFIG: change API_BASE if needed */
+const API_BASE = 'https://backend-render-gehg.onrender.com';
 
-  // Modal controls
-  const modalBackdrop = document.getElementById('modalBackdrop');
-  const modalDiscordLink = document.getElementById('modalDiscordLink');
-  const modalCopyBtn = document.getElementById('modalCopyBtn');
-  const modalClose = document.getElementById('modalClose');
-  const discordLink = document.getElementById('discordLink');
+const input = document.getElementById('nameInput');
+const btn = document.getElementById('checkBtn');
+const statusBox = document.getElementById('statusBox');
+const suggestions = document.getElementById('suggestions');
 
-  function openModal(){ modalBackdrop.style.display='flex'; modalBackdrop.setAttribute('aria-hidden','false'); }
-  function closeModal(){ modalBackdrop.style.display='none'; modalBackdrop.setAttribute('aria-hidden','true'); }
+let checkTimer = null;
+let lastChecked = '';
 
-  // intercept "external-action" style flows on page (none here) — show modal if needed
-  document.getElementById('checkBtn').addEventListener('click', ()=>{
-    const v = document.getElementById('domainInput').value.trim();
-    if(!v) return alert('Please enter a name (letters, numbers and dashes).');
-    if(!/^[a-z0-9-]{1,30}$/i.test(v)) return alert('Invalid name.');
-    // show modal to avoid hitting placeholder backends
-    openModal();
-  });
+function showStatus(type, text){
+  statusBox.style.display = 'inline-block';
+  statusBox.className = 'status ' + (type === 'ok' ? 'ok' : (type === 'warn' ? 'warn' : 'err'));
+  statusBox.textContent = text;
+}
+function hideStatus(){ statusBox.style.display='none'; statusBox.textContent=''; }
+function showSuggestions(list){
+  if(!list || list.length===0){ suggestions.style.display='none'; suggestions.innerHTML=''; return; }
+  suggestions.style.display='block';
+  suggestions.innerHTML = '<strong>Suggestions:</strong> ' + list.map(x => `<code style="margin-left:8px">${x}</code>`).join('');
+}
 
-  discordLink.addEventListener('click', (e)=>{ /* allow normal open in new tab */ });
+function generateSuggestions(name){
+  const out = [];
+  if(!name) return out;
+  // append numbers
+  out.push(name + '123');
+  out.push(name + '-dev');
+  out.push(name + '-home');
+  // prepend short words
+  out.push('my' + name);
+  out.push(name + 'blog');
+  return out;
+}
 
-  modalCopyBtn.addEventListener('click', async ()=>{
-    try{
-      await navigator.clipboard.writeText(modalDiscordLink.href);
-      modalCopyBtn.textContent = 'Copied!';
-      setTimeout(()=> modalCopyBtn.textContent = 'Copy invite', 1800);
-    }catch(err){ alert('Copy failed — please copy manually: ' + modalDiscordLink.href); }
-  });
-  modalClose.addEventListener('click', closeModal);
-  modalBackdrop.addEventListener('click', (e)=>{ if(e.target === modalBackdrop) closeModal(); });
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+function validateNameLocal(name){
+  // allowed chars letters numbers dash, length >=4
+  const re = /^[a-z0-9-]{4,30}$/i;
+  if(!name) return { ok:false, reason:'empty' };
+  if(name.length < 4) return { ok:false, reason:'too-short' };
+  if(!re.test(name)) return { ok:false, reason:'invalid-chars' };
+  return { ok:true };
+}
+
+async function checkAvailability(name){
+  // Update UI while checking
+  showStatus('warn', 'Checking availability...');
+  suggestions.style.display='none';
+
+  // local validate first
+  const local = validateNameLocal(name);
+  if(!local.ok){
+    if(local.reason === 'too-short') {
+      showStatus('err', 'Names with 1–3 characters are not allowed. Use 4+ chars.');
+      showSuggestions(generateSuggestions(name));
+      return { available:false, reason:'too-short' };
+    }
+    showStatus('err', 'Name must be 4–30 characters and contain only letters, numbers, or dash.');
+    return { available:false, reason:'invalid' };
+  }
+
+  // try backend check endpoint
+  try{
+    const res = await fetch(API_BASE + '/api/check?name=' + encodeURIComponent(name), { method:'GET' });
+    if(res.status === 404){
+      // backend has no check endpoint -> fallback
+      hideStatus();
+      showStatus('warn', 'Availability check not available — try registering.');
+      showSuggestions(generateSuggestions(name));
+      return { available: null, reason: 'no-check-endpoint' };
+    }
+    const j = await res.json();
+    if(j && j.available){
+      showStatus('ok', name + '.int.yt is available!');
+      showSuggestions(generateSuggestions(name));
+      return { available:true };
+    } else {
+      const r = (j && j.reason) ? j.reason : 'already-taken';
+      showStatus('err', name + '.int.yt is taken — try a suggestion');
+      showSuggestions(generateSuggestions(name));
+      return { available:false, reason:r };
+    }
+  }catch(e){
+    // network / CORS / unreachable
+    showStatus('warn', 'Unable to check now (network). You can still try to register.');
+    showSuggestions(generateSuggestions(name));
+    return { available: null, reason:'network' };
+  }
+}
+
+// debounce input
+input.addEventListener('input', (e)=>{
+  const name = input.value.trim();
+  if(checkTimer) clearTimeout(checkTimer);
+  checkTimer = setTimeout(()=> {
+    if(!name) { hideStatus(); showSuggestions([]); return; }
+    if(lastChecked === name) return;
+    lastChecked = name;
+    checkAvailability(name);
+  }, 450);
+});
+
+// click handler -> redirect to register with name param
+btn.addEventListener('click', async ()=>{
+  const name = input.value.trim();
+  if(!name){
+    alert('Enter a subdomain name first.');
+    input.focus();
+    return;
+  }
+  // local client validation
+  const local = validateNameLocal(name);
+  if(!local.ok){
+    if(local.reason === 'too-short') { alert('Names with 1–3 characters are not allowed. Use 4+ characters.'); input.focus(); return; }
+    alert('Name must be 4–30 characters and only contain letters, numbers, or dash.'); input.focus(); return;
+  }
+  // direct redirect to register (backend will still validate on server)
+  window.location.href = '/register.html?name=' + encodeURIComponent(name);
+});
+
 </script>
 </body>
 </html>

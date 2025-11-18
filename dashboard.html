@@ -3,149 +3,320 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dashboard (Debug) — Intent FreeDomain</title>
+<title>Dashboard — Intent FreeDomain</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<script>
-  // Backend base - keep this pointed to your Render service
-  const API_BASE = 'https://backend-render-gehg.onrender.com';
-  function api(p){ return API_BASE + p; }
-</script>
+<script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
 
 <style>
-:root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--accent2:#3b82f6;--text:#e6eef6}
-*{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
-header{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border-bottom:1px solid rgba(255,255,255,0.03)}
+:root{
+  --bg:#071226; --panel:rgba(255,255,255,0.02); --muted:#94a3b8; --accent:#06b6d4; --accent2:#3b82f6; --text:#e6eef6;
+  --card-radius:14px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted);-webkit-font-smoothing:antialiased}
+header{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);z-index:60}
 .brand{display:flex;gap:12px;align-items:center}
-.logo-wrap{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
-.main{max-width:1100px;margin:22px auto;padding:0 18px 60px}
-.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:14px;margin-bottom:14px;box-shadow:0 10px 30px rgba(0,0,0,0.4)}
-.h1{color:var(--text);font-weight:800;font-size:24px;margin:0 0 12px}
-.input{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
-.btn{padding:10px 14px;border-radius:10px;border:0;background:linear-gradient(180deg,var(--accent),var(--accent2));color:#022;cursor:pointer;font-weight:800}
-.debug{background:#04131a;border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:10px;color:#9fe7f6;font-family:monospace;white-space:pre-wrap;max-height:420px;overflow:auto}
-.label{font-weight:700;color:var(--text);margin-bottom:8px;display:block}
-.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.small{font-size:13px;color:var(--muted)}
-.error{color:#ffb3b3}
+.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
+.brand .title{font-weight:800;color:var(--text)}
+.container{max-width:1150px;margin:28px auto;padding:0 18px 80px}
+.grid{display:grid;grid-template-columns:1fr 380px;gap:18px}
+@media(max-width:980px){.grid{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,var(--panel),rgba(255,255,255,0.01));padding:22px;border-radius:var(--card-radius);box-shadow:0 10px 30px rgba(0,0,0,0.45)}
+.h1{color:var(--text);font-size:24px;margin:0 0 14px}
+.small{color:var(--muted);font-size:14px}
+.input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:800}
+.btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent2));color:#022}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+.subtable{width:100%;border-collapse:collapse;font-family:Inter,monospace;color:var(--muted)}
+.subtable th{ text-align:left;padding:10px 8px;color:var(--text);font-weight:700}
+.subtable td{padding:10px 8px;border-top:1px solid rgba(255,255,255,0.02)}
+.tag{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(6,182,212,0.08);color:#9fe7f6;font-weight:700}
+.actions{display:flex;gap:8px}
+.muted{color:var(--muted)}
+.error{background:rgba(220,40,40,0.06);border:1px solid rgba(220,40,40,0.14);color:#ffb3b3;padding:10px;border-radius:10px;margin-top:12px}
+.modal{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;z-index:200}
+.modal-card{background:linear-gradient(180deg,var(--panel),rgba(255,255,255,0.01));padding:18px;border-radius:12px;width:680px;max-width:95%}
+.modal .row{margin-top:10px}
+@media(max-width:640px){.subtable th, .subtable td{padding:8px}}
 </style>
 </head>
 <body>
+
 <header>
   <div class="brand">
-    <div class="logo-wrap" aria-hidden="true"></div>
-    <div style="line-height:1">
-      <div style="font-weight:800;color:var(--text)">Intent Dashboard (Debug)</div>
-      <div class="small">This debug page shows raw API responses</div>
+    <div class="logo" aria-hidden="true"></div>
+    <div>
+      <div class="title">Intent Dashboard</div>
+      <div class="small">Manage subdomains — CNAME-first, up to 8 CNAME targets</div>
     </div>
   </div>
-  <nav><a href="/register.html" class="small">Register</a></nav>
+
+  <div id="headerActions" style="display:flex;gap:10px;align-items:center">
+    <div id="loginArea" style="display:none" class="row">
+      <input id="quick_user" placeholder="username/email" class="input" style="width:150px;padding:8px">
+      <input id="quick_pass" placeholder="password" class="input" type="password" style="width:140px;padding:8px">
+      <button id="quick_login" class="btn btn-primary">Login</button>
+    </div>
+    <div id="userLinks" style="display:none" class="row">
+      <a href="/register.html" class="small muted">Register</a>
+      <button id="logoutBtn" class="btn btn-ghost">Logout</button>
+    </div>
+  </div>
 </header>
 
-<main class="main">
-  <section class="panel">
-    <div class="h1">Account</div>
-    <pre id="account" class="debug">Not loaded</pre>
-  </section>
+<main class="container">
+  <div class="grid">
+    <!-- Left: main -->
+    <div>
+      <section class="card">
+        <div class="h1">Account</div>
+        <div id="accountBlock" class="small muted">Loading account...</div>
+      </section>
 
-  <section class="panel">
-    <div class="h1">Subdomains</div>
-    <pre id="subs" class="debug">Not loaded</pre>
-  </section>
-
-  <section class="panel">
-    <div class="h1">Create / Test</div>
-    <div class="row" style="margin-bottom:8px">
-      <input id="subname" class="input" placeholder="subdomain (example)" />
-      <input id="target" class="input" placeholder="CNAME targets (pipe | separated) or IP" style="min-width:300px" />
-      <input id="ns" class="input" placeholder="Nameservers (optional pipe separated)" style="min-width:260px" />
-      <button id="create" class="btn">Create</button>
+      <section class="card" style="margin-top:18px">
+        <div class="h1">Subdomains</div>
+        <div id="errBox" class="error" style="display:none"></div>
+        <table class="subtable" id="subTable">
+          <thead>
+            <tr><th>Name</th><th>Target(s)</th><th>Status</th><th>NS</th><th style="width:180px">Actions</th></tr>
+          </thead>
+          <tbody id="subBody">
+            <tr><td colspan="5" class="muted">Loading...</td></tr>
+          </tbody>
+        </table>
+      </section>
     </div>
-    <div style="margin-top:12px" class="small">Status & debug output for the create request appears below:</div>
-    <pre id="createDebug" class="debug">Idle</pre>
-  </section>
 
-  <section class="panel">
-    <div class="h1">HTTP Debug Log</div>
-    <div class="small">This shows the last request/response details (status, headers, body) for the two requests the page makes.</div>
-    <pre id="httpDebug" class="debug">No requests yet</pre>
-  </section>
+    <!-- Right: create panel -->
+    <aside>
+      <section class="card">
+        <div class="h1">Create subdomain</div>
+        <div class="small muted">Enter name (letters, numbers, dash). Targets: CNAME hosts separated by <code>|</code> or a single IP for A record. Add NS if you want custom nameservers.</div>
+
+        <div class="row" style="margin-top:12px">
+          <input id="create_name" class="input" placeholder="example">
+        </div>
+        <div class="row" style="margin-top:10px">
+          <input id="create_target" class="input" placeholder="host1.example.com|host2.example.com OR 1.2.3.4">
+        </div>
+        <div class="row" style="margin-top:10px">
+          <input id="create_ns" class="input" placeholder="ns1.example.com|ns2.example.com (optional)">
+        </div>
+        <div class="row" style="margin-top:12px">
+          <button id="createBtn" class="btn btn-primary" style="flex:1">Create</button>
+        </div>
+        <div id="createStatus" class="small muted" style="margin-top:10px"></div>
+      </section>
+
+      <section class="card" style="margin-top:18px">
+        <div class="h1">Quick help</div>
+        <ul class="small muted">
+          <li>Max 3 subdomains/account (enforced server-side).</li>
+          <li>Max 8 CNAME targets (server enforces).</li>
+          <li>If PDNS fails, backend returns `detail` — copy & paste here for help.</li>
+        </ul>
+      </section>
+    </aside>
+  </div>
 </main>
 
+<!-- Edit modal -->
+<div id="editModal" class="modal" style="display:none">
+  <div class="modal-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="h1" id="editTitle">Edit subdomain</div>
+      <button id="closeModal" class="btn btn-ghost">Close</button>
+    </div>
+
+    <div style="margin-top:8px" class="small muted">Change targets or nameservers. Targets accept `|` separated hosts or single IP for A record. Leave NS blank to remove NS rrset.</div>
+
+    <div class="row" style="margin-top:12px">
+      <input id="edit_targets" class="input" placeholder="host1.example.com|host2.example.com OR 1.2.3.4">
+    </div>
+    <div class="row" style="margin-top:10px">
+      <input id="edit_ns" class="input" placeholder="ns1.example.com|ns2.example.com (leave empty to delete NS)">
+    </div>
+
+    <div class="row" style="margin-top:12px">
+      <button id="saveEdit" class="btn btn-primary">Save</button>
+      <button id="deleteSub" class="btn btn-ghost">Delete</button>
+      <div id="editStatus" class="small muted" style="margin-left:8px"></div>
+    </div>
+  </div>
+</div>
+
 <script>
-  // Utility to pretty-print headers
-  function headersToObj(headers) {
-    const obj = {};
-    for (let pair of headers.entries()) obj[pair[0]] = pair[1];
-    return obj;
+  // helpers
+  const API = api('');
+  function getToken(){ return localStorage.getItem('intent_token'); }
+  function setToken(t){ localStorage.setItem('intent_token', t); }
+  function showError(msg){ const b=document.getElementById('errBox'); if(!msg){ b.style.display='none'; b.textContent=''; } else { b.style.display='block'; b.textContent=msg; } }
+
+  // initial UI state
+  function showLoginArea(show){
+    document.getElementById('loginArea').style.display = show ? 'flex' : 'none';
+    document.getElementById('userLinks').style.display = show ? 'none' : 'inline-flex';
   }
 
-  async function fetchAndDebug(url, opts = {}) {
-    const out = { url, method: opts.method || 'GET', request: { headers: opts.headers || {}, body: opts.body || null } };
+  // render account/subdomains
+  async function loadAll(){
+    showError(null);
+    const token = getToken();
+    if(!token){ document.getElementById('accountBlock').textContent = 'Not logged in — use the login box'; showLoginArea(true); renderNoSubs(); return; }
+    showLoginArea(false);
+
+    // account
     try {
-      const res = await fetch(url, opts);
-      out.response = { status: res.status, statusText: res.statusText, headers: headersToObj(res.headers) };
-      const text = await res.text();
-      // try json parse
-      try { out.response.body = JSON.parse(text); }
-      catch(e){ out.response.body = text; }
-      return out;
-    } catch (err) {
-      out.error = String(err);
-      return out;
-    }
+      const r = await fetch(API + '/api/dashboard', { headers: { Authorization: 'Bearer ' + token }});
+      const txt = await r.text();
+      let jd=null; try{ jd=JSON.parse(txt);}catch(e){}
+      if(!r.ok){
+        // invalid token -> clear and show login
+        if(r.status === 401){ localStorage.removeItem('intent_token'); showLoginArea(true); document.getElementById('accountBlock').textContent='Session invalid — please login'; renderNoSubs(); return; }
+        document.getElementById('accountBlock').textContent = 'Error: ' + (jd && (jd.error||jd.message) || txt || r.statusText);
+      } else {
+        document.getElementById('accountBlock').textContent = `${jd.user.username} • ${jd.user.email} • status: ${jd.user.status}`;
+      }
+    } catch(e){ document.getElementById('accountBlock').textContent = 'Network error'; }
+
+    // subdomains
+    try {
+      const s = await fetch(API + '/api/subdomains', { headers: { Authorization: 'Bearer ' + token }});
+      const txt = await s.text();
+      let js = null; try{ js = JSON.parse(txt);}catch(e){}
+      if(!s.ok){ showError('Error loading subdomains: ' + (js && (js.error||js.detail) || txt || s.statusText)); renderNoSubs(); return; }
+      renderSubs(js);
+    } catch(e){ showError('Network error while loading subdomains'); renderNoSubs(); }
   }
 
-  function dump(obj){
-    return JSON.stringify(obj, null, 2);
+  function renderNoSubs(){
+    const body = document.getElementById('subBody');
+    body.innerHTML = `<tr><td colspan="5" class="muted">— no data —</td></tr>`;
   }
 
-  async function loadAll() {
-    const token = localStorage.getItem('intent_token');
-    const headers = token ? { 'Authorization': 'Bearer ' + token } : {};
-    // /api/dashboard
-    document.getElementById('account').textContent = 'Loading...';
-    const dash = await fetchAndDebug(api('/api/dashboard'), { headers });
-    document.getElementById('httpDebug').textContent = dump(dash);
-    if (dash.response && (dash.response.status === 200)) {
-      document.getElementById('account').textContent = dump(dash.response.body);
-    } else {
-      const msg = dash.error || (dash.response && (dash.response.body || dash.response.statusText)) || 'unknown';
-      document.getElementById('account').textContent = 'ERROR: ' + String(msg);
-    }
+  function renderSubs(list){
+    const body = document.getElementById('subBody');
+    if(!Array.isArray(list) || list.length===0){ renderNoSubs(); return; }
+    body.innerHTML = '';
+    list.forEach(sd => {
+      const tr = document.createElement('tr');
 
-    // /api/subdomains
-    document.getElementById('subs').textContent = 'Loading...';
-    const subs = await fetchAndDebug(api('/api/subdomains'), { headers });
-    // Append to the HTTP debug the subs result too
-    document.getElementById('httpDebug').textContent = dump({ dashboard: dash, subdomains: subs });
-    if (subs.response && (subs.response.status === 200)) {
-      document.getElementById('subs').textContent = dump(subs.response.body);
-    } else {
-      const msg = subs.error || (subs.response && (subs.response.body || subs.response.statusText)) || 'unknown';
-      document.getElementById('subs').textContent = 'ERROR: ' + String(msg);
-    }
+      // name
+      const tdName = document.createElement('td'); tdName.textContent = sd.name; tr.appendChild(tdName);
+
+      // target
+      const tdTarget = document.createElement('td'); tdTarget.textContent = sd.target || '-'; tr.appendChild(tdTarget);
+
+      // status
+      const tdStatus = document.createElement('td'); tdStatus.innerHTML = `<span class="tag">${sd.status}</span>`; tr.appendChild(tdStatus);
+
+      // ns
+      const tdNs = document.createElement('td'); tdNs.textContent = sd.ns || '-'; tr.appendChild(tdNs);
+
+      // actions
+      const tdAct = document.createElement('td');
+      const actions = document.createElement('div'); actions.className = 'actions';
+
+      const edit = document.createElement('button'); edit.className = 'btn btn-ghost'; edit.textContent='Edit'; edit.onclick = ()=> openEdit(sd);
+      const del = document.createElement('button'); del.className = 'btn'; del.style.background='rgba(220,40,40,0.06)'; del.textContent='Delete'; del.onclick = ()=> deleteSub(sd.name);
+
+      actions.appendChild(edit);
+      actions.appendChild(del);
+      tdAct.appendChild(actions);
+      tr.appendChild(tdAct);
+
+      body.appendChild(tr);
+    });
   }
 
-  document.getElementById('create').addEventListener('click', async () => {
-    document.getElementById('createDebug').textContent = 'Sending...';
-    const name = document.getElementById('subname').value.trim();
-    const target = document.getElementById('target').value.trim();
-    const ns = document.getElementById('ns').value.trim();
-    const token = localStorage.getItem('intent_token');
-    const headers = { 'Content-Type': 'application/json' };
-    if (token) headers['Authorization'] = 'Bearer ' + token;
+  // delete
+  async function deleteSub(name){
+    if(!confirm('Delete '+name+' ? This removes DNS rrsets and DB entry.')) return;
+    const token = getToken(); if(!token) return alert('Not logged in');
+    try{
+      const r = await fetch(API + '/api/subdomains/' + encodeURIComponent(name), { method:'DELETE', headers: { Authorization: 'Bearer ' + token }});
+      const txt = await r.text();
+      let j = null; try{ j = JSON.parse(txt);}catch(e){}
+      if(!r.ok){ alert('Delete failed: ' + (j && (j.error||j.detail) || txt || r.statusText)); return; }
+      loadAll();
+    }catch(e){ alert('Network error: '+e.message); }
+  }
 
-    if (!name) { document.getElementById('createDebug').textContent = 'Enter a name first'; return; }
+  // Edit modal
+  let currentEditName = null;
+  function openEdit(sd){
+    currentEditName = sd.name;
+    document.getElementById('editTitle').textContent = 'Edit ' + sd.name;
+    document.getElementById('edit_targets').value = sd.target || '';
+    document.getElementById('edit_ns').value = sd.ns || '';
+    document.getElementById('editStatus').textContent = '';
+    document.getElementById('editModal').style.display = 'flex';
+  }
+  document.getElementById('closeModal').addEventListener('click', ()=> document.getElementById('editModal').style.display='none');
 
-    const payload = JSON.stringify({ name, target, ns });
-    const debug = await fetchAndDebug(api('/api/subdomains'), { method: 'POST', headers, body: payload });
-    document.getElementById('createDebug').textContent = dump(debug);
-    // Refresh lists after create attempt
-    setTimeout(loadAll, 800);
+  // Save edit (PUT)
+  document.getElementById('saveEdit').addEventListener('click', async ()=>{
+    if(!currentEditName) return;
+    const t = document.getElementById('edit_targets').value.trim();
+    const ns = document.getElementById('edit_ns').value.trim();
+    const token = getToken(); if(!token){ alert('Not logged in'); return; }
+    document.getElementById('editStatus').textContent = 'Saving...';
+    try{
+      const r = await fetch(API + '/api/subdomains/' + encodeURIComponent(currentEditName), { method:'PUT', headers: { 'Content-Type':'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify({ target: t, ns })});
+      const txt = await r.text();
+      let j=null; try{ j = JSON.parse(txt);}catch(e){}
+      if(!r.ok){ document.getElementById('editStatus').textContent = 'Error: ' + (j && (j.error||j.detail) || txt || r.statusText); return; }
+      document.getElementById('editStatus').textContent = 'Saved — refreshing...';
+      setTimeout(()=>{ document.getElementById('editModal').style.display='none'; loadAll(); }, 900);
+    }catch(e){ document.getElementById('editStatus').textContent = 'Network error: '+e.message; }
   });
 
-  // Initial load
-  loadAll();
+  // Quick login in header
+  document.getElementById('quick_login').addEventListener('click', async ()=>{
+    const u = document.getElementById('quick_user').value.trim(); const p = document.getElementById('quick_pass').value;
+    if(!u||!p) return alert('fill both fields');
+    try{
+      const r = await fetch(API + '/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ username: u, password: p })});
+      const txt = await r.text(); let j=null; try{j=JSON.parse(txt)}catch(e){}
+      if(!r.ok) return alert('Login failed: ' + (j && (j.error||j.message) || txt || r.statusText));
+      if(j && j.token){ setToken(j.token); loadAll(); }
+    }catch(e){ alert('Network error: '+e.message); }
+  });
+
+  // Logout
+  document.getElementById('logoutBtn').addEventListener('click', ()=>{
+    localStorage.removeItem('intent_token'); showLoginArea(true); loadAll();
+  });
+
+  // Create
+  document.getElementById('createBtn').addEventListener('click', async ()=>{
+    const name = document.getElementById('create_name').value.trim();
+    const target = document.getElementById('create_target').value.trim();
+    const ns = document.getElementById('create_ns').value.trim();
+    if(!name){ alert('Enter a name'); return; }
+    if(!/^[a-z0-9-]{1,30}$/i.test(name)){ alert('Invalid name'); return; }
+    const token = getToken(); if(!token){ alert('Not logged in'); return; }
+    document.getElementById('createStatus').textContent = 'Creating...';
+    try{
+      const r = await fetch(API + '/api/subdomains', { method:'POST', headers:{ 'Content-Type':'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify({ name, target, ns })});
+      const txt = await r.text(); let j=null; try{ j = JSON.parse(txt);}catch(e){}
+      if(!r.ok){ showError('Create failed: ' + (j && (j.error||j.detail) || txt || r.statusText)); document.getElementById('createStatus').textContent=''; return; }
+      document.getElementById('createStatus').textContent = 'Created — refreshing...';
+      document.getElementById('create_name').value=''; document.getElementById('create_target').value=''; document.getElementById('create_ns').value='';
+      setTimeout(()=>{ document.getElementById('createStatus').textContent=''; loadAll(); }, 800);
+    }catch(e){
+      showError('Network error: '+e.message);
+      document.getElementById('createStatus').textContent='';
+    }
+  });
+
+  // init
+  (function init(){
+    if(getToken()) showLoginArea(false); else showLoginArea(true);
+    loadAll();
+  })();
 </script>
 </body>
 </html>

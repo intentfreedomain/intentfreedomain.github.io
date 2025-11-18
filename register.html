@@ -3,81 +3,137 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Register — Intent FreeDomain</title>
+<title>Register & Login — Intent FreeDomain</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
 <style>
-:root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--accent2:#3b82f6;--text:#e6eef6}
-*{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
-header{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
-.container{max-width:900px;margin:24px auto;padding:0 18px}
-.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px}
-h1{color:var(--text)}
-input,button{padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);width:100%}
-button{background:linear-gradient(180deg,var(--accent),var(--accent2));border:none;color:#022;font-weight:800;cursor:pointer}
+:root{
+  --bg:#071226; --panel:rgba(255,255,255,0.02); --muted:#94a3b8; --accent:#06b6d4; --accent2:#3b82f6; --text:#e6eef6;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted);-webkit-font-smoothing:antialiased}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
+.brand .title{font-weight:800;color:var(--text)}
+.container{max-width:1100px;margin:28px auto;padding:0 18px}
+.card-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:linear-gradient(180deg,var(--panel),rgba(255,255,255,0.01));padding:20px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.45)}
+h1{color:var(--text);margin:0 0 10px}
 .small{color:var(--muted)}
-.error{background:rgba(220,40,40,0.06);border:1px solid rgba(220,40,40,0.14);color:#ffb3b3;padding:10px;border-radius:8px;margin-top:10px}
+.input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);margin-top:10px}
+.row{display:flex;gap:10px;align-items:center}
+.btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:800}
+.btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent2));color:#022}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+.notice{background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.12);color:#9fe7f6;padding:10px;border-radius:10px;margin-top:12px}
+.error{background:rgba(220,40,40,0.06);border:1px solid rgba(220,40,40,0.14);color:#ffb3b3;padding:10px;border-radius:10px;margin-top:12px}
+@media(max-width:900px){.card-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header>
-  <div style="display:flex;align-items:center;gap:12px">
-    <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#06b6d4,#3b82f6)"></div>
-    <div style="font-weight:800;color:var(--text)">Intent FreeDomain</div>
+  <div class="brand">
+    <div class="logo" aria-hidden="true"></div>
+    <div>
+      <div class="title">Intent FreeDomain</div>
+      <div class="small">Free subdomains • privacy-first</div>
+    </div>
   </div>
-  <nav><a href="/dashboard.html" style="color:var(--muted)">Dashboard</a></nav>
+  <nav><a href="/index.html" class="small">Home</a></nav>
 </header>
 
 <main class="container">
-  <section class="panel">
-    <h1>Create account</h1>
-    <p class="small">Create an account to manage subdomains (max 3 subdomains per account).</p>
+  <div style="margin-bottom:12px;color:var(--muted)">Create or login to manage your subdomains. After login you'll be redirected to the dashboard.</div>
 
-    <form id="regForm">
-      <input id="username" placeholder="Username (3-30 chars)" required pattern="[A-Za-z0-9\-]{3,30}">
-      <div style="height:12px"></div>
-      <input id="email" type="email" placeholder="Email" required>
-      <div style="height:12px"></div>
-      <input id="password" type="password" placeholder="Password (8+ chars)" required minlength="8">
-      <div style="margin-top:12px;display:flex;gap:8px">
-        <button type="submit" style="flex:1">Create account</button>
-        <button type="button" id="openDiscord" style="flex:0 0 140px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)">Open Discord</button>
+  <div class="card-row">
+    <!-- Register -->
+    <section class="card" aria-labelledby="reg-title">
+      <h1 id="reg-title">Create account</h1>
+      <div class="small">Max 3 subdomains per account. IP address is recorded for abuse prevention.</div>
+
+      <input id="r_username" class="input" placeholder="Username (3-30 — letters/numbers/dash)">
+      <input id="r_email" class="input" placeholder="Email">
+      <input id="r_password" type="password" class="input" placeholder="Password (8+ chars)">
+
+      <div class="row" style="margin-top:12px">
+        <button id="registerBtn" class="btn btn-primary" style="flex:1">Create account</button>
+        <button id="regDiscord" class="btn btn-ghost">Open Discord</button>
       </div>
-    </form>
 
-    <div id="msg" class="small" style="margin-top:12px"></div>
-    <div id="errBox" class="error" style="display:none"></div>
-  </section>
+      <div id="regOk" class="notice" style="display:none"></div>
+      <div id="regErr" class="error" style="display:none"></div>
+    </section>
+
+    <!-- Login -->
+    <section class="card" aria-labelledby="login-title">
+      <h1 id="login-title">Login</h1>
+      <div class="small">Use username or email and password.</div>
+
+      <input id="l_user" class="input" placeholder="Username or email">
+      <input id="l_pass" class="input" placeholder="Password" type="password">
+
+      <div class="row" style="margin-top:12px">
+        <button id="loginBtn" class="btn btn-primary" style="flex:1">Login</button>
+        <button id="loginDiscord" class="btn btn-ghost">Open Discord</button>
+      </div>
+
+      <div id="loginOk" class="notice" style="display:none"></div>
+      <div id="loginErr" class="error" style="display:none"></div>
+    </section>
+  </div>
 </main>
 
 <script>
-document.getElementById('regForm').addEventListener('submit', async (e)=>{
-  e.preventDefault();
-  document.getElementById('errBox').style.display='none';
-  const u=document.getElementById('username').value.trim();
-  const em=document.getElementById('email').value.trim();
-  const pw=document.getElementById('password').value;
-  if(!u||!em||!pw) return alert('Fill all fields');
+const API = api('');
+function show(el, txt){ if(txt){ el.style.display='block'; el.textContent=txt; } else el.style.display='none'; }
+
+// Discord buttons
+document.getElementById('regDiscord').addEventListener('click', ()=> window.open('https://discord.gg/NCS96PS4MH','_blank'));
+document.getElementById('loginDiscord').addEventListener('click', ()=> window.open('https://discord.gg/NCS96PS4MH','_blank'));
+
+// Register
+document.getElementById('registerBtn').addEventListener('click', async ()=>{
+  show(document.getElementById('regOk'));
+  show(document.getElementById('regErr'));
+  const u = document.getElementById('r_username').value.trim();
+  const e = document.getElementById('r_email').value.trim();
+  const p = document.getElementById('r_password').value;
+  if(!u||!e||!p){ show(document.getElementById('regErr'),'Fill all fields'); return; }
+  if(u.length<3 || u.length>30){ show(document.getElementById('regErr'),'Username length'); return; }
+  if(p.length<8){ show(document.getElementById('regErr'),'Password too short'); return; }
+
   try{
-    const res = await fetch(api('/api/register'), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ username:u, email:em, password:pw }) });
+    const res = await fetch(API + '/api/register', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ username:u, email:e, password:p }) });
     const txt = await res.text();
-    let data = null;
-    try { data = JSON.parse(txt); } catch(e){}
-    if(!res.ok){
-      const msg = (data && (data.error || data.message || data.detail)) || txt || res.statusText;
-      document.getElementById('errBox').style.display = 'block';
-      document.getElementById('errBox').textContent = 'Register failed: ' + msg;
-      return;
-    }
-    if(data.token) localStorage.setItem('intent_token', data.token);
-    document.getElementById('msg').textContent = 'Registered — redirecting to dashboard...';
-    setTimeout(()=> location.href='/dashboard.html', 900);
+    let j = null; try{ j = JSON.parse(txt);}catch(e){}
+    if(!res.ok){ show(document.getElementById('regErr'), (j && (j.error||j.message)) || txt || 'Register failed'); return; }
+    if(j && j.token){ localStorage.setItem('intent_token', j.token); show(document.getElementById('regOk'),'Registered — redirecting to dashboard...'); setTimeout(()=>location.href='/dashboard.html',800); return; }
+    show(document.getElementById('regOk'),'Registered — please login'); 
   }catch(err){
-    document.getElementById('errBox').style.display='block';
-    document.getElementById('errBox').textContent = 'Network error: ' + err.message;
+    show(document.getElementById('regErr'),'Network error: '+err.message);
   }
 });
-document.getElementById('openDiscord').addEventListener('click', ()=> window.open('https://discord.gg/NCS96PS4MH','_blank'));
+
+// Login
+document.getElementById('loginBtn').addEventListener('click', async ()=>{
+  show(document.getElementById('loginOk'));
+  show(document.getElementById('loginErr'));
+  const u = document.getElementById('l_user').value.trim();
+  const p = document.getElementById('l_pass').value;
+  if(!u||!p){ show(document.getElementById('loginErr'),'Fill all fields'); return; }
+
+  try{
+    const res = await fetch(API + '/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ username:u, password:p }) });
+    const txt = await res.text();
+    let j = null; try{ j = JSON.parse(txt);}catch(e){}
+    if(!res.ok){ show(document.getElementById('loginErr'), (j && (j.error||j.message)) || txt || 'Login failed'); return; }
+    if(j && j.token){ localStorage.setItem('intent_token', j.token); show(document.getElementById('loginOk'),'Login successful — redirecting...'); setTimeout(()=>location.href='/dashboard.html',700); return; }
+    show(document.getElementById('loginErr'),'Login succeeded but no token returned');
+  }catch(err){
+    show(document.getElementById('loginErr'),'Network error: '+err.message);
+  }
+});
 </script>
 </body>
 </html>

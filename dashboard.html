@@ -37,7 +37,7 @@ header{position:sticky;top:0;display:flex;align-items:center;justify-content:spa
 .muted{color:var(--muted)}
 .error{background:rgba(220,40,40,0.06);border:1px solid rgba(220,40,40,0.14);color:#ffb3b3;padding:10px;border-radius:10px;margin-top:12px}
 .modal{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;z-index:200}
-.modal-card{background:linear-gradient(180deg,var(--panel),rgba(255,255,255,0.01));padding:18px;border-radius:12px;width:720px;max-width:95%}
+.modal-card{background:linear-gradient(180deg,var(--panel),rgba(0,0,0,1));padding:18px;border-radius:12px;width:720px;max-width:95%}
 .modal .row{margin-top:10px}
 .ns-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
 .ns-item{display:flex;gap:8px;align-items:center}
@@ -308,6 +308,10 @@ header{position:sticky;top:0;display:flex;align-items:center;justify-content:spa
   document.getElementById('createBtn').addEventListener('click', async ()=>{
     const name = document.getElementById('create_name').value.trim();
     if(!name){ alert('Enter short name (e.g. user1)'); return; }
+    if (name.length < 4) {
+        alert('Invalid name — need at least 4 letters');
+        return;
+    }
     if(!/^[a-z0-9-]{1,30}$/i.test(name)){ alert('Invalid name — use letters, numbers and dash'); return; }
 
     const nsValues = nsListValues('create_ns_list');

@@ -13,403 +13,137 @@
   --card-radius:14px;
 }
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted);-webkit-font-smoothing:antialiased}
-header{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);z-index:60}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
+header{position:sticky;top:0;display:flex;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.03)}
 .brand{display:flex;gap:12px;align-items:center}
-.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
-.brand .title{font-weight:800;color:var(--text)}
+.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
 .container{max-width:1150px;margin:28px auto;padding:0 18px 80px}
 .grid{display:grid;grid-template-columns:1fr 380px;gap:18px}
-@media(max-width:980px){.grid{grid-template-columns:1fr}}
-.card{background:linear-gradient(180deg,var(--panel),rgba(255,255,255,0.01));padding:22px;border-radius:var(--card-radius);box-shadow:0 10px 30px rgba(0,0,0,0.45)}
-.h1{color:var(--text);font-size:24px;margin:0 0 14px}
-.small{color:var(--muted);font-size:14px}
-.input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
-.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:800}
+.card{background:linear-gradient(180deg,var(--panel),rgba(255,255,255,0.01));padding:22px;border-radius:14px}
+.h1{color:var(--text);font-size:24px}
+.small{font-size:14px}
+.input{width:100%;padding:12px;border-radius:10px;background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.05)}
+.btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
 .btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent2));color:#022}
-.btn-ghost{background: rgba(255,0,0,1);border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-.subtable{width:100%;border-collapse:collapse;font-family:Inter,monospace;color:var(--muted)}
-.subtable th{ text-align:left;padding:10px 8px;color:var(--text);font-weight:700}
-.subtable td{padding:10px 8px;border-top:1px solid rgba(255,255,255,0.02)}
-.tag{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(6,182,212,0.08);color:#9fe7f6;font-weight:700}
-.actions{display:flex;gap:8px}
-.muted{color:var(--muted)}
-.error{background:rgba(220,40,40,0.06);border:1px solid rgba(220,40,40,0.14);color:#ffb3b3;padding:10px;border-radius:10px;margin-top:12px}
-.modal{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,1);display:flex;align-items:center;justify-content:center;z-index:200}
-.modal-card{background:solid rgba(0,0,0,1));padding:18px;border-radius:12px;width:720px;max-width:95%}
-.modal .row{margin-top:10px}
-.ns-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
-.ns-item{display:flex;gap:8px;align-items:center}
-.ns-input{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
-.ns-btn{padding:8px 10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:var(--muted);cursor:pointer}
-.add-btn{background:linear-gradient(180deg,#0fb8d4,#3b82f6);color:#022}
-.helper{font-size:13px;color:var(--muted);margin-top:8px}
-@media(max-width:640px){.subtable th, .subtable td{padding:8px}}
+.btn-ghost{background:red;color:#fff}
+.subtable{width:100%;border-collapse:collapse}
+.subtable th,.subtable td{padding:10px;border-top:1px solid rgba(255,255,255,0.03)}
+.tag{padding:6px 8px;border-radius:999px;background:rgba(6,182,212,0.1)}
+.modal{position:fixed;inset:0;background:black;display:none;align-items:center;justify-content:center}
+.modal-card{background:#000;padding:18px;border-radius:12px;width:720px}
+.ns-list{display:flex;flex-direction:column;gap:8px}
+.ns-item{display:flex;gap:8px}
+.ns-input{flex:1;padding:10px;border-radius:8px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.05)}
+.ns-btn{padding:8px;border-radius:8px;background:#222;color:#fff}
 </style>
 </head>
 <body>
 
 <header>
   <div class="brand">
-    <div class="logo" aria-hidden="true"></div>
+    <div class="logo"></div>
     <div>
-      <div class="title">Intent Dashboard</div>
-      <div class="small">Create simple subdomains — NS-only create, edit advanced later</div>
+      <div style="font-weight:800;color:#fff">Intent Dashboard</div>
+      <div class="small">NS-only subdomain manager</div>
     </div>
   </div>
-
-  <div id="headerActions" style="display:flex;gap:10px;align-items:center">
-    <div id="loginArea" style="display:none" class="row">
-      <input id="quick_user" placeholder="username/email" class="input" style="width:150px;padding:8px">
-      <input id="quick_pass" placeholder="password" class="input" type="password" style="width:140px;padding:8px">
-      <button id="quick_login" class="btn btn-primary">Login</button>
-    </div>
-    <div id="userLinks" style="display:none" class="row">
-      <a href="/register.html" class="small muted">Register</a>
-      <button id="logoutBtn" class="btn btn-ghost">Logout</button>
-    </div>
-  </div>
+  <button id="logoutBtn" class="btn btn-ghost">Logout</button>
 </header>
 
 <main class="container">
   <div class="grid">
-    <!-- Left: main -->
     <div>
       <section class="card">
         <div class="h1">Account</div>
-        <div id="accountBlock" class="small muted">Loading account...</div>
+        <div id="accountBlock" class="small">Loading...</div>
       </section>
 
       <section class="card" style="margin-top:18px">
         <div class="h1">Subdomains</div>
-        <div id="errBox" class="error" style="display:none"></div>
-        <table class="subtable" id="subTable">
+        <table class="subtable">
           <thead>
-            <tr><th>Name</th><th>NS</th><th>Status</th><th style="width:180px">Actions</th></tr>
+            <tr><th>Name</th><th>NS</th><th>Status</th><th>Actions</th></tr>
           </thead>
-          <tbody id="subBody">
-            <tr><td colspan="4" class="muted">Loading...</td></tr>
-          </tbody>
+          <tbody id="subBody"></tbody>
         </table>
       </section>
     </div>
-
-    <!-- Right: create panel (simplified for NS-only, with multi-NS UI) -->
-    <aside>
-      <section class="card">
-        <div class="h1">Create a subdomain (easy)</div>
-
-        <div class="small muted" style="margin-bottom:8px">
-          Enter a short name and nameserver(s). Example: <code>user1</code> → <strong>user1.int.yt</strong>
-        </div>
-
-        <div class="row" style="margin-top:12px">
-          <input id="create_name" class="input" placeholder="short name (e.g. user1)">
-        </div>
-
-        <div style="margin-top:12px">
-          <label class="small muted">Nameservers (add one or more)</label>
-          <div id="create_ns_list" class="ns-list">
-            <!-- ns inputs will be appended here -->
-          </div>
-          <div style="display:flex;gap:8px;margin-top:8px">
-            <button id="add_ns_btn" class="ns-btn add-btn">+ Add nameserver</button>
-            <div class="helper">You can add multiple nameservers. Trailing dot will be added automatically if missing.</div>
-          </div>
-        </div>
-
-        <div class="row" style="margin-top:12px">
-          <button id="createBtn" class="btn btn-primary" style="flex:1">Create</button>
-        </div>
-        <div id="createStatus" class="small muted" style="margin-top:10px"></div>
-      </section>
-
-      <section class="card" style="margin-top:18px">
-        <div class="h1">Quick notes</div>
-        <ul class="small muted">
-          <li>Your short name will be added to <strong>int.yt</strong> automatically.</li>
-          <li>At least one nameserver is required to create a subdomain.</li>
-          <li>Advanced editing (targets/NS) available via the Edit button.</li>
-        </ul>
-      </section>
-    </aside>
   </div>
 </main>
 
-<!-- Edit modal (uses same multi-NS UI) -->
-<div id="editModal" class="modal" style="display:none">
+<div id="editModal" class="modal">
   <div class="modal-card">
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <div class="h1" id="editTitle">Edit subdomain</div>
-      <button id="closeModal" class="btn btn-ghost">Close</button>
-    </div>
+    <div class="h1" id="editTitle"></div>
 
-    <div style="margin-top:8px" class="small muted">Change targets (advanced) or change Nameservers. Leave NS list empty to delete NS rrset.</div>
+    <input id="edit_targets" class="input" placeholder="Targets (optional)">
 
-    <div style="margin-top:12px">
-      <label class="small muted">Targets (advanced)</label>
-      <input id="edit_targets" class="input" placeholder="optional: host1.example.com|host2.example.com OR single IP">
-    </div>
+    <div id="edit_ns_list" class="ns-list"></div>
+    <button id="edit_add_ns_btn" class="ns-btn">+ Add NS</button>
 
     <div style="margin-top:12px">
-      <label class="small muted">Nameservers (one per line)</label>
-      <div id="edit_ns_list" class="ns-list"></div>
-      <div style="display:flex;gap:8px;margin-top:8px">
-        <button id="edit_add_ns_btn" class="ns-btn add-btn">+ Add nameserver</button>
-        <div class="helper">Leave all NS inputs empty to remove NS rrset for this subdomain.</div>
-      </div>
-    </div>
-
-    <div class="row" style="margin-top:12px">
       <button id="saveEdit" class="btn btn-primary">Save</button>
-      <button id="deleteSub" class="btn btn-ghost">Delete</button>
-      <div id="editStatus" class="small muted" style="margin-left:8px"></div>
+      <button id="closeModal" class="btn btn-ghost">Close</button>
     </div>
   </div>
 </div>
 
 <script>
-  const API = api('');
-  function getToken(){ return localStorage.getItem('intent_token'); }
-  function setToken(t){ localStorage.setItem('intent_token', t); }
-  function showError(msg){ const b=document.getElementById('errBox'); if(!msg){ b.style.display='none'; b.textContent=''; } else { b.style.display='block'; b.textContent=msg; } }
+const API = api('');
+const token = localStorage.getItem('intent_token');
 
-  function showLoginArea(show){
-    document.getElementById('loginArea').style.display = show ? 'flex' : 'none';
-    document.getElementById('userLinks').style.display = show ? 'none' : 'inline-flex';
-  }
+function createNsInput(v=''){
+  const d=document.createElement('div');d.className='ns-item';
+  const i=document.createElement('input');i.className='ns-input';i.value=v;
+  const b=document.createElement('button');b.className='ns-btn';b.textContent='−';
+  b.onclick=()=>d.remove();
+  d.append(i,b);return d;
+}
 
-  // ---------- NS list helpers ----------
-  function createNsInput(value = '') {
-    const wrap = document.createElement('div');
-    wrap.className = 'ns-item';
-    const input = document.createElement('input');
-    input.className = 'ns-input';
-    input.placeholder = 'ns1.example.com';
-    input.value = value;
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') e.preventDefault();
-    });
+function setNsList(id,arr){
+  const c=document.getElementById(id);c.innerHTML='';
+  (arr.length?arr:['']).forEach(v=>c.appendChild(createNsInput(v)));
+}
 
-    const removeBtn = document.createElement('button');
-    removeBtn.className = 'ns-btn';
-    removeBtn.textContent = '−';
-    removeBtn.title = 'Remove nameserver';
-    removeBtn.addEventListener('click', () => wrap.remove());
-
-    wrap.appendChild(input);
-    wrap.appendChild(removeBtn);
-    return wrap;
-  }
-
-  function nsListValues(containerId) {
-    const container = document.getElementById(containerId);
-    const inputs = Array.from(container.querySelectorAll('.ns-input'));
-    const cleaned = inputs
-      .map(i => (i.value || '').trim())
-      .filter(v => v.length > 0)
-      .map(v => {
-        // strip trailing spaces and trailing slash etc, ensure no repeated dots
-        v = v.replace(/\s+/g, '');
-        // add trailing dot if not present (PDNS will accept with or without dot, but user asked to auto-add)
-        if (!v.endsWith('.')) v = v + '.';
-        return v;
-      });
-    // uniq
-    return Array.from(new Set(cleaned));
-  }
-
-  function setNsList(containerId, arr) {
-    const container = document.getElementById(containerId);
-    container.innerHTML = '';
-    if (!Array.isArray(arr) || arr.length === 0) {
-      // start with one empty input
-      container.appendChild(createNsInput(''));
-      return;
-    }
-    arr.forEach(it => {
-      // remove trailing dot for visual clarity in inputs (optional)
-      const display = it.endsWith('.') ? it.slice(0, -1) : it;
-      container.appendChild(createNsInput(display));
-    });
-  }
-
-  // ---------- load & render ----------
-  async function loadAll(){
-    showError(null);
-    const token = getToken();
-    if(!token){ document.getElementById('accountBlock').textContent = 'Not logged in — please login'; showLoginArea(true); renderNoSubs(); return; }
-    showLoginArea(false);
-
-    // account
-    try {
-      const r = await fetch(API + '/api/dashboard', { headers: { Authorization: 'Bearer ' + token }});
-      const txt = await r.text();
-      let jd=null; try{ jd=JSON.parse(txt);}catch(e){}
-      if(!r.ok){
-        if(r.status === 401){ localStorage.removeItem('intent_token'); showLoginArea(true); document.getElementById('accountBlock').textContent='Session invalid — please login'; renderNoSubs(); return; }
-        document.getElementById('accountBlock').textContent = 'Error: ' + (jd && (jd.error||jd.message) || txt || r.statusText);
-      } else {
-        document.getElementById('accountBlock').textContent = `${jd.user.username} • ${jd.user.email} • status: ${jd.user.status}`;
-      }
-    } catch(e){ document.getElementById('accountBlock').textContent = 'Network error'; }
-
-    // subdomains
-    try {
-      const s = await fetch(API + '/api/subdomains', { headers: { Authorization: 'Bearer ' + token }});
-      const txt = await s.text();
-      let js = null; try{ js = JSON.parse(txt);}catch(e){}
-      if(!s.ok){ showError('Error loading subdomains: ' + (js && (js.error||js.detail) || txt || s.statusText)); renderNoSubs(); return; }
-      renderSubs(js);
-    } catch(e){ showError('Network error while loading subdomains'); renderNoSubs(); }
-  }
-
-  function renderNoSubs(){
-    const body = document.getElementById('subBody');
-    body.innerHTML = `<tr><td colspan="4" class="muted">— no data —</td></tr>`;
-  }
-
-  function renderSubs(list){
-    const body = document.getElementById('subBody');
-    if(!Array.isArray(list) || list.length===0){ renderNoSubs(); return; }
-    body.innerHTML = '';
-    list.forEach(sd => {
-      const tr = document.createElement('tr');
-      const tdName = document.createElement('td'); tdName.textContent = sd.name; tr.appendChild(tdName);
-      const tdNs = document.createElement('td'); tdNs.textContent = sd.ns || '-'; tr.appendChild(tdNs);
-      const tdStatus = document.createElement('td'); tdStatus.innerHTML = `<span class="tag">${sd.status}</span>`; tr.appendChild(tdStatus);
-      const tdAct = document.createElement('td');
-      const actions = document.createElement('div'); actions.className = 'actions';
-      const edit = document.createElement('button'); edit.className = 'btn btn-ghost'; edit.textContent='Edit'; edit.onclick = ()=> openEdit(sd);
-      const del = document.createElement('button'); del.className = 'btn'; del.style.background='rgba(220,40,40,0.06)'; del.textContent='Delete'; del.onclick = ()=> deleteSub(sd.name);
-      actions.appendChild(edit); actions.appendChild(del); tdAct.appendChild(actions); tr.appendChild(tdAct);
-      body.appendChild(tr);
-    });
-  }
-
-  async function deleteSub(name){
-    if(!confirm('Delete '+name+' ? This removes DNS rrsets and DB entry.')) return;
-    const token = getToken(); if(!token) return alert('Not logged in');
-    try{
-      const r = await fetch(API + '/api/subdomains/' + encodeURIComponent(name), { method:'DELETE', headers: { Authorization: 'Bearer ' + token }});
-      const txt = await r.text(); let j=null; try{ j=JSON.parse(txt);}catch(e){}
-      if(!r.ok){ alert('Delete failed: ' + (j && (j.error||j.detail) || txt || r.statusText)); return; }
-      loadAll();
-    }catch(e){ alert('Network error: '+e.message); }
-  }
-
-  // ---------- create flow ----------
-  document.getElementById('add_ns_btn').addEventListener('click', (e)=>{
-    e.preventDefault();
-    document.getElementById('create_ns_list').appendChild(createNsInput(''));
+function renderSubs(list){
+  const b=document.getElementById('subBody');b.innerHTML='';
+  list.forEach(sd=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td>${sd.name}</td>
+      <td>${Array.isArray(sd.ns)?sd.ns.join(', '):(sd.ns||'-')}</td>
+      <td><span class="tag">${sd.status}</span></td>
+      <td><button class="btn btn-ghost">Edit</button></td>`;
+    tr.querySelector('button').onclick=()=>openEdit(sd);
+    b.appendChild(tr);
   });
+}
 
-  document.getElementById('createBtn').addEventListener('click', async ()=>{
-    const name = document.getElementById('create_name').value.trim();
-    if(!name){ alert('Enter short name (e.g. user1)'); return; }
-    if (name.length < 4) {
-        alert('Invalid name — need at least 4 letters');
-        return;
-    }
-    if(!/^[a-z0-9-]{1,30}$/i.test(name)){ alert('Invalid name — use letters, numbers and dash'); return; }
+function openEdit(sd){
+  document.getElementById('editTitle').textContent='Edit '+sd.name;
+  document.getElementById('edit_targets').value=sd.target||'';
 
-    const nsValues = nsListValues('create_ns_list');
-    if(nsValues.length === 0){ alert('Enter at least one nameserver'); return; }
-    // backend expects ns as pipe-separated string
-    const nsPayload = nsValues.join('|');
+  let ns=[];
+  if(Array.isArray(sd.ns)) ns=sd.ns;
+  else if(typeof sd.ns==='string') ns=sd.ns.split('|').filter(Boolean);
 
-    const token = getToken(); if(!token){ alert('Not logged in'); return; }
-    document.getElementById('createStatus').textContent = 'Creating...';
-    try{
-      const r = await fetch(API + '/api/subdomains', { method:'POST', headers: { 'Content-Type':'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify({ name, ns: nsPayload })});
-      const txt = await r.text(); let j=null; try{ j=JSON.parse(txt);}catch(e){}
-      if(!r.ok){ showError('Create failed: ' + (j && (j.error||j.detail) || txt || r.statusText)); document.getElementById('createStatus').textContent = ''; return; }
-      document.getElementById('createStatus').textContent = 'Created — refreshing...';
-      document.getElementById('create_name').value=''; setNsList('create_ns_list', ['']);
-      setTimeout(()=>{ document.getElementById('createStatus').textContent=''; loadAll(); }, 800);
-    }catch(e){
-      showError('Network error: '+e.message); document.getElementById('createStatus').textContent='';
-    }
-  });
+  ns=ns.map(n=>n.endsWith('.')?n.slice(0,-1):n);
+  setNsList('edit_ns_list',ns);
 
-  // ---------- edit modal (multi-NS UI) ----------
-  let currentEditName = null;
-  function openEdit(sd){
-    currentEditName = sd.name;
-    document.getElementById('editTitle').textContent = 'Edit ' + sd.name;
-    document.getElementById('edit_targets').value = sd.target || '';
-    // sd.ns may be pipe-separated; convert to array
-    const nsArr = (sd.ns && typeof sd.ns === 'string') ? sd.ns.split('|').map(s=>s.trim()).filter(Boolean).map(x => x.endsWith('.') ? x.slice(0,-1) : x) : [];
-    setNsList('edit_ns_list', nsArr.length ? nsArr : []);
-    document.getElementById('editStatus').textContent = '';
-    document.getElementById('editModal').style.display = 'flex';
-  }
+  document.getElementById('editModal').style.display='flex';
+}
 
-  document.getElementById('edit_add_ns_btn').addEventListener('click', (e)=>{
-    e.preventDefault();
-    document.getElementById('edit_ns_list').appendChild(createNsInput(''));
-  });
+document.getElementById('edit_add_ns_btn').onclick=()=>{
+  document.getElementById('edit_ns_list').appendChild(createNsInput());
+};
+document.getElementById('closeModal').onclick=()=>{
+  document.getElementById('editModal').style.display='none';
+};
 
-  document.getElementById('closeModal').addEventListener('click', ()=> {
-    document.getElementById('editModal').style.display='none';
-    currentEditName = null;
-  });
-
-  document.getElementById('saveEdit').addEventListener('click', async ()=>{
-    if(!currentEditName) return;
-    const targets = document.getElementById('edit_targets').value.trim();
-    const nsValues = nsListValues('edit_ns_list'); // cleaned and dotted
-    // if nsValues empty -> backend will delete NS rrset
-    const nsPayload = nsValues.length ? nsValues.join('|') : '';
-    const token = getToken(); if(!token){ alert('Not logged in'); return; }
-    document.getElementById('editStatus').textContent = 'Saving...';
-    try{
-      const r = await fetch(API + '/api/subdomains/' + encodeURIComponent(currentEditName), { method:'PUT', headers: { 'Content-Type':'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify({ target: targets, ns: nsPayload })});
-      const txt = await r.text(); let j=null; try{ j=JSON.parse(txt);}catch(e){}
-      if(!r.ok){ document.getElementById('editStatus').textContent = 'Error: ' + (j && (j.error||j.detail) || txt || r.statusText); return; }
-      document.getElementById('editStatus').textContent = 'Saved — refreshing...';
-      setTimeout(()=>{ document.getElementById('editModal').style.display='none'; currentEditName=null; loadAll(); }, 900);
-    }catch(e){ document.getElementById('editStatus').textContent = 'Network error: '+e.message; }
-  });
-
-  document.getElementById('deleteSub').addEventListener('click', async ()=>{
-    if(!currentEditName) return;
-    if(!confirm('Delete '+currentEditName+' ?')) return;
-    const token = getToken(); if(!token){ alert('Not logged in'); return; }
-    try{
-      const r = await fetch(API + '/api/subdomains/' + encodeURIComponent(currentEditName), { method:'DELETE', headers: { Authorization: 'Bearer ' + token }});
-      const txt = await r.text(); let j=null; try{ j=JSON.parse(txt);}catch(e){}
-      if(!r.ok){ alert('Delete failed: ' + (j && (j.error||j.detail) || txt || r.statusText)); return; }
-      document.getElementById('editModal').style.display='none'; currentEditName=null; loadAll();
-    }catch(e){ alert('Network error: '+e.message); }
-  });
-
-  // ---------- quick login ----------
-  document.getElementById('quick_login').addEventListener('click', async ()=>{
-    const u = document.getElementById('quick_user').value.trim(); const p = document.getElementById('quick_pass').value;
-    if(!u||!p) return alert('fill both fields');
-    try{
-      const r = await fetch(API + '/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ username: u, password: p })});
-      const txt = await r.text(); let j=null; try{ j=JSON.parse(txt) }catch(e){}
-      if(!r.ok) return alert('Login failed: ' + (j && (j.error||j.message) || txt || r.statusText));
-      if(j && j.token){ setToken(j.token); loadAll(); }
-    }catch(e){ alert('Network error: '+e.message); }
-  });
-
-  document.getElementById('logoutBtn').addEventListener('click', ()=>{
-    localStorage.removeItem('intent_token'); showLoginArea(true); loadAll();
-  });
-
-  // ---------- init ----------
-  (function init(){
-    // seed create_ns_list with one input
-    setNsList('create_ns_list', []);
-    setNsList('edit_ns_list', []);
-    if(getToken()) showLoginArea(false); else showLoginArea(true);
-    loadAll();
-  })();
-
+(async()=>{
+  const r=await fetch(API+'/api/subdomains',{headers:{Authorization:'Bearer '+token}});
+  const d=await r.json();
+  renderSubs(d);
+})();
 </script>
 </body>
 </html>

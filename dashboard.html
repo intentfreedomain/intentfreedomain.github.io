@@ -277,7 +277,24 @@ header{position:sticky;top:0;display:flex;align-items:center;justify-content:spa
     list.forEach(sd => {
       const tr = document.createElement('tr');
       const tdName = document.createElement('td'); tdName.textContent = sd.name; tr.appendChild(tdName);
-      const tdNs = document.createElement('td'); tdNs.textContent = sd.ns || '-'; tr.appendChild(tdNs);
+      //const tdNs = document.createElement('td'); tdNs.textContent = sd.ns || '-'; tr.appendChild(tdNs);
+      const tdNs = document.createElement('td');
+
+let nsText = '-';
+
+if (Array.isArray(sd.ns) && sd.ns.length) {
+  nsText = sd.ns.map(n => n.replace(/\.$/, '')).join(', ');
+} else if (typeof sd.ns === 'string' && sd.ns.trim()) {
+  nsText = sd.ns
+    .split('|')
+    .map(n => n.replace(/\.$/, ''))
+    .join(', ');
+}
+
+tdNs.textContent = nsText;
+tr.appendChild(tdNs);
+
+      
       const tdStatus = document.createElement('td'); tdStatus.innerHTML = `<span class="tag">${sd.status}</span>`; tr.appendChild(tdStatus);
       const tdAct = document.createElement('td');
       const actions = document.createElement('div'); actions.className = 'actions';

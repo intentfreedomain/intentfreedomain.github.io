@@ -335,16 +335,26 @@ header{position:sticky;top:0;display:flex;align-items:center;justify-content:spa
 
   // ---------- edit modal (multi-NS UI) ----------
   let currentEditName = null;
-  function openEdit(sd){
-    currentEditName = sd.name;
-    document.getElementById('editTitle').textContent = 'Edit ' + sd.name;
-    document.getElementById('edit_targets').value = sd.target || '';
-    // sd.ns may be pipe-separated; convert to array
-    const nsArr = (sd.ns && typeof sd.ns === 'string') ? sd.ns.split('|').map(s=>s.trim()).filter(Boolean).map(x => x.endsWith('.') ? x.slice(0,-1) : x) : [];
-    setNsList('edit_ns_list', nsArr.length ? nsArr : []);
-    document.getElementById('editStatus').textContent = '';
-    document.getElementById('editModal').style.display = 'flex';
+function openEdit(sd){
+  currentEditName = sd.name;
+  document.getElementById('editTitle').textContent = 'Edit ' + sd.name;
+  document.getElementById('edit_targets').value = sd.target || '';
+
+  let nsArr = [];
+
+  if (Array.isArray(sd.ns)) {
+    nsArr = sd.ns;
+  } else if (typeof sd.ns === 'string') {
+    nsArr = sd.ns.split('|').map(s => s.trim()).filter(Boolean);
   }
+
+  nsArr = nsArr.map(x => x.endsWith('.') ? x.slice(0, -1) : x);
+
+  setNsList('edit_ns_list', nsArr);
+  document.getElementById('editStatus').textContent = '';
+  document.getElementById('editModal').style.display = 'flex';
+}
+
 
   document.getElementById('edit_add_ns_btn').addEventListener('click', (e)=>{
     e.preventDefault();

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dashboard — Intent FreeDomain</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<!-- Punycode (IDN / Emoji support) -->
+<script src="https://cdn.jsdelivr.net/npm/punycode@2.3.1/punycode.min.js"></script>
+
+<script>
+const API_BASE = 'https://backend-render-gehg.onrender.com';
+function api(p){ return API_BASE + p; }
+</script>
+
+<style>
+:root{
+  --bg:#071226;
+  --panel:rgba(255,255,255,0.02);
+  --muted:#94a3b8;
+  --accent:#06b6d4;
+  --accent2:#3b82f6;
+  --text:#e6eef6;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;height:100%;
+  font-family:Inter,system-ui;
+  background:linear-gradient(180deg,var(--bg),#071a2a);
+  color:var(--muted);
+}
+header{
+  position:sticky;top:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 20px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.logo{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+}
+.container{max-width:1150px;margin:30px auto;padding:0 18px}
+.grid{display:grid;grid-template-columns:1fr 380px;gap:18px}
+@media(max-width:980px){.grid{grid-template-columns:1fr}}
+.card{
+  background:linear-gradient(180deg,var(--panel),rgba(255,255,255,.01));
+  padding:22px;border-radius:var(--radius);
+  box-shadow:0 10px 30px rgba(0,0,0,.45)
+}
+.h1{color:var(--text);font-size:24px;margin-bottom:12px}
+.input{
+  width:100%;padding:12px;border-radius:10px;
+  background:transparent;color:var(--text);
+  border:1px solid rgba(255,255,255,.05)
+}
+.btn{
+  padding:10px 14px;border-radius:10px;
+  border:0;font-weight:800;cursor:pointer
+}
+.btn-primary{
+  background:linear-gradient(180deg,var(--accent),var(--accent2));
+  color:#022
+}
+.btn-ghost{
+  background:rgba(255,255,255,.03);
+  color:var(--muted)
+}
+.subtable{width:100%;border-collapse:collapse}
+.subtable th,.subtable td{padding:10px;border-top:1px solid rgba(255,255,255,.04)}
+.tag{
+  padding:6px 10px;border-radius:999px;
+  background:rgba(6,182,212,.08);color:#9fe7f6
+}
+.modal{
+  position:fixed;inset:0;background:rgba(0,0,0,.85);
+  display:none;align-items:center;justify-content:center;z-index:200
+}
+.modal-card{
+  width:720px;max-width:95%;
+  background:#020617;padding:18px;border-radius:12px
+}
+.ns-item{display:flex;gap:8px;margin-top:8px}
+.ns-input{flex:1}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div style="display:flex;gap:12px;align-items:center">
+    <div class="logo"></div>
+    <div>
+      <strong style="color:var(--text)">Intent Dashboard</strong><br>
+      <small>Unicode domains → DNS-safe punycode</small>
+    </div>
+  </div>
+  <button id="logoutBtn" class="btn btn-ghost">Logout</button>
+</header>
+
+<main class="container">
+<div class="grid">
+
+<div>
+  <section class="card">
+    <div class="h1">Subdomains</div>
+    <table class="subtable">
+      <thead>
+        <tr><th>Name</th><th>Nameservers</th><th>Status</th><th></th></tr>
+      </thead>
+      <tbody id="subBody"></tbody>
+    </table>
+  </section>
+</div>
+
+<aside>
+<section class="card">
+  <div class="h1">Create Subdomain</div>
+  <input id="create_name" class="input" placeholder="ßdkk / 🍕 / hello">
+  <div id="nsList"></div>
+  <button id="addNs" class="btn btn-ghost" style="margin-top:8px">+ Add NS</button>
+  <button id="createBtn" class="btn btn-primary" style="margin-top:12px;width:100%">Create</button>
+</section>
+</aside>
+
+</div>
+</main>
+
+<!-- EDIT MODAL -->
+<div id="editModal" class="modal">
+<div class="modal-card">
+  <div class="h1" id="editTitle"></div>
+  <input id="editTarget" class="input" placeholder="optional target">
+  <div id="editNsList"></div>
+  <button id="editAddNs" class="btn btn-ghost">+ Add NS</button>
+  <div style="margin-top:12px">
+    <button id="saveEdit" class="btn btn-primary">Save</button>
+    <button id="closeEdit" class="btn btn-ghost">Close</button>
+  </div>
+</div>
+</div>
+
+<script>
+/* ================= PUNYCODE HELPERS ================= */
+function toASCII(v){ try{return punycode.toASCII(v)}catch{return v} }
+function toUnicode(v){ try{return punycode.toUnicode(v)}catch{return v} }
+function domainToASCII(d){return d.split('.').map(toASCII).join('.')}
+function domainToUnicode(d){return d.split('.').map(toUnicode).join('.')}
+
+/* ================= AUTH ================= */
+const token = () => localStorage.getItem('intent_token');
+
+/* ================= NS INPUT ================= */
+function nsInput(val=''){
+  const d=document.createElement('div');d.className='ns-item';
+  const i=document.createElement('input');
+  i.className='input ns-input';i.value=val;
+  const b=document.createElement('button');
+  b.textContent='−';b.className='btn btn-ghost';
+  b.onclick=()=>d.remove();
+  d.append(i,b);return d;
+}
+
+/* ================= LOAD ================= */
+async function loadSubs(){
+  const r=await fetch(api('/api/subdomains'),{
+    headers:{Authorization:'Bearer '+token()}
+  });
+  const data=await r.json();
+  const body=document.getElementById('subBody');
+  body.innerHTML='';
+  data.forEach(sd=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td>${domainToUnicode(sd.name)}</td>
+      <td>${(sd.ns||'').split('|').map(n=>domainToUnicode(n.replace(/\.$/,''))).join(', ')}</td>
+      <td><span class="tag">${sd.status}</span></td>
+      <td><button class="btn btn-ghost">Edit</button></td>
+    `;
+    tr.querySelector('button').onclick=()=>openEdit(sd);
+    body.appendChild(tr);
+  });
+}
+
+/* ================= CREATE ================= */
+document.getElementById('addNs').onclick=()=>{
+  document.getElementById('nsList').append(nsInput());
+};
+
+document.getElementById('createBtn').onclick=async()=>{
+  const raw=document.getElementById('create_name').value.trim();
+  const name=domainToASCII(raw);
+  const ns=[...document.querySelectorAll('#nsList input')]
+    .map(i=>domainToASCII(i.value.trim())).filter(Boolean);
+  await fetch(api('/api/subdomains'),{
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      Authorization:'Bearer '+token()
+    },
+    body:JSON.stringify({name,ns:ns.join('|')})
+  });
+  loadSubs();
+};
+
+/* ================= EDIT ================= */
+let editName='';
+function openEdit(sd){
+  editName=sd.name;
+  document.getElementById('editTitle').textContent='Edit '+domainToUnicode(sd.name);
+  const box=document.getElementById('editNsList');
+  box.innerHTML='';
+  (sd.ns||'').split('|').filter(Boolean)
+    .forEach(n=>box.append(nsInput(domainToUnicode(n.replace(/\.$/,'')))));
+  document.getElementById('editModal').style.display='flex';
+}
+
+document.getElementById('saveEdit').onclick=async()=>{
+  const ns=[...document.querySelectorAll('#editNsList input')]
+    .map(i=>domainToASCII(i.value.trim())).filter(Boolean);
+  await fetch(api('/api/subdomains/'+encodeURIComponent(editName)),{
+    method:'PUT',
+    headers:{
+      'Content-Type':'application/json',
+      Authorization:'Bearer '+token()
+    },
+    body:JSON.stringify({ns:ns.join('|')})
+  });
+  closeEdit();
+  loadSubs();
+};
+
+function closeEdit(){
+  document.getElementById('editModal').style.display='none';
+}
+
+/* ================= INIT ================= */
+document.getElementById('closeEdit').onclick=closeEdit;
+document.getElementById('logoutBtn').onclick=()=>{
+  localStorage.removeItem('intent_token');location.reload();
+};
+document.getElementById('nsList').append(nsInput());
+loadSubs();
+</script>
+
+</body>
+</html>

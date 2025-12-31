@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dashboard — Intent FreeDomain</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#071226; --panel:rgba(255,255,255,0.02); --muted:#94a3b8; --accent:#06b6d4; --accent2:#3b82f6; --text:#e6eef6;
+  --card-radius:14px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted);-webkit-font-smoothing:antialiased}
+header{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);z-index:60}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
+.brand .title{font-weight:800;color:var(--text)}
+.container{max-width:800px;margin:80px auto;padding:0 18px}
+.card{background:linear-gradient(180deg,var(--panel),rgba(255,255,255,0.01));padding:40px;border-radius:var(--card-radius);box-shadow:0 10px 30px rgba(0,0,0,0.45);text-align:center;border:1px solid rgba(255,255,255,0.05)}
+.h1{color:var(--text);font-size:32px;margin:0 0 20px;font-weight:800;text-transform: capitalize;}
+.small{color:var(--muted);font-size:16px;line-height:1.6;margin-bottom:30px}
+.btn{display:inline-block;padding:14px 28px;border-radius:10px;border:0;cursor:pointer;font-weight:800;text-decoration:none;transition:transform 0.2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent2));color:#022}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo" aria-hidden="true"></div>
+    <div>
+      <div class="title">Intent Dashboard</div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <div class="h1">New Panel!</div>
+    <div class="small">
+      Hello everyone, we are launching the new dashboard on the special occasion of New Year! 
+      Kindly everyone go there and login your old account with your email and password. 
+      <strong>Your password is your email address.</strong> 
+      Once logged in, please change your password and update your details. 
+      For new users, you can visit and make a new account on the new dashboard.
+      And don't forget to bookmark new panel.
+    </div>
+    
+    <a href="https://dash.int.yt/" class="btn btn-primary">Visit New Dashboard</a>
+  </section>
+</main>
+
+</body>
+</html>

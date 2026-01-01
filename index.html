@@ -3,263 +3,259 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Intent FreeDomain</title>
+  <title>Intent FreeDomain | Premium Subdomains</title>
   <meta name="description" content="Free subdomains — projects, blogs and experiments. Fast dashboard, privacy-first." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#071226;
-      --panel:#071826;
-      --panel-2:#0b1220;
-      --accent:#06b6d4;
-      --accent-2:#3b82f6;
-      --muted:#94a3b8;
-      --text:#e6eef6;
-      --card-radius:14px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--muted);-webkit-font-smoothing:antialiased;background:linear-gradient(180deg,var(--bg),#071a2a)}
-    a{color:inherit;text-decoration:none}
-    header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;position:sticky;top:0;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);backdrop-filter:blur(6px);z-index:60;border-bottom:1px solid rgba(255,255,255,0.03)}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo-wrap{width:48px;height:48px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .logo-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-    .brand .title{font-weight:800;color:var(--text);line-height:1}
-    nav{display:flex;gap:14px;align-items:center}
-    nav a{font-weight:600;color:rgba(255,255,255,0.9);font-size:14px}
-    .nav-toggle{display:none;background:transparent;border:0;color:var(--muted);font-weight:700}
-
-    main.container{max-width:1150px;margin:20px auto;padding:0 18px}
-    .hero{display:flex;gap:22px;align-items:flex-start}
-    .left,.right{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:22px;border-radius:var(--card-radius);box-shadow:0 10px 30px rgba(0,0,0,0.6)}
-    .left{flex:1}
-    .right{width:380px;min-width:260px}
-    h1{color:var(--text);margin:0 0 10px;font-size:32px;line-height:1.06}
-    p.lead{color:var(--muted);margin:0 0 12px;font-size:15px}
-
-    .search{display:flex;gap:10px;margin-top:12px}
-    .search input{flex:1;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.012);color:var(--text);font-size:15px}
-    .btn{padding:12px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:800}
-    .btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#022;box-shadow:0 6px 18px rgba(3,8,18,0.45)}
-    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
-
-    .actions-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-    .card{background:linear-gradient(180deg,var(--panel),var(--panel-2));padding:16px;border-radius:12px;color:var(--muted)}
-    .card h3{color:var(--text);margin:0 0 10px;font-size:16px}
-    .list{display:flex;flex-direction:column;gap:10px}
-
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
-    .feature{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);color:var(--muted)}
-    .feature h4{color:var(--text);margin:0 0 8px}
-
-    footer.site{margin-top:28px;color:var(--muted);display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:space-between;padding:18px}
-
-    /* modal */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
-    .modal{background:#021526;padding:18px;border-radius:12px;max-width:540px;width:100%;color:var(--muted)}
-    .modal h3{color:var(--text);margin:0 0 8px}
-
-    /* responsive */
-    @media (max-width:980px){
-      nav{display:none}
-      .nav-toggle{display:inline-flex}
-      .hero{flex-direction:column}
-      .right{width:100%}
-      .features{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width:640px){
-      .features{grid-template-columns:1fr}
-      h1{font-size:22px}
-      .logo-wrap{width:40px;height:40px}
-      .right{padding:16px}
-      .left{padding:16px}
+    :root {
+      /* Cream and Blue Palette */
+      --bg-overlay: rgba(7, 18, 38, 0.55); 
+      --glass: rgba(255, 253, 240, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --accent-blue: #3b82f6;
+      --deep-blue: #1e3a8a;
+      --cream-text: #fefce8;
+      --muted-cream: #cbd5e1;
+      --card-radius: 16px;
     }
 
-    /* small utilities */
-    .muted{color:var(--muted);font-size:14px}
-    .small{font-size:13px;color:var(--muted)}
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--cream-text);
+      min-height: 100vh;
+      background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+                  photo-1501785888041-af3ef285b470.jpeg no-repeat center center fixed;
+      background-size: cover;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 4%;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      z-index: 100;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .brand { display: flex; align-items: center; text-decoration: none; }
+    .logo-wrap {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--accent-blue); display: flex;
+      align-items: center; justify-content: center;
+      font-weight: 800; color: white; margin-right: 12px;
+    }
+    .brand .title { font-weight: 800; font-size: 1.1rem; color: #fff; letter-spacing: -0.5px; }
+
+    nav { display: flex; gap: 18px; align-items: center; }
+    nav a {
+      font-weight: 500; font-size: 13px; text-decoration: none;
+      color: var(--muted-cream); transition: all 0.2s;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    nav a:hover { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+    
+    .nav-btn {
+      background: rgba(59, 130, 246, 0.2);
+      padding: 6px 12px; border-radius: 6px; border: 1px solid var(--accent-blue);
+    }
+
+    main.container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .glass-panel {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      padding: 35px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero { display: grid; grid-template-columns: 1.6fr 1fr; gap: 25px; margin-bottom: 50px; }
+
+    h1 { font-size: 2.8rem; line-height: 1.1; margin-top: 0; color: #fff; font-weight: 800; }
+    .lead { font-size: 1.05rem; color: var(--muted-cream); margin-bottom: 30px; line-height: 1.5; }
+
+    .search-box {
+      display: flex;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 6px;
+      border-radius: 14px;
+      border: 1px solid var(--glass-border);
+      margin-bottom: 25px;
+    }
+    .search-box input {
+      flex: 1; background: transparent; border: none; padding: 12px 18px;
+      color: white; outline: none; font-size: 16px;
+    }
+
+    .btn {
+      padding: 12px 24px; border-radius: 10px; border: none; cursor: pointer;
+      font-weight: 700; text-decoration: none; display: inline-block;
+      transition: all 0.3s ease; text-align: center; font-size: 14px;
+    }
+    .btn-primary { background: var(--accent-blue); color: white; }
+    .btn-cream { background: #fefce8; color: var(--deep-blue); }
+    .btn-outline { border: 1px solid var(--glass-border); color: white; background: rgba(255,255,255,0.05); }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-top: 50px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(5px);
+      transition: background 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .feature-card:hover { background: rgba(255, 255, 255, 0.08); }
+    .feature-card h4 { margin: 0 0 12px 0; font-size: 1.25rem; color: #fff; }
+    .feature-card p { font-size: 14px; color: var(--muted-cream); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+
+    .card-btn {
+      align-self: flex-start;
+      background: rgba(255, 255, 255, 0.1);
+      color: white; font-size: 12px;
+      padding: 8px 16px; border-radius: 6px; text-decoration: none;
+      border: 1px solid var(--glass-border); font-weight: 700;
+      transition: all 0.2s;
+    }
+    .card-btn:hover { background: var(--accent-blue); border-color: var(--accent-blue); }
+
+    .discord-btn { background: #5865F2; border-color: #5865F2; }
+
+    footer {
+      padding: 60px 5% 40px; margin-top: 80px;
+      background: rgba(0,0,0,0.4); display: flex;
+      justify-content: space-between; flex-wrap: wrap; gap: 30px;
+    }
+
+    @media (max-width: 1000px) {
+      .hero { grid-template-columns: 1fr; }
+      nav { display: none; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <a class="brand" href="/">
-      <div class="logo-wrap" aria-hidden="true">
-        <img src="logo.png" alt="Intent logo" onerror="this.style.display='none';document.getElementById('logoSVG').style.display='block'">
-        <svg id="logoSVG" viewBox="0 0 100 100" style="display:none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100" height="100" rx="14" fill="#06b6d4"/>
-          <text x="50%" y="55%" font-size="36" fill="#021526" text-anchor="middle" dominant-baseline="middle" font-family="Inter,Arial" font-weight="800">IF</text>
-        </svg>
-      </div>
-      <div style="line-height:1">
-        <div class="title">Intent FreeDomain</div>
-        <div class="small">Free subdomains • Privacy-first</div>
-      </div>
-    </a>
 
-    <nav aria-label="main navigation">
-      <a href="/register.html">Register</a>
-      <a href="/dashboard.html">Dashboard</a>
+  <header>
+    <a href="/" class="brand">
+      <div class="logo-wrap">IF</div>
+      <div class="title">Intent FreeDomain</div>
+    </a>
+    <nav>
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
       <a href="/abuse.html">Abuse</a>
+      <a href="https://dash.int.yt/signup.php" class="nav-btn">Register</a>
+      <a href="https://dash.int.yt/login.php">Dashboard</a>
     </nav>
-
-    <button class="nav-toggle" id="navToggle" aria-expanded="false">Menu</button>
   </header>
-
-  <!-- mobile nav (toggled) -->
-  <div id="mobileNav" style="display:none;position:fixed;left:12px;right:12px;top:64px;background:rgba(2,6,23,0.95);padding:12px;border-radius:12px;z-index:90">
-    <a href="/register.html" style="display:block;padding:8px 0;color:var(--muted)">Register</a>
-    <a href="/dashboard.html" style="display:block;padding:8px 0;color:var(--muted)">Dashboard</a>
-    <a href="/about.html" style="display:block;padding:8px 0;color:var(--muted)">About</a>
-    <a href="/contact.html" style="display:block;padding:8px 0;color:var(--muted)">Contact</a>
-    <a href="/privacy.html" style="display:block;padding:8px 0;color:var(--muted)">Privacy</a>
-    <a href="/terms.html" style="display:block;padding:8px 0;color:var(--muted)">Terms</a>
-    <a href="/abuse.html" style="display:block;padding:8px 0;color:var(--muted)">Abuse</a>
-  </div>
 
   <main class="container">
     <section class="hero">
-      <div class="left">
+      <div class="glass-panel">
         <h1>Free domain in seconds — for projects, blogs and experiments</h1>
         <p class="lead">Register a short, memorable subdomain (example.int.yt) and manage ns-record and IP from an easy dashboard. No hidden fees, minimal sign-in required.</p>
+        
+        <form action="https://dash.int.yt/public-whois.php" method="GET" class="search-box">
+          <input type="text" name="domain" placeholder="Search your-name.int.yt..." required>
+          <button type="submit" class="btn btn-primary">Search Domain</button>
+        </form>
 
-        <div class="actions-row" style="margin-top:12px">
-          <a href="/register.html"><button class="btn btn-primary">Create subdomain</button></a>
-          <a href="/dashboard.html"><button class="btn btn-ghost">Go to dashboard</button></a>
-        </div>
-
-        <div style="margin-top:18px" class="card">
-          <h3>Announcement</h3>
-          <div class="list">
-            <div style="margin-top:8px"><strong style="color:var(--text)">🛠️ Maintenance Notice:</strong><div class="small">Services are live, but background maintenance is ongoing until 01-01-2026. Minor changes may be lost. Avoid edits if possible. Big updates coming soon on New Year 🎉</div></div>
-            <div><strong style="color:var(--text)">🎄 Merry Christmas from Intent Free Domain and Team!</strong><div class="small">Thank you for being part of our journey. We wish you peace, joy, and success this festive season and in the year ahead. ✨</div></div>
-            <div style="margin-top:8px"><strong style="color:var(--text)">🚧 Website Update in Progress</strong><div class="small">We’re actively working on updates to improve performance, design, and overall user experience. Some features may change as we roll out improvements.</div></div>
-            <div style="margin-top:8px"><strong style="color:var(--text)">⚠️ Security & Exploit Notice</strong><div class="small">If you find any exploits or violations against our terms, please report them immediately via a Discord ticket or email us at support@int.yt or abuse@int.yt .</div></div>
-          </div>
+        <div style="display: flex; gap: 15px;">
+          <a href="https://dash.int.yt/signup.php" class="btn btn-cream">Create Account</a>
+          <a href="https://dash.int.yt/login.php" class="btn btn-outline">Dashboard</a>
         </div>
       </div>
 
-      <aside class="right">
-        <h3 style="margin-top:0;color:var(--text)">Need help or found an error?</h3>
-        <p class="small">Some actions currently point to placeholder pages. Open a ticket on our Discord and include the page URL + a short description — we'll fix it fast.</p>
-        <div style="margin-top:12px;display:flex;gap:10px">
-          <a id="discordLink" class="btn btn-primary" href="https://discord.gg/NCS96PS4MH" target="_blank" rel="noopener">Join Discord</a>
-          </div>
-
-        <div style="margin-top:14px;color:var(--muted);font-size:13px">Prefer email? Send screenshots and page details to <a href="mailto:support@int.yt" style="color:var(--muted)">support@int.yt</a>.</div>
-      </aside>
+      <div class="glass-panel">
+        <h3 style="margin-top:0">📢 System Status</h3>
+        <p style="font-size: 14px; color: var(--muted-cream); line-height: 1.6;">
+          <strong>Maintenance:</strong> Services are operational. System-wide updates are scheduled for Jan 1st, 2026.
+        </p>
+        <a href="https://discord.gg/NCS96PS4MH" class="btn btn-outline" style="width: 100%; margin-top: 10px; font-size: 13px;">Community Discord</a>
+      </div>
     </section>
 
-    <section class="features" aria-label="features">
-      <div class="feature">
+    <div class="features-grid">
+      <div class="feature-card">
         <h4>Simple registration</h4>
-        <p class="small">Enter a name, confirm, and your subdomain is live. No long forms.</p>
+        <p>Enter a name, confirm, and your subdomain is live. No long forms.</p>
       </div>
-      <div class="feature">
+
+      <div class="feature-card">
         <h4>Automatic HTTPS</h4>
-        <p class="small">Each subdomain gets an automatic TLS certificate so your site loads securely.</p>
+        <p>Each subdomain gets an automatic TLS certificate so your site loads securely.</p>
       </div>
-      <div class="feature">
+
+      <div class="feature-card">
         <h4>Redirects & DNS</h4>
-        <p class="small">Point subdomains to IPs, GitHub Pages, or use HTTP redirects.</p>
+        <p>Point subdomains to IPs, GitHub Pages, or use HTTP redirects.</p>
       </div>
-      <div class="feature">
+
+      <div class="feature-card">
         <h4>Usage & Limits</h4>
-        <p class="small">Free for most uses. Abuse or resource-heavy projects may be limited.</p>
+        <p>Free for most uses. Abuse or resource-heavy projects may be limited.</p>
       </div>
-      <div class="feature">
+
+      <div class="feature-card">
         <h4>Whois Lookup</h4>
-        <p class="small">Check public registration details for any subdomain from the WHOIS page.</p>
+        <p>Check public registration details for any subdomain from the WHOIS page.</p>
+        <a href="https://dash.int.yt/public-whois.php" class="card-btn">Lookup Domain</a>
       </div>
-      <div class="feature">
+
+      <div class="feature-card">
         <h4>Support</h4>
-        <p class="small">Questions? Reach out via the contact page or Discord.</p>
+        <p>Questions? Reach out via the contact page or Discord.</p>
+        <a href="https://discord.gg/NCS96PS4MH" class="card-btn discord-btn">Join Discord</a>
       </div>
-    </section>
+    </div>
   </main>
 
-  <footer class="site">
-    <div>
-      <div style="color:var(--text);font-weight:800">Intent FreeDomain</div>
-      <div class="small">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
+  <footer>
+    <div style="max-width: 300px;">
+      <h3 style="margin: 0 0 10px 0;">Intent FreeDomain</h3>
+      <p style="font-size: 13px; color: var(--muted-cream)">Privacy-first DNS solutions for the modern web.</p>
     </div>
-
-    <div>
-      <div style="font-weight:700;color:var(--text);margin-bottom:8px">Product</div>
-      <a href="/register.html">Register</a><br>
-      <a href="/dashboard.html">Dashboard</a><br>
-      <a href="/whois">WHOIS</a>
-    </div>
-
-    <div>
-      <div style="font-weight:700;color:var(--text);margin-bottom:8px">Company</div>
-      <a href="/about.html">About</a><br>
-      <a href="/contact.html">Contact</a><br>
-      <a href="/support.html">Support</a>
-    </div>
-
-    <div style="text-align:right;min-width:160px">
-      <div>© <strong>Intent FreeDomain</strong></div>
-      <div style="margin-top:6px">Made with ♥ • <a href="/contact.html">Contact</a></div>
+    <div style="display: flex; gap: 50px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-weight: 800; font-size: 11px; color: var(--accent-blue); letter-spacing: 1px;">LEGAL</span>
+        <a href="/privacy.html" style="color: inherit; text-decoration: none; font-size: 13px;">Privacy</a>
+        <a href="/terms.html" style="color: inherit; text-decoration: none; font-size: 13px;">Terms</a>
+        <a href="/abuse.html" style="color: inherit; text-decoration: none; font-size: 13px;">Abuse</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-weight: 800; font-size: 11px; color: var(--accent-blue); letter-spacing: 1px;">PAGES</span>
+        <a href="/about.html" style="color: inherit; text-decoration: none; font-size: 13px;">About</a>
+        <a href="/contact.html" style="color: inherit; text-decoration: none; font-size: 13px;">Contact</a>
+        <a href="https://dash.int.yt/public-whois.php" style="color: inherit; text-decoration: none; font-size: 13px;">WHOIS</a>
+      </div>
     </div>
   </footer>
 
-  <!-- Modal -->
-  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true" style="display:none">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <h3 id="modalTitle">Report this issue on Discord</h3>
-      <p class="small">Open a ticket on our Discord and paste the page URL + a short description. That helps us fix it faster.</p>
-      <div style="margin-top:12px;display:flex;gap:10px">
-        <a id="modalDiscordLink" class="btn btn-primary" href="https://discord.gg/NCS96PS4MH" target="_blank">Open Discord</a>
-        <button id="modalCopyBtn" class="btn btn-ghost">Copy invite</button>
-        <button id="modalClose" class="btn btn-ghost">Close</button>
-      </div>
-    </div>
-  </div>
-
-<script>
-  // Basic UI behaviors (responsive nav, modal, copy invite)
-  const navToggle = document.getElementById('navToggle');
-  const mobileNav = document.getElementById('mobileNav');
-  navToggle.addEventListener('click', ()=> {
-    const shown = mobileNav.style.display === 'block';
-    mobileNav.style.display = shown ? 'none' : 'block';
-  });
-
-  // Modal controls
-  const modalBackdrop = document.getElementById('modalBackdrop');
-  const modalDiscordLink = document.getElementById('modalDiscordLink');
-  const modalCopyBtn = document.getElementById('modalCopyBtn');
-  const modalClose = document.getElementById('modalClose');
-  const discordLink = document.getElementById('discordLink');
-
-  function openModal(){ modalBackdrop.style.display='flex'; modalBackdrop.setAttribute('aria-hidden','false'); }
-  function closeModal(){ modalBackdrop.style.display='none'; modalBackdrop.setAttribute('aria-hidden','true'); }
-
-  // intercept "external-action" style flows on page (none here) — show modal if needed
-  document.getElementById('checkBtn').addEventListener('click', ()=>{
-    const v = document.getElementById('domainInput').value.trim();
-    if(!v) return alert('Please enter a name (letters, numbers and dashes).');
-    if(!/^[a-z0-9-]{1,30}$/i.test(v)) return alert('Invalid name.');
-    // show modal to avoid hitting placeholder backends
-    openModal();
-  });
-
-  discordLink.addEventListener('click', (e)=>{ /* allow normal open in new tab */ });
-
-  modalCopyBtn.addEventListener('click', async ()=>{
-    try{
-      await navigator.clipboard.writeText(modalDiscordLink.href);
-      modalCopyBtn.textContent = 'Copied!';
-      setTimeout(()=> modalCopyBtn.textContent = 'Copy invite', 1800);
-    }catch(err){ alert('Copy failed — please copy manually: ' + modalDiscordLink.href); }
-  });
-  modalClose.addEventListener('click', closeModal);
-  modalBackdrop.addEventListener('click', (e)=>{ if(e.target === modalBackdrop) closeModal(); });
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
-</script>
 </body>
 </html>

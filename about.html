@@ -8,22 +8,103 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
 <style>
-:root{--bg:#071226;--panel:#071826;--accent:#06b6d4;--accent2:#3b82f6;--muted:#94a3b8;--text:#e6eef6}
-*{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;color:var(--muted);background:linear-gradient(180deg,var(--bg),#071a2a)}
-a{color:inherit}
-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
-.brand{display:flex;gap:12px;align-items:center}
-.logo-wrap{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
-.logo-wrap img{width:100%;height:100%;object-fit:cover}
-nav{display:flex;gap:14px;align-items:center}
-nav a{font-weight:600;color:rgba(255,255,255,0.9)}
-.nav-toggle{display:none}
-.container{max-width:1150px;margin:24px auto;padding:0 18px}
-.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:22px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
-h1{color:var(--text);margin:0 0 10px}
-p{color:var(--muted)}
-footer{margin-top:28px;padding:18px;border-top:1px solid rgba(255,255,255,0.05);display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
-@media(max-width:980px){nav{display:none}.nav-toggle{display:inline-flex}}
+/* Glassmorphism Theme Variables */
+:root {
+  --bg-overlay: rgba(7, 18, 38, 0.55); 
+  --glass: rgba(255, 253, 240, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --accent-blue: #3b82f6;
+  --cream-text: #fefce8;
+  --muted-cream: #cbd5e1;
+  --card-radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--muted-cream);
+  min-height: 100vh;
+  /* Matching the landing page background */
+  background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+              url(photo-1501785888041-af3ef285b470.jpeg) no-repeat center center fixed;
+  background-size: cover;
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 4%;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 100;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.brand { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+.logo-wrap {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: var(--accent-blue); display: flex;
+  align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+nav { display: flex; gap: 18px; align-items: center; }
+nav a {
+  font-weight: 500; font-size: 13px; text-decoration: none;
+  color: var(--muted-cream); transition: all 0.2s;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+nav a:hover { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+
+.container {
+  max-width: 1150px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.panel {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-radius);
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+h1, h2 { color: #fff; margin: 0 0 15px; font-weight: 800; }
+h1 { font-size: 2.5rem; letter-spacing: -1px; }
+h2 { font-size: 1.5rem; margin-top: 30px; }
+
+p, ol li { font-size: 1.1rem; line-height: 1.7; color: var(--muted-cream); }
+ol { padding-left: 20px; }
+ol li { margin-bottom: 10px; }
+
+footer {
+  padding: 60px 5% 40px;
+  margin-top: 80px;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+footer a { color: var(--muted-cream); text-decoration: none; font-size: 14px; transition: 0.2s; }
+footer a:hover { color: #fff; }
+
+@media(max-width:980px){
+  nav { display: none; }
+  h1 { font-size: 2rem; }
+}
 </style>
 </head>
 <body>
@@ -33,19 +114,19 @@ footer{margin-top:28px;padding:18px;border-top:1px solid rgba(255,255,255,0.05);
     <div class="logo-wrap" aria-hidden="true">
       <img src="logo.png" alt="logo" onerror="this.style.display='none';document.getElementById('logoSVG').style.display='block'">
       <svg id="logoSVG" viewBox="0 0 100 100" style="display:none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100" height="100" rx="14" fill="#06b6d4"/>
-        <text x="50%" y="55%" font-size="36" fill="#021526" text-anchor="middle" dominant-baseline="middle" font-family="Inter,Arial" font-weight="800">IF</text>
+        <rect width="100" height="100" rx="14" fill="#3b82f6"/>
+        <text x="50%" y="55%" font-size="36" fill="#fff" text-anchor="middle" dominant-baseline="middle" font-family="Inter,Arial" font-weight="800">IF</text>
       </svg>
     </div>
     <div style="line-height:1">
-      <div style="font-weight:800;color:var(--text)">Intent FreeDomain</div>
-      <div style="font-size:12px;color:var(--muted)">Free subdomains • Privacy-first</div>
+      <div style="font-weight:800;color:#fff;font-size: 1.1rem;">Intent FreeDomain</div>
+      <div style="font-size:12px;color:var(--muted-cream)">Free subdomains • Privacy-first</div>
     </div>
   </a>
 
   <nav aria-label="main">
-    <a href="/register.html">Register</a>
-    <a href="/dashboard.html">Dashboard</a>
+    <a href="https://dash.int.yt/signup.php">Register</a>
+    <a href="https://dash.int.yt/login.php">Dashboard</a>
     <a href="/about.html">About</a>
     <a href="/contact.html">Contact</a>
     <a href="/privacy.html">Privacy</a>
@@ -58,11 +139,11 @@ footer{margin-top:28px;padding:18px;border-top:1px solid rgba(255,255,255,0.05);
     <h1>About Intent FreeDomain</h1>
     <p>Intent FreeDomain provides free subdomains for developers, students, and creators. We focus on low friction, privacy, and easy integrations — ideal for demos, portfolios, and experiments.</p>
 
-    <h2 style="color:var(--text);margin-top:16px">Mission</h2>
+    <h2>Mission</h2>
     <p>Make it easy to publish work on the web without cost or heavy setup.</p>
 
-    <h2 style="color:var(--text);margin-top:12px">How it works</h2>
-    <ol style="color:var(--muted)">
+    <h2>How it works</h2>
+    <ol>
       <li>Register an account on the site.</li>
       <li>Create a subdomain (user1.int.yt).</li>
       <li>Point it to an DNS service provider through ns-record or IP record.</li>
@@ -73,15 +154,17 @@ footer{margin-top:28px;padding:18px;border-top:1px solid rgba(255,255,255,0.05);
 
 <footer>
   <div>
-    <div style="color:var(--text);font-weight:800">Intent FreeDomain</div>
-    <div style="color:var(--muted)">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
+    <div style="color:#fff;font-weight:800;margin-bottom:10px">Intent FreeDomain</div>
+    <div style="color:var(--muted-cream);max-width:300px">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
   </div>
   <div>
-    <a href="/register.html">Register</a><br>
-    <a href="/dashboard.html">Dashboard</a><br>
-    <a href="/whois">WHOIS</a>
+    <b style="color:var(--accent-blue);font-size:12px;letter-spacing:1px">PORTAL</b><br>
+    <a href="https://dash.int.yt/signup.php">Register</a><br>
+    <a href="https://dash.int.yt/login.php">Dashboard</a><br>
+    <a href="https://dash.int.yt/public-whois.php">WHOIS</a>
   </div>
   <div>
+    <b style="color:var(--accent-blue);font-size:12px;letter-spacing:1px">SUPPORT</b><br>
     <a href="/contact.html">Contact</a><br>
     <a href="https://discord.gg/NCS96PS4MH">Discord</a>
   </div>

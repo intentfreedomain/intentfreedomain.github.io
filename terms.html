@@ -1,48 +1,188 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Terms — Intent FreeDomain</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
-<style>
-:root{--bg:#071226;--muted:#94a3b8;--text:#e6eef6}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
-header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.03)}
-.container{max-width:980px;margin:22px auto;padding:0 18px}
-.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px}
-h1{color:var(--text)}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <title>Terms — Intent FreeDomain</title>
+  <meta name="description" content="Terms of Service and Acceptable Use Policy for Intent FreeDomain.">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  
+  <style>
+    :root {
+      --bg-overlay: rgba(7, 18, 38, 0.55); 
+      --glass: rgba(255, 253, 240, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --accent-blue: #3b82f6;
+      --deep-blue: #1e3a8a;
+      --cream-text: #fefce8;
+      --muted-cream: #cbd5e1;
+      --card-radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--cream-text);
+      min-height: 100vh;
+      background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+                  url(photo-1501785888041-af3ef285b470.jpeg) no-repeat center center fixed;
+      background-size: cover;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 4%;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      z-index: 100;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .brand { display: flex; align-items: center; text-decoration: none; }
+    .logo-wrap {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--accent-blue); display: flex;
+      align-items: center; justify-content: center;
+      margin-right: 12px; overflow: hidden;
+    }
+    .logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .brand .title { font-weight: 800; font-size: 1.1rem; color: #fff; letter-spacing: -0.5px; }
+
+    nav { display: flex; gap: 18px; align-items: center; }
+    nav a {
+      font-weight: 500; font-size: 13px; text-decoration: none;
+      color: var(--muted-cream); transition: all 0.2s;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    nav a:hover { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+    
+    .nav-btn {
+      background: rgba(59, 130, 246, 0.2);
+      padding: 6px 12px; border-radius: 6px; border: 1px solid var(--accent-blue);
+    }
+
+    main.container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .glass-panel {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      padding: 35px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 { font-size: 2.8rem; line-height: 1.1; margin-top: 0; color: #fff; font-weight: 800; }
+    h2 { color: #fff; margin-top: 30px; font-weight: 800; font-size: 1.5rem; }
+    p, ul { font-size: 1.05rem; color: var(--muted-cream); line-height: 1.6; }
+    ul { padding-left: 20px; }
+    ul li { margin-bottom: 10px; }
+    a { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+
+    footer {
+      padding: 60px 5% 40px; margin-top: 80px; background: rgba(0,0,0,0.4);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;
+    }
+    footer a { color: inherit; text-decoration: none; font-size: 13px; }
+
+    @media (max-width: 1000px) { nav { display: none; } }
+  </style>
 </head>
 <body>
-<header><div style="display:flex;align-items:center;gap:12px"><div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#06b6d4,#3b82f6)"></div><div style="font-weight:800;color:var(--text)">Intent FreeDomain</div></div><nav><a href="/" style="color:var(--muted)">Home</a></nav></header>
-<main class="container">
-  <div class="panel">
-    <h1>Terms of Service & Acceptable Use</h1>
-    <p style="color:var(--muted)">Last updated: 26/12/2025</p>
-    <h2 style="color:var(--text)">Agreement</h2>
-    <p style="color:var(--muted)">By using Intent FreeDomain you automatically agree to below terms.</p>
-    <h2 style="color:var(--text)">Terms of Use</h2>
-    <ul style="color:var(--muted)">
-      <li>No illegal activity hosted on subdomains.</li>
-      <li>No harassment, doxxing, or malware distribution.</li>
-      <li>No mass unsolicited messaging or spam.</li>
-      <li>Your IP-address might be collected to stop alt's,spams,etc.</li>
-      <li>Not-allowed to create more than 1 account per IP and 3 domains per account.</li>
-      <li>3-letter or less letter domains are not-allowed for registration.</li>
-      <li>Want more than account limits need to contact admin.</li>
-      <li>Terms of Use are subjected to be changed anytime.</li>
-    </ul>
-    <h2 style="color:var(--text)">PSL & Reserved Names</h2>
-    <p style="color:var(--muted)">We enforce Public Suffix List rules and reserve names that conflict with registries or core services.</p>
-    <h2 style="color:var(--text)">Contact</h2>
-    <p style="color:var(--muted)">support@int.yt</p>
-    <p style="color:var(--muted)">abuse@int.yt</p>
-    <p style="color:var(--muted)">admin@int.yt</p>
-    <p style="color:var(--muted)">Discord Ticket:-https://discord.gg/NCS96PS4MH</p>
-        <h2 style="color:var(--text)">---INTENT FREE DOMAIN & TEAM---</h2>
-  </div>
-</main>
+
+  <header>
+    <a href="/" class="brand">
+      <div class="logo-wrap">
+        <img src="favicon.png" alt="Intent Logo">
+      </div>
+      <div class="title">Intent FreeDomain</div>
+    </a>
+    <nav>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/abuse.html">Abuse</a>
+      <a href="https://dash.int.yt/signup.php" class="nav-btn">Register</a>
+      <a href="https://dash.int.yt/login.php">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="glass-panel">
+      <h1>Terms & Acceptable Use</h1>
+      <p>Last updated: 26/12/2025</p>
+
+      <h2>Agreement</h2>
+      <p>By using Intent FreeDomain, you automatically agree to the terms outlined below. Failure to comply may result in account termination and domain suspension.</p>
+
+      <h2>Terms of Use</h2>
+      <ul>
+        <li>No illegal activity may be hosted on subdomains.</li>
+        <li>No harassment, doxxing, or malware distribution.</li>
+        <li>No mass unsolicited messaging or spam.</li>
+        <li>IP addresses are collected to prevent abuse, spam, and multiple account creation.</li>
+        <li>Users are limited to <strong>1 account per IP</strong> and <strong>3 domains per account</strong>.</li>
+        <li>Domains consisting of <strong>3 letters or less</strong> are not allowed for public registration.</li>
+        <li>Contact administration if your project requires an increase in account limits.</li>
+        <li>Terms of Use are subject to change at any time without prior notice.</li>
+      </ul>
+
+      <h2>PSL & Reserved Names</h2>
+      <p>We enforce Public Suffix List (PSL) rules and reserve names that conflict with registries, system core services, or premium identifiers.</p>
+
+      <h2>Contact Support</h2>
+      <p>
+        <strong>Email:</strong> <a href="mailto:support@int.yt">support@int.yt</a> | <a href="mailto:abuse@int.yt">abuse@int.yt</a><br>
+        <strong>Discord:</strong> <a href="https://discord.gg/NCS96PS4MH">Open a Ticket</a>
+      </p>
+      
+      <h2 style="text-align: center; border-top: 1px solid var(--glass-border); padding-top: 30px; margin-top: 40px; font-size: 1rem; opacity: 0.7;">
+        --- INTENT FREE DOMAIN & TEAM ---
+      </h2>
+    </div>
+  </main>
+
+  <footer>
+    <div style="max-width: 300px;">
+      <h3 style="margin: 0 0 10px 0;">Intent FreeDomain</h3>
+      <p style="font-size: 13px; color: var(--muted-cream)">Privacy-first DNS solutions for the modern web.</p>
+    </div>
+    <div style="display: flex; gap: 50px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-weight: 800; font-size: 11px; color: var(--accent-blue); letter-spacing: 1px;">LEGAL</span>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/abuse.html">Abuse</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-weight: 800; font-size: 11px; color: var(--accent-blue); letter-spacing: 1px;">PAGES</span>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="https://dash.int.yt/public-whois.php">WHOIS</a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

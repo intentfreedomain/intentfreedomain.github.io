@@ -7,50 +7,168 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
 <style>
-:root{--bg:#071226;--muted:#94a3b8;--accent:#06b6d4;--text:#e6eef6}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071a2a);color:var(--muted)}
-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.03)}
-.container{max-width:980px;margin:24px auto;padding:0 18px}
-.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px}
-h1{color:var(--text)}
-input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
-button{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;background:linear-gradient(180deg,var(--accent),#3b82f6);color:#022;font-weight:800}
+/* Matching Glassmorphism Theme */
+:root {
+  --bg-overlay: rgba(7, 18, 38, 0.55); 
+  --glass: rgba(255, 253, 240, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --accent-blue: #3b82f6;
+  --cream-text: #fefce8;
+  --muted-cream: #cbd5e1;
+  --card-radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--muted-cream);
+  min-height: 100vh;
+  background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+              url(photo-1501785888041-af3ef285b470.jpeg) no-repeat center center fixed;
+  background-size: cover;
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 4%;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 100;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.brand { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+.logo-wrap {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: var(--accent-blue); display: flex;
+  align-items: center; justify-content: center;
+}
+
+nav { display: flex; gap: 18px; align-items: center; }
+nav a {
+  font-weight: 500; font-size: 13px; text-decoration: none;
+  color: var(--muted-cream); transition: 0.2s;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+nav a:hover { color: #fff; }
+
+.container {
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.panel {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-radius);
+  padding: 35px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+h1, h2 { color: #fff; margin-bottom: 20px; font-weight: 800; }
+a { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
+a:hover { text-decoration: underline; }
+
+/* Form Styling */
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  margin-bottom: 15px;
+  outline: none;
+  font-family: inherit;
+}
+input:focus, textarea:focus { border-color: var(--accent-blue); }
+
+button {
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  background: var(--accent-blue);
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  transition: 0.3s;
+}
+button:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+#openDiscord {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: #fff;
+}
+
+@media(max-width:768px) {
+  nav { display: none; }
+}
 </style>
 </head>
 <body>
+
 <header>
-  <div style="display:flex;align-items:center;gap:12px"><div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#06b6d4,#3b82f6)"></div><div style="font-weight:800;color:var(--text)">Intent FreeDomain</div></div>
-  <nav><a href="/" style="color:var(--muted)">Home</a></nav>
+  <a class="brand" href="/">
+    <div class="logo-wrap">
+       <div style="font-weight:800;color:#fff;font-size:1.2rem">IF</div>
+    </div>
+    <div style="line-height:1">
+      <div style="font-weight:800;color:#fff;font-size: 1.1rem;">Intent FreeDomain</div>
+      <div style="font-size:12px;color:var(--muted-cream)">Contact Support</div>
+    </div>
+  </a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about.html">About</a>
+    <a href="https://dash.int.yt/login.php">Dashboard</a>
+  </nav>
 </header>
 
 <main class="container">
   <div class="panel">
-    <h1>Contact</h1>
-    <p style="color:var(--muted)">Fastest support via Discord. For formal requests, use email below.</p>
+    <h1>Contact Us</h1>
+    <p style="margin-bottom: 25px;">Fastest support via Discord. For formal requests, use the resources below.</p>
 
-    <p><strong style="color:var(--text)">Google Forum</strong>: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHV3fBwt1DLkPGB4JicUUySFzLRvNuvpVkufWOtlZhAft7AQ/viewform">Contact Form Link</a></p>
-    <p><strong style="color:var(--text)">Discord</strong>: <a href="https://discord.gg/NCS96PS4MH">https://discord.gg/NCS96PS4MH</a></p>
-    <p><strong style="color:var(--text)">Email</strong>: <a href="mailto:support@int.yt">support@int.yt</a></p>
+    <div style="display: grid; gap: 10px; margin-bottom: 35px;">
+      <p><strong>Google Forum</strong>: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHV3fBwt1DLkPGB4JicUUySFzLRvNuvpVkufWOtlZhAft7AQ/viewform">Contact Form Link</a></p>
+      <p><strong>Discord</strong>: <a href="https://discord.gg/NCS96PS4MH">https://discord.gg/NCS96PS4MH</a></p>
+      <p><strong>Email</strong>: <a href="mailto:support@int.yt">support@int.yt</a></p>
+    </div>
 
-    <h2 style="color:var(--text);margin-top:12px">Send us a message</h2>
+    <h2 style="font-size: 1.25rem;">Send us a message</h2>
     <form id="contactForm">
       <input name="name" placeholder="Your name" required>
       <input name="email" type="email" placeholder="Your email" required>
-      <textarea name="message" rows="6" placeholder="Message" required></textarea>
-      <div style="display:flex;gap:8px;margin-top:8px">
-        <button type="submit">Send</button>
-        <button type="button" id="openDiscord" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)">Open Discord</button>
+      <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
+      <div style="display:flex;gap:12px;margin-top:10px">
+        <button type="submit">Send Message</button>
+        <button type="button" id="openDiscord">Open Discord</button>
       </div>
     </form>
-    <div id="res" style="margin-top:10px;color:var(--muted)"></div>
+    <div id="res" style="margin-top:20px; padding: 15px; border-radius: 8px; display: none; background: rgba(59, 130, 246, 0.1); color: #fff;"></div>
   </div>
 </main>
 
 <script>
 document.getElementById('contactForm').addEventListener('submit', async (e)=>{
   e.preventDefault();
-  // This will simply prompt user to use Discord/email (no server-side mail configured)
-  document.getElementById('res').innerText = 'Thanks — please join our Discord for fastest support: https://discord.gg/NCS96PS4MH';
+  const resDiv = document.getElementById('res');
+  resDiv.style.display = 'block';
+  resDiv.innerText = 'Thanks — please join our Discord for fastest support: https://discord.gg/NCS96PS4MH';
+  e.target.reset();
 });
 document.getElementById('openDiscord').addEventListener('click', ()=> window.open('https://discord.gg/NCS96PS4MH','_blank'));
 </script>

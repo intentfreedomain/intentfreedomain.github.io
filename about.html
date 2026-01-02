@@ -1,174 +1,170 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>About — Intent FreeDomain</title>
-<meta name="description" content="About Intent FreeDomain" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<script>const API_BASE='https://backend-render-gehg.onrender.com'; function api(p){return API_BASE+p}</script>
-<style>
-/* Glassmorphism Theme Variables */
-:root {
-  --bg-overlay: rgba(7, 18, 38, 0.55); 
-  --glass: rgba(255, 253, 240, 0.12);
-  --glass-border: rgba(255, 255, 255, 0.15);
-  --accent-blue: #3b82f6;
-  --cream-text: #fefce8;
-  --muted-cream: #cbd5e1;
-  --card-radius: 16px;
-}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <title>About — Intent FreeDomain</title>
+  <meta name="description" content="About Intent FreeDomain - Free subdomains for projects, blogs, and experiments.">
 
-* { box-sizing: border-box; }
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: var(--muted-cream);
-  min-height: 100vh;
-  /* Matching the landing page background */
-  background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
-              url(photo-1501785888041-af3ef285b470.jpeg) no-repeat center center fixed;
-  background-size: cover;
-  -webkit-font-smoothing: antialiased;
-}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-overlay: rgba(7, 18, 38, 0.55); 
+      --glass: rgba(255, 253, 240, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --accent-blue: #3b82f6;
+      --deep-blue: #1e3a8a;
+      --cream-text: #fefce8;
+      --muted-cream: #cbd5e1;
+      --card-radius: 16px;
+    }
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 4%;
-  position: sticky;
-  top: 0;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  z-index: 100;
-  border-bottom: 1px solid var(--glass-border);
-}
+    * { box-sizing: border-box; }
 
-.brand { display: flex; align-items: center; text-decoration: none; gap: 12px; }
-.logo-wrap {
-  width: 44px; height: 44px; border-radius: 10px;
-  background: var(--accent-blue); display: flex;
-  align-items: center; justify-content: center;
-  overflow: hidden;
-}
-.logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--cream-text);
+      min-height: 100vh;
+      background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+                  url(photo-1501785888041-af3ef285b470.jpeg) no-repeat center center fixed;
+      background-size: cover;
+      -webkit-font-smoothing: antialiased;
+    }
 
-nav { display: flex; gap: 18px; align-items: center; }
-nav a {
-  font-weight: 500; font-size: 13px; text-decoration: none;
-  color: var(--muted-cream); transition: all 0.2s;
-  text-transform: uppercase; letter-spacing: 0.5px;
-}
-nav a:hover { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 4%;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      z-index: 100;
+      border-bottom: 1px solid var(--glass-border);
+    }
 
-.container {
-  max-width: 1150px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
+    .brand { display: flex; align-items: center; text-decoration: none; }
+    .logo-wrap {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--accent-blue); display: flex;
+      align-items: center; justify-content: center;
+      margin-right: 12px; overflow: hidden;
+    }
+    .logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .brand .title { font-weight: 800; font-size: 1.1rem; color: #fff; letter-spacing: -0.5px; }
 
-.panel {
-  background: var(--glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--card-radius);
-  padding: 40px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-}
+    nav { display: flex; gap: 18px; align-items: center; }
+    nav a {
+      font-weight: 500; font-size: 13px; text-decoration: none;
+      color: var(--muted-cream); transition: all 0.2s;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    nav a:hover { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+    
+    .nav-btn {
+      background: rgba(59, 130, 246, 0.2);
+      padding: 6px 12px; border-radius: 6px; border: 1px solid var(--accent-blue);
+    }
 
-h1, h2 { color: #fff; margin: 0 0 15px; font-weight: 800; }
-h1 { font-size: 2.5rem; letter-spacing: -1px; }
-h2 { font-size: 1.5rem; margin-top: 30px; }
+    main.container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-p, ol li { font-size: 1.1rem; line-height: 1.7; color: var(--muted-cream); }
-ol { padding-left: 20px; }
-ol li { margin-bottom: 10px; }
+    .glass-panel {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      padding: 35px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
 
-footer {
-  padding: 60px 5% 40px;
-  margin-top: 80px;
-  background: rgba(0,0,0,0.4);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
-}
+    h1 { font-size: 2.8rem; line-height: 1.1; margin-top: 0; color: #fff; font-weight: 800; }
+    h2 { color: #fff; margin-top: 30px; font-weight: 800; }
+    p, ol { font-size: 1.05rem; color: var(--muted-cream); line-height: 1.6; }
+    ol li { margin-bottom: 10px; }
 
-footer a { color: var(--muted-cream); text-decoration: none; font-size: 14px; transition: 0.2s; }
-footer a:hover { color: #fff; }
+    footer {
+      padding: 60px 5% 40px; margin-top: 80px; background: rgba(0,0,0,0.4);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;
+    }
 
-@media(max-width:980px){
-  nav { display: none; }
-  h1 { font-size: 2rem; }
-}
-</style>
+    footer a { color: inherit; text-decoration: none; font-size: 13px; }
+
+    @media (max-width: 1000px) {
+      nav { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <a class="brand" href="/">
-    <div class="logo-wrap" aria-hidden="true">
-      <img src="logo.png" alt="logo" onerror="this.style.display='none';document.getElementById('logoSVG').style.display='block'">
-      <svg id="logoSVG" viewBox="0 0 100 100" style="display:none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100" height="100" rx="14" fill="#3b82f6"/>
-        <text x="50%" y="55%" font-size="36" fill="#fff" text-anchor="middle" dominant-baseline="middle" font-family="Inter,Arial" font-weight="800">IF</text>
-      </svg>
+  <header>
+    <a href="/" class="brand">
+      <div class="logo-wrap">
+        <img src="favicon.png" alt="Intent Logo">
+      </div>
+      <div class="title">Intent FreeDomain</div>
+    </a>
+    <nav>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/abuse.html">Abuse</a>
+      <a href="https://dash.int.yt/signup.php" class="nav-btn">Register</a>
+      <a href="https://dash.int.yt/login.php">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="glass-panel">
+      <h1>About Intent FreeDomain</h1>
+      <p>Intent FreeDomain provides free subdomains for developers, students, and creators. We focus on low friction, privacy, and easy integrations — ideal for demos, portfolios, and experiments.</p>
+
+      <h2>Mission</h2>
+      <p>Make it easy to publish work on the web without cost or heavy setup.</p>
+
+      <h2>How it works</h2>
+      <ol>
+        <li>Register an account on the site.</li>
+        <li>Create a subdomain (user1.int.yt).</li>
+        <li>Point it to a DNS service provider through ns-record or IP record.</li>
+        <li>Then enjoy your free domain.</li>
+      </ol>
     </div>
-    <div style="line-height:1">
-      <div style="font-weight:800;color:#fff;font-size: 1.1rem;">Intent FreeDomain</div>
-      <div style="font-size:12px;color:var(--muted-cream)">Free subdomains • Privacy-first</div>
+  </main>
+
+  <footer>
+    <div style="max-width: 300px;">
+      <h3 style="margin: 0 0 10px 0;">Intent FreeDomain</h3>
+      <p style="font-size: 13px; color: var(--muted-cream)">Privacy-first DNS solutions for the modern web.</p>
     </div>
-  </a>
-
-  <nav aria-label="main">
-    <a href="https://dash.int.yt/signup.php">Register</a>
-    <a href="https://dash.int.yt/login.php">Dashboard</a>
-    <a href="/about.html">About</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
-  </nav>
-</header>
-
-<main class="container">
-  <div class="panel">
-    <h1>About Intent FreeDomain</h1>
-    <p>Intent FreeDomain provides free subdomains for developers, students, and creators. We focus on low friction, privacy, and easy integrations — ideal for demos, portfolios, and experiments.</p>
-
-    <h2>Mission</h2>
-    <p>Make it easy to publish work on the web without cost or heavy setup.</p>
-
-    <h2>How it works</h2>
-    <ol>
-      <li>Register an account on the site.</li>
-      <li>Create a subdomain (user1.int.yt).</li>
-      <li>Point it to an DNS service provider through ns-record or IP record.</li>
-      <li>Then enjoy your free domain.</li>
-    </ol>
-  </div>
-</main>
-
-<footer>
-  <div>
-    <div style="color:#fff;font-weight:800;margin-bottom:10px">Intent FreeDomain</div>
-    <div style="color:var(--muted-cream);max-width:300px">Free subdomains, fast setup, and privacy-respecting DNS tools.</div>
-  </div>
-  <div>
-    <b style="color:var(--accent-blue);font-size:12px;letter-spacing:1px">PORTAL</b><br>
-    <a href="https://dash.int.yt/signup.php">Register</a><br>
-    <a href="https://dash.int.yt/login.php">Dashboard</a><br>
-    <a href="https://dash.int.yt/public-whois.php">WHOIS</a>
-  </div>
-  <div>
-    <b style="color:var(--accent-blue);font-size:12px;letter-spacing:1px">SUPPORT</b><br>
-    <a href="/contact.html">Contact</a><br>
-    <a href="https://discord.gg/NCS96PS4MH">Discord</a>
-  </div>
-</footer>
+    <div style="display: flex; gap: 50px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-weight: 800; font-size: 11px; color: var(--accent-blue); letter-spacing: 1px;">LEGAL</span>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/abuse.html">Abuse</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-weight: 800; font-size: 11px; color: var(--accent-blue); letter-spacing: 1px;">PAGES</span>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="https://dash.int.yt/public-whois.php">WHOIS</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>

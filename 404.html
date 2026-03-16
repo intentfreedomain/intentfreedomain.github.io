@@ -2,45 +2,124 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; color: #333; }
-        h1 { font-size: 50px; }
-        #loading { color: #888; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            padding: 50px; 
+            color: #333; 
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1 { font-size: 80px; margin: 0; color: #ff4757; }
+        p { font-size: 18px; color: #57606f; }
+        #loading-text { color: #2f3542; font-weight: 600; }
+        
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #007bff;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .hidden { display: none; }
-        a { color: #007bff; text-decoration: none; }
+        
+        a { 
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #007bff;
+            color: white; 
+            text-decoration: none; 
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        a:hover { background-color: #0056b3; transform: translateY(-2px); }
+
+        /* Smooth fade in for error content */
+        #error-content {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
 
-    <div id="loader">
-        <p id="loading">Checking for redirect...</p>
-    </div>
+    <div class="container">
+        <div id="loader">
+            <div class="spinner"></div>
+            <span id="loading-text">Verifying shortlink...</span>
+        </div>
 
-    <div id="error-content" class="hidden">
-        <h1>404</h1>
-        <p>Oops! The page you are looking for doesn't exist.</p>
-        <a href="/">Go back to Home</a>
+        <div id="error-content" class="hidden">
+            <h1>404</h1>
+            <p>Oops! The shortlink or page you are looking for doesn't exist.</p>
+            <a href="https://int.yt">Return to Home</a>
+        </div>
     </div>
 
     <script>
-        // 1. Get the path (e.g., /XDDNJS)
-        const path = window.location.pathname.split('/').pop();
+        /**
+         * 1. Extract the key from the URL path
+         * Example: int.yt/YT -> key is "YT"
+         */
+        const fullPath = window.location.pathname;
+        const pathParts = fullPath.split('/').filter(part => part.length > 0);
+        const key = pathParts.pop();
 
-        // 2. Your Database
-        const linkDatabase = {
-            "XDDNJS": "https://google.com",
-            "YT": "https://youtube.com"
-        };
+        /**
+         * 2. API Configuration
+         */
+        const API_URL = "https://dash.int.yt/shorturl.php?key=";
 
-        // 3. The Logic
-        if (path && linkDatabase[path]) {
-            // Found a match! Redirecting...
-            window.location.href = linkDatabase[path];
-        } else {
-            // No match found. Show the 404 UI.
+        function showError() {
             document.getElementById('loader').classList.add('hidden');
             document.getElementById('error-content').classList.remove('hidden');
+        }
+
+        if (key) {
+            // 3. Fetch from the PHP Backend
+            fetch(API_URL + encodeURIComponent(key))
+                .then(response => response.text())
+                .then(data => {
+                    const result = data.trim();
+
+                    // 4. Logic: If it looks like a URL, redirect. Otherwise, fail.
+                    if (result !== "fail" && (result.startsWith('http://') || result.startsWith('https://'))) {
+                        window.location.href = result;
+                    } else {
+                        showError();
+                    }
+                })
+                .catch(err => {
+                    console.error("Redirect Engine Error:", err);
+                    showError();
+                });
+        } else {
+            // No key found in path (e.g., user just went to int.yt/404.html)
+            showError();
         }
     </script>
 </body>

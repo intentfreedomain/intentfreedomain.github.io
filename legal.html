@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+  <title>Intent | Legal</title>
+  <meta name="title" content="Intent | Legal"/>
+  <meta name="description" content="Intent FreeDomain legal policies, terms, acceptable use, abuse reporting, and security information."/>
+
+  <link href="favicon.png" rel="icon" type="image/png"/>
+  <link href="favicon.png" rel="apple-touch-icon"/>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-overlay: rgba(7, 18, 38, 0.55);
+      --glass: rgba(255, 253, 240, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --accent-blue: #3b82f6;
+      --deep-blue: #1e3a8a;
+      --cream-text: #fefce8;
+      --muted-cream: #cbd5e1;
+      --card-radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--cream-text);
+      min-height: 100vh;
+
+      background:
+        linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+        url(photo-1501785888041-af3ef285b470.jpeg)
+        no-repeat center center fixed;
+
+      background-size: cover;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 15px 4%;
+
+      position: sticky;
+      top: 0;
+
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+
+      z-index: 100;
+
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-wrap {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 10px;
+
+      background: var(--accent-blue);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-right: 12px;
+      overflow: hidden;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand .title {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    nav a {
+      font-weight: 500;
+      font-size: 13px;
+      text-decoration: none;
+
+      color: var(--muted-cream);
+
+      transition: all 0.2s;
+
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .nav-btn {
+      background: rgba(59, 130, 246, 0.2);
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-blue);
+    }
+
+    /* MAIN */
+
+    main.container {
+      max-width: 1100px;
+      margin: 55px auto;
+      padding: 0 20px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.1;
+      margin: 0 0 18px;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+
+      color: var(--muted-cream);
+
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* GLASS PANEL */
+
+    .glass-panel {
+      background: var(--glass);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+
+      padding: 35px;
+
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* LEGAL GRID */
+
+    .legal-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 25px;
+
+      margin-top: 35px;
+    }
+
+    .legal-card {
+      background: rgba(255, 255, 255, 0.05);
+
+      padding: 30px;
+
+      border-radius: 18px;
+
+      border: 1px solid rgba(255,255,255,0.1);
+
+      backdrop-filter: blur(5px);
+
+      transition:
+        background 0.3s,
+        transform 0.3s,
+        border-color 0.3s;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .legal-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      transform: translateY(-3px);
+      border-color: rgba(59,130,246,0.5);
+    }
+
+    .legal-icon {
+      width: 48px;
+      height: 48px;
+
+      border-radius: 12px;
+
+      background: rgba(59, 130, 246, 0.18);
+
+      border: 1px solid rgba(59, 130, 246, 0.35);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 22px;
+
+      margin-bottom: 20px;
+    }
+
+    .legal-card h2 {
+      margin: 0 0 12px;
+
+      font-size: 1.35rem;
+
+      color: #fff;
+    }
+
+    .legal-card p {
+      margin: 0 0 25px;
+
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.65;
+
+      flex-grow: 1;
+    }
+
+    .legal-btn {
+      display: inline-block;
+
+      width: 100%;
+
+      padding: 11px 18px;
+
+      border-radius: 9px;
+
+      background: rgba(59,130,246,0.15);
+
+      border: 1px solid rgba(59,130,246,0.5);
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      text-align: center;
+
+      transition: all 0.25s;
+    }
+
+    .legal-btn:hover {
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+      transform: translateY(-1px);
+    }
+
+    /* SECURITY / ABUSE SPECIAL CARDS */
+
+    .legal-card.special {
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 60px 5% 40px;
+
+      margin-top: 80px;
+
+      background: rgba(0,0,0,0.4);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      flex-wrap: wrap;
+
+      gap: 30px;
+    }
+
+    footer a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .legal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .glass-panel {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <a class="brand" href="/">
+    <div class="logo-wrap">
+      <img src="favicon.png" alt="Intent™ Logo"/>
+    </div>
+
+    <div class="title">
+      Intent™ — A Non-Profit | Free Subdomains
+    </div>
+  </a>
+
+  <nav>
+    <a href="/#pricing">Pricing</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/abuse.html">Abuse</a>
+
+    <a
+      class="nav-btn"
+      href="https://dash.int.yt/signup.php"
+    >
+      Register
+    </a>
+
+    <a href="https://dash.int.yt/login.php">
+      Dashboard
+    </a>
+  </nav>
+
+</header>
+
+
+<main class="container">
+
+  <section class="hero">
+
+    <h1>Legal Center</h1>
+
+    <p>
+      Review the policies and rules that govern the use of
+      Intent™ FreeDomain. These documents explain how we
+      handle data, acceptable use, abuse reports, and security.
+    </p>
+
+  </section>
+
+
+  <div class="glass-panel">
+
+    <div class="legal-grid">
+
+
+      <!-- PRIVACY -->
+
+      <div class="legal-card">
+
+        <div class="legal-icon">
+          🔒
+        </div>
+
+        <h2>Privacy Policy</h2>
+
+        <p>
+          Learn what information Intent collects, how it is used,
+          how it is protected, and when information may be disclosed.
+        </p>
+
+        <a
+          class="legal-btn"
+          href="/privacy.html"
+        >
+          Read Privacy Policy →
+        </a>
+
+      </div>
+
+
+      <!-- TERMS -->
+
+      <div class="legal-card">
+
+        <div class="legal-icon">
+          📜
+        </div>
+
+        <h2>Terms of Service</h2>
+
+        <p>
+          The terms and conditions governing your use of
+          Intent FreeDomain, its domains, DNS services,
+          dashboard, and related infrastructure.
+        </p>
+
+        <a
+          class="legal-btn"
+          href="/terms.html"
+        >
+          Read Terms of Service →
+        </a>
+
+      </div>
+
+
+      <!-- ACCEPTABLE USE -->
+
+      <div class="legal-card">
+
+        <div class="legal-icon">
+          ✓
+        </div>
+
+        <h2>Acceptable Use Policy</h2>
+
+        <p>
+          Understand what activities are permitted and prohibited
+          when using Intent services, including restrictions on
+          abuse, malicious activity, spam, and harmful content.
+        </p>
+
+        <a
+          class="legal-btn"
+          href="/acceptable-use.html"
+        >
+          Read Acceptable Use Policy →
+        </a>
+
+      </div>
+
+
+      <!-- ABUSE -->
+
+      <div class="legal-card special">
+
+        <div class="legal-icon">
+          🚨
+        </div>
+
+        <h2>Abuse Policy</h2>
+
+        <p>
+          Report domains or activity involving phishing, malware,
+          spam, fraud, copyright infringement, malicious activity,
+          or other violations of our policies.
+        </p>
+
+        <a
+          class="legal-btn"
+          href="/abuse.html"
+        >
+          View Abuse Policy →
+        </a>
+
+      </div>
+
+
+      <!-- SECURITY -->
+
+      <div class="legal-card special">
+
+        <div class="legal-icon">
+          🛡️
+        </div>
+
+        <h2>Security</h2>
+
+        <p>
+          Learn about our approach to protecting Intent services
+          and infrastructure, reporting security vulnerabilities,
+          and responsible security research.
+        </p>
+
+        <a
+          class="legal-btn"
+          href="/security.html"
+        >
+          View Security Policy →
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div style="max-width: 300px;">
+
+    <h3 style="margin: 0 0 10px 0;">
+      Intent™ — A Non-Profit | Free Subdomains
+    </h3>
+
+    <p style="font-size: 13px; color: var(--muted-cream);">
+      Privacy-first DNS solutions for the modern web.
+    </p>
+
+    <p style="font-size: 13px; color: var(--muted-cream);">
+      © Intent™ 2025–2026. All Rights Reserved.
+    </p>
+
+  </div>
+
+
+  <div style="display: flex; gap: 50px;">
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <span
+        style="
+          font-weight: 800;
+          font-size: 11px;
+          color: var(--accent-blue);
+          letter-spacing: 1px;
+        "
+      >
+        LEGAL
+      </span>
+
+      <a href="/legal.html">Legal Center</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/acceptable-use.html">Acceptable Use</a>
+      <a href="/abuse.html">Abuse</a>
+      <a href="/security.html">Security</a>
+
+    </div>
+
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <span
+        style="
+          font-weight: 800;
+          font-size: 11px;
+          color: var(--accent-blue);
+          letter-spacing: 1px;
+        "
+      >
+        PAGES
+      </span>
+
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+
+      <a href="https://dash.int.yt/public-whois.php">
+        WHOIS
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>

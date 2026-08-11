@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+  <title>Intent | Security Policy</title>
+  <meta name="title" content="Intent | Security Policy"/>
+  <meta
+    name="description"
+    content="Intent FreeDomain Security Policy covering infrastructure security, vulnerability reporting, responsible disclosure, and incident response."
+  />
+
+  <link href="favicon.png" rel="icon" type="image/png"/>
+  <link href="favicon.png" rel="apple-touch-icon"/>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-overlay: rgba(7, 18, 38, 0.55);
+      --glass: rgba(255, 253, 240, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --accent-blue: #3b82f6;
+      --deep-blue: #1e3a8a;
+      --cream-text: #fefce8;
+      --muted-cream: #cbd5e1;
+      --card-radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--cream-text);
+      min-height: 100vh;
+
+      background:
+        linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+        url(photo-1501785888041-af3ef285b470.jpeg)
+        no-repeat center center fixed;
+
+      background-size: cover;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 15px 4%;
+
+      position: sticky;
+      top: 0;
+
+      background: rgba(255, 255, 255, 0.03);
+
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+
+      z-index: 100;
+
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-wrap {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 10px;
+
+      background: var(--accent-blue);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-right: 12px;
+
+      overflow: hidden;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand .title {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    nav a {
+      font-weight: 500;
+      font-size: 13px;
+
+      text-decoration: none;
+
+      color: var(--muted-cream);
+
+      transition: all 0.2s;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.5px;
+    }
+
+    nav a:hover {
+      color: #fff;
+
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .nav-btn {
+      background: rgba(59, 130, 246, 0.2);
+
+      padding: 6px 12px;
+
+      border-radius: 6px;
+
+      border: 1px solid var(--accent-blue);
+    }
+
+    /* MAIN */
+
+    main.container {
+      max-width: 1050px;
+
+      margin: 55px auto;
+
+      padding: 0 20px;
+    }
+
+    .hero {
+      text-align: center;
+
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+
+      line-height: 1.1;
+
+      margin: 0 0 18px;
+
+      color: #fff;
+
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 750px;
+
+      margin: 0 auto;
+
+      color: var(--muted-cream);
+
+      font-size: 1.05rem;
+
+      line-height: 1.7;
+    }
+
+    /* GLASS PANEL */
+
+    .glass-panel {
+      background: var(--glass);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      border: 1px solid var(--glass-border);
+
+      border-radius: var(--card-radius);
+
+      padding: 40px;
+
+      box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* POLICY */
+
+    .policy-section {
+      margin-bottom: 40px;
+    }
+
+    .policy-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-section h2 {
+      margin: 0 0 15px;
+
+      color: #fff;
+
+      font-size: 1.45rem;
+
+      font-weight: 800;
+    }
+
+    .policy-section p {
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+
+      margin: 0 0 15px;
+    }
+
+    .policy-section ul {
+      margin: 10px 0 0;
+
+      padding-left: 25px;
+    }
+
+    .policy-section li {
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+
+      margin-bottom: 8px;
+    }
+
+    .policy-section li::marker {
+      color: var(--accent-blue);
+    }
+
+    /* SECURITY NOTICE */
+
+    .security-notice {
+      background: rgba(59,130,246,0.08);
+
+      border: 1px solid rgba(59,130,246,0.3);
+
+      border-radius: 12px;
+
+      padding: 20px;
+
+      margin-bottom: 35px;
+    }
+
+    .security-notice strong {
+      color: #fff;
+    }
+
+    .security-notice p {
+      margin: 8px 0 0;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      margin-top: 25px;
+
+      padding: 25px;
+
+      border-radius: 14px;
+
+      background: rgba(255,255,255,0.05);
+
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .contact-box p {
+      margin-bottom: 10px;
+    }
+
+    .contact-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-box a {
+      color: #fff;
+
+      font-weight: 700;
+
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 60px 5% 40px;
+
+      margin-top: 80px;
+
+      background: rgba(0,0,0,0.4);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      flex-wrap: wrap;
+
+      gap: 30px;
+    }
+
+    footer a {
+      color: inherit;
+
+      text-decoration: none;
+
+      font-size: 13px;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .glass-panel {
+        padding: 25px;
+      }
+
+      .policy-section h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <a class="brand" href="/">
+
+    <div class="logo-wrap">
+      <img
+        src="favicon.png"
+        alt="Intent™ Logo"
+      />
+    </div>
+
+    <div class="title">
+      Intent™ — A Non-Profit | Free Subdomains
+    </div>
+
+  </a>
+
+  <nav>
+
+    <a href="/#pricing">Pricing</a>
+
+    <a href="/about.html">About</a>
+
+    <a href="/contact.html">Contact</a>
+
+    <a href="/legal.html">Legal</a>
+
+    <a href="/get-involved.html">Get Involved</a>
+
+    <a
+      class="nav-btn"
+      href="https://dash.int.yt/signup.php"
+    >
+      Register
+    </a>
+
+    <a href="https://dash.int.yt/login.php">
+      Dashboard
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main class="container">
+
+  <section class="hero">
+
+    <h1>Security Policy</h1>
+
+    <p>
+      Information about how Intent™ FreeDomain approaches
+      security, vulnerability reports, responsible disclosure,
+      and protection of our services and users.
+    </p>
+
+  </section>
+
+
+  <div class="glass-panel">
+
+    <div class="security-notice">
+
+      <strong>Security matters to Intent.</strong>
+
+      <p>
+        We work to protect our infrastructure, DNS services,
+        accounts, and users from unauthorized access, abuse,
+        and security threats. If you discover a security
+        vulnerability, please report it responsibly.
+      </p>
+
+    </div>
+
+
+    <!-- 1 -->
+
+    <section class="policy-section">
+
+      <h2>1. Security Principles</h2>
+
+      <p>
+        Intent aims to maintain reasonable technical and
+        organizational safeguards designed to protect the
+        availability, integrity, and confidentiality of
+        information and services under our control.
+      </p>
+
+      <p>
+        Security is an ongoing process. We continuously review
+        our infrastructure and procedures as our services evolve.
+      </p>
+
+    </section>
+
+
+    <!-- 2 -->
+
+    <section class="policy-section">
+
+      <h2>2. Infrastructure Security</h2>
+
+      <p>
+        Intent uses technical controls and operational practices
+        intended to protect its infrastructure and services.
+        Depending on the service and infrastructure involved,
+        these may include:
+      </p>
+
+      <ul>
+
+        <li>
+          Access controls and authentication mechanisms
+        </li>
+
+        <li>
+          Network and infrastructure monitoring
+        </li>
+
+        <li>
+          Logging and security event analysis
+        </li>
+
+        <li>
+          Service isolation and access restrictions
+        </li>
+
+        <li>
+          Software and infrastructure updates
+        </li>
+
+        <li>
+          Backup and recovery procedures where applicable
+        </li>
+
+        <li>
+          Abuse detection and prevention mechanisms
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- 3 -->
+
+    <section class="policy-section">
+
+      <h2>3. Account Security</h2>
+
+      <p>
+        Users are responsible for maintaining the security of
+        their Intent accounts and credentials.
+      </p>
+
+      <ul>
+
+        <li>
+          Keep passwords and authentication credentials private.
+        </li>
+
+        <li>
+          Do not share account credentials with unauthorized
+          individuals.
+        </li>
+
+        <li>
+          Use a strong, unique password for your account.
+        </li>
+
+        <li>
+          Contact Intent if you believe your account has been
+          compromised.
+        </li>
+
+      </ul>
+
+      <p>
+        Intent may temporarily restrict an account when there is
+        reasonable evidence of unauthorized access, compromise,
+        or malicious activity.
+      </p>
+
+    </section>
+
+
+    <!-- 4 -->
+
+    <section class="policy-section">
+
+      <h2>4. DNS and Domain Security</h2>
+
+      <p>
+        DNS records and subdomains are an important part of the
+        Intent service. We may investigate or restrict DNS
+        configurations that appear to be involved in security
+        abuse, phishing, malware distribution, fraud, or other
+        prohibited activity.
+      </p>
+
+      <p>
+        Users are responsible for ensuring that destinations
+        configured through their subdomains are legitimate and
+        comply with our policies.
+      </p>
+
+    </section>
+
+
+    <!-- 5 -->
+
+    <section class="policy-section">
+
+      <h2>5. Security Monitoring</h2>
+
+      <p>
+        Intent may collect and analyze security-related
+        information necessary to protect its services and
+        investigate suspected abuse.
+      </p>
+
+      <p>
+        This may include information such as IP addresses,
+        timestamps, user agents, account activity, DNS activity,
+        and relevant security events, subject to our
+        <a href="/privacy.html" style="color:#fff;">
+          Privacy Policy
+        </a>.
+      </p>
+
+    </section>
+
+
+    <!-- 6 -->
+
+    <section class="policy-section">
+
+      <h2>6. Vulnerability Reporting</h2>
+
+      <p>
+        If you discover a potential security vulnerability
+        affecting Intent services, please report it to us as
+        soon as reasonably possible.
+      </p>
+
+      <p>
+        Security reports are most useful when they include enough
+        information for our team to understand and reproduce the
+        issue.
+      </p>
+
+      <div class="contact-box">
+
+        <p>
+          <strong>Security reports:</strong>
+        </p>
+
+        <p>
+          Email:
+          <a href="mailto:security@int.yt">
+            security@int.yt
+          </a>
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- 7 -->
+
+    <section class="policy-section">
+
+      <h2>7. Responsible Disclosure</h2>
+
+      <p>
+        We encourage responsible security research that helps
+        improve the security of Intent services.
+      </p>
+
+      <p>
+        When investigating a potential vulnerability, security
+        researchers should make reasonable efforts to avoid
+        accessing, modifying, deleting, or exposing information
+        belonging to other users.
+      </p>
+
+      <p>
+        Researchers should also avoid actions that could
+        negatively affect the availability or performance of
+        Intent services.
+      </p>
+
+    </section>
+
+
+    <!-- 8 -->
+
+    <section class="policy-section">
+
+      <h2>8. Security Testing</h2>
+
+      <p>
+        Security testing must be performed responsibly and
+        without disrupting Intent services or accessing data
+        that does not belong to the researcher.
+      </p>
+
+      <p>
+        The following activities are not considered acceptable
+        security testing without explicit authorization:
+      </p>
+
+      <ul>
+
+        <li>
+          Denial-of-service or distributed denial-of-service
+          testing
+        </li>
+
+        <li>
+          Large-scale automated scanning that could affect
+          service availability
+        </li>
+
+        <li>
+          Accessing or modifying another user's data
+        </li>
+
+        <li>
+          Destructive testing
+        </li>
+
+        <li>
+          Social engineering against Intent staff or users
+        </li>
+
+        <li>
+          Attempting to compromise third-party systems through
+          Intent infrastructure
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- 9 -->
+
+    <section class="policy-section">
+
+      <h2>9. Security Incidents</h2>
+
+      <p>
+        If Intent identifies a security incident that may affect
+        its services or users, we may take measures necessary
+        to contain, investigate, and remediate the incident.
+      </p>
+
+      <p>
+        Depending on the circumstances, this may include:
+      </p>
+
+      <ul>
+
+        <li>
+          Restricting affected accounts or services
+        </li>
+
+        <li>
+          Rotating credentials or security keys
+        </li>
+
+        <li>
+          Blocking malicious traffic or activity
+        </li>
+
+        <li>
+          Removing compromised resources
+        </li>
+
+        <li>
+          Preserving relevant security logs
+        </li>
+
+        <li>
+          Working with infrastructure providers and other
+          appropriate parties
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- 10 -->
+
+    <section class="policy-section">
+
+      <h2>10. Third-Party Services</h2>
+
+      <p>
+        Intent may rely on third-party infrastructure,
+        hosting providers, registrars, DNS providers, security
+        services, and other technology providers.
+      </p>
+
+      <p>
+        The security practices of those providers may affect
+        services provided through Intent. Third-party services
+        remain subject to their own policies and security
+        practices.
+      </p>
+
+    </section>
+
+
+    <!-- 11 -->
+
+    <section class="policy-section">
+
+      <h2>11. Abuse and Security Cooperation</h2>
+
+      <p>
+        Intent may cooperate with infrastructure providers,
+        registrars, security organizations, law-enforcement
+        agencies, and other authorized parties when reasonably
+        necessary to investigate or mitigate security incidents,
+        abuse, fraud, or other unlawful activity.
+      </p>
+
+      <p>
+        Any disclosure of information is handled in accordance
+        with applicable requirements and our
+        <a href="/privacy.html" style="color:#fff;">
+          Privacy Policy
+        </a>.
+      </p>
+
+    </section>
+
+
+    <!-- 12 -->
+
+    <section class="policy-section">
+
+      <h2>12. No Guarantee of Absolute Security</h2>
+
+      <p>
+        While Intent takes reasonable measures to protect its
+        services, no online service or infrastructure can be
+        guaranteed to be completely secure.
+      </p>
+
+      <p>
+        Users should maintain appropriate security practices
+        for their own accounts, applications, websites, and
+        infrastructure.
+      </p>
+
+    </section>
+
+
+    <!-- 13 -->
+
+    <section class="policy-section">
+
+      <h2>13. Changes to This Policy</h2>
+
+      <p>
+        Intent may update this Security Policy as our services,
+        infrastructure, security practices, or requirements
+        change.
+      </p>
+
+      <p>
+        The latest version published on this page will represent
+        the current Security Policy.
+      </p>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="policy-section">
+
+      <h2>Contact Us</h2>
+
+      <p>
+        Security concerns and vulnerability reports should be
+        directed to the Intent security team.
+      </p>
+
+      <div class="contact-box">
+
+        <p>
+          <strong>Security:</strong>
+          <a href="mailto:security@int.yt">
+            security@int.yt
+          </a>
+        </p>
+
+        <p>
+          <strong>General support:</strong>
+          <a href="mailto:support@int.yt">
+            support@int.yt
+          </a>
+        </p>
+
+        <p>
+          <strong>Community:</strong>
+          <a
+            href="https://discord.gg/NCS96PS4MH"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Intent Discord →
+          </a>
+        </p>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div style="max-width: 300px;">
+
+    <h3 style="margin: 0 0 10px 0;">
+      Intent™ — A Non-Profit | Free Subdomains
+    </h3>
+
+    <p style="font-size: 13px; color: var(--muted-cream);">
+      Privacy-first DNS solutions for the modern web.
+    </p>
+
+    <p style="font-size: 13px; color: var(--muted-cream);">
+      © Intent™ 2025–2026. All Rights Reserved.
+    </p>
+
+  </div>
+
+
+  <div style="display: flex; gap: 50px;">
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <span
+        style="
+          font-weight: 800;
+          font-size: 11px;
+          color: var(--accent-blue);
+          letter-spacing: 1px;
+        "
+      >
+        LEGAL
+      </span>
+
+      <a href="/legal.html">
+        Legal Center
+      </a>
+
+      <a href="/privacy.html">
+        Privacy
+      </a>
+
+      <a href="/terms.html">
+        Terms
+      </a>
+
+      <a href="/acceptable-use.html">
+        Acceptable Use
+      </a>
+
+      <a href="/abuse.html">
+        Abuse
+      </a>
+
+      <a href="/security.html">
+        Security
+      </a>
+
+    </div>
+
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <span
+        style="
+          font-weight: 800;
+          font-size: 11px;
+          color: var(--accent-blue);
+          letter-spacing: 1px;
+        "
+      >
+        PAGES
+      </span>
+
+      <a href="/about.html">
+        About
+      </a>
+
+      <a href="/contact.html">
+        Contact
+      </a>
+
+      <a href="/get-involved.html">
+        Get Involved
+      </a>
+
+      <a href="https://dash.int.yt/public-whois.php">
+        WHOIS
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>

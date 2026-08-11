@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+  <title>Intent | Acceptable Use Policy</title>
+  <meta name="title" content="Intent | Acceptable Use Policy"/>
+  <meta
+    name="description"
+    content="Intent FreeDomain Acceptable Use Policy governing permitted and prohibited use of Intent services."
+  />
+
+  <link href="favicon.png" rel="icon" type="image/png"/>
+  <link href="favicon.png" rel="apple-touch-icon"/>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-overlay: rgba(7, 18, 38, 0.55);
+      --glass: rgba(255, 253, 240, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --accent-blue: #3b82f6;
+      --deep-blue: #1e3a8a;
+      --cream-text: #fefce8;
+      --muted-cream: #cbd5e1;
+      --card-radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--cream-text);
+      min-height: 100vh;
+
+      background:
+        linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+        url(photo-1501785888041-af3ef285b470.jpeg)
+        no-repeat center center fixed;
+
+      background-size: cover;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 15px 4%;
+
+      position: sticky;
+      top: 0;
+
+      background: rgba(255, 255, 255, 0.03);
+
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+
+      z-index: 100;
+
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-wrap {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 10px;
+
+      background: var(--accent-blue);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-right: 12px;
+
+      overflow: hidden;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand .title {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    nav a {
+      font-weight: 500;
+      font-size: 13px;
+
+      text-decoration: none;
+
+      color: var(--muted-cream);
+
+      transition: all 0.2s;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.5px;
+    }
+
+    nav a:hover {
+      color: #fff;
+
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .nav-btn {
+      background: rgba(59, 130, 246, 0.2);
+
+      padding: 6px 12px;
+
+      border-radius: 6px;
+
+      border: 1px solid var(--accent-blue);
+    }
+
+    /* MAIN */
+
+    main.container {
+      max-width: 1050px;
+
+      margin: 55px auto;
+
+      padding: 0 20px;
+    }
+
+    .hero {
+      text-align: center;
+
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+
+      line-height: 1.1;
+
+      margin: 0 0 18px;
+
+      color: #fff;
+
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 750px;
+
+      margin: 0 auto;
+
+      color: var(--muted-cream);
+
+      font-size: 1.05rem;
+
+      line-height: 1.7;
+    }
+
+    /* GLASS */
+
+    .glass-panel {
+      background: var(--glass);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      border: 1px solid var(--glass-border);
+
+      border-radius: var(--card-radius);
+
+      padding: 40px;
+
+      box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* POLICY */
+
+    .policy-section {
+      margin-bottom: 40px;
+    }
+
+    .policy-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-section h2 {
+      margin: 0 0 15px;
+
+      color: #fff;
+
+      font-size: 1.45rem;
+
+      font-weight: 800;
+    }
+
+    .policy-section p {
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+
+      margin: 0 0 15px;
+    }
+
+    .policy-section ul {
+      margin: 10px 0 0;
+
+      padding-left: 25px;
+    }
+
+    .policy-section li {
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+
+      margin-bottom: 8px;
+    }
+
+    .policy-section li::marker {
+      color: var(--accent-blue);
+    }
+
+    .warning {
+      background: rgba(59,130,246,0.08);
+
+      border: 1px solid rgba(59,130,246,0.3);
+
+      border-radius: 12px;
+
+      padding: 20px;
+
+      margin-bottom: 35px;
+    }
+
+    .warning strong {
+      color: #fff;
+    }
+
+    .warning p {
+      margin: 8px 0 0;
+    }
+
+    .contact-box {
+      margin-top: 35px;
+
+      padding: 25px;
+
+      border-radius: 14px;
+
+      background: rgba(255,255,255,0.05);
+
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .contact-box a {
+      color: #fff;
+
+      font-weight: 700;
+
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 60px 5% 40px;
+
+      margin-top: 80px;
+
+      background: rgba(0,0,0,0.4);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      flex-wrap: wrap;
+
+      gap: 30px;
+    }
+
+    footer a {
+      color: inherit;
+
+      text-decoration: none;
+
+      font-size: 13px;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .glass-panel {
+        padding: 25px;
+      }
+
+      .policy-section h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <a class="brand" href="/">
+
+    <div class="logo-wrap">
+      <img
+        src="favicon.png"
+        alt="Intent™ Logo"
+      />
+    </div>
+
+    <div class="title">
+      Intent™ — A Non-Profit | Free Subdomains
+    </div>
+
+  </a>
+
+  <nav>
+
+    <a href="/#pricing">Pricing</a>
+
+    <a href="/about.html">About</a>
+
+    <a href="/contact.html">Contact</a>
+
+    <a href="/legal.html">Legal</a>
+
+    <a href="/get-involved.html">Get Involved</a>
+
+    <a
+      class="nav-btn"
+      href="https://dash.int.yt/signup.php"
+    >
+      Register
+    </a>
+
+    <a href="https://dash.int.yt/login.php">
+      Dashboard
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main class="container">
+
+  <section class="hero">
+
+    <h1>Acceptable Use Policy</h1>
+
+    <p>
+      This policy explains how Intent™ FreeDomain services may
+      be used and the activities that are prohibited on our
+      infrastructure.
+    </p>
+
+  </section>
+
+
+  <div class="glass-panel">
+
+    <div class="warning">
+
+      <strong>Important:</strong>
+
+      <p>
+        By using Intent FreeDomain, you agree to use our services
+        responsibly and in accordance with this Acceptable Use
+        Policy, our Terms of Service, and applicable laws.
+      </p>
+
+    </div>
+
+
+    <!-- 1 -->
+
+    <section class="policy-section">
+
+      <h2>1. Permitted Use</h2>
+
+      <p>
+        Intent FreeDomain provides free subdomains and related
+        DNS services primarily for legitimate websites, projects,
+        applications, blogs, experiments, educational projects,
+        and other lawful purposes.
+      </p>
+
+      <p>
+        Users are responsible for ensuring that their use of
+        Intent services complies with applicable laws and our
+        policies.
+      </p>
+
+    </section>
+
+
+    <!-- 2 -->
+
+    <section class="policy-section">
+
+      <h2>2. Prohibited Activities</h2>
+
+      <p>
+        You may not use Intent services to facilitate, distribute,
+        host, redirect to, or otherwise participate in activities
+        that are unlawful, malicious, abusive, or harmful.
+      </p>
+
+      <ul>
+
+        <li>
+          Phishing, credential theft, impersonation, or fraudulent
+          login pages.
+        </li>
+
+        <li>
+          Malware, viruses, trojans, ransomware, spyware, or other
+          malicious software.
+        </li>
+
+        <li>
+          Botnets, command-and-control infrastructure, or systems
+          designed to compromise or control other devices.
+        </li>
+
+        <li>
+          Spam, unsolicited bulk messaging, or services designed
+          primarily to distribute unwanted communications.
+        </li>
+
+        <li>
+          Fraud, scams, deceptive schemes, or attempts to obtain
+          money, credentials, or personal information through
+          deception.
+        </li>
+
+        <li>
+          Activities intended to distribute or facilitate illegal
+          content or illegal services.
+        </li>
+
+        <li>
+          Copyright infringement or distribution of content without
+          appropriate authorization.
+        </li>
+
+        <li>
+          Malware distribution, malicious downloads, or deceptive
+          software distribution.
+        </li>
+
+        <li>
+          DDoS attacks, network attacks, port scanning, exploitation,
+          or attempts to compromise systems without authorization.
+        </li>
+
+        <li>
+          Hosting infrastructure intended to facilitate attacks
+          against third-party systems.
+        </li>
+
+        <li>
+          Circumventing security controls, access restrictions,
+          account restrictions, or service limitations.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- 3 -->
+
+    <section class="policy-section">
+
+      <h2>3. Abuse of DNS Services</h2>
+
+      <p>
+        Intent subdomains and DNS records must not be used to
+        disguise, redirect, or facilitate malicious activity.
+      </p>
+
+      <p>
+        DNS records may be reviewed or restricted when there is
+        reasonable evidence that they are being used for abuse,
+        fraud, phishing, malware, or other prohibited activity.
+      </p>
+
+    </section>
+
+
+    <!-- 4 -->
+
+    <section class="policy-section">
+
+      <h2>4. Security and Network Abuse</h2>
+
+      <p>
+        Users must not use Intent infrastructure to attack,
+        disrupt, scan, exploit, or gain unauthorized access to
+        third-party systems or networks.
+      </p>
+
+      <ul>
+
+        <li>
+          Denial-of-service or distributed denial-of-service attacks
+        </li>
+
+        <li>
+          Brute-force attacks against external services
+        </li>
+
+        <li>
+          Unauthorized vulnerability exploitation
+        </li>
+
+        <li>
+          Credential stuffing or password attacks
+        </li>
+
+        <li>
+          Unauthorized network or port scanning
+        </li>
+
+        <li>
+          Attempts to bypass authentication or access controls
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- 5 -->
+
+    <section class="policy-section">
+
+      <h2>5. Harmful or Deceptive Content</h2>
+
+      <p>
+        Content using an Intent subdomain must not intentionally
+        mislead users about its ownership, purpose, affiliation,
+        or identity.
+      </p>
+
+      <p>
+        This includes impersonating organizations, companies,
+        individuals, financial services, government services,
+        security providers, or other entities for deceptive
+        purposes.
+      </p>
+
+    </section>
+
+
+    <!-- 6 -->
+
+    <section class="policy-section">
+
+      <h2>6. Resource Abuse</h2>
+
+      <p>
+        Intent services are provided with shared infrastructure
+        and resources. Users must not intentionally consume
+        resources in a way that negatively affects other users
+        or the stability of the service.
+      </p>
+
+      <ul>
+
+        <li>
+          Excessive automated requests against Intent infrastructure
+        </li>
+
+        <li>
+          Attempts to overload DNS or API services
+        </li>
+
+        <li>
+          Automated activity intended to degrade service
+          availability
+        </li>
+
+        <li>
+          Circumventing rate limits or technical restrictions
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- 7 -->
+
+    <section class="policy-section">
+
+      <h2>7. Enforcement</h2>
+
+      <p>
+        When Intent determines that a domain, account, DNS record,
+        or other service is being used in violation of this policy,
+        we may take appropriate action.
+      </p>
+
+      <ul>
+
+        <li>
+          Remove or modify DNS records
+        </li>
+
+        <li>
+          Suspend or disable a subdomain
+        </li>
+
+        <li>
+          Suspend or terminate an account
+        </li>
+
+        <li>
+          Restrict access to Intent services
+        </li>
+
+        <li>
+          Preserve relevant security or abuse records
+        </li>
+
+        <li>
+          Cooperate with appropriate service providers or
+          authorities where legally required or reasonably
+          necessary to address abuse
+        </li>
+
+      </ul>
+
+      <p>
+        The action taken may depend on the severity, frequency,
+        and circumstances of the violation.
+      </p>
+
+    </section>
+
+
+    <!-- 8 -->
+
+    <section class="policy-section">
+
+      <h2>8. False or Malicious Abuse Reports</h2>
+
+      <p>
+        Abuse reporting mechanisms must not be intentionally
+        misused to harass users, disrupt legitimate services,
+        or submit knowingly false reports.
+      </p>
+
+      <p>
+        Reports should contain sufficient information for Intent
+        to understand and investigate the reported activity.
+      </p>
+
+    </section>
+
+
+    <!-- 9 -->
+
+    <section class="policy-section">
+
+      <h2>9. Reporting Abuse</h2>
+
+      <p>
+        If you discover a domain or service that appears to violate
+        this policy, please report it through our Abuse Policy page.
+      </p>
+
+      <div class="contact-box">
+
+        <p>
+          <strong>Abuse reports:</strong>
+          <a href="/abuse.html">
+            View Abuse Policy →
+          </a>
+        </p>
+
+        <p>
+          <strong>Community:</strong>
+          <a
+            href="https://discord.gg/NCS96PS4MH"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Join Discord →
+          </a>
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- 10 -->
+
+    <section class="policy-section">
+
+      <h2>10. Changes to This Policy</h2>
+
+      <p>
+        Intent may update this Acceptable Use Policy when
+        necessary to address changes to our services,
+        infrastructure, security requirements, or applicable
+        legal obligations.
+      </p>
+
+      <p>
+        Continued use of Intent services after changes become
+        effective constitutes acceptance of the updated policy.
+      </p>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="policy-section">
+
+      <h2>Contact Us</h2>
+
+      <p>
+        If you have questions about this policy or need to
+        report an issue, contact the Intent team.
+      </p>
+
+      <div class="contact-box">
+
+        <p>
+          Email:
+          <a href="mailto:support@int.yt">
+            support@int.yt
+          </a>
+        </p>
+
+        <p>
+          Discord:
+          <a
+            href="https://discord.gg/NCS96PS4MH"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Intent Community
+          </a>
+        </p>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div style="max-width: 300px;">
+
+    <h3 style="margin: 0 0 10px 0;">
+      Intent™ — A Non-Profit | Free Subdomains
+    </h3>
+
+    <p style="font-size: 13px; color: var(--muted-cream);">
+      Privacy-first DNS solutions for the modern web.
+    </p>
+
+    <p style="font-size: 13px; color: var(--muted-cream);">
+      © Intent™ 2025–2026. All Rights Reserved.
+    </p>
+
+  </div>
+
+
+  <div style="display: flex; gap: 50px;">
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <span
+        style="
+          font-weight: 800;
+          font-size: 11px;
+          color: var(--accent-blue);
+          letter-spacing: 1px;
+        "
+      >
+        LEGAL
+      </span>
+
+      <a href="/legal.html">
+        Legal Center
+      </a>
+
+      <a href="/privacy.html">
+        Privacy
+      </a>
+
+      <a href="/terms.html">
+        Terms
+      </a>
+
+      <a href="/acceptable-use.html">
+        Acceptable Use
+      </a>
+
+      <a href="/abuse.html">
+        Abuse
+      </a>
+
+      <a href="/security.html">
+        Security
+      </a>
+
+    </div>
+
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <span
+        style="
+          font-weight: 800;
+          font-size: 11px;
+          color: var(--accent-blue);
+          letter-spacing: 1px;
+        "
+      >
+        PAGES
+      </span>
+
+      <a href="/about.html">
+        About
+      </a>
+
+      <a href="/contact.html">
+        Contact
+      </a>
+
+      <a href="/get-involved.html">
+        Get Involved
+      </a>
+
+      <a href="https://dash.int.yt/public-whois.php">
+        WHOIS
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>

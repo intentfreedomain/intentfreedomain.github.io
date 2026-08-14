@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+  <title>Intent | Our Mission</title>
+  <meta name="title" content="Intent | Our Mission"/>
+  <meta
+    name="description"
+    content="Learn about the mission and vision behind Intent FreeDomain and our goal of making the web more accessible."
+  />
+
+  <link href="favicon.png" rel="icon" type="image/png"/>
+  <link href="favicon.png" rel="apple-touch-icon"/>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-overlay: rgba(7, 18, 38, 0.55);
+      --glass: rgba(255, 253, 240, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --accent-blue: #3b82f6;
+      --deep-blue: #1e3a8a;
+      --cream-text: #fefce8;
+      --muted-cream: #cbd5e1;
+      --card-radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--cream-text);
+      min-height: 100vh;
+
+      background:
+        linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+        url(photo-1501785888041-af3ef285b470.jpeg)
+        no-repeat center center fixed;
+
+      background-size: cover;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 15px 4%;
+
+      position: sticky;
+      top: 0;
+
+      background: rgba(255, 255, 255, 0.03);
+
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+
+      z-index: 100;
+
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-wrap {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 10px;
+
+      background: var(--accent-blue);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-right: 12px;
+
+      overflow: hidden;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand .title {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    nav a {
+      font-weight: 500;
+      font-size: 13px;
+
+      text-decoration: none;
+
+      color: var(--muted-cream);
+
+      transition: all 0.2s;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.5px;
+    }
+
+    nav a:hover {
+      color: #fff;
+
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .nav-btn {
+      background: rgba(59, 130, 246, 0.2);
+
+      padding: 6px 12px;
+
+      border-radius: 6px;
+
+      border: 1px solid var(--accent-blue);
+    }
+
+    /* MAIN */
+
+    main.container {
+      max-width: 1100px;
+
+      margin: 55px auto;
+
+      padding: 0 20px;
+    }
+
+    .hero {
+      text-align: center;
+
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+
+      line-height: 1.1;
+
+      margin: 0 0 18px;
+
+      color: #fff;
+
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 760px;
+
+      margin: 0 auto;
+
+      color: var(--muted-cream);
+
+      font-size: 1.05rem;
+
+      line-height: 1.7;
+    }
+
+    /* GLASS */
+
+    .glass-panel {
+      background: var(--glass);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      border: 1px solid var(--glass-border);
+
+      border-radius: var(--card-radius);
+
+      padding: 40px;
+
+      box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* MISSION STATEMENT */
+
+    .mission-statement {
+      text-align: center;
+
+      padding: 35px;
+
+      margin-bottom: 40px;
+
+      border-radius: 16px;
+
+      background: rgba(59,130,246,0.08);
+
+      border: 1px solid rgba(59,130,246,0.3);
+    }
+
+    .mission-statement h2 {
+      margin: 0 0 15px;
+
+      color: #fff;
+
+      font-size: 1.7rem;
+
+      font-weight: 800;
+    }
+
+    .mission-statement p {
+      max-width: 750px;
+
+      margin: 0 auto;
+
+      color: var(--muted-cream);
+
+      font-size: 15px;
+
+      line-height: 1.8;
+    }
+
+    /* SECTIONS */
+
+    .mission-section {
+      margin-bottom: 40px;
+    }
+
+    .mission-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .mission-section h2 {
+      margin: 0 0 15px;
+
+      color: #fff;
+
+      font-size: 1.45rem;
+
+      font-weight: 800;
+    }
+
+    .mission-section p {
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+
+      margin: 0 0 15px;
+    }
+
+    .mission-section ul {
+      margin: 10px 0 0;
+
+      padding-left: 25px;
+    }
+
+    .mission-section li {
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+
+      margin-bottom: 8px;
+    }
+
+    .mission-section li::marker {
+      color: var(--accent-blue);
+    }
+
+    /* VALUES */
+
+    .values-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 25px;
+
+      margin-top: 25px;
+    }
+
+    .value-card {
+      background: rgba(255, 255, 255, 0.05);
+
+      padding: 28px;
+
+      border-radius: 18px;
+
+      border: 1px solid rgba(255,255,255,0.1);
+
+      backdrop-filter: blur(5px);
+
+      transition:
+        background 0.3s,
+        transform 0.3s,
+        border-color 0.3s;
+    }
+
+    .value-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+
+      transform: translateY(-3px);
+
+      border-color: rgba(59,130,246,0.5);
+    }
+
+    .value-icon {
+      width: 48px;
+
+      height: 48px;
+
+      border-radius: 12px;
+
+      background: rgba(59, 130, 246, 0.18);
+
+      border: 1px solid rgba(59, 130, 246, 0.35);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 22px;
+
+      margin-bottom: 18px;
+    }
+
+    .value-card h3 {
+      margin: 0 0 10px;
+
+      color: #fff;
+
+      font-size: 1.2rem;
+    }
+
+    .value-card p {
+      margin: 0;
+
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.65;
+    }
+
+    /* VISION */
+
+    .vision-box {
+      margin-top: 40px;
+
+      padding: 30px;
+
+      border-radius: 16px;
+
+      text-align: center;
+
+      background: rgba(255,255,255,0.05);
+
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .vision-box h2 {
+      margin: 0 0 12px;
+
+      color: #fff;
+    }
+
+    .vision-box p {
+      max-width: 700px;
+
+      margin: 0 auto;
+
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+    }
+
+    /* CTA */
+
+    .cta {
+      margin-top: 40px;
+
+      padding: 30px;
+
+      border-radius: 16px;
+
+      text-align: center;
+
+      background: rgba(59,130,246,0.08);
+
+      border: 1px solid rgba(59,130,246,0.3);
+    }
+
+    .cta h2 {
+      margin: 0 0 12px;
+
+      color: #fff;
+    }
+
+    .cta p {
+      max-width: 650px;
+
+      margin: 0 auto 22px;
+
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 12px 24px;
+
+      border-radius: 10px;
+
+      background: var(--accent-blue);
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+      transition: all 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+
+      filter: brightness(1.1);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 60px 5% 40px;
+
+      margin-top: 80px;
+
+      background: rgba(0,0,0,0.4);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      flex-wrap: wrap;
+
+      gap: 30px;
+    }
+
+    footer a {
+      color: inherit;
+
+      text-decoration: none;
+
+      font-size: 13px;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .glass-panel {
+        padding: 25px;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mission-section h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <a class="brand" href="/">
+
+    <div class="logo-wrap">
+      <img
+        src="favicon.png"
+        alt="Intent™ Logo"
+      />
+    </div>
+
+    <div class="title">
+      Intent™ — A Non-Profit | Free Subdomains
+    </div>
+
+  </a>
+
+  <nav>
+
+    <a href="/#pricing">Pricing</a>
+
+    <a href="/about.html">About</a>
+
+    <a href="/contact.html">Contact</a>
+
+    <a href="/our-mission.html">Our Mission</a>
+
+    <a href="/impact.html">Impact</a>
+
+    <a href="/get-involved.html">Get Involved</a>
+
+    <a href="/legal.html">Legal</a>
+
+    <a
+      class="nav-btn"
+      href="https://dash.int.yt/signup.php"
+    >
+      Register
+    </a>
+
+    <a href="https://dash.int.yt/login.php">
+      Dashboard
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main class="container">
+
+  <section class="hero">
+
+    <h1>Our Mission</h1>
+
+    <p>
+      Our mission is to make the web more accessible by
+      providing simple, useful, and reliable infrastructure
+      that helps people build, experiment, and share online.
+    </p>
+
+  </section>
+
+
+  <div class="glass-panel">
+
+
+    <!-- MISSION STATEMENT -->
+
+    <div class="mission-statement">
+
+      <h2>Building a More Accessible Web</h2>
+
+      <p>
+        Intent™ exists to reduce the barriers between an idea
+        and putting that idea on the internet. We want developers,
+        students, creators, communities, and independent projects
+        to have access to useful web infrastructure without
+        unnecessary complexity or cost.
+      </p>
+
+    </div>
+
+
+    <!-- WHY -->
+
+    <section class="mission-section">
+
+      <h2>Why Intent Exists</h2>
+
+      <p>
+        Getting started online can involve domain costs,
+        complicated DNS configuration, hosting requirements,
+        and technical barriers that can discourage people
+        from experimenting.
+      </p>
+
+      <p>
+        Intent was created to make one part of that process
+        simpler: getting a usable web address and managing
+        the DNS behind it.
+      </p>
+
+      <p>
+        By providing free subdomains and a straightforward
+        management experience, we aim to give people a simple
+        starting point for their projects.
+      </p>
+
+    </section>
+
+
+    <!-- WHAT WE BELIEVE -->
+
+    <section class="mission-section">
+
+      <h2>What We Believe</h2>
+
+      <div class="values-grid">
+
+
+        <div class="value-card">
+
+          <div class="value-icon">
+            🌐
+          </div>
+
+          <h3>Access</h3>
+
+          <p>
+            People should have opportunities to participate
+            in the web regardless of whether they can afford
+            traditional domain registration.
+          </p>
+
+        </div>
+
+
+        <div class="value-card">
+
+          <div class="value-icon">
+            💡
+          </div>
+
+          <h3>Experimentation</h3>
+
+          <p>
+            People learn by building. We want to make it easier
+            to try ideas, create prototypes, launch experiments,
+            and learn through real projects.
+          </p>
+
+        </div>
+
+
+        <div class="value-card">
+
+          <div class="value-icon">
+            🔓
+          </div>
+
+          <h3>Openness</h3>
+
+          <p>
+            We support an open and accessible internet where
+            developers and creators can publish their work and
+            build independent projects.
+          </p>
+
+        </div>
+
+
+        <div class="value-card">
+
+          <div class="value-icon">
+            🛡️
+          </div>
+
+          <h3>Responsible Infrastructure</h3>
+
+          <p>
+            Accessible infrastructure must also be responsible.
+            We work to protect users, maintain service stability,
+            and address abuse and security threats.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- COMMUNITY -->
+
+    <section class="mission-section">
+
+      <h2>Built for the Community</h2>
+
+      <p>
+        Intent is built around the people who use and contribute
+        to the service. Developers, students, creators, and
+        communities help shape the direction of the project
+        through their feedback and participation.
+      </p>
+
+      <p>
+        We believe useful infrastructure becomes stronger when
+        the people who depend on it can participate in improving it.
+      </p>
+
+    </section>
+
+
+    <!-- SIMPLICITY -->
+
+    <section class="mission-section">
+
+      <h2>Keeping Things Simple</h2>
+
+      <p>
+        Our goal is not to make users understand every part of
+        DNS infrastructure before they can use it.
+      </p>
+
+      <p>
+        Instead, we want to provide a straightforward experience
+        where someone can choose a subdomain, configure the
+        necessary DNS records, and get back to building their
+        project.
+      </p>
+
+    </section>
+
+
+    <!-- OPEN SOURCE -->
+
+    <section class="mission-section">
+
+      <h2>Supporting Builders</h2>
+
+      <p>
+        Intent is particularly useful for people building
+        projects that need a simple online identity, including:
+      </p>
+
+      <ul>
+
+        <li>
+          Open-source projects
+        </li>
+
+        <li>
+          Student projects and portfolios
+        </li>
+
+        <li>
+          Personal websites and blogs
+        </li>
+
+        <li>
+          Development and testing projects
+        </li>
+
+        <li>
+          Community projects
+        </li>
+
+        <li>
+          Experimental web applications
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- RESPONSIBILITY -->
+
+    <section class="mission-section">
+
+      <h2>Accessibility and Responsibility</h2>
+
+      <p>
+        Making infrastructure accessible also means maintaining
+        it responsibly. Intent works to balance accessibility
+        with security, reliability, abuse prevention, and
+        protection of the wider internet community.
+      </p>
+
+      <p>
+        Our policies exist to help ensure that free infrastructure
+        remains useful for legitimate projects while limiting
+        malicious or abusive activity.
+      </p>
+
+    </section>
+
+
+    <!-- VISION -->
+
+    <div class="vision-box">
+
+      <h2>Our Vision</h2>
+
+      <p>
+        We envision a web where getting started does not require
+        a large budget, complicated infrastructure, or an
+        established organization. Anyone with an idea should
+        have a reasonable path toward building it and sharing
+        it with others.
+      </p>
+
+    </div>
+
+
+    <!-- FUTURE -->
+
+    <section
+      class="mission-section"
+      style="margin-top:40px;"
+    >
+
+      <h2>Looking Ahead</h2>
+
+      <p>
+        As Intent grows, our mission remains focused on building
+        useful infrastructure that lowers barriers to participation
+        on the web.
+      </p>
+
+      <p>
+        We will continue improving our services, listening to
+        the community, and exploring new ways to help people
+        build and publish online.
+      </p>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <div class="cta">
+
+      <h2>Help Us Build It</h2>
+
+      <p>
+        Intent is shaped by the people who use it. Join the
+        community, contribute to the project, share feedback,
+        or help others get started.
+      </p>
+
+      <a
+        class="btn"
+        href="/get-involved.html"
+      >
+        Get Involved →
+      </a>
+
+    </div>
+
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div style="max-width: 300px;">
+
+    <h3 style="margin: 0 0 10px 0;">
+      Intent™ — A Non-Profit | Free Subdomains
+    </h3>
+
+    <p style="font-size: 13px; color: var(--muted-cream);">
+      Privacy-first DNS solutions for the modern web.
+    </p>
+
+    <p style="font-size: 13px; color: var(--muted-cream);">
+      © Intent™ 2025–2026. All Rights Reserved.
+    </p>
+
+  </div>
+
+
+  <div style="display: flex; gap: 50px;">
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <span
+        style="
+          font-weight: 800;
+          font-size: 11px;
+          color: var(--accent-blue);
+          letter-spacing: 1px;
+        "
+      >
+        LEGAL
+      </span>
+
+      <a href="/legal.html">
+        Legal Center
+      </a>
+
+      <a href="/privacy.html">
+        Privacy
+      </a>
+
+      <a href="/terms.html">
+        Terms
+      </a>
+
+      <a href="/acceptable-use.html">
+        Acceptable Use
+      </a>
+
+      <a href="/abuse.html">
+        Abuse
+      </a>
+
+      <a href="/security.html">
+        Security
+      </a>
+
+    </div>
+
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <span
+        style="
+          font-weight: 800;
+          font-size: 11px;
+          color: var(--accent-blue);
+          letter-spacing: 1px;
+        "
+      >
+        PAGES
+      </span>
+
+      <a href="/about.html">
+        About
+      </a>
+
+      <a href="/contact.html">
+        Contact
+      </a>
+
+      <a href="/our-mission.html">
+        Our Mission
+      </a>
+
+      <a href="/impact.html">
+        Impact
+      </a>
+
+      <a href="/get-involved.html">
+        Get Involved
+      </a>
+
+      <a href="https://dash.int.yt/public-whois.php">
+        WHOIS
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
+Recommended navigation
+
+Now your main informational navigation can be:
+
+<a href="/about.html">About</a>
+<a href="/our-mission.html">Our Mission</a>
+<a href="/impact.html">Impact</a>
+<a href="/get-involved.html">Get Involved</a>
+<a href="/legal.html">Legal</a>
+
+So the site structure is now:
+
+About
+Our Mission
+Impact
+Get Involved
+Legal
+  ├── Privacy
+  ├── Terms
+  ├── Acceptable Use
+  ├── Abuse
+  └── Security
+
+This gives Our Mission, Impact, and Get Involved distinct purposes instead of repeating the same content:
+
+Our Mission → why Intent exists and what it believes
+Impact → what Intent has achieved/reached
+Get Involved → how users can participate
+Legal → policies and rules

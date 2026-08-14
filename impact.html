@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+  <title>Intent | Our Impact</title>
+  <meta name="title" content="Intent | Our Impact"/>
+  <meta
+    name="description"
+    content="Learn about the impact of Intent FreeDomain and how we help developers, students, creators, and open-source projects get online."
+  />
+
+  <link href="favicon.png" rel="icon" type="image/png"/>
+  <link href="favicon.png" rel="apple-touch-icon"/>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-overlay: rgba(7, 18, 38, 0.55);
+      --glass: rgba(255, 253, 240, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --accent-blue: #3b82f6;
+      --deep-blue: #1e3a8a;
+      --cream-text: #fefce8;
+      --muted-cream: #cbd5e1;
+      --card-radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--cream-text);
+      min-height: 100vh;
+
+      background:
+        linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+        url(photo-1501785888041-af3ef285b470.jpeg)
+        no-repeat center center fixed;
+
+      background-size: cover;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 15px 4%;
+
+      position: sticky;
+      top: 0;
+
+      background: rgba(255, 255, 255, 0.03);
+
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+
+      z-index: 100;
+
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-wrap {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 10px;
+
+      background: var(--accent-blue);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-right: 12px;
+
+      overflow: hidden;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand .title {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    nav a {
+      font-weight: 500;
+      font-size: 13px;
+
+      text-decoration: none;
+
+      color: var(--muted-cream);
+
+      transition: all 0.2s;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.5px;
+    }
+
+    nav a:hover {
+      color: #fff;
+
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .nav-btn {
+      background: rgba(59, 130, 246, 0.2);
+
+      padding: 6px 12px;
+
+      border-radius: 6px;
+
+      border: 1px solid var(--accent-blue);
+    }
+
+    /* MAIN */
+
+    main.container {
+      max-width: 1100px;
+
+      margin: 55px auto;
+
+      padding: 0 20px;
+    }
+
+    .hero {
+      text-align: center;
+
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+
+      line-height: 1.1;
+
+      margin: 0 0 18px;
+
+      color: #fff;
+
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 750px;
+
+      margin: 0 auto;
+
+      color: var(--muted-cream);
+
+      font-size: 1.05rem;
+
+      line-height: 1.7;
+    }
+
+    /* GLASS PANEL */
+
+    .glass-panel {
+      background: var(--glass);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      border: 1px solid var(--glass-border);
+
+      border-radius: var(--card-radius);
+
+      padding: 40px;
+
+      box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* IMPACT STATS */
+
+    .stats-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 25px;
+
+      margin-bottom: 40px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.05);
+
+      padding: 30px;
+
+      border-radius: 18px;
+
+      border: 1px solid rgba(255,255,255,0.1);
+
+      text-align: center;
+
+      backdrop-filter: blur(5px);
+    }
+
+    .stat-number {
+      display: block;
+
+      color: var(--accent-blue);
+
+      font-size: 2.7rem;
+
+      font-weight: 800;
+
+      line-height: 1;
+
+      margin-bottom: 12px;
+    }
+
+    .stat-label {
+      color: #fff;
+
+      font-size: 14px;
+
+      font-weight: 600;
+    }
+
+    /* CONTENT */
+
+    .impact-section {
+      margin-bottom: 40px;
+    }
+
+    .impact-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .impact-section h2 {
+      margin: 0 0 15px;
+
+      color: #fff;
+
+      font-size: 1.45rem;
+
+      font-weight: 800;
+    }
+
+    .impact-section p {
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+
+      margin: 0 0 15px;
+    }
+
+    .impact-section ul {
+      margin: 10px 0 0;
+
+      padding-left: 25px;
+    }
+
+    .impact-section li {
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+
+      margin-bottom: 8px;
+    }
+
+    .impact-section li::marker {
+      color: var(--accent-blue);
+    }
+
+    /* IMPACT CARDS */
+
+    .impact-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 25px;
+
+      margin-top: 25px;
+    }
+
+    .impact-card {
+      background: rgba(255, 255, 255, 0.05);
+
+      padding: 28px;
+
+      border-radius: 18px;
+
+      border: 1px solid rgba(255,255,255,0.1);
+
+      backdrop-filter: blur(5px);
+
+      transition:
+        background 0.3s,
+        transform 0.3s,
+        border-color 0.3s;
+    }
+
+    .impact-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+
+      transform: translateY(-3px);
+
+      border-color: rgba(59,130,246,0.5);
+    }
+
+    .impact-icon {
+      width: 48px;
+
+      height: 48px;
+
+      border-radius: 12px;
+
+      background: rgba(59, 130, 246, 0.18);
+
+      border: 1px solid rgba(59, 130, 246, 0.35);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 22px;
+
+      margin-bottom: 18px;
+    }
+
+    .impact-card h3 {
+      margin: 0 0 10px;
+
+      color: #fff;
+
+      font-size: 1.2rem;
+    }
+
+    .impact-card p {
+      margin: 0;
+
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.65;
+    }
+
+    /* CTA */
+
+    .cta {
+      margin-top: 40px;
+
+      padding: 30px;
+
+      border-radius: 16px;
+
+      text-align: center;
+
+      background: rgba(59,130,246,0.08);
+
+      border: 1px solid rgba(59,130,246,0.3);
+    }
+
+    .cta h2 {
+      margin: 0 0 12px;
+
+      color: #fff;
+    }
+
+    .cta p {
+      max-width: 650px;
+
+      margin: 0 auto 22px;
+
+      color: var(--muted-cream);
+
+      font-size: 14px;
+
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 12px 24px;
+
+      border-radius: 10px;
+
+      background: var(--accent-blue);
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+      transition: all 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+
+      filter: brightness(1.1);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 60px 5% 40px;
+
+      margin-top: 80px;
+
+      background: rgba(0,0,0,0.4);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      flex-wrap: wrap;
+
+      gap: 30px;
+    }
+
+    footer a {
+      color: inherit;
+
+      text-decoration: none;
+
+      font-size: 13px;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .glass-panel {
+        padding: 25px;
+      }
+
+      .stats-grid,
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-section h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <a class="brand" href="/">
+
+    <div class="logo-wrap">
+      <img
+        src="favicon.png"
+        alt="Intent™ Logo"
+      />
+    </div>
+
+    <div class="title">
+      Intent™ — A Non-Profit | Free Subdomains
+    </div>
+
+  </a>
+
+  <nav>
+
+    <a href="/#pricing">Pricing</a>
+
+    <a href="/about.html">About</a>
+
+    <a href="/contact.html">Contact</a>
+
+    <a href="/legal.html">Legal</a>
+
+    <a href="/get-involved.html">Get Involved</a>
+
+    <a
+      class="nav-btn"
+      href="https://dash.int.yt/signup.php"
+    >
+      Register
+    </a>
+
+    <a href="https://dash.int.yt/login.php">
+      Dashboard
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main class="container">
+
+  <section class="hero">
+
+    <h1>Our Impact</h1>
+
+    <p>
+      Intent™ FreeDomain exists to make it easier for people
+      to establish an online presence and experiment with
+      the web without unnecessary barriers.
+    </p>
+
+  </section>
+
+
+  <div class="glass-panel">
+
+
+    <!-- STATS -->
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+
+        <span class="stat-number">
+          3,000+
+        </span>
+
+        <span class="stat-label">
+          Users
+        </span>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <span class="stat-number">
+          4,000+
+        </span>
+
+        <span class="stat-label">
+          Domains
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- INTRODUCTION -->
+
+    <section class="impact-section">
+
+      <h2>Making the Web More Accessible</h2>
+
+      <p>
+        A domain name is often one of the first steps toward
+        building something on the internet. Intent provides
+        free subdomains so that developers, students, creators,
+        and project communities can establish an online identity
+        without needing to purchase a traditional domain first.
+      </p>
+
+      <p>
+        Our goal is to reduce the initial barriers to
+        experimentation and help more people participate in
+        building on the web.
+      </p>
+
+    </section>
+
+
+    <!-- AREAS -->
+
+    <section class="impact-section">
+
+      <h2>Where We Make an Impact</h2>
+
+      <div class="impact-grid">
+
+
+        <div class="impact-card">
+
+          <div class="impact-icon">
+            💻
+          </div>
+
+          <h3>Developers</h3>
+
+          <p>
+            Developers can use Intent subdomains for projects,
+            APIs, documentation, testing environments,
+            demonstrations, and open-source work.
+          </p>
+
+        </div>
+
+
+        <div class="impact-card">
+
+          <div class="impact-icon">
+            🎓
+          </div>
+
+          <h3>Students</h3>
+
+          <p>
+            Students can create websites and technical
+            projects without needing to purchase a domain
+            before they are ready.
+          </p>
+
+        </div>
+
+
+        <div class="impact-card">
+
+          <div class="impact-icon">
+            🚀
+          </div>
+
+          <h3>Projects &amp; Experiments</h3>
+
+          <p>
+            Intent makes it easier to give experimental
+            projects a memorable web address and test ideas
+            on real internet infrastructure.
+          </p>
+
+        </div>
+
+
+        <div class="impact-card">
+
+          <div class="impact-icon">
+            🌐
+          </div>
+
+          <h3>Online Communities</h3>
+
+          <p>
+            Communities and independent projects can use
+            subdomains to create dedicated web destinations
+            for their work and resources.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FREE ACCESS -->
+
+    <section class="impact-section">
+
+      <h2>Free Access to DNS</h2>
+
+      <p>
+        Intent FreeDomain is designed around providing useful
+        DNS and subdomain functionality without requiring users
+        to purchase a traditional domain simply to get started.
+      </p>
+
+      <p>
+        This makes the service particularly useful for early-stage
+        projects, learning, experimentation, personal websites,
+        and open-source development.
+      </p>
+
+    </section>
+
+
+    <!-- OPEN WEB -->
+
+    <section class="impact-section">
+
+      <h2>Supporting an Open Web</h2>
+
+      <p>
+        We believe the ability to create and publish on the
+        internet should be accessible to more people.
+      </p>
+
+      <p>
+        By providing free subdomains and a simple DNS management
+        experience, Intent aims to support a more accessible
+        environment for people who want to learn, build,
+        experiment, and share their work online.
+      </p>
+
+    </section>
+
+
+    <!-- COMMUNITY -->
+
+    <section class="impact-section">
+
+      <h2>Community-Driven Development</h2>
+
+      <p>
+        Intent is supported by a community of users, developers,
+        and contributors. Feedback and contributions help us
+        identify problems, improve the service, and determine
+        which features are most useful.
+      </p>
+
+      <p>
+        If you want to contribute to the project, you can
+        participate through our GitHub organization or join
+        the Intent Discord community.
+      </p>
+
+    </section>
+
+
+    <!-- CURRENT REACH -->
+
+    <section class="impact-section">
+
+      <h2>Our Current Reach</h2>
+
+      <p>
+        Intent currently serves more than
+        <strong style="color:#fff;">3,000 users</strong>
+        and has facilitated more than
+        <strong style="color:#fff;">4,000 domains</strong>.
+      </p>
+
+      <p>
+        These figures represent the current reach of the
+        service and may change as more people join and create
+        domains through Intent.
+      </p>
+
+    </section>
+
+
+    <!-- FUTURE -->
+
+    <section class="impact-section">
+
+      <h2>Looking Ahead</h2>
+
+      <p>
+        As Intent grows, we aim to continue improving the
+        reliability, accessibility, and usefulness of our
+        services while keeping the experience simple for
+        developers, students, creators, and communities.
+      </p>
+
+      <p>
+        Our focus remains on building useful infrastructure
+        that helps more people create and participate on the
+        web.
+      </p>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <div class="cta">
+
+      <h2>Be Part of Intent</h2>
+
+      <p>
+        Whether you are building a project, contributing code,
+        reporting an issue, or joining the community, you can
+        help shape the future of Intent.
+      </p>
+
+      <a
+        class="btn"
+        href="/get-involved.html"
+      >
+        Get Involved →
+      </a>
+
+    </div>
+
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div style="max-width: 300px;">
+
+    <h3 style="margin: 0 0 10px 0;">
+      Intent™ — A Non-Profit | Free Subdomains
+    </h3>
+
+    <p style="font-size: 13px; color: var(--muted-cream);">
+      Privacy-first DNS solutions for the modern web.
+    </p>
+
+    <p style="font-size: 13px; color: var(--muted-cream);">
+      © Intent™ 2025–2026. All Rights Reserved.
+    </p>
+
+  </div>
+
+
+  <div style="display: flex; gap: 50px;">
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <span
+        style="
+          font-weight: 800;
+          font-size: 11px;
+          color: var(--accent-blue);
+          letter-spacing: 1px;
+        "
+      >
+        LEGAL
+      </span>
+
+      <a href="/legal.html">
+        Legal Center
+      </a>
+
+      <a href="/privacy.html">
+        Privacy
+      </a>
+
+      <a href="/terms.html">
+        Terms
+      </a>
+
+      <a href="/acceptable-use.html">
+        Acceptable Use
+      </a>
+
+      <a href="/abuse.html">
+        Abuse
+      </a>
+
+      <a href="/security.html">
+        Security
+      </a>
+
+    </div>
+
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <span
+        style="
+          font-weight: 800;
+          font-size: 11px;
+          color: var(--accent-blue);
+          letter-spacing: 1px;
+        "
+      >
+        PAGES
+      </span>
+
+      <a href="/about.html">
+        About
+      </a>
+
+      <a href="/contact.html">
+        Contact
+      </a>
+
+      <a href="/get-involved.html">
+        Get Involved
+      </a>
+
+      <a href="/impact.html">
+        Impact
+      </a>
+
+      <a href="https://dash.int.yt/public-whois.php">
+        WHOIS
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
+Add it to your navigation
+
+Since you previously added Get Involved, I would make the main navigation:
+
+<a href="/about.html">About</a>
+<a href="/contact.html">Contact</a>
+<a href="/impact.html">Impact</a>
+<a href="/get-involved.html">Get Involved</a>
+<a href="/legal.html">Legal</a>
+
+So the public-facing structure becomes:
+
+About
+Contact
+Impact
+Get Involved
+Legal
+  ├── Privacy
+  ├── Terms
+  ├── Acceptable Use
+  ├── Abuse
+  └── Security
+
+That is a cleaner structure than putting every legal document directly into the top navigation.

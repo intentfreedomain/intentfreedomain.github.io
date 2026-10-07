@@ -31,7 +31,7 @@ If you are working on a high-quality project or you would like a **1, 2, or 3-le
 3. **Register:** Claim your domain through the user dashboard.
 4. **Connect DNS:** Point your domain NS(nameserver records) to your hosting provider.
    * **Supported:** FreeDNS, Namecheap.
-   * **Coming Soon:** Cloudflare support.
+   * **Coming Soon:** Intent-DNS support.
 
 ---
 

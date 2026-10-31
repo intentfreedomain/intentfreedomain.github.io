@@ -1,25 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  
-  <title>Terms — Intent FreeDomain</title>
-  <meta name="description" content="Terms of Service and Acceptable Use Policy for Intent FreeDomain.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Terms of Service — Intent™ FreeDomain</title>
+  <meta name="description" content="Read the Intent FreeDomain Terms of Service governing subdomain registration, Free Zones, Key Zones, IFP Keys, DNS services, account responsibilities and acceptable use.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://int.yt/terms.html">
+
+  <meta property="og:title" content="Terms of Service — Intent">
+  <meta property="og:description" content="The rules and conditions governing Intent subdomains, accounts, DNS services and IFP Keys.">
+  <meta property="og:url" content="https://int.yt/terms.html">
+  <meta property="og:type" content="website">
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  
   <style>
     :root {
-      --bg-overlay: rgba(7, 18, 38, 0.55); 
+      --bg-overlay: rgba(7, 18, 38, 0.55);
       --glass: rgba(255, 253, 240, 0.12);
       --glass-border: rgba(255, 255, 255, 0.15);
       --accent-blue: #3b82f6;
-      --deep-blue: #1e3a8a;
       --cream-text: #fefce8;
       --muted-cream: #cbd5e1;
       --card-radius: 16px;
@@ -27,13 +32,17 @@
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       color: var(--cream-text);
       min-height: 100vh;
-      background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
-                  url(photo-1501785888041-af3ef285b470.jpeg) no-repeat center center fixed;
+      background:
+        linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+        url(photo-1501785888041-af3ef285b470.jpeg)
+        no-repeat center center fixed;
       background-size: cover;
       -webkit-font-smoothing: antialiased;
     }
@@ -45,39 +54,70 @@
       padding: 15px 4%;
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(7, 18, 38, .55);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       z-index: 100;
       border-bottom: 1px solid var(--glass-border);
     }
 
-    .brand { display: flex; align-items: center; text-decoration: none; }
-    .logo-wrap {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--accent-blue); display: flex;
-      align-items: center; justify-content: center;
-      margin-right: 12px; overflow: hidden;
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
     }
-    .logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
-    .brand .title { font-weight: 800; font-size: 1.1rem; color: #fff; letter-spacing: -0.5px; }
 
-    nav { display: flex; gap: 18px; align-items: center; }
-    nav a {
-      font-weight: 500; font-size: 13px; text-decoration: none;
-      color: var(--muted-cream); transition: all 0.2s;
-      text-transform: uppercase; letter-spacing: 0.5px;
+    .logo-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      overflow: hidden;
     }
-    nav a:hover { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
-    
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand .title {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    nav a {
+      font-weight: 500;
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--muted-cream);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    nav a:hover { color: #fff; }
+
     .nav-btn {
-      background: rgba(59, 130, 246, 0.2);
-      padding: 6px 12px; border-radius: 6px; border: 1px solid var(--accent-blue);
+      background: rgba(59,130,246,.2);
+      padding: 7px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-blue);
     }
 
     main.container {
-      max-width: 1200px;
-      margin: 40px auto;
+      max-width: 1100px;
+      margin: 45px auto;
       padding: 0 20px;
     }
 
@@ -87,132 +127,997 @@
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--glass-border);
       border-radius: var(--card-radius);
-      padding: 35px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      padding: 38px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.4);
     }
 
-    h1 { font-size: 2.8rem; line-height: 1.1; margin-top: 0; color: #fff; font-weight: 800; }
-    h2 { color: #fff; margin-top: 30px; font-weight: 800; font-size: 1.5rem; }
-    p, ul { font-size: 1.05rem; color: var(--muted-cream); line-height: 1.6; }
-    ul { padding-left: 20px; }
-    ul li { margin-bottom: 10px; }
-    a { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
+    h1 {
+      font-size: 2.7rem;
+      line-height: 1.15;
+      color: #fff;
+      margin-top: 0;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 1.45rem;
+      margin-top: 38px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      scroll-margin-top: 90px;
+    }
+
+    h3 {
+      color: #fff;
+      font-size: 1.08rem;
+      margin-top: 24px;
+    }
+
+    p, li {
+      font-size: 15px;
+      color: var(--muted-cream);
+      line-height: 1.8;
+    }
+
+    ul, ol { padding-left: 25px; }
+    li { margin-bottom: 8px; }
+
+    a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
     a:hover { text-decoration: underline; }
 
-    footer {
-      padding: 60px 5% 40px; margin-top: 80px; background: rgba(0,0,0,0.4);
-      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;
+    .updated {
+      font-size: 13px;
+      color: #bfdbfe;
     }
-    footer a { color: inherit; text-decoration: none; font-size: 13px; }
 
-    @media (max-width: 1000px) { nav { display: none; } }
+    .notice {
+      padding: 18px 20px;
+      background: rgba(59,130,246,.13);
+      border: 1px solid rgba(59,130,246,.35);
+      border-radius: 12px;
+      margin: 25px 0;
+    }
+
+    .notice p { margin: 0; }
+
+    .toc {
+      padding: 22px;
+      background: rgba(0,0,0,.16);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      margin: 28px 0;
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      padding: 0;
+      border: 0;
+      font-size: 19px;
+    }
+
+    .toc a { color: #bfdbfe; }
+
+    .policy-footer {
+      margin-top: 35px;
+      padding: 20px;
+      background: rgba(0,0,0,.15);
+      border-radius: 12px;
+    }
+
+    footer {
+      padding: 55px 5% 40px;
+      margin-top: 70px;
+      background: rgba(0,0,0,.4);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    footer a {
+      color: inherit;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 50px;
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-heading {
+      font-weight: 800;
+      font-size: 11px;
+      color: #60a5fa;
+      letter-spacing: 1px;
+    }
+
+    @media(max-width:850px) {
+      nav { display: none; }
+      h1 { font-size: 2.1rem; }
+      .glass-panel { padding: 23px; }
+      .footer-links { gap: 25px; }
+    }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <a href="/" class="brand">
-      <div class="logo-wrap">
-        <img src="favicon.png" alt="Intent Logo">
-      </div>
-      <div class="title">Intent FreeDomain</div>
-    </a>
-    <nav>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
+<header>
+  <a href="/" class="brand">
+    <div class="logo-wrap">
+      <img src="favicon.png" alt="Intent Logo">
+    </div>
+    <div class="title">Intent FreeDomain</div>
+  </a>
+
+  <nav>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/abuse.html">Abuse</a>
+    <a href="https://panel.int.yt/signup.php" class="nav-btn">Register</a>
+    <a href="https://panel.int.yt/login.php">Dashboard</a>
+  </nav>
+</header>
+
+<main class="container">
+  <article class="glass-panel">
+
+    <h1>Terms of Service</h1>
+
+    <p class="updated">
+      Last updated: October 31, 2026
+    </p>
+
+    <p>
+      Welcome to Intent™ FreeDomain.
+      These Terms of Service ("Terms") govern your access
+      to and use of Intent's websites, dashboard, subdomain
+      registration system, DNS services, IFP Keys and
+      related infrastructure.
+    </p>
+
+    <p>
+      By creating an account, registering a subdomain,
+      purchasing or using an IFP Key, or otherwise using
+      our services, you agree to these Terms and the
+      policies referenced in this document.
+    </p>
+
+    <div class="notice">
+      <p>
+        <strong>Please read carefully.</strong>
+        Intent provides subdomains and related services
+        subject to operational requirements, security
+        restrictions and community standards. A registered
+        subdomain is a permission to use part of Intent's
+        domain infrastructure, not ownership of the parent
+        domain or DNS zone.
+      </p>
+    </div>
+
+    <div class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#about">About Intent</a></li>
+        <li><a href="#agreement">Agreement and Eligibility</a></li>
+        <li><a href="#accounts">Accounts and Registration</a></li>
+        <li><a href="#security">Account Security</a></li>
+        <li><a href="#domains">Domain Registration</a></li>
+        <li><a href="#zones">Free Zones and Key Zones</a></li>
+        <li><a href="#ifp">IFP Keys and Purchases</a></li>
+        <li><a href="#names">Domain Names and IDN Support</a></li>
+        <li><a href="#rights">Domain Rights and Responsibilities</a></li>
+        <li><a href="#dns">DNS and Nameserver Responsibilities</a></li>
+        <li><a href="#acceptable">Acceptable Use</a></li>
+        <li><a href="#abuse">Abuse and Security Enforcement</a></li>
+        <li><a href="#suspension">Suspension and Revocation</a></li>
+        <li><a href="#availability">Service Availability</a></li>
+        <li><a href="#thirdparty">Third-Party Services</a></li>
+        <li><a href="#privacy">Privacy and Data Processing</a></li>
+        <li><a href="#termination">Account Closure</a></li>
+        <li><a href="#changes">Changes to Services and Terms</a></li>
+        <li><a href="#disclaimer">Disclaimer of Warranties</a></li>
+        <li><a href="#liability">Limitation of Liability</a></li>
+        <li><a href="#indemnification">Responsibility for Claims</a></li>
+        <li><a href="#law">Applicable Law and Disputes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </div>
+
+    <h2 id="about">1. About Intent</h2>
+
+    <p>
+      Intent is a community-focused project that provides
+      free subdomains and related internet infrastructure
+      for developers, students, creators, open-source
+      projects and other legitimate uses.
+    </p>
+
+    <p>
+      The Intent project is fiscally sponsored by Hack Club,
+      a registered 501(c)(3) nonprofit organization.
+      This sponsorship provides nonprofit financial and
+      administrative infrastructure for the project.
+    </p>
+
+    <p>
+      The fiscal sponsorship relationship should not be
+      interpreted as an endorsement of every website,
+      account, user or activity registered through Intent.
+    </p>
+
+    <p>
+      References to "Intent" in these Terms identify the
+      project and its services and do not, by themselves,
+      establish a separate incorporated legal entity.
+    </p>
+
+    <h2 id="agreement">2. Agreement and Eligibility</h2>
+
+    <p>
+      By using Intent services, you acknowledge that you
+      have read and understood these Terms.
+    </p>
+
+    <p>
+      You must have the legal capacity or authorization
+      required under the laws applicable to you to use
+      the services and accept these Terms.
+    </p>
+
+    <p>
+      If you use Intent on behalf of a project, organization
+      or another person, you represent that you have
+      appropriate authority to do so.
+    </p>
+
+    <p>
+      If you do not agree with these Terms, you must stop
+      using the services and must not register additional
+      subdomains.
+    </p>
+
+    <h2 id="accounts">3. Accounts and Registration</h2>
+
+    <p>
+      Certain Intent services require a user account.
+      You agree to provide information that is accurate
+      and not intentionally misleading when creating
+      or maintaining an account.
+    </p>
+
+    <p>
+      Registration information may include:
+    </p>
+
+    <ul>
+      <li>A username or account identifier.</li>
+      <li>Your legal name, where requested.</li>
+      <li>A valid email address.</li>
+      <li>A mobile number, where requested.</li>
+      <li>An address or other information required for registration.</li>
+    </ul>
+
+    <p>
+      You must not:
+    </p>
+
+    <ul>
+      <li>Impersonate another individual or organization.</li>
+      <li>Submit intentionally false registration information.</li>
+      <li>Create accounts to evade restrictions or suspensions.</li>
+      <li>Use automated methods to abuse registration systems.</li>
+      <li>Access accounts that you are not authorized to use.</li>
+    </ul>
+
+    <p>
+      Intent may request additional information where
+      reasonably necessary for account verification,
+      abuse prevention, security or compliance.
+    </p>
+
+    <h2 id="security">4. Account Security</h2>
+
+    <p>
+      You are responsible for protecting your account
+      credentials and maintaining the security of
+      devices and authentication methods used to
+      access Intent.
+    </p>
+
+    <p>You agree to:</p>
+
+    <ul>
+      <li>Keep authentication credentials confidential.</li>
+      <li>Use a secure and unique password where applicable.</li>
+      <li>Notify Intent of suspected unauthorized access.</li>
+      <li>Not share administrative access without authorization.</li>
+      <li>Not attempt to bypass account security controls.</li>
+    </ul>
+
+    <p>
+      Intent may temporarily restrict access where
+      suspicious login activity or a security incident
+      is detected.
+    </p>
+
+    <h2 id="domains">5. Domain Registration</h2>
+
+    <p>
+      Intent allows eligible users to register subdomains
+      under extensions made available through the service.
+    </p>
+
+    <p>
+      Registration is subject to availability, technical
+      restrictions, applicable policies and any
+      registration requirements displayed by the dashboard.
+    </p>
+
+    <p>
+      Subdomain registration does not guarantee permanent
+      availability, unrestricted use or ownership of the
+      parent domain.
+    </p>
+
+    <p>
+      A domain may be unavailable because it is already
+      registered, reserved, blocked, restricted or
+      otherwise unsuitable for registration.
+    </p>
+
+    <p>
+      Intent may reject requests involving reserved names,
+      protected identifiers, trademarks, impersonation
+      attempts, security risks or other restricted names.
+    </p>
+
+    <h2 id="zones">6. Free Zones and Key Zones</h2>
+
+    <p>
+      Intent provides two categories of extensions.
+    </p>
+
+    <h3>6.1 Free Zones</h3>
+
+    <p>
+      Free Zones can be registered without consuming
+      an IFP Key, subject to availability and the
+      applicable registration rules.
+    </p>
+
+    <p>Current Free Zones include:</p>
+
+    <ul>
+      <li>.int.yt</li>
+      <li>.nxtr.in</li>
+      <li>.c0m.to</li>
+      <li>.c0m.li</li>
+      <li>.c11.eu</li>
+      <li>.c22.eu</li>
+      <li>.aa.am</li>
+      <li>.mm.am</li>
+      <li>.na.am</li>
+      <li>.nl.am</li>
+      <li>.fr.am</li>
+      <li>.cd.am</li>
+      <li>.of.to</li>
+      <li>.ro.to</li>
+      <li>.om.to</li>
+      <li>.xi.to</li>
+      <li>.uw.to</li>
+    </ul>
+
+    <h3>6.2 Key Zones</h3>
+
+    <p>
+      Key Zones require one valid IFP Key for each
+      successful domain registration.
+    </p>
+
+    <p>Current Key Zones include:</p>
+
+    <ul>
+      <li>.nc.to</li>
+      <li>.rh.to</li>
+      <li>.yn.to</li>
+      <li>.gw.to</li>
+      <li>.xo.kg</li>
+    </ul>
+
+    <p>
+      One IFP Key is required per successful Key Zone
+      registration. Key requirements may be updated
+      when the available extensions or service structure
+      changes.
+    </p>
+
+    <h2 id="ifp">7. IFP Keys and Purchases</h2>
+
+    <p>
+      IFP Keys are service credits used for eligible
+      registrations and features offered by Intent.
+    </p>
+
+    <ul>
+      <li>Key Zone registration requires one IFP Key.</li>
+      <li>Free Zone registration does not require an IFP Key.</li>
+      <li>A key is consumed when its associated registration succeeds.</li>
+      <li>Failed registrations should not be treated as successful key usage.</li>
+      <li>Users must not manipulate or exploit the key system.</li>
+    </ul>
+
+    <p>
+      IFP Keys are not domain names, ownership rights,
+      cryptocurrency, bank deposits or a guarantee
+      of permanent service availability.
+    </p>
+
+    <p>
+      Purchase prices, bundles, payment methods and
+      any applicable transaction conditions will be
+      presented through the relevant purchase interface.
+    </p>
+
+    <p>
+      Refund requests, payment disputes and transaction
+      corrections will be handled according to the
+      applicable purchase conditions, payment provider
+      rules and mandatory legal requirements.
+    </p>
+
+    <p>
+      You must not use stolen payment credentials,
+      fraudulent transactions or unauthorized payment
+      methods to acquire IFP Keys.
+    </p>
+
+    <h2 id="names">8. Domain Names and IDN Support</h2>
+
+    <p>
+      Standard registrations require a minimum subdomain
+      name length of four characters.
+    </p>
+
+    <p>
+      Names containing four, five, six or more characters
+      may be registered, subject to availability and
+      technical validation.
+    </p>
+
+    <p>
+      Internationalized Domain Names (IDNs) are supported
+      where the registration system and relevant DNS
+      infrastructure permit them.
+    </p>
+
+    <p>
+      IDN names may be represented internally using
+      compatible DNS encoding formats, including
+      Punycode where applicable.
+    </p>
+
+    <p>
+      Requests for one-, two- or three-character names
+      may be considered through manual administrative
+      review. Approval is discretionary and is not
+      guaranteed.
+    </p>
+
+    <p>
+      Manual approval does not override trademark,
+      impersonation, abuse or security restrictions.
+    </p>
+
+    <h2 id="rights">9. Domain Rights and Responsibilities</h2>
+
+    <p>
+      A registered subdomain grants you permission
+      to use that subdomain under the conditions of
+      these Terms.
+    </p>
+
+    <p>
+      You do not acquire ownership of:
+    </p>
+
+    <ul>
+      <li>The parent domain or extension.</li>
+      <li>Intent's underlying DNS zone.</li>
+      <li>Intent's infrastructure or registration systems.</li>
+      <li>Intent trademarks, branding or intellectual property.</li>
+    </ul>
+
+    <p>
+      You are responsible for the websites, applications,
+      content and services that you operate through
+      your registered subdomains.
+    </p>
+
+    <p>
+      You must not represent yourself as Intent or
+      falsely claim official affiliation with Intent.
+    </p>
+
+    <p>
+      Subdomains may not be sold, transferred or
+      reassigned through unauthorized methods.
+      Any permitted transfer must follow the
+      applicable dashboard procedures and policies.
+    </p>
+
+    <h2 id="dns">10. DNS and Nameserver Responsibilities</h2>
+
+    <p>
+      Users may connect their registered subdomains
+      to external hosting providers and DNS services
+      by configuring supported nameservers or DNS
+      records.
+    </p>
+
+    <p>
+      Users are responsible for ensuring that their
+      nameserver configurations and DNS records
+      are correct and authorized.
+    </p>
+
+    <p>You must not:</p>
+
+    <ul>
+      <li>Use DNS records to distribute malware or phishing content.</li>
+      <li>Configure records for unauthorized redirection or impersonation.</li>
+      <li>Attempt to compromise DNS infrastructure.</li>
+      <li>Use DNS services to facilitate fraud or unlawful activity.</li>
+      <li>Abuse DNS resolution or infrastructure resources.</li>
+    </ul>
+
+    <p>
+      DNS propagation, external resolver behavior and
+      third-party hosting availability are outside
+      Intent's complete control.
+    </p>
+
+    <p>
+      Intent is not responsible for incorrect DNS
+      configurations made by users or external
+      providers.
+    </p>
+
+    <h2 id="acceptable">11. Acceptable Use</h2>
+
+    <p>
+      Intent is intended to support legitimate websites,
+      development projects, experiments, educational
+      work, open-source projects and other lawful uses.
+    </p>
+
+    <p>The following activities are prohibited:</p>
+
+    <ul>
+      <li>Phishing, credential theft and account harvesting.</li>
+      <li>Malware, viruses, ransomware and malicious downloads.</li>
+      <li>Fraud, scams and financial deception.</li>
+      <li>Impersonation of individuals, companies or organizations.</li>
+      <li>Copyright infringement and unlawful distribution of content.</li>
+      <li>Spam, unsolicited bulk messaging and deceptive redirects.</li>
+      <li>Illegal marketplaces and unlawful activities.</li>
+      <li>Botnets, command-and-control infrastructure and malicious automation.</li>
+      <li>Attempts to compromise other websites or infrastructure.</li>
+      <li>Distribution of harmful or deceptive software.</li>
+      <li>Abuse of registration, DNS or payment systems.</li>
+      <li>Activities designed to evade security or enforcement measures.</li>
+    </ul>
+
+    <p>
+      These restrictions apply whether prohibited
+      activity is performed directly or facilitated
+      through another website, application, redirect,
+      subdomain or external service.
+    </p>
+
+    <h2 id="abuse">12. Abuse and Security Enforcement</h2>
+
+    <p>
+      Intent may investigate complaints and suspicious
+      activity involving registered subdomains,
+      accounts or associated infrastructure.
+    </p>
+
+    <p>
+      Investigations may be initiated through:
+    </p>
+
+    <ul>
+      <li>User or community reports.</li>
+      <li>Hosting or infrastructure provider notifications.</li>
+      <li>Security monitoring and abuse detection.</li>
+      <li>Copyright or trademark complaints.</li>
+      <li>Lawful requests from authorized authorities.</li>
+      <li>Internal security investigations.</li>
+    </ul>
+
+    <p>
+      Depending on the circumstances, Intent may
+      request additional information, restrict access,
+      suspend DNS functionality or remove offending
+      subdomains.
+    </p>
+
+    <p>
+      Reports should be submitted through the official
+      abuse reporting channel or the contact details
+      provided on the Intent website.
+    </p>
+
+    <p>
+      Knowingly false, malicious or abusive reports
+      may themselves violate these Terms.
+    </p>
+
+    <h2 id="suspension">13. Suspension and Revocation</h2>
+
+    <p>
+      Intent reserves the right to restrict, suspend,
+      disable or revoke accounts and subdomains where
+      reasonably necessary to protect users, comply
+      with legal obligations or enforce these Terms.
+    </p>
+
+    <p>Reasons may include:</p>
+
+    <ul>
+      <li>Violation of these Terms or related policies.</li>
+      <li>Phishing, malware, fraud or other serious abuse.</li>
+      <li>False registration information.</li>
+      <li>Unauthorized account access or security incidents.</li>
+      <li>Repeated abuse or evasion of previous restrictions.</li>
+      <li>Legal requirements or valid enforcement requests.</li>
+      <li>Technical or infrastructure risks.</li>
+      <li>Abandonment or misuse of registered subdomains.</li>
+    </ul>
+
+    <p>
+      Where circumstances reasonably permit, Intent
+      may provide notice or an opportunity to resolve
+      an issue before permanent action is taken.
+    </p>
+
+    <p>
+      However, advance notice is not guaranteed.
+      Immediate restrictions may be necessary in
+      cases involving serious security threats,
+      active abuse or legal requirements.
+    </p>
+
+    <p>
+      Users may contact support to request a review
+      of an enforcement decision. A review does not
+      guarantee restoration.
+    </p>
+
+    <h2 id="availability">14. Service Availability</h2>
+
+    <p>
+      Intent aims to provide reliable and accessible
+      services but does not guarantee uninterrupted
+      availability.
+    </p>
+
+    <p>
+      Services may experience downtime, maintenance,
+      network failures, DNS issues, security incidents,
+      infrastructure changes or interruptions caused
+      by external providers.
+    </p>
+
+    <p>
+      Intent may temporarily suspend or modify services
+      where necessary to maintain security, stability
+      or infrastructure integrity.
+    </p>
+
+    <p>
+      Although the project intends to provide free
+      services for the long term, no user is guaranteed
+      perpetual access to a particular subdomain,
+      extension or feature regardless of future
+      operational, legal or technical circumstances.
+    </p>
+
+    <h2 id="thirdparty">15. Third-Party Services</h2>
+
+    <p>
+      Intent may integrate with or link to external
+      providers, including hosting services, DNS
+      providers, payment processors, authentication
+      providers and communication platforms.
+    </p>
+
+    <p>
+      These providers operate independently and may
+      impose their own terms, restrictions and policies.
+    </p>
+
+    <p>
+      Intent is not responsible for independent
+      third-party services, their availability,
+      content or privacy practices.
+    </p>
+
+    <h2 id="privacy">16. Privacy and Data Processing</h2>
+
+    <p>
+      Your use of Intent is also subject to our
+      <a href="/privacy.html">Privacy Policy</a>.
+    </p>
+
+    <p>
+      The Privacy Policy explains how account
+      information, registration data, DNS information,
+      technical logs and other information may be
+      collected, used, stored and disclosed.
+    </p>
+
+    <p>
+      You should not submit confidential information
+      through public DNS records, public websites
+      or other publicly accessible services.
+    </p>
+
+    <p>
+      By using Intent, you acknowledge that information
+      may be processed as described in the Privacy
+      Policy and as permitted by applicable law.
+    </p>
+
+    <h2 id="termination">17. Account Closure</h2>
+
+    <p>
+      You may stop using Intent and request account
+      closure through the available support channels.
+    </p>
+
+    <p>
+      Account closure may result in the removal,
+      suspension or release of registered subdomains
+      associated with that account.
+    </p>
+
+    <p>
+      Intent may retain certain records after account
+      closure where reasonably necessary for security,
+      legal compliance, financial recordkeeping,
+      abuse prevention or dispute resolution.
+    </p>
+
+    <p>
+      Closing an account does not automatically
+      eliminate outstanding legal responsibilities
+      arising from prior use of the service.
+    </p>
+
+    <h2 id="changes">18. Changes to Services and Terms</h2>
+
+    <p>
+      Intent may introduce, modify, discontinue or
+      replace features, extensions, registration
+      requirements and service components.
+    </p>
+
+    <p>
+      This may include changes to:
+    </p>
+
+    <ul>
+      <li>Available Free Zones and Key Zones.</li>
+      <li>Registration and character requirements.</li>
+      <li>IFP Key requirements and purchase options.</li>
+      <li>Dashboard functionality.</li>
+      <li>DNS infrastructure and supported providers.</li>
+      <li>Account limits and security requirements.</li>
+    </ul>
+
+    <p>
+      Updated Terms will be published on this page
+      with a revised last-updated date.
+    </p>
+
+    <p>
+      Where appropriate, material changes will be
+      communicated through the website, dashboard
+      or another reasonable notification channel.
+    </p>
+
+    <p>
+      Continued use after updated Terms take effect
+      constitutes acceptance where such acceptance
+      is legally effective. If you do not agree with
+      the changes, you should discontinue using
+      the affected services.
+    </p>
+
+    <h2 id="disclaimer">19. Disclaimer of Warranties</h2>
+
+    <p>
+      To the maximum extent permitted by applicable
+      law, Intent services are provided on an
+      "as available" basis.
+    </p>
+
+    <p>
+      We do not guarantee that:
+    </p>
+
+    <ul>
+      <li>Every subdomain will always remain available.</li>
+      <li>Services will operate without interruptions.</li>
+      <li>DNS propagation will occur within a specific time.</li>
+      <li>External hosting providers will remain operational.</li>
+      <li>Every feature will remain available indefinitely.</li>
+      <li>Services will be free from every possible error or vulnerability.</li>
+    </ul>
+
+    <p>
+      Nothing in these Terms excludes warranties or
+      rights that cannot legally be excluded.
+    </p>
+
+    <h2 id="liability">20. Limitation of Liability</h2>
+
+    <p>
+      To the maximum extent permitted by applicable
+      law, Intent will not be responsible for indirect,
+      incidental, special or consequential losses
+      arising from the use or inability to use the
+      services.
+    </p>
+
+    <p>
+      This may include loss of profits, revenue,
+      business opportunities, data, reputation,
+      website availability or third-party services.
+    </p>
+
+    <p>
+      Intent does not guarantee that users will
+      retain access to a particular subdomain or
+      that third-party websites and services
+      connected to it will remain available.
+    </p>
+
+    <p>
+      Nothing in this section excludes or limits
+      liability where such exclusion or limitation
+      is prohibited by applicable law.
+    </p>
+
+    <h2 id="indemnification">21. Responsibility for Claims</h2>
+
+    <p>
+      You are responsible for your own websites,
+      applications, content and activities conducted
+      through your registered subdomains.
+    </p>
+
+    <p>
+      To the extent permitted by applicable law,
+      you are responsible for claims, damages or
+      expenses arising from your unlawful conduct,
+      infringement of third-party rights or
+      material violation of these Terms.
+    </p>
+
+    <p>
+      This section does not remove any legal
+      responsibilities that remain with Intent
+      under applicable law.
+    </p>
+
+    <h2 id="law">22. Applicable Law and Disputes</h2>
+
+    <p>
+      These Terms are subject to applicable laws
+      and regulations governing the services and
+      the parties involved.
+    </p>
+
+    <p>
+      If you have a concern or dispute, we encourage
+      you to contact Intent first so that the issue
+      can be reviewed and, where possible, resolved
+      informally.
+    </p>
+
+    <p>
+      Nothing in this section removes any mandatory
+      consumer, privacy or other legal rights that
+      apply to you.
+    </p>
+
+    <h2 id="contact">23. Contact</h2>
+
+    <p>
+      For questions concerning these Terms,
+      domain registration, IFP Keys or service
+      enforcement, contact Intent:
+    </p>
+
+    <ul>
+      <li>
+        Email:
+        <a href="mailto:support@int.yt">support@int.yt</a>
+      </li>
+      <li>
+        Website:
+        <a href="https://int.yt">https://int.yt</a>
+      </li>
+      <li>
+        Dashboard:
+        <a href="https://panel.int.yt">https://panel.int.yt</a>
+      </li>
+      <li>
+        Community:
+        <a href="https://discord.gg/NCS96PS4MH">Intent Discord</a>
+      </li>
+    </ul>
+
+    <div class="policy-footer">
+      <p>
+        <strong>Related documents:</strong>
+        <a href="/privacy.html">Privacy Policy</a> ·
+        <a href="/acceptable-use.html">Acceptable Use Policy</a> ·
+        <a href="/abuse.html">Abuse Policy</a> ·
+        <a href="/security.html">Security Policy</a>
+      </p>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  <div style="max-width:300px">
+    <h3>Intent FreeDomain</h3>
+    <p style="font-size:13px">
+      Free subdomains and DNS infrastructure for developers,
+      creators and open-source projects.
+    </p>
+    <p style="font-size:12px">
+      © Intent™ 2026. All Rights Reserved.
+    </p>
+  </div>
+
+  <div class="footer-links">
+    <div class="footer-column">
+      <span class="footer-heading">LEGAL</span>
+      <a href="/legal.html">Legal Center</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
+      <a href="/acceptable-use.html">Acceptable Use</a>
       <a href="/abuse.html">Abuse</a>
-      <a href="https://dash.int.yt/signup.php" class="nav-btn">Register</a>
-      <a href="https://dash.int.yt/login.php">Dashboard</a>
-    </nav>
-  </header>
-
-  <main class="container">
-    <div class="glass-panel">
-      <h1>Terms & Acceptable Use</h1>
-      <p>Last updated: 03/06/2026</p>
-
-      <h2>Agreement</h2>
-      <p>By creating an account, registering a domain, or using Intent FreeDomain, you agree to comply with these Terms and Acceptable Use Policies. Violation of these terms may result in immediate suspension, permanent account termination, domain removal, and reporting to relevant authorities.</p>
-
-      <h2>Prohibited Activities</h2>
-      <ul>
-        <li>Copyright infringement, piracy, unauthorized distribution of copyrighted content, or facilitating access to infringing content.</li>
-        <li>Hosting, distributing, promoting, or linking to malware, viruses, phishing pages, credential theft, scams, fraud, or malicious software.</li>
-        <li>Harassment, stalking, doxxing, threats, impersonation, or abuse of individuals or organizations.</li>
-        <li>Spam, unsolicited bulk messaging, deceptive advertising, or abuse of third-party services.</li>
-        <li>Users are limited to <strong>1 account per IP</strong> and <strong>3 domains per account</strong>.</li>
-        <li>Domains consisting of 3 letters or less are not allowed for public registration</li>
-        <li>Illegal activities of any kind under applicable laws</li>
-        <li>Attempts to bypass account limits, create multiple accounts, evade bans, or circumvent security measures.</li>
-        <li>Use of Intent FreeDomain for activities that may damage the reputation, infrastructure, or legal standing of the service.</li>
-        <li>Terms of Use are subject to change at any time without prior notice.</li>
-        <li>Domains consisting of 3 letters or less are not allowed for public registration</li>
-      </ul>
-
-      <h2>Enforcement</h2>
-      <p>Intent FreeDomain reserves the right to investigate any account, domain, or activity suspected of violating these Terms.</p>
-      <ul>
-        <h3>We may, without prior notice:-</h3>
-        <ul>
-          <li>Suspend or permanently terminate accounts.</li>
-          <li>Remove domains or DNS records.</li>
-          <li>Block IP addresses, devices, networks, or other identifiers.</li>
-          <li>Preserve logs and evidence relating to suspected abuse.</li>
-          <li>Refuse future registrations from abusive users.</li>
-        </ul>
-      </ul>
-
-      <h2>Cooperation With Investigations</h2>
-      <p>Where abuse, copyright infringement, fraud, criminal activity, or other serious violations are reasonably believed to have occurred, Intent FreeDomain may preserve relevant account records and cooperate with lawful requests from copyright holders, hosting providers, registrars, law-enforcement agencies, courts, or other authorized entities.</p>
-
-      <h2>Account Limits</h2>
-      <ul>
-        <li>One account per user.</li>
-        <li>Maximum three domains per account unless approved by administration.</li>
-        <li>Domains consisting of three characters or fewer are not available for public registration.</li>
-        <li>Contact administration for legitimate projects requiring higher limits.</li>
-      </ul>
-
-      <h2>Changes</h2>
-      <p>These Terms may be updated at any time. Continued use of the service constitutes acceptance of the updated Terms.</p>
-      
-      <h2>PSL & Reserved Names</h2>
-      <p>We enforce Public Suffix List (PSL) rules and reserve names that conflict with registries, system core services, or premium identifiers.</p>
-
-      <h2>Contact Support</h2>
-      <p>
-        <strong>Email:</strong> <a href="mailto:support@int.yt">support@int.yt</a> | <a href="mailto:abuse@int.yt">abuse@int.yt</a><br>
-        <strong>Discord:</strong> <a href="https://discord.gg/NCS96PS4MH">Open a Ticket</a>
-      </p>
-      
-      <h2 style="text-align: center; border-top: 1px solid var(--glass-border); padding-top: 30px; margin-top: 40px; font-size: 1rem; opacity: 0.7;">
-        --- INTENT FREE DOMAIN & TEAM ---
-      </h2>
+      <a href="/security.html">Security</a>
     </div>
-  </main>
 
-  <footer>
-    <div style="max-width: 300px;">
-      <h3 style="margin: 0 0 10px 0;">Intent FreeDomain</h3>
-      <p style="font-size: 13px; color: var(--muted-cream)">Privacy-first DNS solutions for the modern web.</p>
+    <div class="footer-column">
+      <span class="footer-heading">PAGES</span>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://panel.int.yt/public-whois.php">WHOIS</a>
+      <a href="https://panel.int.yt">Dashboard</a>
     </div>
-    <div style="display: flex; gap: 50px;">
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <span style="font-weight: 800; font-size: 11px; color: var(--accent-blue); letter-spacing: 1px;">LEGAL</span>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
-        <a href="/abuse.html">Abuse</a>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <span style="font-weight: 800; font-size: 11px; color: var(--accent-blue); letter-spacing: 1px;">PAGES</span>
-        <a href="/about.html">About</a>
-        <a href="/contact.html">Contact</a>
-        <a href="https://dash.int.yt/public-whois.php">WHOIS</a>
-      </div>
-    </div>
-  </footer>
+  </div>
+</footer>
 
 </body>
 </html>

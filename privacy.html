@@ -1,18 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Privacy Policy — Intent™ FreeDomain</title>
-  <meta name="description" content="Read the Intent FreeDomain Privacy Policy. Learn how we collect, use, protect, retain and disclose personal information when providing free subdomains and DNS services.">
+  <title>Privacy Policy — Intent</title>
+  <meta name="description" content="Read the Intent Privacy Policy to understand how we collect, use, store, and protect information across Intent FreeDomain, Intent-DNS, Intent-Mail, and Intent Web Hosting.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://int.yt/privacy.html">
-
-  <meta property="og:title" content="Privacy Policy — Intent">
-  <meta property="og:description" content="Learn how Intent handles personal information, domain registration data, DNS information and account security.">
-  <meta property="og:url" content="https://int.yt/privacy.html">
-  <meta property="og:type" content="website">
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -30,9 +25,13 @@
       --card-radius: 16px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -41,8 +40,7 @@
       min-height: 100vh;
       background:
         linear-gradient(var(--bg-overlay), var(--bg-overlay)),
-        url(photo-1501785888041-af3ef285b470.jpeg)
-        no-repeat center center fixed;
+        url(photo-1501785888041-af3ef285b470.jpeg) no-repeat center center fixed;
       background-size: cover;
       -webkit-font-smoothing: antialiased;
     }
@@ -89,6 +87,7 @@
       font-weight: 800;
       font-size: 1.1rem;
       color: #fff;
+      letter-spacing: -0.5px;
     }
 
     nav {
@@ -102,22 +101,26 @@
       font-size: 13px;
       text-decoration: none;
       color: var(--muted-cream);
+      transition: all 0.2s;
       text-transform: uppercase;
-      letter-spacing: .5px;
+      letter-spacing: 0.5px;
     }
 
-    nav a:hover { color: #fff; }
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
 
     .nav-btn {
-      background: rgba(59, 130, 246, .2);
-      padding: 7px 12px;
+      background: rgba(59, 130, 246, 0.2);
+      padding: 8px 12px;
       border-radius: 6px;
       border: 1px solid var(--accent-blue);
     }
 
     main.container {
-      max-width: 1100px;
-      margin: 45px auto;
+      max-width: 1200px;
+      margin: 40px auto;
       padding: 0 20px;
     }
 
@@ -127,93 +130,122 @@
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--glass-border);
       border-radius: var(--card-radius);
-      padding: 38px;
-      box-shadow: 0 10px 40px rgba(0,0,0,.4);
+      padding: 35px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     }
 
     h1 {
-      font-size: 2.7rem;
-      line-height: 1.15;
-      color: #fff;
+      font-size: 2.8rem;
+      line-height: 1.1;
       margin-top: 0;
+      color: #fff;
+      font-weight: 800;
     }
 
     h2 {
       color: #fff;
-      font-size: 1.45rem;
-      margin-top: 38px;
-      padding-top: 15px;
-      border-top: 1px solid rgba(255,255,255,.12);
-      scroll-margin-top: 90px;
+      margin-top: 34px;
+      font-weight: 800;
+      font-size: 1.5rem;
+      scroll-margin-top: 100px;
     }
 
     h3 {
       color: #fff;
-      font-size: 1.08rem;
+      font-size: 1.12rem;
       margin-top: 24px;
     }
 
-    p, li {
-      font-size: 15px;
+    p,
+    ul,
+    ol {
+      font-size: 1.02rem;
       color: var(--muted-cream);
-      line-height: 1.8;
+      line-height: 1.75;
     }
 
-    ul, ol { padding-left: 25px; }
-    li { margin-bottom: 8px; }
+    ul,
+    ol {
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 9px;
+    }
 
     a {
       color: #93c5fd;
       text-decoration: none;
+      font-weight: 600;
     }
 
-    a:hover { text-decoration: underline; }
+    a:hover {
+      text-decoration: underline;
+    }
 
     .updated {
-      font-size: 13px;
       color: #bfdbfe;
+      font-size: 0.92rem;
+    }
+
+    .intro {
+      font-size: 1.08rem;
+      line-height: 1.8;
     }
 
     .notice {
-      padding: 18px 20px;
-      background: rgba(59,130,246,.13);
-      border: 1px solid rgba(59,130,246,.35);
+      background: rgba(59, 130, 246, 0.13);
+      border: 1px solid rgba(147, 197, 253, 0.35);
       border-radius: 12px;
-      margin: 25px 0;
+      padding: 18px 20px;
+      margin: 24px 0;
     }
 
-    .notice p { margin: 0; }
+    .notice p {
+      margin: 0;
+    }
+
+    .service-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .service-links a {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid var(--glass-border);
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
 
     .toc {
-      padding: 22px;
-      background: rgba(0,0,0,.16);
+      background: rgba(0,0,0,0.17);
       border: 1px solid var(--glass-border);
       border-radius: 12px;
-      margin: 28px 0;
+      padding: 20px 24px;
+      margin: 26px 0;
     }
 
     .toc h2 {
       margin: 0 0 12px;
-      padding: 0;
-      border: 0;
-      font-size: 19px;
+      font-size: 1.2rem;
     }
 
-    .toc ol { margin-bottom: 0; }
+    .toc ol {
+      margin-bottom: 0;
+    }
 
-    .toc a { color: #bfdbfe; }
-
-    .policy-footer {
-      margin-top: 35px;
-      padding: 20px;
-      background: rgba(0,0,0,.15);
-      border-radius: 12px;
+    .toc li {
+      margin-bottom: 5px;
     }
 
     footer {
-      padding: 55px 5% 40px;
-      margin-top: 70px;
-      background: rgba(0,0,0,.4);
+      padding: 60px 5% 40px;
+      margin-top: 80px;
+      background: rgba(0,0,0,0.4);
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -222,12 +254,19 @@
 
     footer a {
       color: inherit;
+      text-decoration: none;
       font-size: 13px;
+    }
+
+    footer a:hover {
+      color: #fff;
+      text-decoration: underline;
     }
 
     .footer-links {
       display: flex;
       gap: 50px;
+      flex-wrap: wrap;
     }
 
     .footer-column {
@@ -239,15 +278,47 @@
     .footer-heading {
       font-weight: 800;
       font-size: 11px;
-      color: #60a5fa;
+      color: var(--accent-blue);
       letter-spacing: 1px;
     }
 
-    @media(max-width: 850px) {
-      nav { display: none; }
-      h1 { font-size: 2.1rem; }
-      .glass-panel { padding: 23px; }
-      .footer-links { gap: 25px; }
+    @media (max-width: 1000px) {
+      nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main.container {
+        margin: 22px auto;
+        padding: 0 12px;
+      }
+
+      .glass-panel {
+        padding: 22px 18px;
+      }
+
+      h1 {
+        font-size: 2.1rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      p,
+      ul,
+      ol {
+        font-size: 0.96rem;
+      }
+
+      footer {
+        padding: 40px 6%;
+      }
+
+      .footer-links {
+        gap: 30px;
+      }
     }
   </style>
 </head>
@@ -255,635 +326,767 @@
 <body>
 
 <header>
-  <a href="/" class="brand">
+  <a href="https://int.yt/" class="brand">
     <div class="logo-wrap">
       <img src="favicon.png" alt="Intent Logo">
     </div>
-    <div class="title">Intent FreeDomain</div>
+    <div class="title">Intent</div>
   </a>
 
   <nav>
-    <a href="/about.html">About</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
-    <a href="/abuse.html">Abuse</a>
+    <a href="https://int.yt/about.html">About</a>
+    <a href="https://int.yt/contact.html">Contact</a>
+    <a href="https://int.yt/privacy.html">Privacy</a>
+    <a href="https://int.yt/terms.html">Terms</a>
+    <a href="https://int.yt/abuse.html">Abuse</a>
     <a href="https://panel.int.yt/signup.php" class="nav-btn">Register</a>
-    <a href="https://panel.int.yt/login.php">Dashboard</a>
+    <a href="https://panel.int.yt/">Dashboard</a>
   </nav>
 </header>
 
 <main class="container">
-  <article class="glass-panel">
+  <div class="glass-panel">
 
     <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: October 31, 2026</p>
 
-    <p class="updated">
-      Last updated: October 31, 2026
+    <p class="intro">
+      At Intent, we believe that privacy and transparency are important.
+      This Privacy Policy explains how Intent collects, uses, stores,
+      processes, and shares information when you access or use our websites,
+      applications, infrastructure, and services.
     </p>
 
     <p>
-      Intent™ ("Intent", "we", "our" or "us") respects the
-      privacy of individuals who use our websites, dashboard,
-      domain registration services and related infrastructure.
+      This policy applies to the Intent ecosystem, including Intent FreeDomain,
+      Intent-DNS, Intent-Mail, Intent Web Hosting, their associated dashboards,
+      APIs, and related websites and infrastructure.
     </p>
 
-    <p>
-      This Privacy Policy explains what information may be
-      collected, how it is used, how it is protected, when it
-      may be shared and what choices may be available to users.
-    </p>
+    <div class="service-links">
+      <a href="https://int.yt/">Intent</a>
+      <a href="https://panel.int.yt/">FreeDomain Panel</a>
+      <a href="https://dns.int.yt/">Intent-DNS</a>
+      <a href="https://email.int.yt/">Intent-Mail</a>
+      <a href="https://web.int.yt/">Intent Web Hosting</a>
+    </div>
 
     <div class="notice">
       <p>
-        <strong>Important:</strong> Intent provides free
-        subdomain registration and related services. Although
-        domain registration information is required to operate
-        and protect the service, we do not intentionally publish
-        users' private registration details through our public
-        WHOIS interface.
+        <strong>Important:</strong> Different Intent services process different
+        types of information. For example, email services necessarily process
+        email messages, DNS services process DNS information, and web hosting
+        services process website files and deployment information. The
+        sections below explain these differences.
       </p>
     </div>
 
     <div class="toc">
       <h2>Contents</h2>
       <ol>
-        <li><a href="#scope">Scope of This Policy</a></li>
+        <li><a href="#scope">Scope and About Intent</a></li>
         <li><a href="#information">Information We Collect</a></li>
+        <li><a href="#freedomain">Intent FreeDomain</a></li>
+        <li><a href="#dns">Intent-DNS</a></li>
+        <li><a href="#mail">Intent-Mail</a></li>
+        <li><a href="#hosting">Intent Web Hosting</a></li>
         <li><a href="#technical">Technical and Security Information</a></li>
-        <li><a href="#domains">Domain and DNS Information</a></li>
-        <li><a href="#payments">IFP Keys and Payment Information</a></li>
         <li><a href="#usage">How We Use Information</a></li>
-        <li><a href="#cookies">Cookies and Sessions</a></li>
-        <li><a href="#whois">Public WHOIS and Privacy</a></li>
-        <li><a href="#sharing">Information Sharing</a></li>
-        <li><a href="#thirdparty">Third-Party Services</a></li>
+        <li><a href="#cookies">Cookies and Similar Technologies</a></li>
+        <li><a href="#sharing">Data Sharing and Disclosure</a></li>
+        <li><a href="#thirdparties">Third-Party Services</a></li>
+        <li><a href="#whois">Public Domain Information and WHOIS</a></li>
         <li><a href="#security">Data Security</a></li>
         <li><a href="#retention">Data Retention</a></li>
-        <li><a href="#deletion">Account Closure and Deletion</a></li>
+        <li><a href="#deletion">Account and Data Deletion</a></li>
         <li><a href="#rights">Your Privacy Rights</a></li>
-        <li><a href="#international">International Processing</a></li>
+        <li><a href="#international">International Data Processing</a></li>
         <li><a href="#children">Children's Privacy</a></li>
         <li><a href="#changes">Changes to This Policy</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ol>
     </div>
 
-    <h2 id="scope">1. Scope of This Policy</h2>
+    <h2 id="scope">1. Scope and About Intent</h2>
 
     <p>
-      This policy applies to information processed in connection
-      with:
+      Intent is a nonprofit technology initiative that develops and operates
+      internet infrastructure and developer-focused services. This policy
+      applies to information processed through services operated under the
+      Intent name and domains.
     </p>
 
-    <ul>
-      <li>The official Intent website at int.yt.</li>
-      <li>The current Intent Dashboard at panel.int.yt.</li>
-      <li>Account creation and authentication.</li>
-      <li>Subdomain registration and management.</li>
-      <li>DNS and nameserver-related services.</li>
-      <li>IFP Key purchases and related transactions.</li>
-      <li>Customer support and abuse reporting.</li>
-      <li>Security investigations and infrastructure protection.</li>
-    </ul>
+    <p>
+      For the purposes of this policy, "Intent", "we", "us", and "our" refer
+      to the operators responsible for the relevant Intent service. "You"
+      refers to a visitor, account holder, customer, or other person using
+      our services.
+    </p>
 
     <p>
-      This policy does not automatically govern independent
-      websites, hosting providers, external DNS providers or
-      other third-party services that users choose to connect
-      to their domains.
+      This policy applies to information collected directly from you,
+      automatically through your use of our services, or received from
+      third-party services when you authorize an integration.
     </p>
 
     <h2 id="information">2. Information We Collect</h2>
 
     <p>
-      Depending on the features used and information required
-      during registration, Intent may collect the following
-      categories of information.
+      The information we collect depends on which Intent services you use
+      and how you interact with them. We do not necessarily collect every
+      category listed below from every user.
     </p>
 
-    <h3>2.1 Account Information</h3>
+    <h3>2.1 Account and Registration Information</h3>
 
     <ul>
-      <li>Username or account identifier.</li>
-      <li>Legal name, where requested during registration.</li>
-      <li>Email address.</li>
-      <li>Mobile number, where requested.</li>
-      <li>Address or other registration details, where requested.</li>
-      <li>Account creation date and account status.</li>
-      <li>Authentication and account-security records.</li>
+      <li>Username, account name, and display name.</li>
+      <li>Email address and email verification status.</li>
+      <li>Password hashes and authentication-related information.</li>
+      <li>Account creation date, account status, and account preferences.</li>
+      <li>Information submitted through registration, support, or account forms.</li>
+      <li>Authentication sessions, session expiry, and account activity records.</li>
     </ul>
 
-    <h3>2.2 Information You Provide</h3>
-
-    <p>
-      We may receive information you voluntarily submit through
-      support requests, contact forms, abuse reports, security
-      reports, feedback or other communication channels.
-    </p>
-
-    <p>
-      This information may include your name, email address,
-      message contents, attachments and information relevant
-      to the request.
-    </p>
-
-    <h3>2.3 Information From Authentication Providers</h3>
-
-    <p>
-      If external authentication providers are offered and you
-      choose to use them, we may receive information made
-      available through the authentication process, such as an
-      account identifier, username or email address, subject
-      to the provider's permissions and settings.
-    </p>
-
-    <h2 id="technical">3. Technical and Security Information</h2>
-
-    <p>
-      When you access our services, certain technical information
-      may be collected automatically for operational and security
-      purposes.
-    </p>
+    <h3>2.2 Domain and DNS Information</h3>
 
     <ul>
-      <li>IP addresses.</li>
-      <li>Browser type and version.</li>
-      <li>Operating system and device information.</li>
-      <li>Request timestamps.</li>
-      <li>Login and authentication events.</li>
-      <li>Failed login attempts.</li>
-      <li>Session and security-related identifiers.</li>
-      <li>Pages and service endpoints accessed.</li>
-      <li>Errors and diagnostic information.</li>
+      <li>Registered domain and subdomain names.</li>
+      <li>DNS records, nameservers, record values, and domain configuration.</li>
+      <li>Domain ownership and verification information.</li>
+      <li>DNS API tokens and related authentication metadata.</li>
+      <li>Domain registration, modification, renewal, and deletion records.</li>
     </ul>
 
+    <h3>2.3 Email Information</h3>
+
+    <ul>
+      <li>Email addresses and mailbox account information.</li>
+      <li>Email messages, message headers, and attachments processed by the service.</li>
+      <li>Sender and recipient addresses, timestamps, and delivery status.</li>
+      <li>Mailbox settings, folders, and storage usage.</li>
+      <li>Authentication and connection information relating to webmail, IMAP, and SMTP.</li>
+    </ul>
+
+    <h3>2.4 Web Hosting Information</h3>
+
+    <ul>
+      <li>Website files, uploaded content, and deployment artifacts.</li>
+      <li>Site names, project settings, build commands, and deployment configuration.</li>
+      <li>Connected repository URLs, repository names, branches, and commit information.</li>
+      <li>Custom domains, domain verification tokens, and SSL certificate status.</li>
+      <li>Build output, deployment logs, error messages, and deployment history.</li>
+      <li>Webhook and integration metadata used to trigger deployments.</li>
+    </ul>
+
+    <h3>2.5 Payment and Transaction Information</h3>
+
     <p>
-      This information helps us investigate suspicious activity,
-      prevent automated abuse, identify unauthorized access and
-      maintain service reliability.
+      Where paid features, IFP Keys, or other payment-related services are
+      offered, we may process transaction references, payment status, product
+      information, amounts, timestamps, and related account information.
     </p>
 
-    <h2 id="domains">4. Domain and DNS Information</h2>
+    <p>
+      Payment card or banking details may be processed by the relevant payment
+      provider. We do not claim to store complete payment card or banking
+      credentials unless a particular payment flow explicitly requires it.
+    </p>
+
+    <h3>2.6 Support and Communication Information</h3>
+
+    <ul>
+      <li>Messages sent to our support or administrative email addresses.</li>
+      <li>Information submitted through contact forms and abuse reports.</li>
+      <li>Discord communications when you contact us through our community.</li>
+      <li>Information necessary to investigate and resolve reported issues.</li>
+    </ul>
+
+    <h2 id="freedomain">3. Intent FreeDomain</h2>
 
     <p>
-      When you register or manage a subdomain through Intent,
-      we process information necessary to provide that service.
+      Intent FreeDomain provides domain and subdomain registration services.
+      When you register or manage a domain, we may process the information
+      required to create and maintain your account and domain registration.
     </p>
 
     <p>This may include:</p>
 
     <ul>
-      <li>Your registered subdomain and selected extension.</li>
-      <li>Registration and modification timestamps.</li>
-      <li>Domain status and account association.</li>
-      <li>Nameserver records.</li>
-      <li>DNS records and their values.</li>
-      <li>Domain configuration and management history.</li>
-      <li>Relevant DNS activity and security events.</li>
+      <li>Account details and verified email address.</li>
+      <li>Domain names and registration dates.</li>
+      <li>DNS records, nameservers, and domain configuration.</li>
+      <li>Registration, modification, and deletion history.</li>
+      <li>IP addresses and other security information associated with account activity.</li>
+      <li>Abuse reports, administrative actions, and support correspondence.</li>
     </ul>
 
     <p>
-      DNS information may be publicly resolvable depending on
-      the record type and configuration. Users should not place
-      passwords, authentication tokens or other confidential
-      information in publicly accessible DNS records.
+      We use this information to operate domain registrations, manage DNS,
+      prevent abuse, maintain service integrity, and respond to legitimate
+      administrative or legal requests.
     </p>
 
-    <h2 id="payments">5. IFP Keys and Payment Information</h2>
+    <h2 id="dns">4. Intent-DNS</h2>
 
     <p>
-      Intent may offer IFP Keys for eligible domain registrations
-      and other features.
+      Intent-DNS provides authoritative DNS hosting and related management
+      functionality, including DNS records, domain configuration, and API
+      access.
+    </p>
+
+    <p>When you use Intent-DNS, we may process:</p>
+
+    <ul>
+      <li>DNS zones and the domains associated with your account.</li>
+      <li>DNS records, including A, AAAA, ALIAS, CNAME, MX, TXT, SRV, NS, and CAA records.</li>
+      <li>Nameserver and zone configuration information.</li>
+      <li>API credentials, token metadata, and authentication records.</li>
+      <li>Account and plan information.</li>
+      <li>Operational, diagnostic, and security logs.</li>
+      <li>DNS request metadata where collected by the relevant DNS infrastructure.</li>
+    </ul>
+
+    <p>
+      DNS records are necessary for the operation of the service. Depending
+      on your configuration, record values may contain information about
+      your infrastructure, mail providers, verification services, or
+      third-party platforms.
     </p>
 
     <p>
-      When you purchase or use IFP Keys, we may process:
+      API tokens should be treated as confidential credentials. You are
+      responsible for protecting your tokens and revoking them if you believe
+      they have been exposed or accessed without authorization.
+    </p>
+
+    <h2 id="mail">5. Intent-Mail</h2>
+
+    <p>
+      Intent-Mail provides email and mailbox functionality. Operating an email
+      service necessarily involves processing email-related information so
+      messages can be received, stored, displayed, sent, and delivered.
+    </p>
+
+    <p>This may include:</p>
+
+    <ul>
+      <li>Mailbox addresses and account information.</li>
+      <li>Email content, message headers, and attachments.</li>
+      <li>Sender and recipient addresses.</li>
+      <li>Message timestamps, delivery information, and status.</li>
+      <li>Mailbox folders, settings, and storage information.</li>
+      <li>Authentication information and connection metadata.</li>
+      <li>Spam, abuse, and service-security information.</li>
+    </ul>
+
+    <p>
+      Email content may be processed by systems involved in message delivery,
+      storage, spam prevention, abuse investigation, and technical support.
+      Access to message content by authorized personnel may occur where
+      necessary for service operation, security, support, or compliance with
+      applicable legal obligations.
+    </p>
+
+    <p>
+      We do not promise that email communications are end-to-end encrypted.
+      Standard email delivery may involve other mail servers and providers
+      outside Intent's control. Users should avoid sending highly sensitive
+      information through ordinary email unless they have applied appropriate
+      additional protection.
+    </p>
+
+    <p>
+      If you connect a custom domain to Intent-Mail, we may process domain
+      configuration and related MX, SPF, DKIM, and DMARC information to
+      support email setup and verification.
+    </p>
+
+    <h2 id="hosting">6. Intent Web Hosting</h2>
+
+    <p>
+      Intent Web Hosting provides website hosting and deployment functionality.
+      When available, the service may allow users to connect source-code
+      repositories, deploy websites, configure custom domains, and manage
+      deployments through a dashboard.
+    </p>
+
+    <p>To provide these features, we may process:</p>
+
+    <ul>
+      <li>Hosting account information and authentication records.</li>
+      <li>Website files, uploaded files, and deployment artifacts.</li>
+      <li>Repository names, repository URLs, branches, and commit metadata.</li>
+      <li>GitHub account identifiers and usernames when GitHub integration is used.</li>
+      <li>Authorization tokens required for the GitHub integration.</li>
+      <li>Site settings, build commands, and deployment configuration.</li>
+      <li>Build logs, deployment logs, error messages, and status information.</li>
+      <li>Custom domains, DNS verification information, and SSL status.</li>
+      <li>Webhook events and related deployment-trigger information.</li>
+      <li>Visitor and server request logs where collected by hosting infrastructure.</li>
+    </ul>
+
+    <h3>6.1 GitHub Integration</h3>
+
+    <p>
+      If you connect a GitHub account, you authorize the relevant integration
+      to communicate with GitHub according to the permissions displayed during
+      authorization.
+    </p>
+
+    <p>
+      Depending on the permissions granted and features used, the integration
+      may process your GitHub username, account identifier, repository
+      information, and authorization credentials required to access
+      repositories or configure deployment webhooks.
+    </p>
+
+    <p>
+      Authorization credentials are intended to be protected using the
+      security mechanisms implemented by the service. You can revoke the
+      integration through GitHub's application settings. Revoking access
+      may prevent deployments or repository-related features from working.
+    </p>
+
+    <p>
+      GitHub is an independent third-party service. Its processing of your
+      information is governed by GitHub's own privacy policy and terms.
+    </p>
+
+    <h3>6.2 Website Files and Public Content</h3>
+
+    <p>
+      Files and content you deploy may become publicly accessible through
+      your hosting address or custom domain. You are responsible for ensuring
+      that you have the necessary rights to upload and publish that content.
+    </p>
+
+    <p>
+      Do not upload passwords, private keys, API secrets, personal information
+      belonging to others, or other confidential material into public website
+      files or build output. Build logs and deployment output may expose
+      information if your build scripts print secrets or private values.
+    </p>
+
+    <h3>6.3 Website Visitor Information</h3>
+
+    <p>
+      When a website hosted through Intent receives requests, the hosting
+      infrastructure may process technical request information such as IP
+      addresses, requested paths, timestamps, response status, and user-agent
+      information, depending on the logging configuration.
+    </p>
+
+    <p>
+      Website owners are responsible for their own websites, including
+      providing any privacy notices required for information they collect
+      directly from their visitors.
+    </p>
+
+    <h2 id="technical">7. Technical and Security Information</h2>
+
+    <p>
+      When you visit or use Intent services, our systems and infrastructure
+      may automatically process certain technical information, including:
     </p>
 
     <ul>
-      <li>Purchase and transaction references.</li>
-      <li>Number of keys purchased or used.</li>
-      <li>Purchase timestamps and transaction status.</li>
-      <li>Relevant account and order identifiers.</li>
-      <li>Payment verification and fraud-prevention information.</li>
+      <li>IP addresses and approximate network information.</li>
+      <li>Browser type, device type, operating system, and user-agent strings.</li>
+      <li>Request timestamps, requested URLs, and response status codes.</li>
+      <li>Authentication attempts and session information.</li>
+      <li>Rate-limit, error, diagnostic, and application logs.</li>
+      <li>Account actions and administrative audit records.</li>
+      <li>Information used to identify suspicious activity or service abuse.</li>
     </ul>
 
     <p>
-      Payments may be handled through external payment providers.
-      Those providers may independently collect and process
-      payment information under their own privacy policies.
+      We may use this information to protect accounts, investigate suspicious
+      activity, enforce usage limits, diagnose technical problems, and
+      maintain the reliability of our infrastructure.
     </p>
 
-    <p>
-      We do not claim to store complete payment card details
-      unless this is explicitly part of an enabled payment
-      integration and its disclosed processing arrangement.
-    </p>
+    <h2 id="usage">8. How We Use Information</h2>
 
-    <h2 id="usage">6. How We Use Information</h2>
-
-    <p>We may use collected information to:</p>
+    <p>We may use collected information for the following purposes:</p>
 
     <ul>
-      <li>Create and maintain user accounts.</li>
-      <li>Authenticate users and protect account access.</li>
-      <li>Register and manage subdomains.</li>
-      <li>Configure and maintain DNS services.</li>
-      <li>Process IFP Key transactions and registrations.</li>
-      <li>Provide technical support.</li>
-      <li>Prevent spam, phishing, malware and fraud.</li>
-      <li>Detect unauthorized access and suspicious activity.</li>
-      <li>Investigate violations of our policies.</li>
-      <li>Respond to legitimate legal requests.</li>
-      <li>Maintain infrastructure reliability and performance.</li>
-      <li>Communicate important service-related notices.</li>
-      <li>Protect users, infrastructure and the community.</li>
+      <li>Creating, maintaining, and managing user accounts.</li>
+      <li>Providing domain registration, DNS, email, and hosting functionality.</li>
+      <li>Authenticating users and maintaining account sessions.</li>
+      <li>Processing deployments, DNS changes, and email delivery.</li>
+      <li>Providing technical support and responding to inquiries.</li>
+      <li>Preventing spam, fraud, abuse, unauthorized access, and security incidents.</li>
+      <li>Investigating violations of our Terms of Service and acceptable-use rules.</li>
+      <li>Maintaining service availability, performance, and reliability.</li>
+      <li>Processing payments and managing paid features where applicable.</li>
+      <li>Meeting applicable legal obligations and responding to lawful requests.</li>
+      <li>Communicating important service, security, or policy changes.</li>
     </ul>
 
-    <h2 id="cookies">7. Cookies and Sessions</h2>
+    <h2 id="cookies">9. Cookies and Similar Technologies</h2>
 
     <p>
-      Our websites and dashboard may use cookies or similar
-      technologies to support essential website functionality.
+      Intent websites and dashboards may use cookies, local storage, or
+      similar technologies where necessary for functionality.
     </p>
 
-    <p>These technologies may be used for:</p>
+    <p>These technologies may be used to:</p>
 
     <ul>
-      <li>Maintaining authenticated sessions.</li>
-      <li>Protecting against cross-site request forgery.</li>
-      <li>Remembering necessary security preferences.</li>
-      <li>Supporting login and account functionality.</li>
+      <li>Maintain authentication sessions.</li>
+      <li>Remember account or interface preferences.</li>
+      <li>Protect forms and authentication flows.</li>
+      <li>Support security and abuse-prevention mechanisms.</li>
     </ul>
 
     <p>
-      Browser settings may allow you to restrict or delete
-      cookies. Disabling essential cookies may prevent certain
-      dashboard functions from working correctly.
+      Some third-party integrations may use their own cookies or similar
+      technologies. Their use is governed by the relevant third party's
+      policies.
     </p>
 
     <p>
-      If optional analytics or other tracking technologies are
-      introduced, their use should be disclosed appropriately.
+      Disabling cookies may affect login, dashboards, or other service
+      functionality.
     </p>
 
-    <h2 id="whois">8. Public WHOIS and Privacy</h2>
+    <h2 id="sharing">10. Data Sharing and Disclosure</h2>
 
     <p>
-      Intent provides a public WHOIS lookup service to allow
-      visitors to check information about registered subdomains.
+      Intent does not sell personal information as a business model.
+      We may share or disclose information in limited circumstances where
+      reasonably necessary to operate our services or protect users and
+      infrastructure.
     </p>
+
+    <h3>10.1 Service Providers</h3>
 
     <p>
-      Our public WHOIS presentation is designed to avoid
-      unnecessarily exposing individual users' private
-      registration information.
+      Information may be processed by infrastructure providers, hosting
+      providers, email delivery providers, payment providers, security
+      services, and other vendors that help operate Intent.
     </p>
 
-    <p>Depending on the domain and available records, public
-      WHOIS results may display information such as:</p>
+    <h3>10.2 Security and Abuse Investigations</h3>
+
+    <p>
+      We may share relevant information when investigating spam, phishing,
+      malware, fraud, unauthorized access, copyright complaints, abuse, or
+      other activity that threatens our users or infrastructure.
+    </p>
+
+    <h3>10.3 Legal Requirements</h3>
+
+    <p>
+      We may disclose information where we reasonably believe disclosure is
+      required by applicable law, a valid court order, legal process, or a
+      lawful request from an authorized public authority.
+    </p>
+
+    <h3>10.4 Protection of Rights and Infrastructure</h3>
+
+    <p>
+      We may disclose relevant information when reasonably necessary to
+      protect the rights, property, safety, security, and legitimate
+      interests of Intent, our users, or other persons.
+    </p>
+
+    <h3>10.5 Public Information</h3>
+
+    <p>
+      Information you intentionally publish through a public website, DNS
+      record, or other public-facing feature may be accessible to third
+      parties. You should not place private information in publicly
+      accessible fields.
+    </p>
+
+    <h2 id="thirdparties">11. Third-Party Services</h2>
+
+    <p>
+      Intent services may integrate with or rely on independent third-party
+      providers. Examples may include:
+    </p>
 
     <ul>
-      <li>The registered domain name.</li>
-      <li>Registration date.</li>
-      <li>Domain status.</li>
-      <li>Nameserver information, where available.</li>
-      <li>Managed-by information identifying Intent.</li>
-      <li>A service contact address such as admin@int.yt.</li>
+      <li>GitHub for repository authorization and deployment integrations.</li>
+      <li>Infrastructure and hosting providers for servers and network services.</li>
+      <li>Payment providers for transactions and paid features.</li>
+      <li>Email delivery providers for account verification and service notifications.</li>
+      <li>Security and anti-abuse providers for protection against automated abuse.</li>
+      <li>External DNS, domain, and certificate-related infrastructure.</li>
     </ul>
+
+    <p>
+      These providers may process information under their own privacy policies
+      and contractual arrangements. Intent does not control the independent
+      privacy practices of third-party services.
+    </p>
+
+    <p>
+      We encourage users to review the privacy policies of third-party
+      services before connecting accounts or using their features.
+    </p>
+
+    <h2 id="whois">12. Public Domain Information and WHOIS</h2>
+
+    <p>
+      Intent may provide public domain lookup or WHOIS-related functionality
+      for domains managed through our services.
+    </p>
+
+    <p>
+      To reduce unnecessary exposure of registrant information, public
+      Intent-managed WHOIS pages are intended to display administrative
+      contact information rather than expose users' private account details.
+      For example, public contact information may identify the domain as
+      <strong>Managed by Intent</strong> and display
+      <strong>admin@int.yt</strong>.
+    </p>
+
+    <p>
+      This public display approach does not mean that all registration
+      information is deleted from our internal systems. We may retain
+      registration and account information privately where needed to operate
+      the service, prevent abuse, resolve disputes, or comply with applicable
+      obligations.
+    </p>
+
+    <p>
+      DNS records and other domain information that you publish may remain
+      publicly accessible through DNS lookups and other internet services.
+      Public WHOIS presentation does not make DNS record contents private.
+    </p>
+
+    <h2 id="security">13. Data Security</h2>
+
+    <p>
+      We take reasonable technical and organizational measures intended to
+      protect information against unauthorized access, disclosure,
+      alteration, loss, and misuse.
+    </p>
+
+    <p>Depending on the service and system, these measures may include:</p>
+
+    <ul>
+      <li>Password hashing and authentication controls.</li>
+      <li>Session management and revocation mechanisms.</li>
+      <li>Access restrictions for administrative systems.</li>
+      <li>API authentication and credential protection.</li>
+      <li>Rate limiting and abuse-prevention controls.</li>
+      <li>Monitoring, diagnostic logs, and security investigations.</li>
+      <li>Transport security where supported by the relevant service.</li>
+    </ul>
+
+    <p>
+      No internet-connected service, storage system, or transmission method
+      can be guaranteed to be completely secure. We cannot promise absolute
+      security, and users should protect their passwords, API tokens,
+      authorization credentials, and private files.
+    </p>
+
+    <p>
+      If you believe your account or information has been compromised,
+      contact us as soon as possible.
+    </p>
+
+    <h2 id="retention">14. Data Retention</h2>
+
+    <p>
+      We retain information for as long as reasonably necessary for the
+      purposes described in this policy, including service operation,
+      account management, security, abuse prevention, dispute resolution,
+      and legal compliance.
+    </p>
+
+    <p>Retention periods may vary by information category:</p>
+
+    <ul>
+      <li><strong>Account information:</strong> may be retained while an account remains active and for a reasonable period afterwards.</li>
+      <li><strong>Domain and DNS information:</strong> may be retained while domains or DNS services are active and as needed for administrative or abuse-related purposes.</li>
+      <li><strong>Email data:</strong> may be retained while a mailbox or message remains stored, subject to service functionality and deletion processes.</li>
+      <li><strong>Hosting files and deployments:</strong> may be retained while a site or deployment remains active and according to applicable cleanup procedures.</li>
+      <li><strong>Security and audit logs:</strong> may be retained for a period necessary to investigate incidents and protect the services.</li>
+      <li><strong>Payment records:</strong> may be retained as required for transaction administration, accounting, and legal obligations.</li>
+    </ul>
+
+    <p>
+      We do not promise a single fixed retention period for every type of
+      information. Actual retention depends on the service, the nature of
+      the data, technical requirements, and applicable obligations.
+    </p>
+
+    <h2 id="deletion">15. Account and Data Deletion</h2>
+
+    <p>
+      You may request account closure or deletion of information associated
+      with your account by contacting us through the support channels listed
+      below.
+    </p>
+
+    <p>
+      Before processing a request, we may need to verify that you control
+      the relevant account or email address.
+    </p>
+
+    <p>
+      Deleting an account may affect access to associated domains, DNS zones,
+      mailboxes, websites, deployments, API credentials, and other service
+      resources. Users should export or transfer any information they need
+      before requesting account closure.
+    </p>
+
+    <p>
+      Some information may remain in backups, security records, abuse
+      investigations, transaction records, or other systems for a limited
+      period or where retention is necessary for legitimate operational
+      or legal purposes.
+    </p>
+
+    <p>
+      Deletion from active systems does not necessarily mean that every
+      backup copy is immediately and permanently erased.
+    </p>
+
+    <h2 id="rights">16. Your Privacy Rights</h2>
+
+    <p>
+      Depending on your location and applicable law, you may have rights
+      concerning personal information we process about you. These may
+      include:
+    </p>
+
+    <ul>
+      <li>Requesting access to certain personal information.</li>
+      <li>Requesting correction of inaccurate information.</li>
+      <li>Requesting deletion of information where applicable.</li>
+      <li>Objecting to or requesting restrictions on certain processing.</li>
+      <li>Withdrawing consent where processing is based on consent.</li>
+      <li>Raising a complaint with an appropriate data protection authority.</li>
+    </ul>
+
+    <p>
+      To exercise a privacy right, contact us at
+      <a href="mailto:support@int.yt">support@int.yt</a>.
+      We may request reasonable verification before acting on a request.
+      Some requests may be limited where information must be retained for
+      security, legal, or operational reasons.
+    </p>
+
+    <h2 id="international">17. International Data Processing</h2>
+
+    <p>
+      Intent and its infrastructure providers may operate systems or process
+      information in more than one country. As a result, information may be
+      transferred to or processed in locations outside your country of
+      residence.
+    </p>
+
+    <p>
+      Where required by applicable law, we will take appropriate steps
+      intended to support lawful international data transfers.
+    </p>
+
+    <h2 id="children">18. Children's Privacy</h2>
+
+    <p>
+      Our services are not designed to knowingly collect personal information
+      from children in violation of applicable law.
+    </p>
+
+    <p>
+      If you believe that a child has provided personal information to Intent
+      in circumstances where such collection is not permitted, please
+      contact us so that we can review the matter and take appropriate action.
+    </p>
+
+    <h2 id="changes">19. Changes to This Policy</h2>
+
+    <p>
+      We may update this Privacy Policy from time to time to reflect changes
+      to our services, infrastructure, data practices, or applicable legal
+      requirements.
+    </p>
+
+    <p>
+      When we make changes, we will update the "Last updated" date at the
+      beginning of this page. Where appropriate, we may also provide
+      additional notice through our websites, dashboards, or other
+      communication channels.
+    </p>
+
+    <p>
+      Your continued use of Intent services after an updated policy becomes
+      effective is subject to the revised policy, to the extent permitted
+      by applicable law.
+    </p>
+
+    <h2 id="contact">20. Contact Us</h2>
+
+    <p>
+      If you have questions about this Privacy Policy, want to request
+      access to or deletion of information, or wish to report a privacy
+      concern, please contact us.
+    </p>
+
+    <ul>
+      <li><strong>General support:</strong> <a href="mailto:support@int.yt">support@int.yt</a></li>
+      <li><strong>Administrative contact:</strong> <a href="mailto:admin@int.yt">admin@int.yt</a></li>
+      <li><strong>Abuse reports:</strong> <a href="mailto:abuse@int.yt">abuse@int.yt</a></li>
+      <li><strong>Website:</strong> <a href="https://int.yt/">https://int.yt/</a></li>
+      <li><strong>Community:</strong> <a href="https://discord.gg/NCS96PS4MH" target="_blank" rel="noopener noreferrer">Intent Discord</a></li>
+    </ul>
+
+    <p>
+      Please do not send passwords, API tokens, private keys, or other
+      authentication credentials in ordinary support messages.
+    </p>
 
     <div class="notice">
       <p>
-        <strong>Privacy distinction:</strong> Public WHOIS
-        information is different from internal account and
-        registration records. Intent may retain the original
-        registration information internally for legitimate
-        operational, security and compliance purposes even
-        when it is not displayed publicly.
+        This Privacy Policy describes the intended data practices of Intent
+        services. Specific processing may vary by service and infrastructure
+        configuration. We will update this document when our services or
+        practices materially change.
       </p>
     </div>
 
-    <p>
-      We may disclose additional information where required
-      by applicable law or where a valid legal or security
-      obligation requires it.
-    </p>
-
-    <h2 id="sharing">9. Information Sharing</h2>
-
-    <p>
-      Intent does not sell personal information to advertisers
-      or data brokers.
-    </p>
-
-    <p>
-      We may share limited information in the following
-      circumstances:
-    </p>
-
-    <h3>9.1 Infrastructure Providers</h3>
-
-    <p>
-      Information may be processed by hosting providers,
-      infrastructure providers, DNS providers and other
-      technical service providers when necessary to operate
-      the service.
-    </p>
-
-    <h3>9.2 Payment Providers</h3>
-
-    <p>
-      Relevant transaction information may be shared with
-      payment providers to process purchases, verify
-      transactions and prevent payment fraud.
-    </p>
-
-    <h3>9.3 Abuse and Security Investigations</h3>
-
-    <p>
-      Information may be shared where reasonably necessary
-      to investigate phishing, malware, fraud, copyright
-      infringement, security incidents or other serious abuse.
-    </p>
-
-    <h3>9.4 Legal Requirements</h3>
-
-    <p>
-      We may disclose information in response to valid legal
-      processes, court orders, lawful government requests
-      or other legally binding obligations.
-    </p>
-
-    <h3>9.5 Protection of Rights and Infrastructure</h3>
-
-    <p>
-      Information may be disclosed where reasonably necessary
-      to protect the rights, safety, property and infrastructure
-      of Intent, its users or other affected parties.
-    </p>
-
-    <p>
-      Any sharing should be limited to information reasonably
-      necessary for the relevant purpose.
-    </p>
-
-    <h2 id="thirdparty">10. Third-Party Services</h2>
-
-    <p>
-      Intent may rely on or link to external services, including
-      hosting companies, DNS providers, payment processors,
-      authentication providers, communication platforms and
-      other infrastructure services.
-    </p>
-
-    <p>
-      These services may have their own privacy policies,
-      security practices and data-processing arrangements.
-    </p>
-
-    <p>
-      Intent does not control the privacy practices of
-      independent third-party websites or providers.
-      Users should review their policies before using them.
-    </p>
-
-    <h2 id="security">11. Data Security</h2>
-
-    <p>
-      We take reasonable technical and organizational measures
-      intended to protect information against unauthorized
-      access, disclosure, alteration, destruction and misuse.
-    </p>
-
-    <p>Security measures may include:</p>
-
-    <ul>
-      <li>Access controls and account permissions.</li>
-      <li>Authentication and session protections.</li>
-      <li>Infrastructure and application security measures.</li>
-      <li>Security monitoring and abuse detection.</li>
-      <li>Restricted access to sensitive administrative data.</li>
-      <li>Investigation of suspected security incidents.</li>
-    </ul>
-
-    <p>
-      No internet service, storage system or transmission
-      method can be guaranteed to be completely secure.
-      We therefore cannot promise absolute security.
-    </p>
-
-    <h2 id="retention">12. Data Retention</h2>
-
-    <p>
-      We retain information for as long as reasonably necessary
-      for the purposes described in this policy.
-    </p>
-
-    <p>Retention periods may depend on:</p>
-
-    <ul>
-      <li>Whether your account remains active.</li>
-      <li>Whether a subdomain remains registered.</li>
-      <li>Operational and infrastructure requirements.</li>
-      <li>Security investigations and abuse reports.</li>
-      <li>Financial recordkeeping obligations.</li>
-      <li>Applicable legal requirements.</li>
-      <li>The need to resolve disputes or enforce policies.</li>
-    </ul>
-
-    <p>
-      Different information categories may have different
-      retention periods. Certain records may be retained
-      after account closure where a legitimate purpose
-      or legal obligation requires it.
-    </p>
-
-    <h2 id="deletion">13. Account Closure and Deletion</h2>
-
-    <p>
-      Users may contact Intent to request account closure
-      or deletion of personal information associated with
-      their account.
-    </p>
-
-    <p>
-      We may need to verify the identity and authority of
-      the requester before processing such a request.
-    </p>
-
-    <p>
-      Closing an account does not necessarily result in the
-      immediate deletion of every associated record.
-    </p>
-
-    <p>
-      Certain information may be retained where necessary
-      for security, abuse prevention, transaction records,
-      legal compliance, dispute resolution or legitimate
-      operational purposes.
-    </p>
-
-    <p>
-      Account closure may also result in the suspension,
-      removal or release of associated subdomains in
-      accordance with our Terms of Service.
-    </p>
-
-    <h2 id="rights">14. Your Privacy Rights</h2>
-
-    <p>
-      Depending on applicable law and the circumstances
-      of processing, you may have rights concerning your
-      personal information.
-    </p>
-
-    <p>These may include:</p>
-
-    <ul>
-      <li>Requesting access to personal information.</li>
-      <li>Requesting correction of inaccurate information.</li>
-      <li>Requesting deletion where legally available.</li>
-      <li>Withdrawing consent where processing relies on consent.</li>
-      <li>Raising objections to certain processing activities.</li>
-      <li>Submitting complaints to an appropriate authority.</li>
-    </ul>
-
-    <p>
-      We may request additional information to verify a
-      privacy request and may be unable to fulfil requests
-      that conflict with applicable legal obligations.
-    </p>
-
-    <p>
-      To submit a privacy request, contact us using the
-      details provided below.
-    </p>
-
-    <h2 id="international">15. International Processing</h2>
-
-    <p>
-      Intent and its infrastructure providers may operate
-      in or use systems located in different countries.
-    </p>
-
-    <p>
-      Consequently, information may be processed or stored
-      outside the country in which a user resides.
-    </p>
-
-    <p>
-      Where applicable, we will take reasonable steps to
-      ensure that international processing complies with
-      relevant legal requirements.
-    </p>
-
-    <h2 id="children">16. Children's Privacy</h2>
-
-    <p>
-      Our services are not designed to encourage children
-      to submit unnecessary personal information.
-    </p>
-
-    <p>
-      Users must not provide personal information belonging
-      to another person without appropriate authority.
-      Where applicable law requires parental or guardian
-      involvement or consent, those requirements must
-      be followed.
-    </p>
-
-    <p>
-      If you believe a child has provided personal information
-      inappropriately, please contact us.
-    </p>
-
-    <h2 id="changes">17. Changes to This Policy</h2>
-
-    <p>
-      We may update this Privacy Policy to reflect changes
-      in our services, infrastructure, operational practices
-      or applicable legal requirements.
-    </p>
-
-    <p>
-      The updated policy will be published on this page
-      with a revised last-updated date.
-    </p>
-
-    <p>
-      Where required, we will provide additional notice
-      of material changes.
-    </p>
-
-    <h2 id="contact">18. Contact Us</h2>
-
-    <p>
-      For privacy questions, data requests, corrections
-      or other privacy-related concerns, contact Intent:
-    </p>
-
-    <ul>
-      <li>
-        Email:
-        <a href="mailto:support@int.yt">support@int.yt</a>
-      </li>
-      <li>
-        Website:
-        <a href="https://int.yt">https://int.yt</a>
-      </li>
-      <li>
-        Dashboard:
-        <a href="https://panel.int.yt">https://panel.int.yt</a>
-      </li>
-      <li>
-        Community:
-        <a href="https://discord.gg/NCS96PS4MH">Intent Discord</a>
-      </li>
-    </ul>
-
-    <div class="policy-footer">
-      <p>
-        <strong>Related documents:</strong>
-        <a href="/terms.html">Terms of Service</a> ·
-        <a href="/acceptable-use.html">Acceptable Use Policy</a> ·
-        <a href="/abuse.html">Abuse Policy</a> ·
-        <a href="/security.html">Security Policy</a>
-      </p>
-    </div>
-
-  </article>
+  </div>
 </main>
 
 <footer>
-  <div style="max-width:300px">
-    <h3>Intent FreeDomain</h3>
-    <p style="font-size:13px">
-      Free subdomains and DNS infrastructure for developers,
-      creators and open-source projects.
-    </p>
-    <p style="font-size:12px">
-      © Intent™ 2026. All Rights Reserved.
+  <div style="max-width: 300px;">
+    <h3 style="margin: 0 0 10px 0;">Intent</h3>
+    <p style="font-size: 13px; color: var(--muted-cream);">
+      Building accessible internet infrastructure and free tools for
+      developers and communities.
     </p>
   </div>
 
   <div class="footer-links">
     <div class="footer-column">
       <span class="footer-heading">LEGAL</span>
-      <a href="/legal.html">Legal Center</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
       <a href="/acceptable-use.html">Acceptable Use</a>
-      <a href="/abuse.html">Abuse</a>
+      <a href="/abuse.html">Abuse Reporting</a>
       <a href="/security.html">Security</a>
+    </div>
+
+    <div class="footer-column">
+      <span class="footer-heading">SERVICES</span>
+      <a href="https://panel.int.yt/">Intent FreeDomain</a>
+      <a href="https://dns.int.yt/">Intent-DNS</a>
+      <a href="https://email.int.yt/">Intent-Mail</a>
+      <a href="https://web.int.yt/">Intent Web Hosting</a>
     </div>
 
     <div class="footer-column">
       <span class="footer-heading">PAGES</span>
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
+      <a href="/support.html">Support</a>
       <a href="https://panel.int.yt/public-whois.php">WHOIS</a>
-      <a href="https://panel.int.yt">Dashboard</a>
     </div>
   </div>
 </footer>

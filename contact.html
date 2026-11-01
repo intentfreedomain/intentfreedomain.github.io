@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   
   <title>Contact — Intent FreeDomain</title>
-  <meta name="description" content="Contact Intent FreeDomain - Get support via Discord, Email, or our contact form.">
+  <meta name="description" content="Contact Intent FreeDomain - Get support via Discord or Email.">
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -95,19 +95,25 @@
     a { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
     a:hover { text-decoration: underline; }
 
-    /* Form Styles */
-    input, textarea {
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 10px;
-      border: 1px solid var(--glass-border);
-      background: rgba(0, 0, 0, 0.2);
-      color: #fff;
-      margin-bottom: 15px;
-      outline: none;
-      font-family: inherit;
+    /* Contact options */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
     }
-    input:focus, textarea:focus { border-color: var(--accent-blue); }
+    .contact-card {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .contact-card h2 { font-size: 1.25rem; margin-bottom: 0; }
+    .contact-card p { margin: 0 0 12px 0; font-size: 14px; }
+    .contact-card .btn { margin-top: auto; }
 
     .btn {
       padding: 12px 24px; border-radius: 10px; border: none; cursor: pointer;
@@ -116,7 +122,7 @@
     }
     .btn-primary { background: var(--accent-blue); color: white; }
     .btn-outline { border: 1px solid var(--glass-border); color: white; background: rgba(255,255,255,0.05); }
-    .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.1); text-decoration: none; }
 
     footer {
       padding: 60px 5% 40px; margin-top: 80px; background: rgba(0,0,0,0.4);
@@ -150,25 +156,21 @@
   <main class="container">
     <div class="glass-panel">
       <h1>Contact Us</h1>
-      <p>Fastest support via Discord. For formal requests, use the channels below.</p>
+      <p>Fastest support is via Discord. For formal requests, send us an email.</p>
 
-      <div style="margin: 25px 0; display: grid; gap: 10px;">
-        <p><strong style="color:#fff">Google Forum</strong>: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHV3fBwt1DLkPGB4JicUUySFzLRvNuvpVkufWOtlZhAft7AQ/viewform">Contact Form Link</a></p>
-        <p><strong style="color:#fff">Discord</strong>: <a href="https://discord.gg/NCS96PS4MH">https://discord.gg/NCS96PS4MH</a></p>
-        <p><strong style="color:#fff">Email</strong>: <a href="mailto:support@int.yt">support@int.yt</a></p>
-      </div>
-
-      <h2 style="font-size: 1.5rem; margin-top: 30px;">Send us a message</h2>
-      <form id="contactForm">
-        <input name="name" placeholder="Your name" required>
-        <input name="email" type="email" placeholder="Your email" required>
-        <textarea name="message" rows="6" placeholder="How can we help?" required></textarea>
-        <div style="display:flex; gap:12px;">
-          <button type="submit" class="btn btn-primary">Send Message</button>
-          <button type="button" id="openDiscord" class="btn btn-outline">Open Discord</button>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h2>Discord</h2>
+          <p>Join our server for the quickest response from the team and community.</p>
+          <a href="https://discord.gg/NCS96PS4MH" target="_blank" rel="noopener" class="btn btn-primary">Join our Discord</a>
         </div>
-      </form>
-      <div id="res" style="margin-top:20px; color: #fff; font-weight: 600;"></div>
+
+        <div class="contact-card">
+          <h2>Email</h2>
+          <p>For formal requests and anything that needs a written record.</p>
+          <a href="mailto:admin@int.yt" class="btn btn-outline">admin@int.yt</a>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -193,13 +195,5 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      document.getElementById('res').innerText = 'Thanks — please join our Discord for fastest support: https://discord.gg/NCS96PS4MH';
-      e.target.reset();
-    });
-    document.getElementById('openDiscord').addEventListener('click', ()=> window.open('https://discord.gg/NCS96PS4MH','_blank'));
-  </script>
 </body>
 </html>

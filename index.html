@@ -304,7 +304,7 @@
 </div>
 <div class="stats-header">
 <div class="section-title">Trusted by Developers</div>
-<p style="color: var(--muted-cream); margin-top: -20px;">Join <span class="stats-number">3777+</span> users and <span class="stats-number">3844+</span> domains made till now.</p>
+<p style="color: var(--muted-cream); margin-top: -20px;">Join <span class="stats-number" id="intent-total-users">3777+</span> users and <span class="stats-number" id="intent-total-domains">3844+</span> domains made till now.</p>
 </div>
 <div class="features-grid" style="margin-top: 30px;">
 <div class="feature-card">
@@ -366,5 +366,54 @@
 </div>
 </div>
 </footer>
+    <script>
+(() => {
+  const API_URL = 'https://panel.int.yt/api.php?action=public.stats';
+
+  async function updateIntentStats() {
+    try {
+      const response = await fetch(API_URL, {
+        method: 'GET',
+        cache: 'no-store'
+      });
+
+      if (!response.ok) {
+        throw new Error('Stats API request failed');
+      }
+
+      const result = await response.json();
+
+      if (!result || result.success !== true || !result.data) {
+        throw new Error('Invalid stats response');
+      }
+
+      const users = Number(result.data.total_users);
+      const domains = Number(result.data.total_domains);
+
+      if (
+        !Number.isFinite(users) ||
+        !Number.isFinite(domains) ||
+        users < 0 ||
+        domains < 0
+      ) {
+        throw new Error('Invalid stats values');
+      }
+
+      document.getElementById('intent-total-users').textContent =
+        users.toLocaleString('en-US') + '+';
+
+      document.getElementById('intent-total-domains').textContent =
+        domains.toLocaleString('en-US') + '+';
+
+    } catch (error) {
+      // Keep the original HTML values if the API is unavailable.
+      console.warn('Unable to update Intent statistics:', error);
+    }
+  }
+
+  updateIntentStats();
+  setInterval(updateIntentStats, 5 * 60 * 1000);
+})();
+</script>
 </body>
 </html>
